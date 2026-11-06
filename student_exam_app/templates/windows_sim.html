@@ -3,108 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>仿真练习 · Internet 选项（Windows 7）</title>
+<title>Internet 属性 · 仿真练习</title>
 <style>
   * { box-sizing: border-box; }
   body {
-    margin: 0; min-height: 100vh; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; font-size: 12px;
-    background: #6a8fb5 radial-gradient(circle at 50% 20%, #8fb4d9 0%, #4a7196 70%, #35566f 100%);
-    display: flex; flex-direction: column; align-items: center; padding: 26px 12px 40px;
+    margin: 0; min-height: 100vh; background: #5d7f9e;
+    font-family: "宋体", SimSun, "Microsoft YaHei", sans-serif; font-size: 12px; color: #000;
+    display: flex; flex-direction: column; align-items: center; padding: 24px 10px 40px;
   }
-  .topbar { width: 100%; max-width: 780px; display: flex; align-items: center; gap: 12px; color: #eaf3fb; margin-bottom: 14px; }
-  .topbar h1 { font-size: 15px; margin: 0; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,.4); }
-  .topbar a { margin-left: auto; color: #dbeaf7; text-decoration: none; font-size: 12.5px; }
+  .bar { width: 100%; max-width: 520px; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #eef6fc; font-size: 12px; }
+  .bar a { margin-left: auto; color: #dbeaf7; text-decoration: none; }
 
-  /* Win7 窗口 */
-  .win7 {
-    width: 100%; max-width: 640px; background: #f0f0f0; border: 1px solid #5c7fa3;
-    border-radius: 7px 7px 4px 4px; box-shadow: 0 12px 34px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.45) inset;
-    overflow: hidden;
+  /* ===== 主窗口 ===== */
+  .dlg {
+    width: 404px; background: #f0f0f0; border: 1px solid #6f7f8f;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    border-radius: 4px 4px 2px 2px; overflow: hidden;
   }
-  .title {
-    height: 30px; display: flex; align-items: center; padding: 0 6px 0 10px; color: #12385c;
-    background: linear-gradient(180deg, #eaf4fd 0%, #d3e6f8 46%, #bfd9f1 100%);
-    border-bottom: 1px solid #a8c4dd; font-size: 12.5px;
-    text-shadow: 0 1px 0 rgba(255,255,255,.85);
+  .cap {
+    height: 26px; display: flex; align-items: center; padding: 0 4px 0 6px; font-size: 12px;
+    background: linear-gradient(180deg,#f2f8fd 0%,#dbe9f7 40%,#c9dcf0 100%);
+    border-bottom: 1px solid #9db4c9;
   }
-  .title .ico { width: 16px; height: 16px; margin-right: 6px; border-radius: 3px; background: linear-gradient(135deg,#2f7fd0,#1a5c9c); }
-  .winbtns { margin-left: auto; display: flex; gap: 2px; }
-  .winbtns span {
-    width: 27px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 3px;
-    color: #24476b; font-size: 11px; cursor: default; border: 1px solid transparent;
+  .cap .ieico {
+    width: 16px; height: 16px; margin-right: 5px; border-radius: 2px;
+    background: linear-gradient(135deg,#3f8fd6,#1d5c96); color: #fff; font-size: 10px;
+    display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-weight: 700;
   }
-  .winbtns span:hover { background: rgba(255,255,255,.75); border-color: #a8c4dd; }
-  .winbtns .close:hover { background: #e04343; color: #fff; border-color: #b62f2f; }
+  .cap .sys { margin-left: auto; display: flex; gap: 1px; }
+  .cap .sys i {
+    width: 26px; height: 18px; display: flex; align-items: center; justify-content: center;
+    font-style: normal; font-size: 11px; color: #33506b; cursor: default;
+  }
+  .cap .sys i:hover { background: rgba(255,255,255,.7); }
+  .cap .sys i.x:hover { background: #d24a4a; color: #fff; }
 
   /* 选项卡 */
-  .tabs { display: flex; gap: 2px; padding: 8px 10px 0; position: relative; z-index: 2; }
+  .tabs { display: flex; padding: 6px 8px 0; }
   .tabs button {
-    border: 1px solid #9fb6cc; border-bottom: none; background: linear-gradient(180deg,#f7fbff,#e3eef9);
-    padding: 4px 12px; font-size: 12px; color: #1d3f60; border-radius: 3px 3px 0 0; cursor: pointer;
-    font-family: inherit; position: relative; top: 1px;
+    font-family: inherit; font-size: 12px; padding: 3px 10px 2px; cursor: pointer;
+    border: 1px solid #9aa8b5; border-bottom: none; background: #eceff2; color: #000;
+    border-radius: 2px 2px 0 0; margin-right: 1px; position: relative; top: 1px;
   }
-  .tabs button.on { background: #fff; border-color: #9fb6cc; font-weight: 600; top: 0; padding-bottom: 5px; }
-  .panel {
-    background: #fff; border: 1px solid #9fb6cc; margin: 0 10px; padding: 14px 16px; min-height: 268px;
-  }
-  fieldset { border: 1px solid #d4dde6; border-radius: 3px; margin: 0 0 12px; padding: 10px 12px 12px; }
-  legend { color: #1d3f60; padding: 0 4px; font-size: 12px; }
-  .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
-  .row label { color: #1a1a1a; }
-  input[type=text], input[type=number] {
-    height: 22px; border: 1px solid #7a96b1; border-radius: 2px; padding: 0 5px; font-family: inherit; font-size: 12px;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.12);
-  }
-  input[type=text]:focus, input[type=number]:focus { outline: none; border-color: #3c9be8; box-shadow: 0 0 0 2px rgba(60,155,232,.25); }
-  .grow { flex: 1; min-width: 0; }
-  button.w7 {
-    height: 23px; min-width: 66px; padding: 0 10px; font-family: inherit; font-size: 12px; cursor: pointer;
-    border: 1px solid #96b3cd; border-radius: 3px; color: #12324f;
-    background: linear-gradient(180deg,#fdfefe 0%,#eef4fa 48%,#dce9f6 100%);
-  }
-  button.w7:hover { border-color: #6f9cc4; background: linear-gradient(180deg,#ffffff,#e3f0fb); }
-  button.w7:active { background: linear-gradient(180deg,#d9e9f7,#c9dcee); }
-  .hint { color: #6b7c8d; margin-top: 2px; }
-  .foot {
-    display: flex; justify-content: flex-end; gap: 8px; padding: 10px 12px 12px; border-top: 1px solid #d6dee6;
-    background: #f0f0f0; margin-top: 10px;
-  }
-  .foot button { min-width: 78px; }
-  .foot button.primary { border-color: #3c7fbf; box-shadow: 0 0 0 1px rgba(60,127,191,.35) inset; font-weight: 600; }
+  .tabs button.on { background: #f0f0f0; top: 0; padding-bottom: 3px; font-weight: 400; }
+  .panel { border-top: 1px solid #9aa8b5; padding: 8px 10px 4px; }
 
-  /* 结果面板 */
-  .result { width: 100%; max-width: 640px; margin-top: 16px; background: #fff; border-radius: 6px; padding: 14px 16px; box-shadow: 0 6px 18px rgba(0,0,0,.22); }
-  .result h2 { margin: 0 0 10px; font-size: 14px; color: #1d3f60; }
-  .r-item { display: flex; gap: 8px; padding: 6px 0; border-top: 1px dashed #e2e8ef; }
+  /* 分组 */
+  .grp { padding: 2px 0 8px; border-bottom: 1px solid #dcdcdc; margin-bottom: 6px; }
+  .grp:last-of-type { border-bottom: none; }
+  .grp .top { display: flex; gap: 6px; }
+  .grp .ico { width: 34px; height: 34px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 26px; line-height: 1; }
+  .grp .body { flex: 1; min-width: 0; }
+  .grp .ttl { font-weight: 700; font-size: 12px; margin: 2px 0 3px; }
+  .grp .desc { color: #333; line-height: 1.6; margin-bottom: 5px; }
+
+  textarea {
+    width: 100%; height: 46px; border: 1px solid #7a96b1; padding: 3px 4px; resize: none;
+    font-family: inherit; font-size: 12px; line-height: 1.5; background: #fff; color: #000;
+  }
+  textarea:focus, input[type=number]:focus { outline: none; border-color: #3c9be8; }
+  input[type=number] { height: 19px; border: 1px solid #7a96b1; font-family: inherit; font-size: 12px; padding: 0 3px; }
+
+  button.w7 {
+    font-family: inherit; font-size: 12px; height: 22px; min-width: 62px; padding: 0 9px; cursor: pointer;
+    border: 1px solid #a9bfd3; border-radius: 2px; color: #000;
+    background: linear-gradient(180deg,#fdfefe 0%,#f0f5fa 45%,#e2ecf6 100%);
+  }
+  button.w7:hover { border-color: #7ba7cc; background: linear-gradient(180deg,#ffffff,#eaf4fd); }
+  button.w7:active { background: #d7e6f4; }
+  .btnrow { display: flex; gap: 5px; justify-content: flex-end; margin-top: 4px; }
+  .btnrow.left { justify-content: flex-start; }
+  .chk { display: flex; align-items: center; gap: 4px; margin: 2px 0 4px; }
+  .chk input { margin: 0; }
+  .inline { display: flex; align-items: center; gap: 6px; }
+  .inline .sp { flex: 1; }
+
+  .foot { display: flex; justify-content: flex-end; gap: 6px; padding: 8px 10px 10px; background: #f0f0f0; }
+  .foot button { min-width: 75px; height: 23px; }
+
+  /* ===== 结果 ===== */
+  .result { width: 404px; margin-top: 16px; background: #fff; border: 1px solid #c9d6e2; padding: 12px 14px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .result h2 { margin: 0 0 8px; font-size: 13px; color: #1d3f60; font-family: "Microsoft YaHei", sans-serif; }
+  .r-item { display: flex; gap: 6px; padding: 5px 0; border-top: 1px dashed #e6ecf2; font-family: "Microsoft YaHei", sans-serif; font-size: 12px; }
   .r-item:first-of-type { border-top: none; }
-  .r-item .mark { width: 16px; font-weight: 700; }
+  .mark { width: 14px; font-weight: 700; }
   .ok { color: #1a7f37; } .bad { color: #c0392b; }
   .r-item .txt { flex: 1; line-height: 1.7; }
-  .r-item .val { color: #64748b; font-size: 11.5px; }
-  .total { display: flex; align-items: baseline; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 2px solid #e2e8ef; }
-  .total b { font-size: 24px; color: #1b5c96; }
-  .tips { color: #8a6d3b; background: #fcf8e3; border: 1px solid #faebcc; border-radius: 4px; padding: 8px 10px; margin-top: 10px; line-height: 1.85; font-size: 11.5px; }
-  @media (max-width: 560px) {
-    .win7 { max-width: 100%; }
-    .tabs { overflow-x: auto; }
-    .tabs button { padding: 4px 9px; white-space: nowrap; }
-    .panel { padding: 12px; }
-    .row { flex-wrap: wrap; }
-    .foot { flex-wrap: wrap; }
+  .r-item .val { color: #667788; font-size: 11.5px; }
+  .total { margin-top: 8px; padding-top: 8px; border-top: 2px solid #e2e8ef; display: flex; align-items: baseline; gap: 5px; font-family: "Microsoft YaHei", sans-serif; }
+  .total b { font-size: 22px; color: #1b5c96; }
+  .tips { margin-top: 8px; padding: 7px 9px; background: #fcf8e3; border: 1px solid #faebcc; color: #8a6d3b; font-size: 11.5px; line-height: 1.8; font-family: "Microsoft YaHei", sans-serif; }
+
+  /* ===== 子弹窗：Internet 临时文件和历史记录设置 ===== */
+  .sub {
+    position: fixed; inset: 0; background: rgba(0,0,0,.28); display: none; align-items: center; justify-content: center; z-index: 50;
   }
+  .sub.on { display: flex; }
+  .subdlg { width: 372px; background: #f0f0f0; border: 1px solid #6f7f8f; box-shadow: 0 10px 26px rgba(0,0,0,.45); border-radius: 3px; }
+  .subdlg .cap { background: linear-gradient(180deg,#f2f8fd,#c9dcf0); }
+  .subdlg .body { padding: 10px 12px 4px; }
+  .subdlg fieldset { border: 1px solid #cfd8e0; border-radius: 3px; padding: 8px 10px 10px; margin: 0 0 10px; }
+  .subdlg legend { padding: 0 4px; color: #1d3f60; }
+  .subdlg .radios label { display: block; margin: 2px 0; }
+  .subdlg .foot { padding: 6px 10px 10px; }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <h1>仿真练习 · Internet 选项（Windows 7 界面）</h1>
+<div class="bar">
+  <span>仿真练习 · Internet 属性（Windows 7 / IE8 界面）</span>
   <a href="/windows">← 返回清单判分</a>
 </div>
 
-<div class="win7">
-  <div class="title">
-    <span class="ico"></span>Internet 选项
-    <span class="winbtns"><span>—</span><span>▢</span><span class="close">✕</span></span>
+<div class="dlg">
+  <div class="cap">
+    <span class="ieico">e</span>Internet 属性
+    <span class="sys"><i>—</i><i>▢</i><i class="x">✕</i></span>
   </div>
 
   <div class="tabs" id="tabs">
@@ -120,21 +134,64 @@
   <div class="panel" id="panel"></div>
 
   <div class="foot">
-    <button class="w7 primary" onclick="applyAll()">确定</button>
-    <button class="w7" onclick="document.getElementById('result').scrollIntoView({behavior:'smooth'})">应用(A)</button>
-    <button class="w7" onclick="resetAll()">取消</button>
+    <button class="w7" onclick="grade()">确定</button>
+    <button class="w7" onclick="grade()">取消</button>
+    <button class="w7" onclick="grade()">应用(A)</button>
   </div>
 </div>
 
 <div class="result" id="result" style="display:none">
-  <h2 id="rtitle">判分结果</h2>
+  <h2 id="rtitle">检查结果（10 分）</h2>
   <div id="items"></div>
   <div class="total"><b id="score">0</b><span>/ 10 分</span></div>
   <div class="tips" id="tips"></div>
 </div>
 
+<!-- 浏览历史记录 → 设置 -->
+<div class="sub" id="sub">
+  <div class="subdlg">
+    <div class="cap"><span class="ieico">e</span>Internet 临时文件和历史记录设置
+      <span class="sys"><i class="x" onclick="closeSub()">✕</i></span>
+    </div>
+    <div class="body">
+      <fieldset>
+        <legend>检查所存网页的较新版本</legend>
+        <div class="radios">
+          <label><input type="radio" name="chk"> 每次访问此页时检查(E)</label>
+          <label><input type="radio" name="chk" checked> 每次启动 Internet Explorer 时检查(A)</label>
+          <label><input type="radio" name="chk"> 自动(D)</label>
+          <label><input type="radio" name="chk"> 不检查(N)</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>使用的磁盘空间</legend>
+        <div class="inline">
+          <span>要使用的磁盘空间(8-1024MB)(D)：</span>
+          <input type="number" value="250" style="width:56px">
+          <span>MB</span>
+        </div>
+        <div class="btnrow left" style="margin-top:6px">
+          <button class="w7">移动文件夹(M)…</button>
+          <button class="w7">查看文件(V)</button>
+          <button class="w7">查看对象(O)</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>历史记录</legend>
+        <div class="inline">
+          <span>在网页保存在历史记录中的天数(D)：</span>
+          <input type="number" id="days" min="0" max="999" value="20" style="width:56px">
+        </div>
+      </fieldset>
+    </div>
+    <div class="foot">
+      <button class="w7" onclick="closeSub()">确定</button>
+      <button class="w7" onclick="closeSub()">取消</button>
+    </div>
+  </div>
+</div>
+
 <script>
-/* 页面状态（默认值取自判分程序导出的清单） */
 const state = {
   homepage: 'http://go.microsoft.com/fwlink/?LinkId=69157',
   days: 20,
@@ -142,86 +199,100 @@ const state = {
   tab: 0
 };
 
-const TABS = [
-  { name: '常规', render: renderGeneral },
-  { name: '安全', render: stub('选择区域以查看或更改安全设置，四个区域：Internet / 本地 Intranet / 受信任的站点 / 受限制的站点。') },
-  { name: '隐私', render: stub('为 Internet 区域选择隐私设置，可设置弹出窗口阻止程序。') },
-  { name: '内容', render: stub('内容审查程序、证书、自动完成、源和网页快讯。') },
-  { name: '连接', render: stub('拨号和虚拟专用网络设置、局域网(LAN)设置。') },
-  { name: '程序', render: stub('为每个 Internet 服务选择要使用的程序，可指定 HTML 编辑器。') },
-  { name: '高级', render: stub('设置列表：HTTP 1.1 设置、安全、打印、多媒体、辅助功能等。') }
-];
+const STUB = t => () => '<div style="color:#333;line-height:1.9;padding:6px 4px 40px">' + t +
+  '<div style="color:#667788;margin-top:8px">这一页在仿真里只做样子，本题考点在「常规」页。</div></div>';
 
-function stub(text) {
-  return function () {
-    return '<div style="color:#5a6b7c;line-height:2">' + text +
-           '<div class="hint" style="margin-top:10px">这一页在本仿真里只做样子，考点集中在「常规」页。</div></div>';
-  };
-}
+const PAGES = [
+  { render: renderGeneral },
+  { render: STUB('选择要查看的区域或更改安全设置：Internet、本地 Intranet、受信任的站点、受限制的站点。') },
+  { render: STUB('为 Internet 区域选择一种隐私设置，或设置弹出窗口阻止程序。') },
+  { render: STUB('内容审查程序、证书、自动完成、源和网页快讯。') },
+  { render: STUB('设置拨号和虚拟专用网络连接，配置局域网(LAN)设置。') },
+  { render: STUB('为每个 Internet 服务选择要使用的程序。') },
+  { render: STUB('高级设置：HTTP 1.1、安全、打印、多媒体、辅助功能等。') }
+];
 
 function renderGeneral() {
   return `
-    <fieldset>
-      <legend>主页</legend>
-      <div class="row">
-        <span>若要创建主页，请单击“使用当前页”。</span>
+    <div class="grp">
+      <div class="top">
+        <div class="ico">🏠</div>
+        <div class="body">
+          <div class="ttl">主页</div>
+          <div class="desc">若要在主页选项卡上创建主页，请在地址栏中键入地址(R)。</div>
+          <textarea id="hp">${esc(state.homepage)}</textarea>
+          <div class="btnrow">
+            <button class="w7" onclick="setHome('cur')">使用当前页(C)</button>
+            <button class="w7" onclick="setHome('def')">使用默认值(D)</button>
+            <button class="w7" onclick="setHome('blank')">使用空白页(B)</button>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <input type="text" id="hp" class="grow" value="${escapeAttr(state.homepage)}">
-      </div>
-      <div class="row" style="gap:6px">
-        <button class="w7" onclick="setHome('current')">使用当前页(C)</button>
-        <button class="w7" onclick="setHome('default')">使用默认页(D)</button>
-        <button class="w7" onclick="setHome('blank')">使用空白页(B)</button>
-      </div>
-    </fieldset>
+    </div>
 
-    <fieldset>
-      <legend>浏览历史记录</legend>
-      <div class="row">
-        <span>退出时删除浏览历史记录</span>
-        <input type="checkbox" id="clr" ${state.clearOnExit ? 'checked' : ''} style="margin-left:auto">
+    <div class="grp">
+      <div class="top">
+        <div class="ico">🕘</div>
+        <div class="body">
+          <div class="ttl">浏览历史记录</div>
+          <div class="desc">删除临时文件、历史记录、Cookie、保存的密码和网页表单信息。</div>
+          <label class="chk"><input type="checkbox" id="clr" ${state.clearOnExit ? 'checked' : ''}>退出时删除浏览历史记录(D)</label>
+          <div class="btnrow">
+            <button class="w7" onclick="alert('真实系统会弹出“删除浏览历史记录”对话框：勾选要删除的项目后点“删除”。')">删除(D)…</button>
+            <button class="w7" onclick="openSub()">设置(S)</button>
+          </div>
+        </div>
       </div>
-      <div class="row" style="gap:6px">
-        <span>网页保存在历史记录中的天数</span>
-        <input type="number" id="days" min="1" max="999" value="${state.days}" style="width:64px">
-        <button class="w7" style="margin-left:auto" onclick="fakeSetting()">设置(S)</button>
-      </div>
-      <div class="row" style="gap:6px">
-        <button class="w7" onclick="fakeDelete()">删除(D)…</button>
-        <span class="hint">临时文件、Cookie、历史记录、表单数据、密码</span>
-      </div>
-    </fieldset>
+    </div>
 
-    <fieldset>
-      <legend>选项卡</legend>
-      <div class="row" style="gap:6px">
-        <span>更改页面的显示方式</span>
-        <button class="w7" style="margin-left:auto" onclick="fakeSetting()">设置(T)</button>
+    <div class="grp">
+      <div class="top">
+        <div class="ico">🔍</div>
+        <div class="body">
+          <div class="ttl">搜索</div>
+          <div class="desc">更改搜索默认值。</div>
+          <div class="btnrow"><button class="w7" onclick="alert('真实系统会打开“管理加载项 / 搜索提供程序”对话框。')">设置(I)</button></div>
+        </div>
       </div>
-    </fieldset>
+    </div>
 
-    <fieldset>
-      <legend>外观</legend>
-      <div class="row" style="gap:6px">
-        <button class="w7">颜色(O)</button>
-        <button class="w7">语言(L)</button>
-        <button class="w7">辅助功能(E)</button>
-        <button class="w7">字体(N)</button>
+    <div class="grp">
+      <div class="top">
+        <div class="ico">🗂️</div>
+        <div class="body">
+          <div class="ttl">选项卡</div>
+          <div class="desc">更改网页在选项卡中显示的方式。</div>
+          <div class="btnrow"><button class="w7" onclick="alert('真实系统会打开“选项卡浏览设置”对话框。')">设置(T)</button></div>
+        </div>
       </div>
-    </fieldset>`;
+    </div>
+
+    <div class="grp">
+      <div class="top">
+        <div class="ico"></div>
+        <div class="body">
+          <div class="ttl">外观</div>
+          <div class="btnrow left">
+            <button class="w7">颜色(O)</button>
+            <button class="w7">语言(L)</button>
+            <button class="w7">字体(N)</button>
+            <button class="w7">辅助功能(E)</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
 }
 
-function escapeAttr(s) { return String(s).replace(/"/g, '&quot;'); }
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
 
 function switchTab(i) {
-  syncFromDom();
+  sync();
   state.tab = i;
   document.querySelectorAll('#tabs button').forEach((b, idx) => b.classList.toggle('on', idx === i));
-  document.getElementById('panel').innerHTML = TABS[i].render();
+  document.getElementById('panel').innerHTML = PAGES[i].render();
 }
 
-function syncFromDom() {
+function sync() {
   const hp = document.getElementById('hp');
   if (hp) state.homepage = hp.value.trim();
   const d = document.getElementById('days');
@@ -230,37 +301,39 @@ function syncFromDom() {
   if (c) state.clearOnExit = c.checked;
 }
 
-function setHome(kind) {
-  const map = {
-    current: 'http://go.microsoft.com/fwlink/?LinkId=69157',
-    default: 'http://go.microsoft.com/fwlink/?LinkId=69157',
+function setHome(k) {
+  document.getElementById('hp').value = {
+    cur: 'http://go.microsoft.com/fwlink/?LinkId=69157',
+    def: 'http://go.microsoft.com/fwlink/?LinkId=69157',
     blank: 'about:blank'
-  };
-  document.getElementById('hp').value = map[kind];
+  }[k];
 }
-function fakeSetting() { alert('真实系统会打开“设置”对话框；仿真是练习找位置，直接改左侧数值即可。'); }
-function fakeDelete() { alert('真实系统会弹出“删除浏览历史记录”对话框（勾选历史记录等项后点删除）。'); }
 
-/* 判分：跟 windows_kb/w1.json 同一套规则 */
+function openSub() { sync(); document.getElementById('days').value = state.days; document.getElementById('sub').classList.add('on'); }
+function closeSub() {
+  const d = document.getElementById('days');
+  if (d) state.days = parseInt(d.value || '0', 10);
+  document.getElementById('sub').classList.remove('on');
+}
+
 const RULE = [
   { name: '设置主页为 www.svtcc.edu.cn', score: 4,
-    tip: '主页在「常规」选项卡第一个文本框。带不带 http:// 都算对。',
+    tip: '主页在「常规」页最上面那个多行文本框里',
     check: s => norm(s.homepage) === 'www.svtcc.edu.cn' },
   { name: '网页保存在历史记录中的天数设为 20', score: 3,
-    tip: '历史记录天数在「常规」选项卡“浏览历史记录”区域，注意默认就是 20，出题会避开默认值。',
+    tip: '点「常规 → 浏览历史记录 → 设置(S)」，在弹出窗口最下面的“历史记录”里改天数',
     check: s => s.days === 20 },
   { name: '退出时删除浏览历史记录', score: 3,
-    tip: '这个勾选框也在「常规」选项卡的“浏览历史记录”区域，叫“退出时删除浏览历史记录”。',
+    tip: '「常规」页“浏览历史记录”区域里的复选框，叫“退出时删除浏览历史记录(D)”',
     check: s => s.clearOnExit === true }
 ];
 
 function norm(v) {
-  return String(v || '').trim().toLowerCase()
-    .replace(/^https?:\/\//, '').replace(/\/+$/, '');
+  return String(v || '').trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/+$/, '');
 }
 
-function applyAll() {
-  syncFromDom();
+function grade() {
+  sync();
   let total = 0, html = '';
   RULE.forEach(r => {
     const ok = r.check(state);
@@ -273,27 +346,16 @@ function applyAll() {
   document.getElementById('items').innerHTML = html;
   document.getElementById('score').textContent = total;
   document.getElementById('result').style.display = 'block';
-  const tips = document.getElementById('tips');
-  tips.innerHTML = total === 10
-    ? '满分。真实考试里改完设置记得点「应用」再点「确定」，不点这两下设置不保存。'
-    : '提示：三项都在「常规」选项卡。主页在最上面那个长文本框；历史记录天数在“浏览历史记录”区域右侧的数字框；退出删除是同一区域的勾选框。';
-  document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('tips').textContent = total === 10
+    ? '满分。真实考试里改完要依次点「应用」和「确定」，只关窗口不点这两下，设置不会保存。'
+    : '三项都在「常规」页：主页在顶部文本框；退出删除是“浏览历史记录”区域里的复选框；历史天数要点该区域的「设置(S)」进子弹窗改。';
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function resetAll() {
-  state.homepage = 'http://go.microsoft.com/fwlink/?LinkId=69157';
-  state.days = 20;
-  state.clearOnExit = false;
-  document.getElementById('panel').innerHTML = TABS[state.tab].render();
-}
-
-document.querySelectorAll('#tabs button').forEach((b, i) => {
-  b.addEventListener('click', () => switchTab(i));
-});
-
-document.getElementById('panel').innerHTML = TABS[0].render();
-document.getElementById('panel').addEventListener('change', syncFromDom);
-document.getElementById('panel').addEventListener('input', syncFromDom);
+document.querySelectorAll('#tabs button').forEach((b, i) => b.addEventListener('click', () => switchTab(i)));
+document.getElementById('panel').innerHTML = PAGES[0].render();
+document.getElementById('panel').addEventListener('input', sync);
+document.getElementById('panel').addEventListener('change', sync);
 </script>
 </body>
 </html>

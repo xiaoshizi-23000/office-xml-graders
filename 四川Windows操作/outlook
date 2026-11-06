@@ -7,7 +7,7 @@
 写信 > 附件内容□WriteMail_FileContent□
 写信 > 正文□WriteMail_Content□
 设置 > 常规 > 显示 > 文字大小□General_Display_FontSize□中号
-设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件□General_Display_MailList_PageSize□25
+设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件□General_Display_MailList_PageSize□100
 设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要□General_Display_MailList_ShowMailSummary□0
 设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小□General_Display_MailList_ShowMailSize□0
 设置 > 常规 > 显示 > 写信默认字体 > 字体□General_Display_WriteDefaultFont_Font□默认

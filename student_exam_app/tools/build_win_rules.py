@@ -219,6 +219,11 @@ def main():
                                   'expect': extract_expect(it, key, pat), 'how': how,
                                   'score': unit})
             stat[how or '未匹配'] += 1
+        # 以清单为准：一条都判不了的题不要；其余题只保留可判条目做展示和计分
+        judge_items = [i for i in rule['items'] if i.get('key') and i.get('expect')]
+        if not judge_items:
+            continue
+
         # 同 key 去重（后面的标为待核对，不重复计分）
         seen_keys = set()
         for it in rule['items']:

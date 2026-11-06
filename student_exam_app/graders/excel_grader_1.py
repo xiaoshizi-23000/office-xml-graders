@@ -216,9 +216,11 @@ class ExcelGrader1:
         s1_xml = info['xml']
 
         # 答案用 SUMIF+COUNTIF 计算男女平均（列K），不用AVERAGE
-        has_avg = ('SUMIF' in s1_xml.upper() and 'COUNTIF' in s1_xml.upper())
-        if has_avg: s += 6; d.append('平均函数(SUMIF/COUNTIF) OK')
-        elif 'AVERAGE' in s1_xml.upper(): s += 4; d.append('AVERAGE函数 OK')
+        up = s1_xml.upper()
+        # 题干只说“利用函数求男女平均年龄”，SUMIF/COUNTIF、AVERAGEIF、AVERAGE 都算
+        if ('SUMIF' in up and 'COUNTIF' in up) or 'AVERAGEIF' in up or 'AVERAGE(' in up:
+            s += 6; d.append('平均函数 OK')
+        elif 'AVERAGE' in up: s += 4; d.append('AVERAGE函数 OK')
 
         # 男平均 and 女平均
         if '男' in s1_xml: s += 2; d.append('男平均 OK')

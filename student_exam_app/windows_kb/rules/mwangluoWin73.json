@@ -8,41 +8,41 @@
  "title": "网络 IPv4 · 第 3 题",
  "items": [
   {
-   "text": "1、将「备选DNS服务器地址」设置为“8.8.4.4”",
-   "key": "Ipv4_SubDNS",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置备选DNS服务器地址",
-   "expect": "8.8.4.4",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、将「备选DNS服务器地址」设置为“223.5.5.5”",
-   "key": "Ipv4_SubDNS",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置备选DNS服务器地址",
-   "expect": "223.5.5.5",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、关闭「退出时是否验证」",
-   "key": "Ipv4_VerificationExit",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置退出时是否验证",
-   "expect": "0",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "4、启用「备用配置是否自动专用IP地址」",
-   "key": "Ipv4_BackAutomatic",
-   "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置是否自动专用IP地址",
+   "text": "1、勾选“自动跃点”",
+   "key": "Ipv4AdvancedSettings_AutomaticPoint",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置是否自动跃点",
    "expect": "1",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、启用「备用配置退出时是否验证」",
-   "key": "Ipv4_BackVerificationExit",
-   "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置退出时是否验证",
+   "text": "2、勾选“附加DNS后缀”",
+   "key": "Ipv4AdvancedSettings_DNSSuffix",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加DNS后缀",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、取消勾选“附加主DNS后缀的父后缀”",
+   "key": "Ipv4AdvancedSettings_MainDNSSuffix",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加主DNS后缀的父后缀",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、取消勾选“在DNS中注册此连接地址”",
+   "key": "Ipv4AdvancedSettings_RegistrationDNSAddress",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册此连接地址",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、勾选“在DNS中注册使用此连接的DNS后缀”",
+   "key": "Ipv4AdvancedSettings_RegistationDNSSuffix",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册使用此连接的DNS后缀",
    "expect": "1",
    "score": 1,
    "how": "manual"

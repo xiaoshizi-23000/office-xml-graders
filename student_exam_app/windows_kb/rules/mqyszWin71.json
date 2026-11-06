@@ -8,7 +8,7 @@
  "title": "区域和语言 · 第 1 题",
  "items": [
   {
-   "text": "1、将「格式」设置为“英语(美国)”",
+   "text": "1、区域格式设置为：英语(美国)",
    "key": "gs_gs",
    "path": "区域和语言 > 格式 > 格式",
    "expect": "英语(美国)",
@@ -16,15 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、将「格式」设置为“中文(繁体，台湾)”",
-   "key": "gs_gs",
-   "path": "区域和语言 > 格式 > 格式",
-   "expect": "中文(繁体，台湾)",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、将「短日期」设置为“yyyy-MM-dd”",
+   "text": "2、短日期格式设置为：yyyy-MM-dd",
    "key": "gs_drq",
    "path": "区域和语言 > 格式 > 短日期",
    "expect": "yyyy-MM-dd",
@@ -32,18 +24,26 @@
    "how": "manual"
   },
   {
-   "text": "4、将「短日期」设置为“yy/M/d”",
-   "key": "gs_drq",
-   "path": "区域和语言 > 格式 > 短日期",
-   "expect": "yy/M/d",
+   "text": "3、长日期格式设置为：dddd, MMMM d, yyyy",
+   "key": "gs_crq",
+   "path": "区域和语言 > 格式 > 长日期",
+   "expect": "dddd, MMMM d, yyyy",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、将「长日期」设置为“dddd, MMMM d, yyyy”",
-   "key": "gs_crq",
-   "path": "区域和语言 > 格式 > 长日期",
-   "expect": "dddd, MMMM d, yyyy",
+   "text": "4、短时间格式设置为：HH:mm",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "HH:mm",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、长时间格式设置为：h:mm:ss tt",
+   "key": "gs_csj",
+   "path": "区域和语言 > 格式 > 长时间",
+   "expect": "h:mm:ss tt",
    "score": 1,
    "how": "manual"
   }

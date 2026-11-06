@@ -8,42 +8,42 @@
  "title": "邮件设置 · 第 4 题",
  "items": [
   {
-   "text": "1、启用「邮件自动转发」",
+   "text": "1、取消勾选“邮件自动保存到“已发送””",
+   "key": "General_Send_SaveSend",
+   "path": "设置 > 常规 > 发信 > 邮件自动保存到“已发送”",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、取消勾选“邮件自动转发”",
    "key": "General_MailAutoForward",
    "path": "设置 > 常规 > 邮件自动转发",
-   "expect": "1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、将「默认帐户昵称」设置为“小狮子”",
-   "key": "Account_Info_DefaultName",
-   "path": "设置 > 帐户 > 帐户信息 > 默认帐户昵称",
-   "expect": "小狮子",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、将「默认帐户昵称」设置为“student”",
-   "key": "Account_Info_DefaultName",
-   "path": "设置 > 帐户 > 帐户信息 > 默认帐户昵称",
-   "expect": "student",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "4、关闭「显示邮件摘要」",
-   "key": "General_Display_MailList_ShowMailSummary",
-   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要",
    "expect": "0",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、关闭「显示邮件大小」",
-   "key": "General_Display_MailList_ShowMailSize",
-   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小",
-   "expect": "0",
+   "text": "3、收件人填写：teacher@example.com",
+   "key": "WriteMail_Address",
+   "path": "写信 > 收件人",
+   "expect": "teacher@example.com",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、新建邮件的主题填写：关于期中考试的通知",
+   "key": "WriteMail_Topic",
+   "path": "写信 > 主题",
+   "expect": "关于期中考试的通知",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、邮件正文填写：老师您好，附件是本次作业。",
+   "key": "WriteMail_Content",
+   "path": "写信 > 正文",
+   "expect": "老师您好，附件是本次作业。",
    "score": 1,
    "how": "manual"
   }

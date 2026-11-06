@@ -8,42 +8,42 @@
  "title": "任务栏和开始菜单 · 第 5 题",
  "items": [
   {
-   "text": "1、将「电源按钮操作」设置为“锁定”",
-   "key": "poweruse",
-   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
-   "expect": "锁定",
+   "text": "1、取消勾选“始终在任务栏上显示所有图标和通知”",
+   "key": "tz_sz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 始终在任务栏上显示所有图标和通知",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "2、将「电源按钮操作」设置为“注销”",
-   "key": "poweruse",
-   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
-   "expect": "注销",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、启用「菜单中打开的程序」",
+   "text": "2、取消勾选“菜单中打开的程序”",
    "key": "openprogram",
    "path": "任务栏属性 > 开始菜单 > 菜单中打开的程序",
-   "expect": "1",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "4、启用「菜单中打开的项目」",
+   "text": "3、取消勾选“菜单中打开的项目”",
    "key": "openproject",
    "path": "任务栏属性 > 开始菜单 > 菜单中打开的项目",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、勾选“锁定任务栏”",
+   "key": "locktaskbar",
+   "path": "任务栏属性 > 任务栏 > 锁定任务栏",
    "expect": "1",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、关闭「锁定任务栏」",
-   "key": "locktaskbar",
-   "path": "任务栏属性 > 任务栏 > 锁定任务栏",
-   "expect": "0",
+   "text": "5、勾选“自动隐藏任务栏”",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "1",
    "score": 1,
    "how": "manual"
   }

@@ -8,7 +8,7 @@
  "title": "显示和主题 · 第 1 题",
  "items": [
   {
-   "text": "1、将「桌面主题」设置为“0”",
+   "text": "1、桌面主题设置为第 0 个 Aero 主题",
    "key": "WindowsThemeIndex",
    "path": "个性化 > 桌面主题",
    "expect": "0",
@@ -16,34 +16,34 @@
    "how": "manual"
   },
   {
-   "text": "2、将「桌面主题」设置为“1”",
-   "key": "WindowsThemeIndex",
-   "path": "个性化 > 桌面主题",
+   "text": "2、勾选“纯色”",
+   "key": "Color",
+   "path": "个性化 > 桌面背景 > 纯色",
    "expect": "1",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "3、将「桌面主题」设置为“2”",
-   "key": "WindowsThemeIndex",
-   "path": "个性化 > 桌面主题",
-   "expect": "2",
+   "text": "3、勾选“更改图片时间间隔”",
+   "key": "SlideTime",
+   "path": "个性化 > 桌面背景 > 更改图片时间间隔",
+   "expect": "1",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "4、将「桌面主题」设置为“4”",
-   "key": "WindowsThemeIndex",
-   "path": "个性化 > 桌面主题",
-   "expect": "4",
+   "text": "4、屏幕分辨率设置为：1024 × 768",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "1024 × 768",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、将「桌面主题」设置为“5”",
-   "key": "WindowsThemeIndex",
-   "path": "个性化 > 桌面主题",
-   "expect": "5",
+   "text": "5、屏幕保护程序设置为：三维文字",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "三维文字",
    "score": 1,
    "how": "manual"
   }

@@ -8,7 +8,7 @@
  "title": "网络 IPv4 · 第 1 题",
  "items": [
   {
-   "text": "1、关闭「是否自动获得IP地址」",
+   "text": "1、取消勾选“自动获得 IP 地址”",
    "key": "Ipv4_Automatic",
    "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得IP地址",
    "expect": "0",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、将「IP地址」设置为“192.168.1.100”",
+   "text": "2、IPv4 地址设置为：192.168.1.100",
    "key": "Ipv4_IpAddress",
    "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置IP地址",
    "expect": "192.168.1.100",
@@ -24,15 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、将「IP地址」设置为“10.0.0.8”",
-   "key": "Ipv4_IpAddress",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置IP地址",
-   "expect": "10.0.0.8",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "4、将「子网掩码」设置为“255.255.255.0”",
+   "text": "3、子网掩码设置为：255.255.255.0",
    "key": "Ipv4_Mask",
    "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置子网掩码",
    "expect": "255.255.255.0",
@@ -40,10 +32,18 @@
    "how": "manual"
   },
   {
-   "text": "5、将「子网掩码」设置为“255.255.0.0”",
-   "key": "Ipv4_Mask",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置子网掩码",
-   "expect": "255.255.0.0",
+   "text": "4、默认网关设置为：192.168.1.1",
+   "key": "Ipv4_Gateway",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关",
+   "expect": "192.168.1.1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、取消勾选“自动获得 DNS 服务器地址”",
+   "key": "Ipv4_AutomaticDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得DNS服务器地址",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   }

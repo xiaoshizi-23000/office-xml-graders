@@ -8,23 +8,7 @@
  "title": "宽带连接 · 第 3 题",
  "items": [
   {
-   "text": "1、关闭「允许使用这些协议」",
-   "key": "aq_rxxy",
-   "path": "宽带连接 > 属性 > 安全 > 允许使用这些协议",
-   "expect": "0",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、关闭「未加密的密码」",
-   "key": "aq_wjm",
-   "path": "宽带连接 > 属性 > 安全 > 未加密的密码",
-   "expect": "0",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、关闭「质询握手身份验证协议」",
+   "text": "1、取消勾选“质询握手身份验证协议”",
    "key": "aq_zxws",
    "path": "宽带连接 > 属性 > 安全 > 质询握手身份验证协议",
    "expect": "0",
@@ -32,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "4、关闭「chap2」",
+   "text": "2、取消勾选“chap2”",
    "key": "aq_chap",
    "path": "宽带连接 > 属性 > 安全 > chap2",
    "expect": "0",
@@ -40,9 +24,25 @@
    "how": "manual"
   },
   {
-   "text": "5、启用「自动使用我的win登录名和密码」",
+   "text": "3、勾选“自动使用我的win登录名和密码”",
    "key": "aq_zd",
    "path": "宽带连接 > 属性 > 安全 > 自动使用我的win登录名和密码",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、勾选“允许其他网络用户”",
+   "key": "gx_qt",
+   "path": "宽带连接 > 属性 > 共享 > 允许其他网络用户",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、勾选“尝试访问建立连接”",
+   "key": "gx_jl",
+   "path": "宽带连接 > 属性 > 共享 > 尝试访问建立连接",
    "expect": "1",
    "score": 1,
    "how": "manual"

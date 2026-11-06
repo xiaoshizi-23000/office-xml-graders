@@ -8,31 +8,7 @@
  "title": "网络 IPv4 · 第 2 题",
  "items": [
   {
-   "text": "1、将「默认网关」设置为“192.168.1.1”",
-   "key": "Ipv4_Gateway",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关",
-   "expect": "192.168.1.1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、将「默认网关」设置为“10.0.0.1”",
-   "key": "Ipv4_Gateway",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关",
-   "expect": "10.0.0.1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、关闭「是否自动获得DNS服务器地址」",
-   "key": "Ipv4_AutomaticDNS",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得DNS服务器地址",
-   "expect": "0",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "4、将「首选DNS服务器地址」设置为“8.8.8.8”",
+   "text": "1、首选 DNS 服务器设置为：8.8.8.8",
    "key": "Ipv4_MainDNS",
    "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置首选DNS服务器地址",
    "expect": "8.8.8.8",
@@ -40,10 +16,34 @@
    "how": "manual"
   },
   {
-   "text": "5、将「首选DNS服务器地址」设置为“114.114.114.114”",
-   "key": "Ipv4_MainDNS",
-   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置首选DNS服务器地址",
-   "expect": "114.114.114.114",
+   "text": "2、备用 DNS 服务器设置为：8.8.4.4",
+   "key": "Ipv4_SubDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置备选DNS服务器地址",
+   "expect": "8.8.4.4",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、取消勾选“退出时验证”",
+   "key": "Ipv4_VerificationExit",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置退出时是否验证",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、勾选“备用配置自动专用IP地址”",
+   "key": "Ipv4_BackAutomatic",
+   "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置是否自动专用IP地址",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、勾选“备用配置退出时验证”",
+   "key": "Ipv4_BackVerificationExit",
+   "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置退出时是否验证",
+   "expect": "1",
    "score": 1,
    "how": "manual"
   }

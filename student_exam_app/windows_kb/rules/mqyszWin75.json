@@ -8,42 +8,42 @@
  "title": "区域和语言 · 第 5 题",
  "items": [
   {
-   "text": "1、将「货币符号」设置为“€”",
-   "key": "hb_hbfh",
-   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
-   "expect": "€",
+   "text": "1、短日期格式设置为：yy/M/d",
+   "key": "gs_drq",
+   "path": "区域和语言 > 格式 > 短日期",
+   "expect": "yy/M/d",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "2、将「AM」设置为“AM”",
-   "key": "sj_am",
-   "path": "区域和语言 > 自定义格式 > 时间 > AM",
-   "expect": "AM",
+   "text": "2、长日期格式设置为：dddd, MMMM d, yyyy",
+   "key": "gs_crq",
+   "path": "区域和语言 > 格式 > 长日期",
+   "expect": "dddd, MMMM d, yyyy",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "3、将「PM」设置为“PM”",
-   "key": "sj_pm",
-   "path": "区域和语言 > 自定义格式 > 时间 > PM",
-   "expect": "PM",
+   "text": "3、短时间格式设置为：HH:mm",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "HH:mm",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "4、将「排序」设置为“笔画”",
-   "key": "px_px",
-   "path": "区域和语言 > 自定义格式 > 排序 > 排序",
-   "expect": "笔画",
+   "text": "4、长时间格式设置为：h:mm:ss tt",
+   "key": "gs_csj",
+   "path": "区域和语言 > 格式 > 长时间",
+   "expect": "h:mm:ss tt",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、将「位置」设置为“美国”",
-   "key": "wz_wz",
-   "path": "区域和语言 > 位置 > 位置",
-   "expect": "美国",
+   "text": "5、第一天设置为：星期一",
+   "key": "gs_dyt",
+   "path": "区域和语言 > 格式 > 第一天",
+   "expect": "星期一",
    "score": 1,
    "how": "manual"
   }

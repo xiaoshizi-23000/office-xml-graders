@@ -8,7 +8,7 @@
  "title": "任务栏和开始菜单 · 第 1 题",
  "items": [
   {
-   "text": "1、启用「锁定任务栏」",
+   "text": "1、勾选“锁定任务栏”",
    "key": "locktaskbar",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
    "expect": "1",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、启用「自动隐藏」",
+   "text": "2、勾选“自动隐藏任务栏”",
    "key": "autohide",
    "path": "任务栏属性 > 任务栏 > 自动隐藏",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、关闭「使用小图标」",
+   "text": "3、取消勾选“使用小图标”",
    "key": "usesmallicons",
    "path": "任务栏属性 > 任务栏 > 使用小图标",
    "expect": "0",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、将「屏幕上的任务栏位置」设置为“顶部”",
+   "text": "4、任务栏在屏幕上的位置设置为：顶部",
    "key": "taskbarlocation",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
    "expect": "顶部",
@@ -40,10 +40,10 @@
    "how": "manual"
   },
   {
-   "text": "5、将「屏幕上的任务栏位置」设置为“左侧”",
-   "key": "taskbarlocation",
-   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
-   "expect": "左侧",
+   "text": "5、任务栏按钮设置为：任务栏被占满时合并",
+   "key": "taskbarbtn",
+   "path": "任务栏属性 > 任务栏 > 任务栏按钮",
+   "expect": "任务栏被占满时合并",
    "score": 1,
    "how": "manual"
   }

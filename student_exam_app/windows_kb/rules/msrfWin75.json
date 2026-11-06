@@ -8,15 +8,7 @@
  "title": "输入法和语言栏 · 第 5 题",
  "items": [
   {
-   "text": "1、关闭「中文(简体) - 微软拼音新体验输入风格」",
-   "key": "NewStyle",
-   "path": "文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音新体验输入风格",
-   "expect": "0",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、将「默认输入语言设置」设置为“英语(美国) - 美式键盘”",
+   "text": "1、默认输入语言设置为：英语(美国) - 美式键盘",
    "key": "DefaultInputLanguage",
    "path": "文本服务和输入语言 > 常规 > 默认输入语言设置",
    "expect": "英语(美国) - 美式键盘",
@@ -24,15 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "3、启用「语言栏位置设置」",
-   "key": "LanguageBarPosition",
-   "path": "文本服务和输入语言 > 语言栏 > 语言栏位置设置",
-   "expect": "1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "4、关闭「非活动时是否以透明状态显示语言栏」",
+   "text": "2、取消勾选“非活动时以透明状态显示语言栏”",
    "key": "TransparentLanguageBarDisplayStatus",
    "path": "文本服务和输入语言 > 语言栏 > 非活动时是否以透明状态显示语言栏",
    "expect": "0",
@@ -40,10 +24,26 @@
    "how": "manual"
   },
   {
-   "text": "5、关闭「是否在任务栏中显示其他语言栏图标」",
+   "text": "3、取消勾选“在任务栏中显示其他语言栏图标”",
    "key": "TaskbarDisplayLanguageBarIcon",
    "path": "文本服务和输入语言 > 语言栏 > 是否在任务栏中显示其他语言栏图标",
    "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、取消勾选“在语言栏上显示文本标签”",
+   "key": "LanguageBarTextLabel",
+   "path": "文本服务和输入语言 > 语言栏 > 是否在语言栏上显示文本标签",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、勾选“关闭Caps　Lock”",
+   "key": "CapsLock",
+   "path": "文本服务和输入语言 > 高级键设置 > 关闭Caps　Lock",
+   "expect": "1",
    "score": 1,
    "how": "manual"
   }

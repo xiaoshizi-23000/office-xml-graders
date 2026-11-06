@@ -8,23 +8,7 @@
  "title": "打印机 · 第 2 题",
  "items": [
   {
-   "text": "1、启用「打印机共享设置」",
-   "key": "PrintShareSetup",
-   "path": "添加打印机 > 打印机共享设置",
-   "expect": "1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、启用「设置为默认打印机」",
-   "key": "DefaultPrint",
-   "path": "添加打印机 > 设置为默认打印机",
-   "expect": "1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、启用「是否打印测试页」",
+   "text": "1、勾选“打印测试页”",
    "key": "TestPage",
    "path": "添加打印机 > 是否打印测试页",
    "expect": "1",
@@ -32,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "4、关闭「打印机共享设置」",
+   "text": "2、取消勾选“共享这台打印机”",
    "key": "PrintShareSetup",
    "path": "添加打印机 > 打印机共享设置",
    "expect": "0",
@@ -40,10 +24,26 @@
    "how": "manual"
   },
   {
-   "text": "5、关闭「设置为默认打印机」",
+   "text": "3、取消勾选“默认打印机”",
    "key": "DefaultPrint",
    "path": "添加打印机 > 设置为默认打印机",
    "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、添加打印机时选择：添加网络、无线或 Bluetooth 打印机",
+   "key": "InstallationPrintType",
+   "path": "添加打印机 > 安装什么类型的打印机",
+   "expect": "添加网络、无线或 Bluetooth 打印机",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、打印机端口选择：USB001",
+   "key": "SelectPrintPort",
+   "path": "添加打印机 > 选择打印机端口",
+   "expect": "USB001",
    "score": 1,
    "how": "manual"
   }

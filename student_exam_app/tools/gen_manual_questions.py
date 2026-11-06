@@ -67,6 +67,11 @@ ALT = {
 }
 
 # 开关型 key：默认 0/1，取反即为非默认
+EXCLUDE_KEYS = {'upblock_stoplevel', 'LanguageBarPosition', 'sz_xsw', 'hb_xsw',
+                'General_Display_MailList_ShowMailSummary', 'General_Display_MailList_ShowMailSize',
+                'BackgroundDisplay', 'PlayOrder'}
+
+
 def is_switch(default):
     return default in ('0', '1')
 
@@ -79,14 +84,93 @@ def key_cn(path):
     return seg
 
 
+
+# 手写文案：让题干读起来像真题，而不是字段名拼接
+KEY_PHRASE = {
+    'homepage': '将主页设置为：{v}',
+    'temp_review_jlts': '网页保存在历史记录中的天数设置为：{v}天',
+    'temp_review_cpkj': 'Internet 临时文件使用的磁盘空间设置为：{v}MB',
+    'keepwebsite': '退出时删除浏览历史记录',
+    'temp_review_web': '检查所存网页的较新版本设置为：{v}',
+    'tab_starttab': '启用选项卡浏览',
+    'tab_newtab': '打开新选项卡后打开：{v}',
+    'taskbarlocation': '任务栏在屏幕上的位置设置为：{v}',
+    'taskbarbtn': '任务栏按钮设置为：{v}',
+    'locktaskbar': '锁定任务栏',
+    'autohide': '自动隐藏任务栏',
+    'usesmallicons': '使用小图标',
+    'useaeropeek': '使用 Aero Peek 预览桌面',
+    'poweruse': '开始菜单电源按钮操作设置为：{v}',
+    'resulution': '屏幕分辨率设置为：{v}',
+    'Screen': '屏幕保护程序设置为：{v}',
+    'WitingTime': '屏幕保护等待时间设置为：{v}分钟',
+    'DisplayDPI': '自定义文本大小(DPI)设置为：{v}',
+    'WindowsThemeIndex': '桌面主题设置为第 {v} 个 Aero 主题',
+    'InstallationPrintType': '添加打印机时选择：{v}',
+    'SelectPrintPort': '打印机端口选择：{v}',
+    'PrintNameSetup': '打印机名称设置为：{v}',
+    'PrintShareSetup': '共享这台打印机',
+    'DefaultPrint': '默认打印机',
+    'TestPage': '打印测试页',
+    'connect_username': '宽带连接的用户名设置为：{v}',
+    'connect_password': '宽带连接的密码设置为：{v}',
+    'connect_usepart': '为下面用户保存用户名和密码',
+    'PPPoEConnName': '宽带连接名称设置为：{v}',
+    'PPPoEUserName': '宽带(PPPoE)用户名设置为：{v}',
+    'PPPoEPassword': '宽带(PPPoE)密码设置为：{v}',
+    'PPPoEPpwd': '记住宽带连接密码',
+    'Ipv4_IpAddress': 'IPv4 地址设置为：{v}',
+    'Ipv4_Mask': '子网掩码设置为：{v}',
+    'Ipv4_Gateway': '默认网关设置为：{v}',
+    'Ipv4_MainDNS': '首选 DNS 服务器设置为：{v}',
+    'Ipv4_SubDNS': '备用 DNS 服务器设置为：{v}',
+    'Ipv4_Automatic': '自动获得 IP 地址',
+    'Ipv4_AutomaticDNS': '自动获得 DNS 服务器地址',
+    'gs_gs': '区域格式设置为：{v}',
+    'gs_drq': '短日期格式设置为：{v}',
+    'gs_crq': '长日期格式设置为：{v}',
+    'gs_dsj': '短时间格式设置为：{v}',
+    'gs_csj': '长时间格式设置为：{v}',
+    'hb_hbfh': '货币符号设置为：{v}',
+    'sz_xsd': '数字小数点符号设置为：{v}',
+    'sz_fzfh': '数字分组符号设置为：{v}',
+    'sz_dlh': '度量衡系统设置为：{v}',
+    'sz_ddsz': '使用当地数字设置为：{v}',
+    'wz_wz': '位置设置为：{v}',
+    'px_px': '排序方式设置为：{v}',
+    'DefaultInputLanguage': '默认输入语言设置为：{v}',
+    'LanguageBarPosition': '语言栏位置设置为：第 {v} 种',
+    'General_Display_FontSize': '邮件列表文字大小设置为：{v}',
+    'General_Display_MailList_PageSize': '邮件列表每页显示 {v} 封',
+    'WriteMail_Topic': '新建邮件的主题填写：{v}',
+    'WriteMail_Address': '收件人填写：{v}',
+    'WriteMail_Content': '邮件正文填写：{v}',
+    'Account_Info_DefaultName': '账户默认昵称设置为：{v}',
+    'cg_fwq': '宽带连接的服务器名称设置为：{v}',
+}
+
+TRIM_TAIL = ('设置', '选项', '功能', '状态')
+
+
+def polish_name(name):
+    name = name.strip().replace('是否', '')
+    if '什么' in name:
+        name = name.replace('安装什么类型的', '').replace('什么', '')
+    for t in TRIM_TAIL:
+        if name.endswith(t) and len(name) > len(t) + 1:
+            name = name[:-len(t)]
+    return name
+
+
 def phrase(key, base_cn, default, want):
     """按设置项类型生成一句要求。"""
+    tpl = KEY_PHRASE.get(key)
     if is_switch(default):
-        if key == 'keepwebsite':
-            return '勾选「退出时删除浏览历史记录」' if want == '1' else '取消勾选「退出时删除浏览历史记录」'
-        verb = '启用' if want == '1' else '关闭'
-        return '%s「%s」' % (verb, base_cn)
-    return '将「%s」设置为“%s”' % (base_cn, want)
+        name = (tpl if tpl and '{v}' not in tpl else polish_name(base_cn))
+        return ('勾选“%s”' if want == '1' else '取消勾选“%s”') % name
+    if tpl:
+        return tpl.format(v=want) if '{v}' in tpl else tpl
+    return '%s设置为：%s' % (polish_name(base_cn), want)
 
 
 def load_prog(prog):
@@ -98,6 +182,31 @@ def load_prog(prog):
             rows.append({'key': p[1].strip(), 'path': p[0].strip(), 'default': p[2].strip()})
     return rows
 
+
+
+
+# 语义互斥：前者取某值时，后者无意义或直接冲突
+EXCLUSIVE = [
+    ('Ipv4_Automatic', '1', ('Ipv4_IpAddress', 'Ipv4_Mask', 'Ipv4_Gateway')),
+    ('Ipv4_AutomaticDNS', '1', ('Ipv4_MainDNS', 'Ipv4_SubDNS')),
+    ('tab_starttab', '0', ('tab_newtab', 'tab_up', 'tab_other')),
+    ('InstallationPrintType', '添加本地打印机', ('NetWorkPrintAddress', 'NetWorkPrintName')),
+    ('Screen', '(无)', ('WitingTime',)),
+    ('Color', '1', ('CustomPicture', 'WindowsDesktopBackground')),
+    ('connect_usepart', '0', ('connect_me', 'connect_all')),
+]
+
+
+def conflicts(items):
+    """items 是 [(key, want)]，返回冲突的下标集合。"""
+    bad = set()
+    for i, (k1, v1) in enumerate(items):
+        for a, av, blocked in EXCLUSIVE:
+            if k1 == a and v1 == av:
+                for j, (k2, _) in enumerate(items):
+                    if k2 in blocked:
+                        bad.add(j)
+    return bad
 
 TITLES = {
     'bhsxWin7': '宽带连接', 'iesxWin7': 'Internet 选项', 'jlljWin7': '连接向导',
@@ -114,6 +223,8 @@ def main():
         rows = load_prog(prog)
         usable = []
         for r in rows:
+            if r['key'] in EXCLUDE_KEYS:
+                continue
             if is_switch(r['default']):
                 r['want'] = '0' if r['default'] == '1' else '1'
                 usable.append(dict(r))
@@ -131,13 +242,24 @@ def main():
                 usable.append(x)
         # 每个程序 5 道题，每题 5 条要求，每条 1 分（共 5 分）
         need = 25
-        pool = usable[:need]
-        if len(pool) < need:
-            # 不够就循环填满，题面允许重复考同一项的不同取值
-            while len(pool) < need:
-                pool.append(pool[len(pool) % max(len(usable), 1)])
+        pool = usable[:]
+        used_per_q = []
+        cursor = 0
         for qi in range(5):
-            chunk = pool[qi * 5:(qi + 1) * 5]
+            chunk = []
+            guard = 0
+            while len(chunk) < 5 and guard < len(pool) * 3:
+                cand = pool[cursor % len(pool)]
+                cursor += 1
+                guard += 1
+                if any(cand['key'] == c['key'] for c in chunk):
+                    continue
+                trial = [(c['key'], c['want']) for c in chunk] + [(cand['key'], cand['want'])]
+                if conflicts(trial):
+                    continue
+                chunk.append(cand)
+            if len(chunk) < 3:
+                break
             qid = 'm%s%d' % (prog, qi + 1)
             items = []
             for n, r in enumerate(chunk, 1):

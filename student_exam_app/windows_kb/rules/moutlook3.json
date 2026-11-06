@@ -8,42 +8,42 @@
  "title": "邮件设置 · 第 3 题",
  "items": [
   {
-   "text": "1、启用「显示邮件摘要」",
+   "text": "1、账户默认昵称设置为：小狮子",
+   "key": "Account_Info_DefaultName",
+   "path": "设置 > 帐户 > 帐户信息 > 默认帐户昵称",
+   "expect": "小狮子",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、取消勾选“显示邮件摘要”",
    "key": "General_Display_MailList_ShowMailSummary",
    "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要",
-   "expect": "1",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "2、启用「显示邮件大小」",
+   "text": "3、取消勾选“显示邮件大小”",
    "key": "General_Display_MailList_ShowMailSize",
    "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小",
-   "expect": "1",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "3、启用「未填主题时，使用正文第一句作为主题」",
+   "text": "4、取消勾选“未填主题时，使用正文第一句作为主题”",
    "key": "General_Send_FirstTopic",
    "path": "设置 > 常规 > 发信 > 未填主题时，使用正文第一句作为主题",
-   "expect": "1",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "4、启用「收件人自动保存到历史联系人」",
+   "text": "5、取消勾选“收件人自动保存到历史联系人”",
    "key": "General_Send_SaveContacts",
    "path": "设置 > 常规 > 发信 > 收件人自动保存到历史联系人",
-   "expect": "1",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "5、启用「邮件自动保存到“已发送”」",
-   "key": "General_Send_SaveSend",
-   "path": "设置 > 常规 > 发信 > 邮件自动保存到“已发送”",
-   "expect": "1",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   }

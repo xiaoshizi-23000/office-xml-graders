@@ -8,15 +8,7 @@
  "title": "Internet 选项 · 第 1 题",
  "items": [
   {
-   "text": "1、关闭「通知和阻止级别」",
-   "key": "upblock_stoplevel",
-   "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
-   "expect": "0",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "2、关闭「地址栏」",
+   "text": "1、取消勾选“地址栏”",
    "key": "auto_address",
    "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
    "expect": "0",
@@ -24,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "3、关闭「浏览历史记录」",
+   "text": "2、取消勾选“浏览历史记录”",
    "key": "auto_hisdory",
    "path": "Internet属性 > 内容 > 自动完成设置 > 浏览历史记录",
    "expect": "0",
@@ -32,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "4、关闭「收藏夹」",
+   "text": "3、取消勾选“收藏夹”",
    "key": "auto_fav",
    "path": "Internet属性 > 内容 > 自动完成设置 > 收藏夹",
    "expect": "0",
@@ -40,10 +32,18 @@
    "how": "manual"
   },
   {
-   "text": "5、启用「源」",
+   "text": "4、勾选“源”",
    "key": "auto_sou",
    "path": "Internet属性 > 内容 > 自动完成设置 > 源",
    "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、取消勾选“使用windowssearch获取更好的结果”",
+   "key": "auto_sea",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 使用windowssearch获取更好的结果",
+   "expect": "0",
    "score": 1,
    "how": "manual"
   }

@@ -8,42 +8,42 @@
  "title": "区域和语言 · 第 4 题",
  "items": [
   {
-   "text": "1、将「列表分隔」设置为“；”",
-   "key": "sz_lbfe",
-   "path": "区域和语言 > 自定义格式 > 数字 > 列表分隔",
-   "expect": "；",
+   "text": "1、PM设置为：PM",
+   "key": "sj_pm",
+   "path": "区域和语言 > 自定义格式 > 时间 > PM",
+   "expect": "PM",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "2、将「列表分隔」设置为“、”",
-   "key": "sz_lbfe",
-   "path": "区域和语言 > 自定义格式 > 数字 > 列表分隔",
-   "expect": "、",
+   "text": "2、排序方式设置为：笔画",
+   "key": "px_px",
+   "path": "区域和语言 > 自定义格式 > 排序 > 排序",
+   "expect": "笔画",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "3、将「度量衡」设置为“美制”",
-   "key": "sz_dlh",
-   "path": "区域和语言 > 自定义格式 > 数字 > 度量衡",
-   "expect": "美制",
+   "text": "3、位置设置为：美国",
+   "key": "wz_wz",
+   "path": "区域和语言 > 位置 > 位置",
+   "expect": "美国",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "4、将「当地数字」设置为“上下文”",
-   "key": "sz_ddsz",
-   "path": "区域和语言 > 自定义格式 > 数字 > 当地数字",
-   "expect": "上下文",
+   "text": "4、区域格式设置为：英语(美国)",
+   "key": "gs_gs",
+   "path": "区域和语言 > 格式 > 格式",
+   "expect": "英语(美国)",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、将「货币符号」设置为“$”",
-   "key": "hb_hbfh",
-   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
-   "expect": "$",
+   "text": "5、短日期格式设置为：yyyy-MM-dd",
+   "key": "gs_drq",
+   "path": "区域和语言 > 格式 > 短日期",
+   "expect": "yyyy-MM-dd",
    "score": 1,
    "how": "manual"
   }

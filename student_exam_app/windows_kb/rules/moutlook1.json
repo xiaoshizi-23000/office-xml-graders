@@ -8,7 +8,7 @@
  "title": "邮件设置 · 第 1 题",
  "items": [
   {
-   "text": "1、将「收件人」设置为“teacher@example.com”",
+   "text": "1、收件人填写：teacher@example.com",
    "key": "WriteMail_Address",
    "path": "写信 > 收件人",
    "expect": "teacher@example.com",
@@ -16,15 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、将「收件人」设置为“admin@school.edu.cn”",
-   "key": "WriteMail_Address",
-   "path": "写信 > 收件人",
-   "expect": "admin@school.edu.cn",
-   "score": 1,
-   "how": "manual"
-  },
-  {
-   "text": "3、将「主题」设置为“关于期中考试的通知”",
+   "text": "2、新建邮件的主题填写：关于期中考试的通知",
    "key": "WriteMail_Topic",
    "path": "写信 > 主题",
    "expect": "关于期中考试的通知",
@@ -32,18 +24,26 @@
    "how": "manual"
   },
   {
-   "text": "4、将「主题」设置为“作业提交提醒”",
-   "key": "WriteMail_Topic",
-   "path": "写信 > 主题",
-   "expect": "作业提交提醒",
+   "text": "3、邮件正文填写：老师您好，附件是本次作业。",
+   "key": "WriteMail_Content",
+   "path": "写信 > 正文",
+   "expect": "老师您好，附件是本次作业。",
    "score": 1,
    "how": "manual"
   },
   {
-   "text": "5、将「正文」设置为“老师您好，附件是本次作业。”",
-   "key": "WriteMail_Content",
-   "path": "写信 > 正文",
-   "expect": "老师您好，附件是本次作业。",
+   "text": "4、邮件列表文字大小设置为：小号",
+   "key": "General_Display_FontSize",
+   "path": "设置 > 常规 > 显示 > 文字大小",
+   "expect": "小号",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、邮件列表每页显示 50 封",
+   "key": "General_Display_MailList_PageSize",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件",
+   "expect": "50",
    "score": 1,
    "how": "manual"
   }

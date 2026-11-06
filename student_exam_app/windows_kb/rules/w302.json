@@ -28,17 +28,17 @@
    "path": "添加打印机 > 打印机名称设置",
    "expect": "come",
    "how": "rule",
-   "score": 5.0
+   "score": 2.5
   },
   {
    "text": "4、打印测试页",
-   "key": "",
+   "key": "TestPage",
    "path": "添加打印机 > 是否打印测试页",
-   "expect": "",
-   "how": "noexpect",
-   "score": 0
+   "expect": "1",
+   "how": "path",
+   "score": 2.5
   }
  ],
- "matched": 1,
+ "matched": 2,
  "covered": false
 }

@@ -12,7 +12,7 @@
    "path": "个性化 > 分辨率",
    "expect": "1280",
    "how": "path",
-   "score": 5.0
+   "score": 3.33
   },
   {
    "text": "2、DPI缩放至125%",
@@ -28,17 +28,17 @@
    "path": "个性化 > 桌面背景 > 图片库",
    "expect": "图片库",
    "how": "path",
-   "score": 5.0
+   "score": 3.33
   },
   {
    "text": "4、屏幕保护设置为\" 三维文字\" ，时间\" 5\" 分钟",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "三维文字",
+   "how": "short",
+   "score": 3.34
   }
  ],
- "matched": 2,
+ "matched": 3,
  "covered": false
 }

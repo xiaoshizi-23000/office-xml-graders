@@ -10,7 +10,7 @@
    "text": "1、任务栏外观设置为\" 锁定任务栏\"",
    "key": "locktaskbar",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
-   "expect": "锁定任务栏",
+   "expect": "1",
    "how": "path",
    "score": 1.25
   },

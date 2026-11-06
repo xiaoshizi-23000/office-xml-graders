@@ -8,11 +8,11 @@
  "items": [
   {
    "text": "1、使用小图标",
-   "key": "",
+   "key": "usesmallicons",
    "path": "任务栏属性 > 任务栏 > 使用小图标",
-   "expect": "",
-   "how": "noexpect",
-   "score": 0
+   "expect": "1",
+   "how": "path",
+   "score": 1.25
   },
   {
    "text": "2、任务栏按钮设置为\" 从不合并\"",
@@ -20,7 +20,7 @@
    "path": "任务栏属性 > 任务栏 > 任务栏按钮",
    "expect": "从不合并",
    "how": "path",
-   "score": 1.67
+   "score": 1.25
   },
   {
    "text": "3、扬声器音量改为\" 仅显示通知\"",
@@ -28,7 +28,7 @@
    "path": "任务栏属性 > 任务栏 > 通知区域 > 音量",
    "expect": "仅显示通知",
    "how": "path",
-   "score": 1.67
+   "score": 1.25
   },
   {
    "text": "4、操作中心\" 隐藏图标和通知\"",
@@ -36,9 +36,9 @@
    "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
    "expect": "隐藏图标和通知",
    "how": "path",
-   "score": 1.66
+   "score": 1.25
   }
  ],
- "matched": 3,
- "covered": false
+ "matched": 4,
+ "covered": true
 }

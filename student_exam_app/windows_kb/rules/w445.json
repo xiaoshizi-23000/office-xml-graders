@@ -12,7 +12,7 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "jw.svtcc.edu.cn",
    "how": "rule",
-   "score": 1.67
+   "score": 1.25
   },
   {
    "text": "2、退出时删除浏览的历史记录，删除\" 历史记录\"",
@@ -20,15 +20,15 @@
    "path": "Internet属性 > 常规 > 删除历史记录",
    "expect": "历史记录",
    "how": "rule",
-   "score": 1.67
+   "score": 1.25
   },
   {
    "text": "3、打开新选项卡后，打开\" 空白页\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "tab_newtab",
+   "path": "Internet属性 > 常规 > 选项卡 > 打开新选项卡后打开",
+   "expect": "空白页",
+   "how": "short",
+   "score": 1.25
   },
   {
    "text": "4、从位于以下位置的其他程序打开链接为\" 新窗口\"",
@@ -36,9 +36,9 @@
    "path": "Internet属性 > 常规 > 选项卡 > 从位于以下位置的其他程序打开链接",
    "expect": "新窗口",
    "how": "path",
-   "score": 1.66
+   "score": 1.25
   }
  ],
- "matched": 3,
- "covered": false
+ "matched": 4,
+ "covered": true
 }

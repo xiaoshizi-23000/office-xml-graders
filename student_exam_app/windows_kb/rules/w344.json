@@ -26,7 +26,7 @@
    "text": "3、屏幕保护设置为：\" 照片\" ，在恢复时显示登录屏幕",
    "key": "ResumeDisplay",
    "path": "个性化 > 在恢复时显示登录屏幕",
-   "expect": "照片",
+   "expect": "1",
    "how": "path",
    "score": 3.33
   },

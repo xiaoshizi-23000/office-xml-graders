@@ -12,7 +12,7 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "china.nba.com",
    "how": "rule",
-   "score": 1.67
+   "score": 1.25
   },
   {
    "text": "2、历史记录保存天数设置为30天",
@@ -20,25 +20,25 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "30",
    "how": "rule",
-   "score": 1.67
+   "score": 1.25
   },
   {
    "text": "3、打开新选项卡后，打开\" 空白页\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "tab_newtab",
+   "path": "Internet属性 > 常规 > 选项卡 > 打开新选项卡后打开",
+   "expect": "空白页",
+   "how": "short",
+   "score": 1.25
   },
   {
    "text": "4、设置安全\" 启用集成 Windows 验证*\"",
    "key": "gj_aq",
    "path": "Internet属性 > 高级 > 安全",
    "expect": "启用集成 Windows 验证*",
-   "how": "path",
-   "score": 1.66
+   "how": "adv",
+   "score": 1.25
   }
  ],
- "matched": 3,
- "covered": false
+ "matched": 4,
+ "covered": true
 }

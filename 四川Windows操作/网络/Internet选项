@@ -46,7 +46,7 @@ Internet属性 > 连接 > 局域网设置 > 跳过本地地址的代理服务器□lan_local□0
 Internet属性 > 连接 > 程序 > 如果 Internet Explorer 不是默认的 Web 浏览器，提示我□cx_prompt□0
 Internet属性 > 连接 > 程序 > HTML 编辑器□cx_html□
 Internet属性 > 高级 > http1.1设置□gj_http□
-Internet属性 > 高级 > 安全□gj_aq□
+Internet属性 > 高级 > 安全□gj_aq□启用内存保护帮助减少联机攻击*
 Internet属性 > 高级 > 从地址栏中搜索□gj_ss□
 Internet属性 > 高级 > 打印□gj_pr□
 Internet属性 > 高级 > 多媒体□gj_dm□

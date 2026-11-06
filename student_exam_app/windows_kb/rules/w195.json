@@ -2,7 +2,7 @@
  "id": "w195",
  "section": "Windows",
  "qid": "195",
- "score": 0,
+ "score": 5.0,
  "prog": "tjdyjWin7",
  "title": "Windows 第 195 题",
  "items": [
@@ -32,13 +32,13 @@
   },
   {
    "text": "4、打印测试页",
-   "key": "",
+   "key": "TestPage",
    "path": "添加打印机 > 是否打印测试页",
-   "expect": "",
-   "how": "noexpect",
-   "score": 0
+   "expect": "1",
+   "how": "path",
+   "score": 5.0
   }
  ],
- "matched": 0,
+ "matched": 1,
  "covered": false
 }

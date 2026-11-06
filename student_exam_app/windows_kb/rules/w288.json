@@ -10,7 +10,7 @@
    "text": "1、任务栏外观设置为\" 使用小图标\"",
    "key": "usesmallicons",
    "path": "任务栏属性 > 任务栏 > 使用小图标",
-   "expect": "使用小图标",
+   "expect": "1",
    "how": "path",
    "score": 1.67
   },

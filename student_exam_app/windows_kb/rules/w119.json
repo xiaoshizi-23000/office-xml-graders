@@ -20,15 +20,15 @@
    "path": "个性化 > 桌面背景 > 图片库",
    "expect": "图片库里的第三张图片",
    "how": "path",
-   "score": 5.0
+   "score": 3.33
   },
   {
    "text": "3、屏幕保护设置为：\" 变换线\" ，等待时间2分钟",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "变换线",
+   "how": "short",
+   "score": 3.33
   },
   {
    "text": "4、分辨率设置为：1024x768",
@@ -36,9 +36,9 @@
    "path": "个性化 > 分辨率",
    "expect": "1024x768",
    "how": "path",
-   "score": 5.0
+   "score": 3.34
   }
  ],
- "matched": 2,
+ "matched": 3,
  "covered": false
 }

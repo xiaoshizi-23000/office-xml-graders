@@ -138,15 +138,49 @@ def match_by_path(text, keys, prog):
                 best, score = key, len(w)
     return best
 
+ADV = json.load(open(os.path.join(KB, 'advanced_items.json'), encoding='utf-8')) if os.path.exists(os.path.join(KB, 'advanced_items.json')) else {}
+
+
+def match_advanced(text):
+    """题目条目里出现某个高级页项名 → key=对应分组，期望值=项名原样（含 *）。"""
+    best_g, best_name = '', ''
+    for g, names in ADV.items():
+        for nm in names:
+            if nm.startswith('- ') or len(nm) < 6:
+                continue
+            nm_clean = nm.strip()
+            if nm_clean in text and len(nm_clean) > len(best_name):
+                best_g, best_name = g, nm_clean
+    if best_g:
+        return best_g, best_name
+    # 兜底：条目较短时，找包含它的项名（如“启用内存保护帮助减少联机攻击”匹配带 * 的）
+    for g, names in ADV.items():
+        for nm in names:
+            nm_clean = nm.strip()
+            if len(text) >= 8 and text in nm_clean and len(nm_clean) - len(text) <= 2:
+                return g, nm_clean
+    return '', ''
+
+
 def guess_key(text, keys, prog=""):
     """先走强规则，再按中文路径相似度兜底。"""
     for key, words, pat in KEY_HINTS:
         if key in keys and any(w in text for w in words):
             return key, 'rule'
+    adv_g, adv_name = match_advanced(text)
+    if adv_g and adv_g in keys:
+        return adv_g, 'adv'
     hit = match_by_path(text, keys, prog)
     if hit:
         return hit, 'path'
     best, score = '', 0.0
+    for key, info in keys.items():
+        seg = info['path'].split('>')[-1].strip()
+        for w in (seg, seg[:4] if len(seg) >= 5 else seg):
+            if len(w) >= 4 and w in text and len(w) > score:
+                best, score = key, len(w)
+    if best:
+        return best, 'short'
     for key, info in keys.items():
         s = difflib.SequenceMatcher(None, text, info['path']).ratio()
         if s > score:
@@ -158,10 +192,13 @@ SWITCH_ON = ('启用', '勾选', '允许', '显示', '打开', '开启')
 SWITCH_OFF = ('禁用', '取消', '不允许', '隐藏', '关闭', '禁止')
 
 
-def guess_expect(text, default):
+def guess_expect(text, default, path=''):
     q = re.search(r'[“"]([^”"]{1,40})[”"]', text)
     if q:
-        return q.group(1).strip()
+        v = q.group(1).strip()
+        if default in ('0', '1'):
+            return '1' if v != default else '0'
+        return v
     m = re.search(r'设置为[：: ]*([\w\.\-/:％%]+)', text)
     if m:
         return m.group(1).strip()
@@ -170,7 +207,13 @@ def guess_expect(text, default):
             return '0'
         if any(w in text for w in SWITCH_ON):
             return '1'
-    return ''
+        # 题目直接写了这个设置项的名字（如“锁定任务栏”）→ 就是要启用它
+        tail = path.split('>')[-1].strip().replace('是否', '')
+        if len(tail) >= 4 and tail[:4] in text:
+            return '1'
+        if ('不' + tail[:2]) in text or ('取消' + tail[:2]) in text:
+            return '0'
+        return ''
 
 
 def extract_expect(text, key, pat):
@@ -214,17 +257,18 @@ def main():
                                       'path': '', 'expect': '', 'how': 'step'})
                 continue
             key, how = guess_key(it, keys, prog)
-            pat = next((p for k, w, p in KEY_HINTS if k == key), None)
-            rule['items'].append({'text': it, 'key': key, 'path': keys[key]['path'] if key else '',
-                                  'expect': extract_expect(it, key, pat), 'how': how,
-                                  'score': unit})
+            pat = next((pp for kk, ww, pp in KEY_HINTS if kk == key), None)
+            expect = extract_expect(it, key, pat) if key else ''
+            if how == 'adv':
+                _, adv_name = match_advanced(it)
+                expect = adv_name
+            rule['items'].append({'text': it, 'key': key, 'path': keys[key]['path'] if key in keys else
+                                  ('Internet属性 > 高级' if how == 'adv' else ''),
+                                  'expect': expect, 'how': how, 'score': unit})
+            if q['qid'] == '69':
+                print('  DBG69:', repr(it[:36]), '->', key or '(空)', '| how=', how, '| expect=', repr(expect))
             stat[how or '未匹配'] += 1
-        # 以清单为准：一条都判不了的题不要；其余题只保留可判条目做展示和计分
-        judge_items = [i for i in rule['items'] if i.get('key') and i.get('expect')]
-        if not judge_items:
-            continue
-
-        # 同 key 去重（后面的标为待核对，不重复计分）
+        # 同 key 去重（同题同一项只判一次）+ 期望值兜底（这一步必须在判断之前，否则能救回的题被跳过）
         seen_keys = set()
         for it in rule['items']:
             k = it.get('key')
@@ -236,21 +280,25 @@ def main():
             else:
                 seen_keys.add(k)
             if it.get('key') and not it.get('expect'):
-                g = guess_expect(it['text'], keys[it['key']]['default'])
+                g = guess_expect(it['text'], keys[it['key']]['default'], keys[it['key']]['path'])
                 if g:
                     it['expect'] = g
                 else:
                     it['key'] = ''
                     it['how'] = 'noexpect'
 
-        # 分值按可判项重算，最后一条吃掉误差
+        # 以清单为准：兜底后一条都判不了的题才不要
         judge = [i for i in rule['items'] if i.get('key') and i.get('expect') and not i.get('step')]
-        if judge:
-            unit = round(rule['score'] / len(judge), 2)
-            for i in judge:
-                i['score'] = unit
-            gap = round(rule['score'] - unit * len(judge), 2)
-            judge[-1]['score'] = round(judge[-1]['score'] + gap, 2)
+        if not judge:
+            print('  DEBUG 跳过 第%s题 prog=%s items=%d' % (q['qid'], prog, len(rule['items'])))
+            continue
+
+        # 分值按可判项重算，最后一条吃掉误差
+        unit = round(rule['score'] / len(judge), 2)
+        for i in judge:
+            i['score'] = unit
+        gap = round(rule['score'] - unit * len(judge), 2)
+        judge[-1]['score'] = round(judge[-1]['score'] + gap, 2)
         for i in rule['items']:
             if i not in judge:
                 i['score'] = 0

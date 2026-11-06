@@ -33,9 +33,9 @@
   {
    "text": "4、自定义DPI为缩放150%",
    "key": "",
-   "path": "",
+   "path": "个性化 > 自定义DPI设置",
    "expect": "",
-   "how": "",
+   "how": "noexpect",
    "score": 0
   }
  ],

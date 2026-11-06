@@ -10,9 +10,9 @@
    "text": "1、任务栏外观设置为\" 锁定任务栏\"",
    "key": "locktaskbar",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
-   "expect": "锁定任务栏",
+   "expect": "1",
    "how": "path",
-   "score": 2.5
+   "score": 1.67
   },
   {
    "text": "2、通知区域网络设置为\" 仅显示通知\"",
@@ -20,7 +20,7 @@
    "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
    "expect": "仅显示通知",
    "how": "path",
-   "score": 2.5
+   "score": 1.67
   },
   {
    "text": "3、使用Aero Peek预览桌面",
@@ -32,13 +32,13 @@
   },
   {
    "text": "4、在[开始]菜单中设置电源按钮为\" 睡眠\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "睡眠",
+   "how": "short",
+   "score": 1.66
   }
  ],
- "matched": 2,
+ "matched": 3,
  "covered": false
 }

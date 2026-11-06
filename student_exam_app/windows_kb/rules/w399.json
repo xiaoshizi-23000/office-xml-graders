@@ -25,9 +25,9 @@
   {
    "text": "3、启用选项卡分组",
    "key": "",
-   "path": "",
+   "path": "Internet属性 > 常规 > 选项卡 > 启用选项卡浏览",
    "expect": "",
-   "how": "",
+   "how": "noexpect",
    "score": 0
   },
   {
@@ -35,7 +35,7 @@
    "key": "gj_aq",
    "path": "Internet属性 > 高级 > 安全",
    "expect": "启用内存保护帮助减少联机攻击*",
-   "how": "path",
+   "how": "adv",
    "score": 1.66
   }
  ],

@@ -12,7 +12,7 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.tmall.com",
    "how": "rule",
-   "score": 2.5
+   "score": 1.67
   },
   {
    "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\" 和\" 密码\"",
@@ -20,15 +20,15 @@
    "path": "Internet属性 > 常规 > 删除历史记录",
    "expect": "表单数据",
    "how": "rule",
-   "score": 2.5
+   "score": 1.67
   },
   {
    "text": "3、关闭多个选项卡时发出警告",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "gj_ll",
+   "path": "Internet属性 > 高级 > 浏览",
+   "expect": "关闭多个选项卡时发出警告",
+   "how": "adv",
+   "score": 1.66
   },
   {
    "text": "4、阻止弹出窗口时播放声音",
@@ -39,6 +39,6 @@
    "score": 0
   }
  ],
- "matched": 2,
+ "matched": 3,
  "covered": false
 }

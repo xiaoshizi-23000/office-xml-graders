@@ -8,11 +8,11 @@
  "items": [
   {
    "text": "1、主题设置为：基本和高对比主题里的Window 7 Basic",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "WindowsDesktopBackground",
+   "path": "个性化 > 桌面背景 > Windows桌面背景",
+   "expect": "基本和高对比主题里的Window",
+   "how": "short",
+   "score": 3.33
   },
   {
    "text": "2、桌面背景设置为：顶级照片里的第六张图片",
@@ -20,7 +20,7 @@
    "path": "个性化 > 桌面背景 > 顶级图片",
    "expect": "顶级照片里的第六张图片",
    "how": "fuzzy",
-   "score": 5.0
+   "score": 3.33
   },
   {
    "text": "3、屏幕保护程序设置为：三维文字 等待时间设置为：10分钟",
@@ -28,7 +28,7 @@
    "path": "个性化 > 屏幕保护程序",
    "expect": "三维文字",
    "how": "path",
-   "score": 5.0
+   "score": 3.34
   },
   {
    "text": "4、调整屏幕分辨率为：1024x768",
@@ -39,6 +39,6 @@
    "score": 0
   }
  ],
- "matched": 2,
+ "matched": 3,
  "covered": false
 }

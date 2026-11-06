@@ -8,7 +8,7 @@
  "title": "任务栏和开始菜单 · 第 4 题",
  "items": [
   {
-   "text": "1、勾选“菜单中打开的项目”",
+   "text": "1、菜单中打开的项目设置为：启用",
    "key": "openproject",
    "path": "任务栏属性 > 开始菜单 > 菜单中打开的项目",
    "expect": "1",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、取消勾选“锁定任务栏”",
+   "text": "2、锁定任务栏设置为：禁用",
    "key": "locktaskbar",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
    "expect": "0",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、取消勾选“自动隐藏任务栏”",
+   "text": "3、自动隐藏任务栏设置为：禁用",
    "key": "autohide",
    "path": "任务栏属性 > 任务栏 > 自动隐藏",
    "expect": "0",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“使用小图标”",
+   "text": "4、使用小图标设置为：启用",
    "key": "usesmallicons",
    "path": "任务栏属性 > 任务栏 > 使用小图标",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、取消勾选“使用 Aero Peek 预览桌面”",
+   "text": "5、使用 Aero Peek 预览桌面设置为：禁用",
    "key": "useaeropeek",
    "path": "任务栏属性 > 任务栏 > 使用aeropeek",
    "expect": "0",

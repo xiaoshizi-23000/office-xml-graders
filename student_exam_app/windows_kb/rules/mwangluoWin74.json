@@ -8,7 +8,7 @@
  "title": "网络 IPv4 · 第 4 题",
  "items": [
   {
-   "text": "1、取消勾选“启用LMHOSTS”",
+   "text": "1、启用LMHOSTS设置为：禁用",
    "key": "Ipv4AdvancedSettings_WINSLMHOSTS",
    "path": "网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置是否启用LMHOSTS",
    "expect": "0",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“NetBIOS”",
+   "text": "2、NetBIOS设置为：启用",
    "key": "Ipv4AdvancedSettings_WINSNetBIOS",
    "path": "网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置NetBIOS设置",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、勾选“自动获取IPv6地址”",
+   "text": "3、自动获取IPv6地址设置为：启用",
    "key": "Ipv6_Automatci",
    "path": "网络设置 > IPv6 > 属性 > 常规 > IPv6设置是否自动获取IPv6地址",
    "expect": "1",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“自动获得DNS服务器地址”",
+   "text": "4、自动获得DNS服务器地址设置为：启用",
    "key": "Ipv6_AutomaticDNS",
    "path": "网络设置 > IPv6 > 属性 > 常规 > IPv6设置是否自动获得DNS服务器地址",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“退出时验证”",
+   "text": "5、退出时验证设置为：启用",
    "key": "Ipv6Adnanced_ExitChecking",
    "path": "网络设置 > IPv6 > 属性 > 常规 > IPv6退出时验证",
    "expect": "1",

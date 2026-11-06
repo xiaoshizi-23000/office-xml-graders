@@ -8,7 +8,7 @@
  "title": "输入法和语言栏 · 第 3 题",
  "items": [
   {
-   "text": "1、取消勾选“语言栏位置”",
+   "text": "1、语言栏位置设置为：禁用",
    "key": "LanguageBarPosition",
    "path": "文本服务和输入语言 > 语言栏 > 语言栏位置设置",
    "expect": "0",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“非活动时以透明状态显示语言栏”",
+   "text": "2、非活动时以透明状态显示语言栏设置为：启用",
    "key": "TransparentLanguageBarDisplayStatus",
    "path": "文本服务和输入语言 > 语言栏 > 非活动时是否以透明状态显示语言栏",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、勾选“在任务栏中显示其他语言栏图标”",
+   "text": "3、在任务栏中显示其他语言栏图标设置为：启用",
    "key": "TaskbarDisplayLanguageBarIcon",
    "path": "文本服务和输入语言 > 语言栏 > 是否在任务栏中显示其他语言栏图标",
    "expect": "1",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“在语言栏上显示文本标签”",
+   "text": "4、在语言栏上显示文本标签设置为：启用",
    "key": "LanguageBarTextLabel",
    "path": "文本服务和输入语言 > 语言栏 > 是否在语言栏上显示文本标签",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、取消勾选“关闭Caps　Lock”",
+   "text": "5、关闭Caps　Lock设置为：禁用",
    "key": "CapsLock",
    "path": "文本服务和输入语言 > 高级键设置 > 关闭Caps　Lock",
    "expect": "0",

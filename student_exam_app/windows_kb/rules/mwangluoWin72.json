@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、取消勾选“退出时验证”",
+   "text": "3、退出时验证设置为：禁用",
    "key": "Ipv4_VerificationExit",
    "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置退出时是否验证",
    "expect": "0",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“备用配置自动专用IP地址”",
+   "text": "4、备用配置自动专用IP地址设置为：启用",
    "key": "Ipv4_BackAutomatic",
    "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置是否自动专用IP地址",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“备用配置退出时验证”",
+   "text": "5、备用配置退出时验证设置为：启用",
    "key": "Ipv4_BackVerificationExit",
    "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置退出时是否验证",
    "expect": "1",

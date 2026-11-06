@@ -16,6 +16,7 @@ OUT_DIR = os.path.join(BASE, 'windows_kb')
 
 SEC_RE = re.compile(r'^[一二三四五六七八]、\s*([^\s（(]+)')
 Q_RE = re.compile(r'^第(\d+)题\s*（([\d.]+)分）\s*题号[:：]\s*(\d+)')
+ALT_Q_RE = re.compile(r'^【([^】]+)】\s*第(\d+)题\s*题号[:：]\s*(\d+)')
 SEP_RE = re.compile(r'^[━\-=_]{6,}$')
 NOISE = ('请在打开的窗口', '完成所有操作后', '注意：题干没有要求', '难度:', '考生得分',
          '本题标准分数', '标准答案:', '回答正确', '得分率')
@@ -55,13 +56,33 @@ def extract(path):
         if not cur or SEP_RE.match(t) or any(n in t for n in NOISE):
             continue
         line = t.strip()
-        if not (line and len(line) <= 800):
+        if not line:
+            continue
+        ma = ALT_Q_RE.match(line)
+        if ma:
+            sec, no, qid = ma.group(1), ma.group(2), ma.group(3)
+            if qid not in qs:
+                qs[qid] = {'qid': qid, 'section': sec, 'no': int(no),
+                           'score': 10.0, 'items': []}
+            cur = qid
+            continue
+        if re.search(r'题号\s*[:：]', line):
+            cur = None
+            continue
+        if line.startswith('【') or line.startswith('━'):
+            cur = None
             continue
         items = qs[cur]['items']
-        cont = re.match(r'^\s*[)）]', line) or re.match(r'^\s*\d+\.\d', line) or re.match(r'^\s*[（(]', line)
-        if items and (cont or not re.match(r'^\s*\d{1,2}\s*[、.．]', line)):
+        cont = (re.match(r'^\s*[)）]', line) or re.match(r'^\s*\d+\.\d', line)
+                or re.match(r'^\s*[（(]', line))
+        starts_num = re.match(r'^\s*\d{1,2}\s*[、.．]', line)
+        if items and cont:
             items[-1] += line
-        elif line not in items:
+        elif items and not starts_num and len(line) <= 40 and items[-1][-1] in '（(“"':
+            items[-1] += line
+        elif starts_num and line not in items:
+            items.append(line)
+        elif len(line) <= 40 and line not in items:
             items.append(line)
     return qs
 

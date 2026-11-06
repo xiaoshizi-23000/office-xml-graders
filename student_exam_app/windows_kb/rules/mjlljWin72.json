@@ -8,7 +8,7 @@
  "title": "连接向导 · 第 2 题",
  "items": [
   {
-   "text": "1、勾选“宽带(PPPoE)允许其他人使用此连接”",
+   "text": "1、宽带(PPPoE)允许其他人使用此连接设置为：启用",
    "key": "PPPoEOther",
    "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)允许其他人使用此连接",
    "expect": "1",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“拨号显示字符”",
+   "text": "2、拨号显示字符设置为：启用",
    "key": "DialString",
    "path": "设置连接或网络 > 连接到Internet > 拨号 > 拨号显示字符",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、勾选“拨号记住此密码”",
+   "text": "3、拨号记住此密码设置为：启用",
    "key": "Dialpwd",
    "path": "设置连接或网络 > 连接到Internet > 拨号 > 拨号记住此密码",
    "expect": "1",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“拨号允许其他人使用此连接”",
+   "text": "4、拨号允许其他人使用此连接设置为：启用",
    "key": "DialPhoneOther",
    "path": "设置连接或网络 > 连接到Internet > 拨号 > 拨号允许其他人使用此连接",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“显示此计算机未设置使用的连接”",
+   "text": "5、显示此计算机未设置使用的连接设置为：启用",
    "key": "NotSettingOption",
    "path": "设置连接或网络 > 显示此计算机未设置使用的连接选项",
    "expect": "1",

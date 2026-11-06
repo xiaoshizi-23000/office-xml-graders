@@ -8,7 +8,7 @@
  "title": "Internet 选项 · 第 5 题",
  "items": [
   {
-   "text": "1、勾选“地址栏”",
+   "text": "1、地址栏设置为：启用",
    "key": "auto_address",
    "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
    "expect": "1",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“浏览历史记录”",
+   "text": "2、浏览历史记录设置为：启用",
    "key": "auto_hisdory",
    "path": "Internet属性 > 内容 > 自动完成设置 > 浏览历史记录",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、勾选“收藏夹”",
+   "text": "3、收藏夹设置为：启用",
    "key": "auto_fav",
    "path": "Internet属性 > 内容 > 自动完成设置 > 收藏夹",
    "expect": "1",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、取消勾选“源”",
+   "text": "4、源设置为：禁用",
    "key": "auto_sou",
    "path": "Internet属性 > 内容 > 自动完成设置 > 源",
    "expect": "0",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“使用windowssearch获取更好的结果”",
+   "text": "5、使用windowssearch获取更好的结果设置为：启用",
    "key": "auto_sea",
    "path": "Internet属性 > 内容 > 自动完成设置 > 使用windowssearch获取更好的结果",
    "expect": "1",

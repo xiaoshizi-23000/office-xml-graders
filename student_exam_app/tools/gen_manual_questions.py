@@ -167,7 +167,7 @@ def phrase(key, base_cn, default, want):
     tpl = KEY_PHRASE.get(key)
     if is_switch(default):
         name = (tpl if tpl and '{v}' not in tpl else polish_name(base_cn))
-        return ('勾选“%s”' if want == '1' else '取消勾选“%s”') % name
+        return '%s设置为：%s' % (name, '启用' if want == '1' else '禁用')
     if tpl:
         return tpl.format(v=want) if '{v}' in tpl else tpl
     return '%s设置为：%s' % (polish_name(base_cn), want)

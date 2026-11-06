@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“共享这台打印机”",
+   "text": "4、共享这台打印机设置为：启用",
    "key": "PrintShareSetup",
    "path": "添加打印机 > 打印机共享设置",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“默认打印机”",
+   "text": "5、默认打印机设置为：启用",
    "key": "DefaultPrint",
    "path": "添加打印机 > 设置为默认打印机",
    "expect": "1",

@@ -8,7 +8,7 @@
  "title": "网络 IPv4 · 第 3 题",
  "items": [
   {
-   "text": "1、勾选“自动跃点”",
+   "text": "1、自动跃点设置为：启用",
    "key": "Ipv4AdvancedSettings_AutomaticPoint",
    "path": "网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置是否自动跃点",
    "expect": "1",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“附加DNS后缀”",
+   "text": "2、附加DNS后缀设置为：启用",
    "key": "Ipv4AdvancedSettings_DNSSuffix",
    "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加DNS后缀",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、取消勾选“附加主DNS后缀的父后缀”",
+   "text": "3、附加主DNS后缀的父后缀设置为：禁用",
    "key": "Ipv4AdvancedSettings_MainDNSSuffix",
    "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加主DNS后缀的父后缀",
    "expect": "0",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、取消勾选“在DNS中注册此连接地址”",
+   "text": "4、在DNS中注册此连接地址设置为：禁用",
    "key": "Ipv4AdvancedSettings_RegistrationDNSAddress",
    "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册此连接地址",
    "expect": "0",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“在DNS中注册使用此连接的DNS后缀”",
+   "text": "5、在DNS中注册使用此连接的DNS后缀设置为：启用",
    "key": "Ipv4AdvancedSettings_RegistationDNSSuffix",
    "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册使用此连接的DNS后缀",
    "expect": "1",

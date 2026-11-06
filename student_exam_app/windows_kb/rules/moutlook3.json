@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、取消勾选“显示邮件摘要”",
+   "text": "2、显示邮件摘要设置为：禁用",
    "key": "General_Display_MailList_ShowMailSummary",
    "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要",
    "expect": "0",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、取消勾选“显示邮件大小”",
+   "text": "3、显示邮件大小设置为：禁用",
    "key": "General_Display_MailList_ShowMailSize",
    "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小",
    "expect": "0",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、取消勾选“未填主题时，使用正文第一句作为主题”",
+   "text": "4、未填主题时，使用正文第一句作为主题设置为：禁用",
    "key": "General_Send_FirstTopic",
    "path": "设置 > 常规 > 发信 > 未填主题时，使用正文第一句作为主题",
    "expect": "0",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、取消勾选“收件人自动保存到历史联系人”",
+   "text": "5、收件人自动保存到历史联系人设置为：禁用",
    "key": "General_Send_SaveContacts",
    "path": "设置 > 常规 > 发信 > 收件人自动保存到历史联系人",
    "expect": "0",

@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“使用 Aero Peek 预览桌面”",
+   "text": "2、使用 Aero Peek 预览桌面设置为：启用",
    "key": "useaeropeek",
    "path": "任务栏属性 > 任务栏 > 使用aeropeek",
    "expect": "1",

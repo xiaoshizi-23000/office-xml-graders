@@ -8,7 +8,7 @@
  "title": "Internet 选项 · 第 4 题",
  "items": [
   {
-   "text": "1、勾选“使用自动配置脚本”",
+   "text": "1、使用自动配置脚本设置为：启用",
    "key": "lan_script",
    "path": "Internet属性 > 连接 > 局域网设置 > 使用自动配置脚本",
    "expect": "1",
@@ -16,7 +16,7 @@
    "how": "manual"
   },
   {
-   "text": "2、勾选“为lan使用代理服务器”",
+   "text": "2、为lan使用代理服务器设置为：启用",
    "key": "lan_vpn",
    "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
    "expect": "1",
@@ -24,7 +24,7 @@
    "how": "manual"
   },
   {
-   "text": "3、勾选“跳过本地地址的代理服务器”",
+   "text": "3、跳过本地地址的代理服务器设置为：启用",
    "key": "lan_local",
    "path": "Internet属性 > 连接 > 局域网设置 > 跳过本地地址的代理服务器",
    "expect": "1",
@@ -32,7 +32,7 @@
    "how": "manual"
   },
   {
-   "text": "4、勾选“如果 Internet Explorer 不是默认的 Web 浏览器，提示我”",
+   "text": "4、如果 Internet Explorer 不是默认的 Web 浏览器，提示我设置为：启用",
    "key": "cx_prompt",
    "path": "Internet属性 > 连接 > 程序 > 如果 Internet Explorer 不是默认的 Web 浏览器，提示我",
    "expect": "1",
@@ -40,7 +40,7 @@
    "how": "manual"
   },
   {
-   "text": "5、勾选“通知和阻止级别”",
+   "text": "5、通知和阻止级别设置为：启用",
    "key": "upblock_stoplevel",
    "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
    "expect": "1",

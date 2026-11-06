@@ -1,0 +1,53 @@
+{
+ "id": "niesxWin75",
+ "section": "网络",
+ "group": "iesxWin7",
+ "qid": "niesxWin75",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 5 题",
+ "items": [
+  {
+   "text": "1、Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器设置为：启用",
+   "key": "lan_vpn",
+   "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、Internet属性 > 内容 > 源和网页快讯 > 默认计划 > 自动检查更新设置为：启用",
+   "key": "slices_auto",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 默认计划 > 自动检查更新",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、Internet属性 > 内容 > 源和网页快讯 > 在页面中打开网页快讯发现设置为：禁用",
+   "key": "slices_find",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 在页面中打开网页快讯发现",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、Internet属性 > 内容 > 源和网页快讯 > 找到网页的源或网页快讯时播放声音设置为：启用",
+   "key": "slices_fplay",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 找到网页的源或网页快讯时播放声音",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、Internet属性 > 内容 > 源和网页快讯 > 打开源阅读视图设置为：禁用",
+   "key": "slices_open",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 打开源阅读视图",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

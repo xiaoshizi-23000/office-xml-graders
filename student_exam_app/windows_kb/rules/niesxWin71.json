@@ -1,0 +1,53 @@
+{
+ "id": "niesxWin71",
+ "section": "网络",
+ "group": "iesxWin7",
+ "qid": "niesxWin71",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 1 题",
+ "items": [
+  {
+   "text": "1、设置本地Intranet的安全级别为：\" 中-高\"",
+   "key": "aq_intranetevel",
+   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "expect": "中-高",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、内容里的自动完成功能应用于设置为：取消应用地址栏",
+   "key": "auto_address",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、HTML编辑器设置为\" Microsoft Office Word\"",
+   "key": "cx_html",
+   "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+   "expect": " Microsoft Office Word",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、将默认主页设置为：www.svtcc.edu.cn",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.svtcc.edu.cn",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、退出时删除浏览的历史记录，删除\" Cookie\" 和\" 历史记录\"",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "niesxWin73",
+ "section": "网络",
+ "group": "iesxWin7",
+ "qid": "niesxWin73",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 3 题",
+ "items": [
+  {
+   "text": "1、Internet属性 > 内容 > 自动完成设置 > 浏览历史记录设置为：禁用",
+   "key": "auto_hisdory",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 浏览历史记录",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、Internet属性 > 内容 > 自动完成设置 > 在保存密码之前询问我设置为：禁用",
+   "key": "auto_pass",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 在保存密码之前询问我",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、Internet属性 > 内容 > 自动完成设置 > 使用windowssearch获取更好的结果设置为：禁用",
+   "key": "auto_sea",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 使用windowssearch获取更好的结果",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、Internet属性 > 内容 > 自动完成设置 > 源设置为：启用",
+   "key": "auto_sou",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 源",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、Internet属性 > 内容 > 自动完成设置 > 表单设置为：启用",
+   "key": "auto_tab",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 表单",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

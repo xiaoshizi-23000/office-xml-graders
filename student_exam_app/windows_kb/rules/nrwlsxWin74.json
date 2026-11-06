@@ -1,0 +1,53 @@
+{
+ "id": "nrwlsxWin74",
+ "section": "Windows",
+ "group": "rwlsxWin7",
+ "qid": "nrwlsxWin74",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 4 题",
+ "items": [
+  {
+   "text": "1、开始菜单电源按钮操作设置为：重新启动",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "重新启动",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、任务栏按钮设置为：任务栏被占满时合并",
+   "key": "taskbarbtn",
+   "path": "任务栏属性 > 任务栏 > 任务栏按钮",
+   "expect": "任务栏被占满时合并",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、任务栏在屏幕上的位置设置为：顶部",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "顶部",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、任务栏属性 > 任务栏 > 通知区域 > 操作中心设置为：隐藏图标和通知",
+   "key": "tz_cz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、任务栏属性 > 任务栏 > 通知区域 > 始终在任务栏上显示所有图标和通知设置为：启用",
+   "key": "tz_sz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 始终在任务栏上显示所有图标和通知",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

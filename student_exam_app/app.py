@@ -402,41 +402,26 @@ def _norm(value):
 
 @app.route('/windows')
 def windows_page():
-    idx_path = os.path.join(WIN_KB, 'rules_index.json')
+    path = os.path.join(WIN_KB, 'bank_index.json')
     rows = []
-    if os.path.exists(idx_path):
-        with open(idx_path, encoding='utf-8') as f:
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as f:
             rows = json.load(f)
-    sections = {'网络': [], 'Windows': [], '专项练习': []}
+    sections = {'网络': [], 'Windows': []}
     for r in rows:
         sections.setdefault(r['section'], []).append(r)
-    for k in ('网络', 'Windows'):
-        sections[k].sort(key=lambda x: int(x['qid']))
-
-    practice_path = os.path.join(WIN_KB, 'practice_index.json')
-    practice = []
-    if os.path.exists(practice_path):
-        with open(practice_path, encoding='utf-8') as f:
-            practice = json.load(f)
-    groups, order = {}, []
-    for p in practice:
-        g = p.get('group', '')
-        if g not in groups:
-            groups[g] = []
-            order.append(g)
-        groups[g].append(p)
-    practice_groups = [{'prog': g, 'items': groups[g]} for g in order]
-    return render_template('windows.html', sections=sections,
-                           practice_groups=practice_groups,
-                           practice_total=len(practice))
-
-
-@app.route('/windows/download')
-def windows_download():
-    path = os.path.join(STATIC, 'win_tools.zip')
-    if not os.path.exists(path):
-        abort(404)
-    return send_file(path, as_attachment=True, download_name='Windows操作题判分程序.zip')
+    groups = {}
+    for sec, items in sections.items():
+        order, bucket = [], {}
+        for r in items:
+            g = r.get('group', '')
+            if g not in bucket:
+                bucket[g] = []
+                order.append(g)
+            bucket[g].append(r)
+        groups[sec] = [{'prog': g, 'items': bucket[g]} for g in order]
+    return render_template('windows.html', sections=sections, groups=groups,
+                           total=len(rows))
 
 
 @app.route('/windows/prog/<prog>.zip')
@@ -475,8 +460,11 @@ def windows_check():
 
     qid = (request.form.get('qid') or '').strip()
     if qid:
-        name = ('%s.json' % qid) if qid.startswith('m') else ('w%s.json' % qid)
-        rule_path = os.path.join(WIN_KB, 'rules', name)
+        # 三种题号：题库 w<数字>、专项 m<程序><n>、重建 n<程序><n>
+        cand = [os.path.join(WIN_KB, 'rules', '%s.json' % qid)]
+        if not qid[0].isalpha():
+            cand.insert(1, os.path.join(WIN_KB, 'rules', 'w%s.json' % qid))
+        rule_path = next((p for p in cand if os.path.exists(p)), cand[0])
     else:
         rule_path = os.path.join(WIN_KB, 'w1.json')
     if not os.path.exists(rule_path):
@@ -485,6 +473,12 @@ def windows_check():
         rule = json.load(f)
 
     prog = rule.get('prog', '')
+    # 传错程序的文件时直接提示，而不是默默判 0
+    rule_keys = {i['key'] for i in rule['items'] if i.get('key')}
+    if rule_keys and not (rule_keys & set(cur)):
+        return jsonify({'error': '这个文件不是本题对应的程序生成的。本题要用 %s.exe，'
+                                 '请下载该程序做完再上传。' % (prog or '对应')}), 400
+
     base = {k: v['value'] for k, v in _load_prog_keys(prog).items()} if prog else {}
 
     items, got, judgeable, todo = [], 0.0, 0.0, 0

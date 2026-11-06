@@ -1,0 +1,53 @@
+{
+ "id": "nrwlsxWin71",
+ "section": "Windows",
+ "group": "rwlsxWin7",
+ "qid": "nrwlsxWin71",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 1 题",
+ "items": [
+  {
+   "text": "1、任务栏外观设置为\" 自动隐藏任务栏\"",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、在[开始]菜单中，设置\" 存储并显示最近在[开始]菜单中打开的程序\"",
+   "key": "openprogram",
+   "path": "任务栏属性 > 开始菜单 > 菜单中打开的程序",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、在[开始]菜单中，设置电源按钮操作为\" 注销\"",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "注销",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、任务栏外观任务栏按钮设置为\" 当任务栏被占满时合并\"",
+   "key": "taskbarbtn",
+   "path": "任务栏属性 > 任务栏 > 任务栏按钮",
+   "expect": "当任务栏被占满时合并",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、任务栏外观设置屏幕上的任务栏位置为\" 顶部\"",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "顶部",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

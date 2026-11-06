@@ -1,0 +1,53 @@
+{
+ "id": "nrwlsxWin72",
+ "section": "Windows",
+ "group": "rwlsxWin7",
+ "qid": "nrwlsxWin72",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 2 题",
+ "items": [
+  {
+   "text": "1、把\" Table PC输入面板\" 添加到任务栏的工具栏中",
+   "key": "toolbar",
+   "path": "任务栏属性 > 工具栏 > 要添加到任务栏的工具栏",
+   "expect": "Table PC输入面板",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、通知区域操作中心设置为\" 隐藏图标和通知\"",
+   "key": "tz_cz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、始终在任务栏上显示所有图标和通知",
+   "key": "tz_sz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 始终在任务栏上显示所有图标和通知",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、设置任务栏\" 网络\" 显示为\" 仅显示通知\"",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "网络",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、扬声器音量改为\" 仅显示通知\"",
+   "key": "tz_yl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 音量",
+   "expect": "仅显示通知",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

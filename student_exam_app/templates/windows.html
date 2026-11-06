@@ -73,9 +73,8 @@
   </div>
 
   <div class="tabs" id="tabs">
-    <button class="on" data-k="网络">网络（{{ sections['网络']|length }} 题）</button>
-    <button data-k="Windows">Windows（{{ sections['Windows']|length }} 题）</button>
-    <button data-k="专项练习">专项练习（{{ practice_total }} 题）</button>
+    <button class="on" data-k="网络">网络类（{{ sections['网络']|length }} 题）</button>
+    <button data-k="Windows">系统类（{{ sections['Windows']|length }} 题）</button>
   </div>
 
   <div class="card" id="list"></div>
@@ -85,7 +84,7 @@
 
 <script>
 const DATA = {{ sections|tojson }};
-const PRACTICE = {{ practice_groups|tojson }};
+const GROUPS = {{ groups|tojson }};
 let curSection = '网络';
 const PROG_NAME = {
   iesxWin7:'Internet 选项', wangluoWin7:'网络/IPv4', bhsxWin7:'宽带连接', jlljWin7:'连接向导',
@@ -105,21 +104,12 @@ function esc(s) {
 }
 
 function renderList() {
-  if (curSection === '专项练习') { renderPractice(); return; }
-  const rows = DATA[curSection] || [];
-  document.getElementById('list').innerHTML = '<h2>' + curSection + '（' + rows.length + ' 题）</h2>' +
-    rows.map(q => {
-      const items = q.texts.map(t => '<li>' + esc(t) + '</li>').join('');
-      return '<div class="q" id="q' + q.qid + '">' +
-        '<div class="no"><b>第 ' + q.qid + ' 题</b><span>' + q.score + ' 分 · ' + (PROG_NAME[q.prog] || q.prog) + '</span></div>' +
-        '<div class="body"><ul>' + items + '</ul>' +
-        '<div class="result" id="r' + q.qid + '"></div></div>' +
-        '<div class="acts">' +
-        '<a href="/windows/prog/' + q.prog + '.zip">下载程序</a>' +
-        '<button onclick="pick(' + q.qid + ')">上传判分</button>' +
-        '<div class="badge">可判 ' + q.total + ' 项</div>' +
-        '</div></div>';
-    }).join('');
+  const groups = GROUPS[curSection] || [];
+  document.getElementById('list').innerHTML =
+    '<h2>' + curSection + '（' + (DATA[curSection] || []).length + ' 题，每个类型 5 题）</h2>' +
+    groups.map(g => '<div style="margin-top:14px"><div class="gt">' + esc(PROG_NAME[g.prog] || g.prog) +
+      '　<span class="gs">' + g.items.length + ' 题 · ' + esc(g.prog) + '.exe</span></div>' +
+      g.items.map(qCard).join('') + '</div>').join('');
 }
 
 function qCard(q) {

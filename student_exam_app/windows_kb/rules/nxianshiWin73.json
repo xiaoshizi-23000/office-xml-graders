@@ -1,0 +1,53 @@
+{
+ "id": "nxianshiWin73",
+ "section": "Windows",
+ "group": "xianshiWin7",
+ "qid": "nxianshiWin73",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 3 题",
+ "items": [
+  {
+   "text": "1、个性化 > 在恢复时显示登录屏幕设置为：启用",
+   "key": "ResumeDisplay",
+   "path": "个性化 > 在恢复时显示登录屏幕",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、屏幕保护程序设置为：三维文字",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "三维文字",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、个性化 > 桌面背景 > 更改图片时间间隔设置为：启用",
+   "key": "SlideTime",
+   "path": "个性化 > 桌面背景 > 更改图片时间间隔",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、桌面主题设置为第 0 个 Aero 主题",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、个性化 > 屏幕保护等待时间设置为：禁用",
+   "key": "WitingTime",
+   "path": "个性化 > 屏幕保护等待时间",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

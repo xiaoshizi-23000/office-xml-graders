@@ -1,0 +1,53 @@
+{
+ "id": "nxianshiWin72",
+ "section": "Windows",
+ "group": "xianshiWin7",
+ "qid": "nxianshiWin72",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 2 题",
+ "items": [
+  {
+   "text": "1、将分辨率设置为1280*1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "1280",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、个性化 > 桌面背景 > 背景图片显示位置设置为：禁用",
+   "key": "BackgroundDisplay",
+   "path": "个性化 > 桌面背景 > 背景图片显示位置",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、个性化 > 桌面背景 > 纯色设置为：启用",
+   "key": "Color",
+   "path": "个性化 > 桌面背景 > 纯色",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、自定义文本大小(DPI)设置为：125%",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "125%",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、个性化 > 桌面背景 > 播放次序设置为：启用",
+   "key": "PlayOrder",
+   "path": "个性化 > 桌面背景 > 播放次序",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

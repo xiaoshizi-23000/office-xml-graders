@@ -1,0 +1,53 @@
+{
+ "id": "nxianshiWin71",
+ "section": "Windows",
+ "group": "xianshiWin7",
+ "qid": "nxianshiWin71",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 1 题",
+ "items": [
+  {
+   "text": "1、桌面背景更改为\" 图片库\" 中的\" 考拉\"",
+   "key": "PictureLibrary",
+   "path": "个性化 > 桌面背景 > 图片库",
+   "expect": "图片库",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、屏幕保护程序设置为：\" 空白\" ，等待时间：3分钟，在恢复时显示登录屏幕",
+   "key": "ResumeDisplay",
+   "path": "个性化 > 在恢复时显示登录屏幕",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、屏幕保护程序设置为：\" 气泡\"  等待时间设置为：3分钟",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "气泡",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、桌面背景设置为：顶级照片里的第三张图片",
+   "key": "TopPhoto",
+   "path": "个性化 > 桌面背景 > 顶级图片",
+   "expect": "顶级照片里的第三张图片",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、在个性化里更改背景设置为：Windows桌面背景，图片选择场景的第五幅图片，",
+   "key": "WindowsDesktopBackground",
+   "path": "个性化 > 桌面背景 > Windows桌面背景",
+   "expect": "Windows桌面背景",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

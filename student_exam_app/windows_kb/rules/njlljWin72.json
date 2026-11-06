@@ -1,0 +1,53 @@
+{
+ "id": "njlljWin72",
+ "section": "网络",
+ "group": "jlljWin7",
+ "qid": "njlljWin72",
+ "score": 5,
+ "prog": "jlljWin7",
+ "title": "连接向导 · 第 2 题",
+ "items": [
+  {
+   "text": "1、宽带连接名称设置为：宽带连接a",
+   "key": "PPPoEConnName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)连接名称",
+   "expect": "宽带连接a",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、设置连接或网络 > 连接到Internet > 宽带(PPPoE)允许其他人使用此连接设置为：启用",
+   "key": "PPPoEOther",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)允许其他人使用此连接",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、记住宽带连接密码设置为：启用",
+   "key": "PPPoEPpwd",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)记住密码",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、设置连接或网络 > 连接到Internet > 宽带(PPPoE)显示字符设置为：启用",
+   "key": "PPPoEString",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)显示字符",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、宽带(PPPoE)用户名设置为：user01",
+   "key": "PPPoEUserName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)用户名",
+   "expect": "user01",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

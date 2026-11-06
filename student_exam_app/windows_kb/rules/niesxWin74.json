@@ -1,0 +1,53 @@
+{
+ "id": "niesxWin74",
+ "section": "网络",
+ "group": "iesxWin7",
+ "qid": "niesxWin74",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 4 题",
+ "items": [
+  {
+   "text": "1、Internet属性 > 内容 > 自动完成设置 > 表单上的用户名和密码设置为：禁用",
+   "key": "auto_use",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 表单上的用户名和密码",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、Internet属性 > 连接 > 程序 > 如果 Internet Explorer 不是默认的 Web 浏览器，提示我设置为：启用",
+   "key": "cx_prompt",
+   "path": "Internet属性 > 连接 > 程序 > 如果 Internet Explorer 不是默认的 Web 浏览器，提示我",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、Internet属性 > 连接 > 局域网设置 > 自动检测设置为：禁用",
+   "key": "lan_auto",
+   "path": "Internet属性 > 连接 > 局域网设置 > 自动检测设置",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、Internet属性 > 连接 > 局域网设置 > 跳过本地地址的代理服务器设置为：启用",
+   "key": "lan_local",
+   "path": "Internet属性 > 连接 > 局域网设置 > 跳过本地地址的代理服务器",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、Internet属性 > 连接 > 局域网设置 > 使用自动配置脚本设置为：启用",
+   "key": "lan_script",
+   "path": "Internet属性 > 连接 > 局域网设置 > 使用自动配置脚本",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

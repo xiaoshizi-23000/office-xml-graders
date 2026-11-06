@@ -1,0 +1,53 @@
+{
+ "id": "ntjdyjWin75",
+ "section": "Windows",
+ "group": "tjdyjWin7",
+ "qid": "ntjdyjWin75",
+ "score": 5,
+ "prog": "tjdyjWin7",
+ "title": "打印机 · 第 5 题",
+ "items": [
+  {
+   "text": "1、打印机型号任意，打印机名为\" abc\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "abc",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、默认打印机设置为：启用",
+   "key": "DefaultPrint",
+   "path": "添加打印机 > 设置为默认打印机",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、添加打印机时选择：添加网络、无线或 Bluetooth 打印机",
+   "key": "InstallationPrintType",
+   "path": "添加打印机 > 安装什么类型的打印机",
+   "expect": "添加网络、无线或 Bluetooth 打印机",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、共享这台打印机设置为：启用",
+   "key": "PrintShareSetup",
+   "path": "添加打印机 > 打印机共享设置",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、打印机端口选择：USB001",
+   "key": "SelectPrintPort",
+   "path": "添加打印机 > 选择打印机端口",
+   "expect": "USB001",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "nqyszWin75",
+ "section": "Windows",
+ "group": "qyszWin7",
+ "qid": "nqyszWin75",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 5 题",
+ "items": [
+  {
+   "text": "1、短时间格式设置为：h:mm tt",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "h:mm tt",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、区域和语言 > 格式 > 第一天设置为：星期一",
+   "key": "gs_dyt",
+   "path": "区域和语言 > 格式 > 第一天",
+   "expect": "星期一",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、区域格式设置为：英语(美国)",
+   "key": "gs_gs",
+   "path": "区域和语言 > 格式 > 格式",
+   "expect": "英语(美国)",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、货币符号设置为：$",
+   "key": "hb_hbfh",
+   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
+   "expect": "$",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、排序方式设置为：笔画",
+   "key": "px_px",
+   "path": "区域和语言 > 自定义格式 > 排序 > 排序",
+   "expect": "笔画",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

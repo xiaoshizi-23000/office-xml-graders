@@ -1,0 +1,53 @@
+{
+ "id": "noutlook3",
+ "section": "Windows",
+ "group": "outlook",
+ "qid": "noutlook3",
+ "score": 5,
+ "prog": "outlook",
+ "title": "邮件设置 · 第 3 题",
+ "items": [
+  {
+   "text": "1、收件人填写：admin@school.edu.cn",
+   "key": "WriteMail_Address",
+   "path": "写信 > 收件人",
+   "expect": "admin@school.edu.cn",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、邮件正文填写：老师您好，附件是本次作业。",
+   "key": "WriteMail_Content",
+   "path": "写信 > 正文",
+   "expect": "老师您好，附件是本次作业。",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、新建邮件的主题填写：关于期中考试的通知",
+   "key": "WriteMail_Topic",
+   "path": "写信 > 主题",
+   "expect": "关于期中考试的通知",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、账户默认昵称设置为：小狮子",
+   "key": "Account_Info_DefaultName",
+   "path": "设置 > 帐户 > 帐户信息 > 默认帐户昵称",
+   "expect": "小狮子",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、邮件列表文字大小设置为：小号",
+   "key": "General_Display_FontSize",
+   "path": "设置 > 常规 > 显示 > 文字大小",
+   "expect": "小号",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "nbhsxWin71",
+ "section": "网络",
+ "group": "bhsxWin7",
+ "qid": "nbhsxWin71",
+ "score": 5,
+ "prog": "bhsxWin7",
+ "title": "宽带连接 · 第 1 题",
+ "items": [
+  {
+   "text": "1、设置密码为：345678C",
+   "key": "connect_password",
+   "path": "宽带连接 > 连接 > 密码",
+   "expect": "345678C",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、设置用户名为：Service03",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "Service03",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、属性里在选项里设置拨号选项连接时显示进度",
+   "key": "xx_jd",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、宽带连接 > 属性 > 安全 > chap2设置为：禁用",
+   "key": "aq_chap",
+   "path": "宽带连接 > 属性 > 安全 > chap2",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、宽带连接 > 属性 > 安全 > 使用可扩展的身份验证协议设置为：启用",
+   "key": "aq_kzxy",
+   "path": "宽带连接 > 属性 > 安全 > 使用可扩展的身份验证协议",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

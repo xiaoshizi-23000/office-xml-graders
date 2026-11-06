@@ -1,0 +1,53 @@
+{
+ "id": "noutlook5",
+ "section": "Windows",
+ "group": "outlook",
+ "qid": "noutlook5",
+ "score": 5,
+ "prog": "outlook",
+ "title": "邮件设置 · 第 5 题",
+ "items": [
+  {
+   "text": "1、设置 > 常规 > 发信 > 未填主题时，使用正文第一句作为主题设置为：启用",
+   "key": "General_Send_FirstTopic",
+   "path": "设置 > 常规 > 发信 > 未填主题时，使用正文第一句作为主题",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、设置 > 常规 > 发信 > 收件人自动保存到历史联系人设置为：启用",
+   "key": "General_Send_SaveContacts",
+   "path": "设置 > 常规 > 发信 > 收件人自动保存到历史联系人",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、设置 > 常规 > 发信 > 邮件自动保存到“已发送”设置为：启用",
+   "key": "General_Send_SaveSend",
+   "path": "设置 > 常规 > 发信 > 邮件自动保存到“已发送”",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、收件人填写：teacher@example.com",
+   "key": "WriteMail_Address",
+   "path": "写信 > 收件人",
+   "expect": "teacher@example.com",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、邮件正文填写：老师您好，附件是本次作业。",
+   "key": "WriteMail_Content",
+   "path": "写信 > 正文",
+   "expect": "老师您好，附件是本次作业。",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

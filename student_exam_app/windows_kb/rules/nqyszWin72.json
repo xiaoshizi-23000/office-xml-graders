@@ -1,0 +1,53 @@
+{
+ "id": "nqyszWin72",
+ "section": "Windows",
+ "group": "qyszWin7",
+ "qid": "nqyszWin72",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 2 题",
+ "items": [
+  {
+   "text": "1、在\" 其他设置\" ，\" 自定义格式\" 对话框中进行如下设置：",
+   "key": "gs_gs",
+   "path": "区域和语言 > 格式 > 格式",
+   "expect": "其他设置",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、其他设置里，货币数字分组设置为\" 12,34,56,789\"",
+   "key": "hb_fz",
+   "path": "区域和语言 > 自定义格式 > 货币 > 数字分组",
+   "expect": "12,34,56,789",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、其他设置里，货币符号设置为\" $\"",
+   "key": "hb_hbfh",
+   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
+   "expect": "$",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、其他设置里，排序设置为\" 笔划\"",
+   "key": "px_px",
+   "path": "区域和语言 > 自定义格式 > 排序 > 排序",
+   "expect": "笔划",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、AM符号设置为\" AM\"",
+   "key": "sj_am",
+   "path": "区域和语言 > 自定义格式 > 时间 > AM",
+   "expect": "AM",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "noutlook4",
+ "section": "Windows",
+ "group": "outlook",
+ "qid": "noutlook4",
+ "score": 5,
+ "prog": "outlook",
+ "title": "邮件设置 · 第 4 题",
+ "items": [
+  {
+   "text": "1、邮件列表文字大小设置为：大号",
+   "key": "General_Display_FontSize",
+   "path": "设置 > 常规 > 显示 > 文字大小",
+   "expect": "大号",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、邮件列表每页显示 50 封",
+   "key": "General_Display_MailList_PageSize",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件",
+   "expect": "50",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小设置为：启用",
+   "key": "General_Display_MailList_ShowMailSize",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要设置为：启用",
+   "key": "General_Display_MailList_ShowMailSummary",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、设置 > 常规 > 邮件自动转发设置为：启用",
+   "key": "General_MailAutoForward",
+   "path": "设置 > 常规 > 邮件自动转发",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

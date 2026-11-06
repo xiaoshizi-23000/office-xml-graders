@@ -1,0 +1,53 @@
+{
+ "id": "nrwlsxWin73",
+ "section": "Windows",
+ "group": "rwlsxWin7",
+ "qid": "nrwlsxWin73",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 3 题",
+ "items": [
+  {
+   "text": "1、自动隐藏任务栏设置为：启用",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、锁定任务栏设置为：启用",
+   "key": "locktaskbar",
+   "path": "任务栏属性 > 任务栏 > 锁定任务栏",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、任务栏属性 > 开始菜单 > 菜单中打开的程序设置为：启用",
+   "key": "openprogram",
+   "path": "任务栏属性 > 开始菜单 > 菜单中打开的程序",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、任务栏属性 > 开始菜单 > 菜单中打开的项目设置为：启用",
+   "key": "openproject",
+   "path": "任务栏属性 > 开始菜单 > 菜单中打开的项目",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、开始菜单电源按钮操作设置为：睡眠",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "睡眠",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

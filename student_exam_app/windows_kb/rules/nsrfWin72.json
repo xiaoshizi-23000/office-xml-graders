@@ -1,0 +1,53 @@
+{
+ "id": "nsrfWin72",
+ "section": "Windows",
+ "group": "srfWin7",
+ "qid": "nsrfWin72",
+ "score": 5,
+ "prog": "srfWin7",
+ "title": "输入法和语言栏 · 第 2 题",
+ "items": [
+  {
+   "text": "1、文本服务和输入语言 > 高级键设置 > 简体中文双拼(版本6.0)设置为：启用",
+   "key": "Larry",
+   "path": "文本服务和输入语言 > 高级键设置 > 简体中文双拼(版本6.0)",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音新体验输入风格设置为：启用",
+   "key": "NewStyle",
+   "path": "文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音新体验输入风格",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、文本服务和输入语言 > 高级键设置 > 简体中文全拼(版本6.0)设置为：启用",
+   "key": "Sqelling",
+   "path": "文本服务和输入语言 > 高级键设置 > 简体中文全拼(版本6.0)",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、文本服务和输入语言 > 语言栏 > 在任务栏中显示其他语言栏图标设置为：禁用",
+   "key": "TaskbarDisplayLanguageBarIcon",
+   "path": "文本服务和输入语言 > 语言栏 > 是否在任务栏中显示其他语言栏图标",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、文本服务和输入语言 > 语言栏 > 非活动时以透明状态显示语言栏设置为：禁用",
+   "key": "TransparentLanguageBarDisplayStatus",
+   "path": "文本服务和输入语言 > 语言栏 > 非活动时是否以透明状态显示语言栏",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

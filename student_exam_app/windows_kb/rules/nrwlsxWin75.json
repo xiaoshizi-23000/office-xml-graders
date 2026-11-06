@@ -1,0 +1,53 @@
+{
+ "id": "nrwlsxWin75",
+ "section": "Windows",
+ "group": "rwlsxWin7",
+ "qid": "nrwlsxWin75",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 5 题",
+ "items": [
+  {
+   "text": "1、任务栏属性 > 任务栏 > 通知区域 > 网络设置为：隐藏图标和通知",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、任务栏属性 > 任务栏 > 通知区域 > 音量设置为：隐藏图标和通知",
+   "key": "tz_yl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 音量",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、任务栏属性 > 任务栏 > 通知区域 > windows资源管理器设置为：显示图标和通知",
+   "key": "tz_zy",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > windows资源管理器",
+   "expect": "显示图标和通知",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、使用 Aero Peek 预览桌面设置为：启用",
+   "key": "useaeropeek",
+   "path": "任务栏属性 > 任务栏 > 使用aeropeek",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、使用小图标设置为：禁用",
+   "key": "usesmallicons",
+   "path": "任务栏属性 > 任务栏 > 使用小图标",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

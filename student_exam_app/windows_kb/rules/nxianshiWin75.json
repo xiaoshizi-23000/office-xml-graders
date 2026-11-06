@@ -1,0 +1,53 @@
+{
+ "id": "nxianshiWin75",
+ "section": "Windows",
+ "group": "xianshiWin7",
+ "qid": "nxianshiWin75",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 5 题",
+ "items": [
+  {
+   "text": "1、在个性化里更改背景设置为：Windows桌面背景，图片选择场景的第五幅图片，",
+   "key": "WindowsDesktopBackground",
+   "path": "个性化 > 桌面背景 > Windows桌面背景",
+   "expect": "Windows桌面背景",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、将分辨率设置为1280*1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "1280",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、个性化 > 桌面背景 > 背景图片显示位置设置为：禁用",
+   "key": "BackgroundDisplay",
+   "path": "个性化 > 桌面背景 > 背景图片显示位置",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、个性化 > 桌面背景 > 纯色设置为：启用",
+   "key": "Color",
+   "path": "个性化 > 桌面背景 > 纯色",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、自定义文本大小(DPI)设置为：125%",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "125%",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

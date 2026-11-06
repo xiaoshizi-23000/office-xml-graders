@@ -1,0 +1,53 @@
+{
+ "id": "nbhsxWin74",
+ "section": "网络",
+ "group": "bhsxWin7",
+ "qid": "nbhsxWin74",
+ "score": 5,
+ "prog": "bhsxWin7",
+ "title": "宽带连接 · 第 4 题",
+ "items": [
+  {
+   "text": "1、宽带连接 > 属性 > 共享 > 允许其他网络用户设置为：启用",
+   "key": "gx_qt",
+   "path": "宽带连接 > 属性 > 共享 > 允许其他网络用户",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、宽带连接 > 属性 > 选项 > 包括Windows登录域设置为：启用",
+   "key": "xx_dl",
+   "path": "宽带连接 > 属性 > 选项 > 包括Windows登录域",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、宽带连接 > 属性 > 选项 > 连接时显示进度断线重拨设置为：启用",
+   "key": "xx_dx",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度断线重拨",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、宽带连接 > 属性 > 选项 > 连接时显示进度设置为：启用",
+   "key": "xx_jd",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、宽带连接 > 属性 > 选项 > 提示名称、密码和证书等设置为：启用",
+   "key": "xx_ts",
+   "path": "宽带连接 > 属性 > 选项 > 提示名称、密码和证书等",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

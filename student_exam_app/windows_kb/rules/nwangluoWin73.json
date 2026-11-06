@@ -1,0 +1,53 @@
+{
+ "id": "nwangluoWin73",
+ "section": "网络",
+ "group": "wangluoWin7",
+ "qid": "nwangluoWin73",
+ "score": 5,
+ "prog": "wangluoWin7",
+ "title": "网络 IPv4 · 第 3 题",
+ "items": [
+  {
+   "text": "1、网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置退出时验证设置为：启用",
+   "key": "Ipv4_BackVerificationExit",
+   "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置退出时是否验证",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、默认网关设置为：192.168.1.1",
+   "key": "Ipv4_Gateway",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关",
+   "expect": "192.168.1.1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、IPv4 地址设置为：192.168.1.100",
+   "key": "Ipv4_IpAddress",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置IP地址",
+   "expect": "192.168.1.100",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、首选 DNS 服务器设置为：8.8.8.8",
+   "key": "Ipv4_MainDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置首选DNS服务器地址",
+   "expect": "8.8.8.8",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、子网掩码设置为：255.255.255.0",
+   "key": "Ipv4_Mask",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置子网掩码",
+   "expect": "255.255.255.0",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

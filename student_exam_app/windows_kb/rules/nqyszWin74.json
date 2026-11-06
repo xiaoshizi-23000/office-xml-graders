@@ -1,0 +1,53 @@
+{
+ "id": "nqyszWin74",
+ "section": "Windows",
+ "group": "qyszWin7",
+ "qid": "nqyszWin74",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 4 题",
+ "items": [
+  {
+   "text": "1、其他设置里，数字小数位数设置为\" 5\" 位",
+   "key": "sz_xsw",
+   "path": "区域和语言 > 自定义格式 > 数字 > 小数位",
+   "expect": "5",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、长日期格式设置为：dddd, MMMM d, yyyy",
+   "key": "gs_crq",
+   "path": "区域和语言 > 格式 > 长日期",
+   "expect": "dddd, MMMM d, yyyy",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、长时间格式设置为：h:mm:ss tt",
+   "key": "gs_csj",
+   "path": "区域和语言 > 格式 > 长时间",
+   "expect": "h:mm:ss tt",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、短日期格式设置为：yyyy-MM-dd",
+   "key": "gs_drq",
+   "path": "区域和语言 > 格式 > 短日期",
+   "expect": "yyyy-MM-dd",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、短时间格式设置为：HH:mm",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "HH:mm",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

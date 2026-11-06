@@ -1,0 +1,53 @@
+{
+ "id": "niesxWin72",
+ "section": "网络",
+ "group": "iesxWin7",
+ "qid": "niesxWin72",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 2 题",
+ "items": [
+  {
+   "text": "1、从位于以下位置的其他程序打开链接为\" 新窗口\"",
+   "key": "tab_other",
+   "path": "Internet属性 > 常规 > 选项卡 > 从位于以下位置的其他程序打开链接",
+   "expect": "新窗口",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、磁盘使用空间设置为140M",
+   "key": "temp_review_cpkj",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+   "expect": "140",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、设置网页保存在历史记录中的天数为\" 15\"",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "15",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、Internet属性 > 内容 > 自动完成设置 > 地址栏设置为：禁用",
+   "key": "auto_address",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、Internet属性 > 内容 > 自动完成设置 > 收藏夹设置为：禁用",
+   "key": "auto_fav",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 收藏夹",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

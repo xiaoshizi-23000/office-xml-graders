@@ -1,0 +1,53 @@
+{
+ "id": "nwangluoWin72",
+ "section": "网络",
+ "group": "wangluoWin7",
+ "qid": "nwangluoWin72",
+ "score": 5,
+ "prog": "wangluoWin7",
+ "title": "网络 IPv4 · 第 2 题",
+ "items": [
+  {
+   "text": "1、网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置启用LMHOSTS设置为：禁用",
+   "key": "Ipv4AdvancedSettings_WINSLMHOSTS",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置是否启用LMHOSTS",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置NetBIOS设置为：启用",
+   "key": "Ipv4AdvancedSettings_WINSNetBIOS",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置NetBIOS设置",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、自动获得 IP 地址设置为：禁用",
+   "key": "Ipv4_Automatic",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得IP地址",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、自动获得 DNS 服务器地址设置为：禁用",
+   "key": "Ipv4_AutomaticDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得DNS服务器地址",
+   "expect": "0",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置自动专用IP地址设置为：启用",
+   "key": "Ipv4_BackAutomatic",
+   "path": "网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置是否自动专用IP地址",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

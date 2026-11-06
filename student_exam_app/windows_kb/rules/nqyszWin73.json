@@ -1,0 +1,53 @@
+{
+ "id": "nqyszWin73",
+ "section": "Windows",
+ "group": "qyszWin7",
+ "qid": "nqyszWin73",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 3 题",
+ "items": [
+  {
+   "text": "1、PM符号设置为\" PM\"",
+   "key": "sj_pm",
+   "path": "区域和语言 > 自定义格式 > 时间 > PM",
+   "expect": "PM",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、在其他设置中，使用当地数字设置为\" 国家/地区\"",
+   "key": "sz_ddsz",
+   "path": "区域和语言 > 自定义格式 > 数字 > 当地数字",
+   "expect": "国家/地区",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、其他设置里，度量衡系统设置为\" 美制\"",
+   "key": "sz_dlh",
+   "path": "区域和语言 > 自定义格式 > 数字 > 度量衡",
+   "expect": "美制",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、其他设置里，数字负数格式设置为\" 1.1-\" （注意：1.1与-中间无空格）",
+   "key": "sz_fsgs",
+   "path": "区域和语言 > 自定义格式 > 数字 > 负数格式",
+   "expect": "1.1-",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、其他设置里，数字零起始显示设置为\" 0.7\"",
+   "key": "sz_lqs",
+   "path": "区域和语言 > 自定义格式 > 数字 > 零起始",
+   "expect": "0.7",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

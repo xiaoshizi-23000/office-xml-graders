@@ -1,0 +1,53 @@
+{
+ "id": "nsrfWin73",
+ "section": "Windows",
+ "group": "srfWin7",
+ "qid": "nsrfWin73",
+ "score": 5,
+ "prog": "srfWin7",
+ "title": "输入法和语言栏 · 第 3 题",
+ "items": [
+  {
+   "text": "1、文本服务和输入语言 > 高级键设置 > 切换到 英语(美国) - 美式键盘设置为：启用",
+   "key": "USASwitch",
+   "path": "文本服务和输入语言 > 高级键设置 > 切换到 英语(美国) - 美式键盘",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "2、文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音ABC输入风格设置为：启用",
+   "key": "ABCStyle",
+   "path": "文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音ABC输入风格",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "3、文本服务和输入语言 > 高级键设置 > 关闭Caps　Lock设置为：启用",
+   "key": "CapsLock",
+   "path": "文本服务和输入语言 > 高级键设置 > 关闭Caps　Lock",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "4、默认输入语言设置为：英语(美国) - 美式键盘",
+   "key": "DefaultInputLanguage",
+   "path": "文本服务和输入语言 > 常规 > 默认输入语言设置",
+   "expect": "英语(美国) - 美式键盘",
+   "score": 1,
+   "how": "bank"
+  },
+  {
+   "text": "5、文本服务和输入语言 > 语言栏 > 语言栏位置设置为：启用",
+   "key": "LanguageBarPosition",
+   "path": "文本服务和输入语言 > 语言栏 > 语言栏位置设置",
+   "expect": "1",
+   "score": 1,
+   "how": "bank"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

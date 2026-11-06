@@ -20,22 +20,26 @@
   .card h2 { font-size:14.5px; margin:0 0 10px; color:var(--blue); }
   .hint { color:var(--muted); font-size:12.5px; line-height:1.95; }
   .hint b { color:#334155; }
-  .q { border-top:1px solid #eef2f6; padding:12px 0; display:flex; gap:12px; align-items:flex-start; }
-  .q:first-of-type { border-top:none; }
-  .q .no { width:104px; flex-shrink:0; }
-  .q .no b { display:block; font-size:13.5px; }
-  .q .no span { color:var(--muted); font-size:11.5px; }
-  .q .body { flex:1; min-width:0; }
-  .q .body ul { margin:0; padding:0; }
-  .q .body li { color:#334155; font-size:12.5px; line-height:1.85; list-style:none; position:relative; padding-left:11px; }
-  .q .body li::before { content:'·'; position:absolute; left:0; color:#94a3b8; }
-  .q .acts { display:flex; flex-direction:column; gap:6px; width:116px; flex-shrink:0; }
-  .q .acts a, .q .acts button { display:inline-flex; align-items:center; justify-content:center; height:30px; border-radius:7px; font-size:12.5px; text-decoration:none; cursor:pointer; font-family:inherit; border:1px solid #cbd5e1; background:#f8fafc; color:#334155; }
-  .q .acts a { background:#eff6ff; border-color:#bfdbfe; color:#1b5c96; }
-  .q .acts a:hover { background:#dbeafe; }
-  .q .acts .badge { font-size:11px; color:var(--muted); text-align:center; }
-  .gt { font-size:13.5px; font-weight:700; color:#12385c; padding:6px 0 2px; border-bottom:1px dashed #dbe4ee; }
-  .gt .gs { font-weight:400; font-size:11.5px; color:#64748b; }
+  .grp { margin-top: 6px; }
+  .grp .gh { display:flex; align-items:center; gap:10px; padding:8px 0 6px; border-bottom:1px solid #e6eef6; }
+  .grp .gname { font-size:13.5px; font-weight:700; color:#12385c; }
+  .grp .gmeta { font-size:11.5px; color:#64748b; }
+  .grp .gdl { margin-left:auto; font-size:12.5px; color:#1b5c96; text-decoration:none; border:1px solid #bfdbfe; background:#eff6ff; padding:5px 12px; border-radius:7px; }
+  .grp .gdl:hover { background:#dbeafe; }
+
+  .q { padding:12px 0 14px; border-bottom:1px solid #f1f5f9; }
+  .qhead { display:flex; align-items:baseline; gap:8px; margin-bottom:4px; }
+  .qhead b { font-size:13px; color:#0f172a; }
+  .qhead span { font-size:11.5px; color:#64748b; }
+  .qitems { margin:0 0 8px; padding:0; }
+  .qitems li { list-style:none; position:relative; padding-left:11px; color:#334155; font-size:12.5px; line-height:1.85; }
+  .qitems li::before { content:'·'; position:absolute; left:0; color:#94a3b8; }
+
+  .drop { display:flex; align-items:center; justify-content:center; border:1px dashed #cbd5e1; border-radius:9px; background:#fbfdff; padding:11px; cursor:pointer; transition:.15s; }
+  .drop:hover, .drop.over { border-color:#f59e0b; background:#fffbeb; }
+  .drop .dtext { color:#94a3b8; font-size:12.5px; }
+  .drop input { display:none; }
+
   .result { display:none; margin-top:10px; border:1px solid #dbeafe; background:#f8fbff; border-radius:10px; padding:12px 14px; }
   .result.on { display:block; }
   .result h3 { margin:0 0 8px; font-size:13.5px; color:#0c4a6e; }
@@ -107,39 +111,55 @@ function renderList() {
   const groups = GROUPS[curSection] || [];
   document.getElementById('list').innerHTML =
     '<h2>' + curSection + '（' + (DATA[curSection] || []).length + ' 题，每个类型 5 题）</h2>' +
-    groups.map(g => '<div style="margin-top:14px"><div class="gt">' + esc(PROG_NAME[g.prog] || g.prog) +
-      '　<span class="gs">' + g.items.length + ' 题 · ' + esc(g.prog) + '.exe</span></div>' +
-      g.items.map(qCard).join('') + '</div>').join('');
+    groups.map(g => {
+      const rows = g.items.map(qCard).join('');
+      return '<div class="grp"><div class="gh">' +
+        '<span class="gname">' + esc(PROG_NAME[g.prog] || g.prog) + '</span>' +
+        '<span class="gmeta">' + g.items.length + ' 题 · ' + esc(g.prog) + '.exe</span>' +
+        '<a class="gdl" href="/windows/prog/' + g.prog + '.zip">⬇ 下载程序</a>' +
+        '</div>' + rows + '</div>';
+    }).join('');
 }
 
 function qCard(q) {
   const items = q.texts.map(t => '<li>' + esc(t) + '</li>').join('');
   const id = String(q.id);
-  return '<div class="q" id="q' + id + '">' +
-    '<div class="no"><b>' + esc(q.title || ('第 ' + q.qid + ' 题')) + '</b><span>' + q.score + ' 分 · ' + (PROG_NAME[q.prog] || q.prog) + '</span></div>' +
-    '<div class="body"><ul>' + items + '</ul><div class="result" id="r' + id + '"></div></div>' +
-    '<div class="acts">' +
-    '<a href="/windows/prog/' + q.prog + '.zip">下载程序</a>' +
-    '<button onclick="pick(\'' + id + '\')">上传判分</button>' +
-    '<div class="badge">可判 ' + q.total + ' 项</div>' +
-    '</div></div>';
+  return '<div class="q">' +
+    '<div class="qhead"><b>' + esc(q.title) + '</b><span>' + q.score + ' 分</span></div>' +
+    '<ul class="qitems">' + items + '</ul>' +
+    '<div class="drop" id="d' + id + '" data-qid="' + id + '">' +
+    '<span class="dtext">把程序生成的文件拖到这里，或点击上传</span>' +
+    '<input type="file" class="dfile">' +
+    '</div>' +
+    '<div class="result" id="r' + id + '"></div>' +
+    '</div>';
 }
 
-function renderPractice() {
-  const groups = PRACTICE || [];
-  document.getElementById('list').innerHTML = '<h2>专项练习（每个程序 5 题，每题 1 分）</h2>' +
-    groups.map(g => '<div style="margin-top:14px"><div class="gt">' + esc(PROG_NAME[g.prog] || g.prog) +
-      '　<span class="gs">' + g.items.length + ' 题 · ' + esc(g.prog) + '.exe</span></div>' +
-      g.items.map(qCard).join('') + '</div>').join('');
-}
+document.addEventListener('click', e => {
+  const drop = e.target.closest('.drop');
+  if (drop && !e.target.classList.contains('dfile')) drop.querySelector('.dfile').click();
+});
 
-let pendingQid = null;
-const picker = document.getElementById('picker');
-picker.onchange = () => {
-  if (picker.files.length && pendingQid) upload(picker.files[0], pendingQid);
-  picker.value = '';
-};
-function pick(qid) { pendingQid = String(qid); picker.click(); }
+document.addEventListener('change', e => {
+  if (!e.target.classList.contains('dfile')) return;
+  const drop = e.target.closest('.drop');
+  if (e.target.files.length) upload(e.target.files[0], drop.dataset.qid);
+  e.target.value = '';
+});
+
+['dragover', 'dragleave', 'drop'].forEach(evt => {
+  document.addEventListener(evt, e => {
+    const drop = e.target.closest && e.target.closest('.drop');
+    if (!drop) return;
+    e.preventDefault();
+    if (evt === 'dragover') drop.classList.add('over');
+    if (evt === 'dragleave') drop.classList.remove('over');
+    if (evt === 'drop') {
+      drop.classList.remove('over');
+      if (e.dataTransfer.files.length) upload(e.dataTransfer.files[0], drop.dataset.qid);
+    }
+  });
+});
 
 async function upload(f, qid) {
   const box = document.getElementById('r' + String(qid));
@@ -149,12 +169,12 @@ async function upload(f, qid) {
   fd.append('file', f);
   fd.append('qid', String(qid));
   try {
-    const r = await fetch('/api/windows/check', { method:'POST', body: fd });
+    const r = await fetch('/api/windows/check', { method: 'POST', body: fd });
     const d = await r.json();
     if (!r.ok) { box.innerHTML = '<h3 class="bad">' + esc(d.error || '判分失败') + '</h3>'; return; }
     renderResult(box, d);
-  } catch (e) {
-    box.innerHTML = '<h3 class="bad">上传失败：' + esc(e) + '</h3>';
+  } catch (err) {
+    box.innerHTML = '<h3 class="bad">上传失败：' + esc(err) + '</h3>';
   }
 }
 

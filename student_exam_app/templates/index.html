@@ -224,7 +224,7 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
         <div class="upload-icon">📁</div>
         <div class="upload-text" id="uploadText">点击此处上传已完成的操作文件</div>
         <div class="upload-hint" id="uploadHint">支持 .xlsx / .docx / .pptx / .zip 格式</div>
-        <div class="office-tip">⚠️ 请用 <b>Office 2010</b> 完成后再上传。用 WPS 或 Microsoft 365 保存的文件，字体、图表、数据条等格式项会与标准不一致，可能被扣分。</div>
+        <div class="office-tip" id="officeTip"></div>
         <input type="file" id="fileInput" onchange="handleUpload(this)" accept=".xlsx,.docx,.pptx,.zip">
       </div>
       <div class="upload-rule" id="uploadRule"></div>
@@ -264,14 +264,17 @@ let currentQid = null;
 let uploadedFile = null;
 let questionsData = {};
 
+const OFFICE_TIP = '⚠️ 请用 <b>Office 2010</b> 完成后再上传。用 WPS 或 Microsoft 365 保存的文件，字体、图表、数据条等格式项会与标准不一致，可能被扣分。';
+const DW_TIP = '⚠️ 请用 <b>Dreamweaver CS6</b> 完成后再上传。用 VS Code、HBuilder 等编辑器保存的网页，结构与样式写法可能和标准答案不同，部分考点会被判错。';
+
 const subjectMeta = {
-  excel: { label: 'Excel 2010', icon: '📊', dot: 'var(--green)', ext: '.xlsx', mime: 'spreadsheetml.sheet',
+  excel: { label: 'Excel 2010', icon: '📊', dot: 'var(--green)', ext: '.xlsx', mime: 'spreadsheetml.sheet', tip: OFFICE_TIP,
            rule: '上传单个 .xlsx 工作簿文件（直接提交保存好的那份表格，不要压缩、不要改扩展名）。' },
-  word:  { label: 'Word 2010', icon: '📝', dot: 'var(--blue)', ext: '.docx', mime: 'wordprocessingml.document',
+  word:  { label: 'Word 2010', icon: '📝', dot: 'var(--blue)', ext: '.docx', mime: 'wordprocessingml.document', tip: OFFICE_TIP,
            rule: '上传单个 .docx 文档文件（直接提交保存好的那份文档，不要压缩、不要改扩展名）。' },
-  ppt:   { label: 'PowerPoint 2010', icon: '🎨', dot: 'var(--orange)', ext: '.pptx', mime: 'presentationml.presentation',
+  ppt:   { label: 'PowerPoint 2010', icon: '🎨', dot: 'var(--orange)', ext: '.pptx', mime: 'presentationml.presentation', tip: OFFICE_TIP,
            rule: '上传单个 .pptx 演示文稿文件（直接提交保存好的那份课件，不要压缩、不要改扩展名）。' },
-  dw:    { label: '网页制作', icon: '🌐', dot: 'var(--purple)', ext: '.zip', mime: 'zip',
+  dw:    { label: '网页制作', icon: '🌐', dot: 'var(--purple)', ext: '.zip', mime: 'zip', tip: DW_TIP,
            rule: '⚠️ 网页题交法：素材解压后是一个网站文件夹（HTMLMaterial，里面有 index.html 和 Image 文件夹）。做完后选中这个文件夹（或它里面的全部文件）右键压缩成一个 zip 上传，一个 zip 就够。压缩包里必须有 index.html；只压一个 html 文件、或漏掉 Image 文件夹，图片和样式类题目会判 0 分。' }
 };
 
@@ -279,6 +282,7 @@ const subjectMeta = {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  document.getElementById('officeTip').innerHTML = (subjectMeta[currentSubject] || subjectMeta.excel).tip || '';
   document.querySelectorAll('.tab').forEach(t => {
     t.addEventListener('click', () => switchSubject(t.dataset.subject));
   });
@@ -302,6 +306,7 @@ function switchSubject(subject) {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.subject === subject));
 
   const meta = subjectMeta[subject];
+  document.getElementById('officeTip').innerHTML = meta.tip || '';
   document.getElementById('sectionLabel').textContent = meta.icon + ' ' + meta.label + ' 操作题 — 选择题目开始作答';
   document.getElementById('workspace').classList.add('hidden');
   document.getElementById('emptyState').classList.remove('hidden');

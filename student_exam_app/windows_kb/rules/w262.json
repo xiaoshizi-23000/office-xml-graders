@@ -7,28 +7,12 @@
  "title": "Windows 第 262 题",
  "items": [
   {
-   "text": "1、其他设置里，数字负数格式设置为\"",
+   "text": "1、其他设置里，数字负数格式设置为\" 1.1-\" （注意：1.1与-中间无空格）",
    "key": "sz_fsgs",
    "path": "区域和语言 > 自定义格式 > 数字 > 负数格式",
    "expect": "",
    "how": "path",
-   "score": 0.83
-  },
-  {
-   "text": "1.1-\" （注意：",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0.83
-  },
-  {
-   "text": "1.1与-中间无空格）",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0.83
+   "score": 1.25
   },
   {
    "text": "2、其他设置里，货币符号设置为\" $\"",
@@ -36,7 +20,7 @@
    "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
    "expect": "",
    "how": "path",
-   "score": 0.83
+   "score": 1.25
   },
   {
    "text": "3、其他设置里，时间中设置长时间格式设置为\" tt h:mm:ss\"",
@@ -44,7 +28,7 @@
    "path": "区域和语言 > 格式 > 长时间",
    "expect": "",
    "how": "path",
-   "score": 0.83
+   "score": 1.25
   },
   {
    "text": "4、PM符号设置为\" PM\"",
@@ -52,9 +36,9 @@
    "path": "区域和语言 > 自定义格式 > 时间 > PM",
    "expect": "",
    "how": "path",
-   "score": 0.83
+   "score": 1.25
   }
  ],
  "matched": 4,
- "covered": false
+ "covered": true
 }

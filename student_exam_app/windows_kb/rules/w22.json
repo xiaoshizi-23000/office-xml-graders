@@ -7,20 +7,12 @@
  "title": "网络 第 22 题",
  "items": [
   {
-   "text": "1、将默认主页设置为：www.",
+   "text": "1、将默认主页设置为：www.58.com",
    "key": "homepage",
    "path": "Internet属性 > 常规 > 主页",
-   "expect": "",
+   "expect": "www.58.com",
    "how": "rule",
-   "score": 1.0
-  },
-  {
-   "text": "8.com",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "2、磁盘使用空间设置为140M",
@@ -28,7 +20,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
    "expect": "140",
    "how": "rule",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "3、历史记录保存天数设置为21天",
@@ -36,7 +28,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "21",
    "how": "rule",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "4、启用 SmartScreen 筛选器",
@@ -44,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.0
+   "score": 1.25
   }
  ],
  "matched": 3,

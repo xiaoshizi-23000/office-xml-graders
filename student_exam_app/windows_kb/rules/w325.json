@@ -12,23 +12,15 @@
    "path": "添加打印机 > 网络打印机名称",
    "expect": "",
    "how": "fuzzy",
-   "score": 1.0
+   "score": 1.25
   },
   {
-   "text": "2、添加共享打印机路径为\\\\1",
+   "text": "2、添加共享打印机路径为\\\\192.168.2.5\\ABC",
    "key": "PrintShareSetup",
    "path": "添加打印机 > 打印机共享设置",
    "expect": "",
    "how": "rule",
-   "score": 1.0
-  },
-  {
-   "text": "2.5\\ABC",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "3、打印机名称为\" 5\"",
@@ -36,7 +28,7 @@
    "path": "添加打印机 > 打印机名称设置",
    "expect": "",
    "how": "rule",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "4、打印测试页",
@@ -44,9 +36,9 @@
    "path": "添加打印机 > 是否打印测试页",
    "expect": "",
    "how": "path",
-   "score": 1.0
+   "score": 1.25
   }
  ],
  "matched": 4,
- "covered": false
+ "covered": true
 }

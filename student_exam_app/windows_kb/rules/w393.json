@@ -7,20 +7,12 @@
  "title": "网络 第 393 题",
  "items": [
   {
-   "text": "1、设置主页为www.3",
+   "text": "1、设置主页为www.360.com",
    "key": "homepage",
    "path": "Internet属性 > 常规 > 主页",
-   "expect": "www.3",
+   "expect": "www.360.com",
    "how": "rule",
-   "score": 1.0
-  },
-  {
-   "text": "0.com",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "2、设置网页保存在历史记录中的天数为\" 15\"",
@@ -28,7 +20,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "15",
    "how": "rule",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "3、启用快速导航选项卡",
@@ -36,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.0
+   "score": 1.25
   },
   {
    "text": "4、设置本地Intranet的安全级别为：\" 中-高\"",
@@ -44,7 +36,7 @@
    "path": "Internet属性 > 安全 > Internet > 安全级别",
    "expect": "",
    "how": "rule",
-   "score": 1.0
+   "score": 1.25
   }
  ],
  "matched": 3,

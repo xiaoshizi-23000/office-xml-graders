@@ -105,7 +105,7 @@ def split_items(q):
     """把题目的条目拆成单条要求（有的行里塞了 1、2、3）。"""
     out = []
     for raw in q['items']:
-        parts = re.split(r'(?=\d{1,2}\s*[、.．])', raw)
+        parts = re.split(r'(?<![0-9.])(?=\d{1,2}\s*[、．]\s*(?!\d))', raw)
         for p in parts:
             p = p.strip(' ；;')
             if len(p) >= 4:

@@ -420,8 +420,13 @@ def windows_page():
                 order.append(g)
             bucket[g].append(r)
         groups[sec] = [{'prog': g, 'items': bucket[g]} for g in order]
+    names_path = os.path.join(WIN_KB, 'exe_names.json')
+    exe_names = {}
+    if os.path.exists(names_path):
+        with open(names_path, encoding='utf-8') as f:
+            exe_names = json.load(f)
     return render_template('windows.html', sections=sections, groups=groups,
-                           total=len(rows))
+                           total=len(rows), exe_names=exe_names)
 
 
 @app.route('/windows/prog/<prog>.zip')

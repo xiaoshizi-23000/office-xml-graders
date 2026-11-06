@@ -1,0 +1,44 @@
+{
+ "id": "w295",
+ "section": "Windows",
+ "qid": "295",
+ "score": 5.0,
+ "prog": "rwlsxWin7",
+ "title": "Windows 第 295 题",
+ "items": [
+  {
+   "text": "1、任务栏外观设置为\" 自动隐藏任务栏\"",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、任务栏外观设置为\" 使用小图标\"",
+   "key": "usesmallicons",
+   "path": "任务栏属性 > 任务栏 > 使用小图标",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "3、把\" 地址\" 添加到任务栏的工具栏",
+   "key": "toolbar",
+   "path": "任务栏属性 > 工具栏 > 要添加到任务栏的工具栏",
+   "expect": "",
+   "how": "fuzzy",
+   "score": 1.25
+  },
+  {
+   "text": "4、在[开始]菜单中，设置\" 存储并显示最近在[开始]菜单中打开的程序\"",
+   "key": "openprogram",
+   "path": "任务栏属性 > 开始菜单 > 菜单中打开的程序",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

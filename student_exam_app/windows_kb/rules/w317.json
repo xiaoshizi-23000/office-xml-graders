@@ -1,0 +1,44 @@
+{
+ "id": "w317",
+ "section": "Windows",
+ "qid": "317",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 317 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、使用LPT3端口",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、选择 厂商为\" HP（惠普）\" 型号为\" HP Deskjet F735 series\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、打印测试页",
+   "key": "TestPage",
+   "path": "添加打印机 > 是否打印测试页",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

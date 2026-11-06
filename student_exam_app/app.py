@@ -402,7 +402,17 @@ def _norm(value):
 
 @app.route('/windows')
 def windows_page():
-    return render_template('windows.html')
+    idx_path = os.path.join(WIN_KB, 'rules_index.json')
+    rows = []
+    if os.path.exists(idx_path):
+        with open(idx_path, encoding='utf-8') as f:
+            rows = json.load(f)
+    sections = {'网络': [], 'Windows': []}
+    for r in rows:
+        sections.setdefault(r['section'], []).append(r)
+    for k in sections:
+        sections[k].sort(key=lambda x: int(x['qid']))
+    return render_template('windows.html', sections=sections)
 
 
 @app.route('/windows/download')
@@ -411,6 +421,24 @@ def windows_download():
     if not os.path.exists(path):
         abort(404)
     return send_file(path, as_attachment=True, download_name='Windows操作题判分程序.zip')
+
+
+@app.route('/windows/prog/<prog>.zip')
+def windows_prog_zip(prog):
+    if not re.match(r'^[A-Za-z0-9_]+$', prog):
+        abort(404)
+    path = os.path.join(STATIC, 'progs', prog + '.zip')
+    if not os.path.exists(path):
+        abort(404)
+    return send_file(path, as_attachment=True, download_name='%s.zip' % prog)
+
+
+def _load_prog_keys(prog):
+    path = os.path.join(WIN_KB, 'progs', prog + '.txt')
+    if not os.path.exists(path):
+        return {}
+    rows = parse_snapshot(_read_text(open(path, 'rb').read()))
+    return {r['key']: r for r in rows if r['key']}
 
 
 @app.route('/api/windows/check', methods=['POST'])
@@ -422,47 +450,54 @@ def windows_check():
     if not raw:
         return jsonify({'error': '文件是空的'}), 400
     if len(raw) > 2 * 1024 * 1024:
-        return jsonify({'error': '文件太大，判分程序生成的文件一般只有几 KB'}), 400
+        return jsonify({'error': '文件太大'}), 400
 
     rows = parse_snapshot(_read_text(raw))
     if not rows:
-        return jsonify({'error': '这不是判分程序生成的清单文件（没有找到 □ 分隔的行）'}), 400
+        return jsonify({'error': '这不是判分程序生成的清单文件（没有 □ 分隔的行）'}), 400
+    cur = {r['key']: r for r in rows if r['key']}
 
-    cur = {}
-    for r in rows:
-        if r['key']:
-            cur[r['key']] = r
-
-    qid = request.form.get('qid') or 'w1'
-    rule_path = os.path.join(WIN_KB, '%s.json' % qid)
+    qid = (request.form.get('qid') or '').strip()
+    if qid:
+        rule_path = os.path.join(WIN_KB, 'rules', 'w%s.json' % qid)
+    else:
+        rule_path = os.path.join(WIN_KB, 'w1.json')
     if not os.path.exists(rule_path):
-        return jsonify({'error': '题目配置不存在：%s' % qid}), 404
+        return jsonify({'error': '题目配置不存在：%s' % (qid or 'w1')}), 404
     with open(rule_path, encoding='utf-8') as f:
         rule = json.load(f)
 
-    base = {}
-    base_path = os.path.join(WIN_KB, 'ie_baseline.txt')
-    if os.path.exists(base_path):
-        for r in parse_snapshot(_read_text(open(base_path, 'rb').read())):
-            if r['key']:
-                base[r['key']] = r['value']
+    prog = rule.get('prog', '')
+    base = {k: v['value'] for k, v in _load_prog_keys(prog).items()} if prog else {}
 
-    items, total = [], 0.0
+    items, got, judgeable, todo = [], 0.0, 0.0, 0
     for it in rule['items']:
-        hit = cur.get(it['key'])
-        actual = hit['value'] if hit else ''
+        if it.get('step'):
+            items.append({'text': it['text'], 'status': 'step', 'got': 0, 'full': 0,
+                          'actual': '', 'expect': ''})
+            continue
+        key = it.get('key') or ''
+        full = it.get('score', 0)
+        if not key or not it.get('expect'):
+            todo += 1
+            items.append({'text': it['text'], 'status': 'todo', 'got': 0, 'full': full,
+                          'actual': '', 'expect': it.get('expect', '')})
+            continue
+        actual = cur.get(key, {}).get('value', '')
         ok = _norm(actual) == _norm(it['expect'])
-        got = it['score'] if ok else 0
-        total += got
-        items.append({'name': it['name'], 'actual': actual, 'expect': it['expect'],
-                      'ok': ok, 'got': got, 'full': it['score']})
+        judgeable += full
+        if ok:
+            got += full
+        items.append({'text': it['text'], 'status': 'ok' if ok else 'bad', 'got': full if ok else 0,
+                      'full': full, 'actual': actual, 'expect': it['expect']})
 
     all_rows = [{'path': r['path'], 'value': r['value'],
                  'default': base.get(r['key'], ''),
                  'changed': bool(r['key']) and _norm(r['value']) != _norm(base.get(r['key'], ''))}
                 for r in rows]
-    return jsonify({'title': rule['title'], 'score': round(total, 1),
-                    'full': sum(i['score'] for i in rule['items']),
+    return jsonify({'title': rule.get('title') or '判分结果',
+                    'score': round(got, 1), 'full': round(judgeable, 1),
+                    'total_score': rule.get('score', 0), 'todo': todo,
                     'items': items, 'all': all_rows[:400]})
 
 

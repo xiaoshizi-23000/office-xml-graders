@@ -1,0 +1,44 @@
+{
+ "id": "w379",
+ "section": "网络",
+ "qid": "379",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 379 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.qq.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.qq.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、退出时删除浏览的历史记录，删除\" 历史记录\"",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、打开新选项卡后，打开\" 空白页\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、从位于以下位置的其他程序打开连接为\" 新窗口\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

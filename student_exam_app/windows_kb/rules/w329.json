@@ -1,0 +1,44 @@
+{
+ "id": "w329",
+ "section": "Windows",
+ "qid": "329",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 329 题",
+ "items": [
+  {
+   "text": "1、将分辨率设置为1280*1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "2、DPI缩放至150%",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "3、桌面背景更改为\" Window桌面背景\" 中的场景中的第一个",
+   "key": "WindowsDesktopBackground",
+   "path": "个性化 > 桌面背景 > Windows桌面背景",
+   "expect": "",
+   "how": "fuzzy",
+   "score": 2.5
+  },
+  {
+   "text": "4、屏幕保护设置为\" 变换线\" ，时间\" 6\" 分钟",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

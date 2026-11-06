@@ -1,0 +1,44 @@
+{
+ "id": "w320",
+ "section": "Windows",
+ "qid": "320",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 320 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、使用XPSPort端口",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、选择厂商为\" 爱普生\" 型号为\" Epson AL-7000\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、打印机名称为\" AL7000\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

@@ -1,0 +1,52 @@
+{
+ "id": "w373",
+ "section": "网络",
+ "qid": "373",
+ "score": 5.0,
+ "prog": "bhsxWin7",
+ "title": "网络 第 373 题",
+ "items": [
+  {
+   "text": "1、设置用户名为：ServiceY",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "ServiceY",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "2、设置密码为：332299Y",
+   "key": "connect_password",
+   "path": "宽带连接 > 连接 > 密码",
+   "expect": "332299Y",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3、属性里在选项里设置拨号选项连接时显示进度",
+   "key": "xx_jd",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "4、属性里在选项里设置挂断前的空闲时间为：30分钟",
+   "key": "xx_kx",
+   "path": "宽带连接 > 属性 > 选项 > 挂断前的空闲时间",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "5、进行一次拨号连接",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  }
+ ],
+ "matched": 4,
+ "covered": false
+}

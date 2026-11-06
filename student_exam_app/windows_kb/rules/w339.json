@@ -1,0 +1,44 @@
+{
+ "id": "w339",
+ "section": "Windows",
+ "qid": "339",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 339 题",
+ "items": [
+  {
+   "text": "1、屏幕保护程序设置为：\" 空白\" ，等待时间：3分钟，在恢复时显示登录屏幕",
+   "key": "ResumeDisplay",
+   "path": "个性化 > 在恢复时显示登录屏幕",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "2、更改桌面背景，设置为\" 顶级照片\" 选择第5张企鹅的图片。",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "3、设置屏幕的分辨率为：1280x1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "4、主题设置为：Aero主题里的\" 建筑\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

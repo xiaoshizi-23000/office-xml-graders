@@ -1,0 +1,52 @@
+{
+ "id": "w355",
+ "section": "网络",
+ "qid": "355",
+ "score": 5.0,
+ "prog": "bhsxWin7",
+ "title": "网络 第 355 题",
+ "items": [
+  {
+   "text": "1、设置用户名为：ADminE",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "ADminE",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "2、设置密码为：567890E",
+   "key": "connect_password",
+   "path": "宽带连接 > 连接 > 密码",
+   "expect": "567890E",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3、为下面用户保存用户名和密码，只是我",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "4、属性里在选项里设置重播间隔为：5秒",
+   "key": "xx_jg",
+   "path": "宽带连接 > 属性 > 选项 > 重播间隔",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "5、进行一次拨号连接",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  }
+ ],
+ "matched": 4,
+ "covered": false
+}

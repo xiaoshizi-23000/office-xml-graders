@@ -1,0 +1,44 @@
+{
+ "id": "w345",
+ "section": "Windows",
+ "qid": "345",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 345 题",
+ "items": [
+  {
+   "text": "1、主题设置为：基本和高对比主题里的Window 7 Basic",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "2、桌面背景设置为：顶级照片里的第一张图片",
+   "key": "TopPhoto",
+   "path": "个性化 > 桌面背景 > 顶级图片",
+   "expect": "",
+   "how": "fuzzy",
+   "score": 2.5
+  },
+  {
+   "text": "3、图片位置设置为\" 拉伸\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "4、屏幕保护程序设置为：\" 气泡\"  等待时间设置为：3分钟",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

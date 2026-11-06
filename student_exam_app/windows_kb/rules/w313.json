@@ -1,0 +1,44 @@
+{
+ "id": "w313",
+ "section": "Windows",
+ "qid": "313",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 313 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、使用端口COM3:（串行端口）",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、打印机名称为\" XPS\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、打印测试页",
+   "key": "TestPage",
+   "path": "添加打印机 > 是否打印测试页",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

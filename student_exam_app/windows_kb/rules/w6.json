@@ -1,0 +1,44 @@
+{
+ "id": "w6",
+ "section": "网络",
+ "qid": "6",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 6 题",
+ "items": [
+  {
+   "text": "1、主页设置为：www.amazon.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.amazon.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、网页保存在历史记录中的天数设置为：15",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "15",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、设置删除 Internet 临时文件（T）",
+   "key": "temp_review_cpkj",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+   "expect": "",
+   "how": "fuzzy",
+   "score": 1.25
+  },
+  {
+   "text": "4、设置Internet的安全级别为：中",
+   "key": "aq_internetlevel",
+   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

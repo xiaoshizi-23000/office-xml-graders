@@ -1,0 +1,52 @@
+{
+ "id": "w47",
+ "section": "网络",
+ "qid": "47",
+ "score": 5.0,
+ "prog": "bhsxWin7",
+ "title": "网络 第 47 题",
+ "items": [
+  {
+   "text": "1、设置用户名为：Service07",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "Service07",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "2、设置密码为：123407",
+   "key": "connect_password",
+   "path": "宽带连接 > 连接 > 密码",
+   "expect": "123407",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3、为下面用户保存用户名和密码设置为\" 任何使用此计算机的人\"",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "4、属性里设置宽带常规服务名为：服务器07",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  },
+  {
+   "text": "5、进行一次拨号连接",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

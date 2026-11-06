@@ -1,0 +1,44 @@
+{
+ "id": "w318",
+ "section": "Windows",
+ "qid": "318",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 318 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、使用COM3端口",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、选择 厂商为\" HP（惠普）\" 型号为\" hp color inkjet cp 1700\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、共享此打印机名称为\" cp1700\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

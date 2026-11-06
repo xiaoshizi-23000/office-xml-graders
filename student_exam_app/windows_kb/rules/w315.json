@@ -1,0 +1,44 @@
+{
+ "id": "w315",
+ "section": "Windows",
+ "qid": "315",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 315 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、添加佳能的Canon Inkjet iP3300打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、打印机名称为\" ip3300\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、共享打印机名称为\" ip3300ip\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

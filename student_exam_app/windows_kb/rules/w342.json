@@ -1,0 +1,46 @@
+{
+ "id": "w342",
+ "section": "网络",
+ "qid": "342",
+ "score": 5.0,
+ "prog": "jlljWin7",
+ "title": "网络 第 342 题",
+ "items": [
+  {
+   "text": "1、连接到Internet",
+   "key": "",
+   "step": true,
+   "score": 0,
+   "path": "",
+   "expect": "",
+   "how": "step"
+  },
+  {
+   "text": "2、宽带PPPoE",
+   "key": "",
+   "step": true,
+   "score": 0,
+   "path": "",
+   "expect": "",
+   "how": "step"
+  },
+  {
+   "text": "3、用户名：qfq，密码：7788990",
+   "key": "PPPoEUserName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)用户名",
+   "expect": "qfq",
+   "how": "rule",
+   "score": 2.5
+  },
+  {
+   "text": "4、连接名称设置为\" 宽带连接q\" ,允许其他人使用此连接",
+   "key": "PPPoEConnName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)连接名称",
+   "expect": " 宽带连接q",
+   "how": "rule",
+   "score": 2.5
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

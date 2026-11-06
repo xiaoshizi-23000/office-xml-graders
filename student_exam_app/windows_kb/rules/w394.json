@@ -1,0 +1,44 @@
+{
+ "id": "w394",
+ "section": "网络",
+ "qid": "394",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 394 题",
+ "items": [
+  {
+   "text": "1、设置主页为：vip.qq.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、设置网页保存在历史记录中的天数为：10",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "10",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、设置如果Internet Explorer不是默认的Web浏览器，提示我",
+   "key": "gj_ll",
+   "path": "Internet属性 > 高级 > 浏览",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "4、设置多媒体\" 智能图像抖动\"",
+   "key": "gj_dm",
+   "path": "Internet属性 > 高级 > 多媒体",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

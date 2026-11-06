@@ -1,0 +1,52 @@
+{
+ "id": "w400",
+ "section": "网络",
+ "qid": "400",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 400 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.1",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.1",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3.com",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  },
+  {
+   "text": "2、打开Internet Explorer时只加载第一个主页",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3、本地Intranet安全级别调整为\" 低\"",
+   "key": "aq_internetlevel",
+   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "expect": "",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "4、HTML编辑器设置为\" Microsoft Office Word\"",
+   "key": "cx_html",
+   "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+   "expect": " Microsoft Office Word",
+   "how": "rule",
+   "score": 1.0
+  }
+ ],
+ "matched": 4,
+ "covered": false
+}

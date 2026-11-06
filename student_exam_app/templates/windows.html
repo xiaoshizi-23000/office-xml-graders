@@ -3,165 +3,163 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Windows 操作题 · 设置清单判分</title>
+<title>Windows 操作题 · 分类练习与判分</title>
 <style>
-  :root { --bg:#f8fafc; --card:#fff; --line:#e2e8f0; --text:#1e293b; --muted:#64748b;
-          --blue:#1b5c96; --green:#15803d; --red:#b91c1c; --amber:#b45309; }
-  * { box-sizing: border-box; }
+  :root { --bg:#f5f7fa; --card:#fff; --line:#e2e8f0; --text:#1e293b; --muted:#64748b;
+          --blue:#1b5c96; --green:#15803d; --red:#b91c1c; }
+  * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--text); font:14px/1.7 "Microsoft YaHei",sans-serif; }
-  .head { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:16px 22px; display:flex; align-items:center; gap:14px; }
-  .head h1 { font-size:17px; margin:0; font-weight:700; }
+  .head { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:14px 20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .head h1 { font-size:16px; margin:0; }
   .head a { margin-left:auto; color:#cbd5e1; text-decoration:none; font-size:13px; }
-  .wrap { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
-  .card h2 { font-size:15px; margin:0 0 10px; color:var(--blue); }
-  .drop { display:block; border:2px dashed #cbd5e1; border-radius:10px; padding:26px 16px; text-align:center; cursor:pointer; background:#fbfdff; }
-  .drop:hover { border-color:#f59e0b; background:#fffbeb; }
-  .drop input { display:none; }
-  .drop p { margin:6px 0 0; color:var(--muted); font-size:12.5px; }
-  .step { color:var(--muted); font-size:13px; line-height:2; }
-  .step b { color:var(--text); }
-  .row { display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px dashed var(--line); }
-  .row:first-of-type { border-top:none; }
-  .row .name { flex:1; }
-  .row .val { color:var(--muted); font-size:12.5px; }
-  .row .score { width:64px; text-align:right; font-weight:700; }
-  .ok { color:var(--green); } .bad { color:var(--red); }
-  .total { display:flex; align-items:baseline; gap:8px; margin-top:6px; padding-top:10px; border-top:2px solid var(--line); }
-  .total .n { font-size:30px; font-weight:800; color:var(--blue); }
-  table { width:100%; border-collapse:collapse; font-size:12.5px; }
-  th,td { border:1px solid var(--line); padding:5px 8px; text-align:left; vertical-align:top; }
-  th { background:#f1f5f9; font-weight:600; color:#334155; }
-  tr.diff td { background:#fffbeb; }
-  .tag { display:inline-block; padding:0 6px; border-radius:4px; font-size:11px; background:#fee2e2; color:var(--red); }
-  .tag.same { background:#dcfce7; color:var(--green); }
-  .note { color:var(--muted); font-size:12px; margin-top:8px; }
-  .where { background:#f1f5f9; border-left:3px solid var(--blue); padding:10px 12px; border-radius:6px; font-size:13px; line-height:1.9; }
-  @media (max-width: 640px) {
-    .head { padding:12px 14px; gap:8px; }
-    .head h1 { font-size:15px; }
-    .wrap { padding:14px 10px 50px; }
-    .card { padding:14px; border-radius:10px; }
-    .step { font-size:12.5px; line-height:1.85; }
-    .total .n { font-size:24px; }
-    table { font-size:11.5px; }
-    th, td { padding:4px 5px; }
-    .row { flex-wrap:wrap; }
-    .row .score { width:auto; margin-left:auto; }
-    .drop { padding:20px 12px; }
+  .wrap { max-width:1000px; margin:0 auto; padding:16px 14px 60px; }
+  .tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+  .tabs button { border:1px solid var(--line); background:#fff; color:#334155; padding:8px 16px; border-radius:9px; cursor:pointer; font-family:inherit; font-size:13.5px; }
+  .tabs button.on { background:var(--blue); border-color:var(--blue); color:#fff; font-weight:600; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; }
+  .card h2 { font-size:14.5px; margin:0 0 10px; color:var(--blue); }
+  .hint { color:var(--muted); font-size:12.5px; line-height:1.95; }
+  .hint b { color:#334155; }
+  .q { border-top:1px solid #eef2f6; padding:12px 0; display:flex; gap:12px; align-items:flex-start; }
+  .q:first-of-type { border-top:none; }
+  .q .no { width:104px; flex-shrink:0; }
+  .q .no b { display:block; font-size:13.5px; }
+  .q .no span { color:var(--muted); font-size:11.5px; }
+  .q .body { flex:1; min-width:0; }
+  .q .body ul { margin:0; padding:0; }
+  .q .body li { color:#334155; font-size:12.5px; line-height:1.85; list-style:none; position:relative; padding-left:11px; }
+  .q .body li::before { content:'·'; position:absolute; left:0; color:#94a3b8; }
+  .q .acts { display:flex; flex-direction:column; gap:6px; width:116px; flex-shrink:0; }
+  .q .acts a, .q .acts button { display:inline-flex; align-items:center; justify-content:center; height:30px; border-radius:7px; font-size:12.5px; text-decoration:none; cursor:pointer; font-family:inherit; border:1px solid #cbd5e1; background:#f8fafc; color:#334155; }
+  .q .acts a { background:#eff6ff; border-color:#bfdbfe; color:#1b5c96; }
+  .q .acts a:hover { background:#dbeafe; }
+  .q .acts .badge { font-size:11px; color:var(--muted); text-align:center; }
+  .result { display:none; margin-top:10px; border:1px solid #dbeafe; background:#f8fbff; border-radius:10px; padding:12px 14px; }
+  .result.on { display:block; }
+  .result h3 { margin:0 0 8px; font-size:13.5px; color:#0c4a6e; }
+  .r { display:flex; gap:8px; padding:5px 0; border-top:1px dashed #e2e8f0; font-size:12.5px; }
+  .r:first-of-type { border-top:none; }
+  .r .m { width:16px; font-weight:700; }
+  .r .t { flex:1; line-height:1.75; }
+  .r .v { color:#64748b; font-size:11.5px; }
+  .ok{color:var(--green)} .bad{color:var(--red)} .todo{color:#b45309}
+  .sum { margin-top:8px; padding-top:8px; border-top:2px solid #dbeafe; font-size:13px; }
+  .sum b { font-size:20px; color:var(--blue); }
+  @media (max-width:640px) {
+    .q { flex-wrap:wrap; }
+    .q .acts { flex-direction:row; width:100%; }
+    .q .acts a, .q .acts button { flex:1; }
+    .q .no { width:auto; }
   }
 </style>
 </head>
 <body>
 <div class="head">
-  <h1>Windows 操作题 · 设置清单判分</h1>
+  <h1>Windows 操作题</h1>
   <a href="/">← 回到题库</a>
 </div>
 
 <div class="wrap">
   <div class="card">
     <h2>怎么用</h2>
-    <div class="step">
-      <div><b>流程：</b>下载程序 → 解压 → 做题 → 关掉程序 → 把生成的文件传上来判分。</div>
-      <div class="note">当前示例题是「网络应用（10 分）」：主页、历史记录天数、退出时删除历史记录。换成你们自己出的题，只需改规则配置。</div>
+    <div class="hint">
+      每道题后面有【下载程序】——只下这道题要用的那一个（1 个 exe + 同目录配置，一百多 KB）。<br>
+      解压 → 按题目改设置 → 双击 exe 打开仿真控制面板做完 → 关掉 → 把同目录生成的那个<b>同名无扩展名文件</b>传上来判分。
     </div>
   </div>
 
-  <div class="card">
-    <h2>① 下载判分程序</h2>
-    <div class="dl">
-      <div class="txt">
-        <b>Windows操作题判分程序.zip</b>
-        <div>约 1.8 MB · 10 个程序 + 使用说明 · 解压即用，不用安装</div>
-      </div>
-      <a class="btn-dl" href="/windows/download">⬇ 下载</a>
-    </div>
-    <ol class="steps" style="margin-top:14px">
-      <li>整个压缩包一起解压到电脑任意位置（建议 <code>D://Windows操作题</code>）。</li>
-      <li>按题目要求改 Windows / Internet 选项 设置。</li>
-      <li>双击对应程序（如 <code>网络\iesxWin7.exe</code>），在它打开的控制面板里完成设置。</li>
-      <li>关掉程序，同目录会生成<b>和程序同名的文件</b>（无扩展名），这就是你的设置记录。</li>
-      <li>回到本页，把它拖进下面的框，自动判分。</li>
-    </ol>
-    <div class="warn"><b>最容易踩的坑：</b>exe 和它旁边那个同名文件（如 <code>iesxWin7</code>）必须在同一个文件夹里，少一个程序打不开。解压别只拖 exe 出来。杀毒软件报毒属正常（程序要读注册表、写文本文件），加信任即可。</div>
+  <div class="tabs" id="tabs">
+    <button class="on" data-k="网络">网络（{{ sections['网络']|length }} 题）</button>
+    <button data-k="Windows">Windows（{{ sections['Windows']|length }} 题）</button>
   </div>
 
-  <div class="card">
-    <h2>② 上传设置记录</h2>
-    <label class="drop" id="drop">
-      <div style="font-size:26px">📄</div>
-      <div id="pickText">点击选择文件，或把文件拖进来</div>
-      <p>支持判分程序生成的无扩展名文本文件（GBK / UTF-8 都能读）</p>
-      <input type="file" id="file">
-    </label>
-  </div>
-
-  <div class="card" id="result" style="display:none">
-    <h2 id="rtitle">判分结果</h2>
-    <div id="items"></div>
-    <div class="total"><span class="n" id="score">0</span><span>／ 10 分</span></div>
-  </div>
-
-  <div class="card" id="allBox" style="display:none">
-    <h2>完整设置清单</h2>
-    <div class="note" style="margin:0 0 8px">高亮的是与你机器默认值不同的项，方便核对改了哪些。</div>
-    <div style="max-height:420px;overflow:auto"><table id="allTable"></table></div>
-  </div>
+  <div class="card" id="list"></div>
 </div>
 
-<script>
-const drop = document.getElementById('drop');
-const fileInput = document.getElementById('file');
-drop.addEventListener('dragover', e => { e.preventDefault(); drop.style.borderColor = '#f59e0b'; });
-drop.addEventListener('dragleave', () => { drop.style.borderColor = '#cbd5e1'; });
-drop.addEventListener('drop', e => {
-  e.preventDefault(); drop.style.borderColor = '#cbd5e1';
-  if (e.dataTransfer.files.length) upload(e.dataTransfer.files[0]);
-});
-fileInput.addEventListener('change', () => { if (fileInput.files.length) upload(fileInput.files[0]); });
+<input type="file" id="picker" style="display:none">
 
-async function upload(f) {
-  document.getElementById('pickText').textContent = '正在读取 ' + f.name + ' …';
+<script>
+const DATA = {{ sections|tojson }};
+let curSection = '网络';
+const PROG_NAME = {
+  iesxWin7:'Internet 选项', wangluoWin7:'网络/IPv4', bhsxWin7:'宽带连接', jlljWin7:'连接向导',
+  qyszWin7:'区域和语言', rwlsxWin7:'任务栏', xianshiWin7:'显示/主题', srfWin7:'输入法',
+  tjdyjWin7:'打印机', outlook:'邮件'
+};
+
+function renderTabs() {
+  document.querySelectorAll('#tabs button').forEach(b => {
+    b.classList.toggle('on', b.dataset.k === curSection);
+    b.onclick = () => { curSection = b.dataset.k; renderTabs(); renderList(); };
+  });
+}
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+
+function renderList() {
+  const rows = DATA[curSection] || [];
+  document.getElementById('list').innerHTML = '<h2>' + curSection + '（' + rows.length + ' 题）</h2>' +
+    rows.map(q => {
+      const items = q.texts.map(t => '<li>' + esc(t) + '</li>').join('');
+      return '<div class="q" id="q' + q.qid + '">' +
+        '<div class="no"><b>第 ' + q.qid + ' 题</b><span>' + q.score + ' 分 · ' + (PROG_NAME[q.prog] || q.prog) + '</span></div>' +
+        '<div class="body"><ul>' + items + '</ul>' +
+        '<div class="result" id="r' + q.qid + '"></div></div>' +
+        '<div class="acts">' +
+        '<a href="/windows/prog/' + q.prog + '.zip">下载程序</a>' +
+        '<button onclick="pick(' + q.qid + ')">上传判分</button>' +
+        '<div class="badge">可判 ' + q.total + ' 项</div>' +
+        '</div></div>';
+    }).join('');
+}
+
+let pendingQid = null;
+const picker = document.getElementById('picker');
+picker.onchange = () => {
+  if (picker.files.length && pendingQid) upload(picker.files[0], pendingQid);
+  picker.value = '';
+};
+function pick(qid) { pendingQid = qid; picker.click(); }
+
+async function upload(f, qid) {
+  const box = document.getElementById('r' + qid);
+  box.classList.add('on');
+  box.innerHTML = '<h3>正在读取 ' + esc(f.name) + ' …</h3>';
   const fd = new FormData();
   fd.append('file', f);
+  fd.append('qid', String(qid));
   try {
-    const r = await fetch('/api/windows/check', { method: 'POST', body: fd });
+    const r = await fetch('/api/windows/check', { method:'POST', body: fd });
     const d = await r.json();
-    if (!r.ok) { alert(d.error || '解析失败'); document.getElementById('pickText').textContent = '点击选择文件，或把文件拖进来'; return; }
-    render(d);
+    if (!r.ok) { box.innerHTML = '<h3 class="bad">' + esc(d.error || '判分失败') + '</h3>'; return; }
+    renderResult(box, d);
   } catch (e) {
-    alert('上传失败：' + e);
+    box.innerHTML = '<h3 class="bad">上传失败：' + esc(e) + '</h3>';
   }
-  document.getElementById('pickText').textContent = '点击选择文件，或把文件拖进来';
 }
 
-function escapeHtml(s) {
-  return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function renderResult(box, d) {
+  const max = d.full || 0;
+  const shown = d.score;
+  const map = { ok:['ok','✓'], bad:['bad','✗'], todo:['todo','·'] };
+  box.innerHTML = '<h3>' + esc(d.title) + ' · 得分 ' + shown + ' / ' + max + '（卷面 ' + (d.total_score || 10) + ' 分）</h3>' +
+    d.items.filter(it => it.status !== 'step').map(it => {
+      const m = map[it.status] || ['todo','·'];
+      let extra;
+      if (it.status === 'ok') extra = '当前值：' + esc(it.actual);
+      else if (it.status === 'bad') extra = '当前值 ' + esc(it.actual) + '　要求 ' + esc(it.expect);
+      else extra = '待人工核对（未配置比对值）';
+      return '<div class="r"><span class="m ' + m[0] + '">' + m[1] + '</span>' +
+             '<span class="t">' + esc(it.text) + '<div class="v">' + extra + '</div></span></div>';
+    }).join('') +
+    '<div class="sum">可自动判分 <b>' + max + '</b> 分，实得 <b>' + shown + '</b> 分' +
+    (d.todo ? '；另有 ' + d.todo + ' 项待人工核对' : '') + '</div>';
 }
 
-function render(d) {
-  document.getElementById('result').style.display = 'block';
-  document.getElementById('allBox').style.display = 'block';
-  document.getElementById('rtitle').textContent = d.title + ' · 判分结果';
-  document.getElementById('items').innerHTML = d.items.map(it => {
-    const cls = it.ok ? 'ok' : 'bad';
-    const icon = it.ok ? '✓' : '✗';
-    let val = '当前值：' + (it.actual === '' ? '（空）' : escapeHtml(it.actual));
-    if (!it.ok) val += '　要求：' + escapeHtml(it.expect);
-    return '<div class="row"><span class="' + cls + '">' + icon + '</span>' +
-           '<span class="name">' + escapeHtml(it.name) + '<div class="val">' + val + '</div></span>' +
-           '<span class="score ' + cls + '">' + it.got + '/' + it.full + '</span></div>';
-  }).join('');
-  document.getElementById('score').textContent = d.score;
-
-  const rows = ['<tr><th style="width:46%">设置项</th><th style="width:27%">当前值</th><th style="width:27%">默认值</th></tr>'];
-  d.all.forEach(r => {
-    rows.push('<tr class="' + (r.changed ? 'diff' : '') + '"><td>' + escapeHtml(r.path) +
-      ' <span class="tag ' + (r.changed ? '' : 'same') + '">' + (r.changed ? '已改' : '默认') + '</span></td>' +
-      '<td>' + escapeHtml(r.value) + '</td><td>' + escapeHtml(r.default) + '</td></tr>');
-  });
-  document.getElementById('allTable').innerHTML = rows.join('');
-}
+renderTabs();
+renderList();
 </script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+{
+ "id": "w5",
+ "section": "网络",
+ "qid": "5",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 5 题",
+ "items": [
+  {
+   "text": "1、主页设置为：www.sugou.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.sugou.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、网页保存在历史记录中的天数设置为：5",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "5",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、设置删除历史记录（H）",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "4、设置Internet的安全级别为：中",
+   "key": "aq_internetlevel",
+   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

@@ -1,0 +1,44 @@
+{
+ "id": "w288",
+ "section": "Windows",
+ "qid": "288",
+ "score": 5.0,
+ "prog": "rwlsxWin7",
+ "title": "Windows 第 288 题",
+ "items": [
+  {
+   "text": "1、任务栏外观设置为\" 使用小图标\"",
+   "key": "usesmallicons",
+   "path": "任务栏属性 > 任务栏 > 使用小图标",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、任务栏外观屏幕上任务栏位置设置为\" 顶部\"",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "",
+   "how": "fuzzy",
+   "score": 1.25
+  },
+  {
+   "text": "3、使用Aero Peek预览桌面",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、通知区域操作中心设置为\" 隐藏图标和通知\"",
+   "key": "tz_cz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

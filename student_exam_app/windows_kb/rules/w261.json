@@ -1,0 +1,52 @@
+{
+ "id": "w261",
+ "section": "网络",
+ "qid": "261",
+ "score": 5.0,
+ "prog": "bhsxWin7",
+ "title": "网络 第 261 题",
+ "items": [
+  {
+   "text": "1、设置用户名为：adminL",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "adminL",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "2、设置密码为：223344",
+   "key": "connect_password",
+   "path": "宽带连接 > 连接 > 密码",
+   "expect": "223344",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3、属性里在选项里设置重播次数为：15",
+   "key": "xx_cs",
+   "path": "宽带连接 > 属性 > 选项 > 重播次数",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "4、属性里在选项里设置重播间隔为：30秒",
+   "key": "xx_jg",
+   "path": "宽带连接 > 属性 > 选项 > 重播间隔",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "5、进行一次拨号连接",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  }
+ ],
+ "matched": 4,
+ "covered": false
+}

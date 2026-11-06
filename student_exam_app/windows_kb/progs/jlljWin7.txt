@@ -1,0 +1,14 @@
+设置连接或网络 > 显示此计算机未设置使用的连接选项□NotSettingOption□1
+设置连接或网络 > 连接到Internet > 宽带(PPPoE)用户名□PPPoEUserName□[您的 ISP 给您的名称]
+设置连接或网络 > 连接到Internet > 宽带(PPPoE)密码□PPPoEPassword□
+设置连接或网络 > 连接到Internet > 宽带(PPPoE)连接名称□PPPoEConnName□宽带连接
+设置连接或网络 > 连接到Internet > 宽带(PPPoE)显示字符□PPPoEString□0
+设置连接或网络 > 连接到Internet > 宽带(PPPoE)记住密码□PPPoEPpwd□0
+设置连接或网络 > 连接到Internet > 宽带(PPPoE)允许其他人使用此连接□PPPoEOther□0
+设置连接或网络 > 连接到Internet > 拨号 > 拨号电话号码□DialPhoneNumber□
+设置连接或网络 > 连接到Internet > 拨号 > 拨号用户名□DialUserName□
+设置连接或网络 > 连接到Internet > 拨号 > 拨号密码□DialPassword□
+设置连接或网络 > 连接到Internet > 拨号 > 拨号连接名称□DialConnName□拨号连接
+设置连接或网络 > 连接到Internet > 拨号 > 拨号显示字符□DialString□0
+设置连接或网络 > 连接到Internet > 拨号 > 拨号记住此密码□Dialpwd□0
+设置连接或网络 > 连接到Internet > 拨号 > 拨号允许其他人使用此连接□DialPhoneOther□0

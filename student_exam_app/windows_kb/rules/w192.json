@@ -1,0 +1,44 @@
+{
+ "id": "w192",
+ "section": "Windows",
+ "qid": "192",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 192 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、使用LPT2端口",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、选择 厂商为\" HP（惠普）\" 型号为\" HP Deskjet F735 series\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、设置为默认的打印机",
+   "key": "DefaultPrint",
+   "path": "添加打印机 > 设置为默认打印机",
+   "expect": "",
+   "how": "fuzzy",
+   "score": 1.25
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

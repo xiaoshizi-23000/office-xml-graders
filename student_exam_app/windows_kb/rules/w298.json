@@ -1,0 +1,44 @@
+{
+ "id": "w298",
+ "section": "网络",
+ "qid": "298",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 298 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：china.nba.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、历史记录保存天数设置为30天",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "30",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、打开新选项卡后，打开\" 空白页\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、设置安全\" 启用集成 Windows 验证*\"",
+   "key": "gj_aq",
+   "path": "Internet属性 > 高级 > 安全",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

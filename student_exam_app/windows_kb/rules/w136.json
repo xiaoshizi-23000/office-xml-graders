@@ -1,0 +1,44 @@
+{
+ "id": "w136",
+ "section": "Windows",
+ "qid": "136",
+ "score": 10.0,
+ "prog": "iesxWin7",
+ "title": "Windows 第 136 题",
+ "items": [
+  {
+   "text": "1、其他设置里，数字小数位数设置为\" 3\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "2、其他设置里，货币符号设置为\" €\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "3、其他设置里，使用当地数字设置为\" 国家/地区\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "4、其他设置里，货币选项卡中数字分组设置为\" 123456789\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

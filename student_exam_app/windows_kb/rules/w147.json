@@ -1,0 +1,44 @@
+{
+ "id": "w147",
+ "section": "Windows",
+ "qid": "147",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "Windows 第 147 题",
+ "items": [
+  {
+   "text": "1、其他设置里，数字选项卡下的数字分组设置为\" 12,34,56,789\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、货币符号设置为\" $\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、在其他设置，长时间格式设置为\" tt hh:mm:ss\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "4、PM符号设置为\" PM\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

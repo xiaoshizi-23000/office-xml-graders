@@ -1,0 +1,196 @@
+{
+ "id": "w9",
+ "section": "网络",
+ "qid": "9",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 9 题",
+ "items": [
+  {
+   "text": "1、主页设置为：www.renren.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.renren.com",
+   "how": "rule",
+   "score": 0.22
+  },
+  {
+   "text": "2、网页保存在历史记录中的天数设置为：19",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "19",
+   "how": "rule",
+   "score": 0.22
+  },
+  {
+   "text": "3、删除文件设置为：删除历史记录（H）和表单数据（F）",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "",
+   "how": "path",
+   "score": 0.22
+  },
+  {
+   "text": "4、代理服务器设置为：为LAN使用代理服务器（X）",
+   "key": "lan_vpn",
+   "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
+   "expect": "",
+   "how": "rule",
+   "score": 0.22
+  },
+  {
+   "text": "【中英文打字】第1题",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "题号:61",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "Facebook（脸书）是美国的一个社交网络服务网站，创立于2004年2月4日，总部位于美国加利福尼亚州帕拉阿图，2012年3月6日发布Wi",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "dows版桌面聊天软件FacebookMessenger。主要创始人马克扎克伯格，哈佛学生。Facebook是世界排名领先的照片分享站点，截至2013",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "11月每天上传约",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "3.5亿张照片。截至2012年5月，Facebook拥有约9亿用户。2018年3月5日起，Facebook将会给来自北美、拉丁美洲、欧",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "和澳大利亚的50家内容发布商提供这个功能。据2007年7月数据，Facebook在所有以服务于大学生为主要业务的网站中，拥有最多的用",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "三千四百万活跃用户。",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "考试成绩",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "试题分值",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "中英文打字",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "Windows",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "返回顶层",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "试卷内容",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "试卷编号：407",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "所属语言：计算机基础",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "试卷方案：19级windows操作题",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "试卷总分：60分",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  },
+  {
+   "text": "共有题型：2种",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 0.22
+  }
+ ],
+ "matched": 4,
+ "covered": false
+}

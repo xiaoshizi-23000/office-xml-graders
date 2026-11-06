@@ -1,0 +1,44 @@
+{
+ "id": "w281",
+ "section": "Windows",
+ "qid": "281",
+ "score": 5.0,
+ "prog": "rwlsxWin7",
+ "title": "Windows 第 281 题",
+ "items": [
+  {
+   "text": "1、自动隐藏任务栏",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、屏幕上任务栏位置设置为\" 右侧\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、电源按钮操作功能改为\" 注销\"",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "4、使用AeroPeek预览桌面",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

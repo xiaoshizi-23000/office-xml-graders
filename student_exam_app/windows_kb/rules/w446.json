@@ -1,0 +1,44 @@
+{
+ "id": "w446",
+ "section": "网络",
+ "qid": "446",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 446 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.svtcc.edu.cn",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.svtcc.edu.cn",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\"",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、关闭多个选项卡时发出警告",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、阻止弹出窗口时显示信息栏",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

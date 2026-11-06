@@ -1,0 +1,52 @@
+{
+ "id": "w128",
+ "section": "Windows",
+ "qid": "128",
+ "score": 5.0,
+ "prog": "qyszWin7",
+ "title": "Windows 第 128 题",
+ "items": [
+  {
+   "text": "在日期时间格式中进行如下设置：",
+   "key": "gs_gs",
+   "path": "区域和语言 > 格式 > 格式",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "1、将短日期格式设置为yyyy-M-d",
+   "key": "gs_drq",
+   "path": "区域和语言 > 格式 > 短日期",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "2、短时间格式设置为HH:mm",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "3、一周的第一天设置为\" 星期三\"",
+   "key": "gs_dyt",
+   "path": "区域和语言 > 格式 > 第一天",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  },
+  {
+   "text": "4、其他设置里，货币符号改为\" $\"",
+   "key": "hb_hbfh",
+   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
+   "expect": "",
+   "how": "path",
+   "score": 1.0
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

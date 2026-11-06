@@ -1,0 +1,44 @@
+{
+ "id": "w326",
+ "section": "Windows",
+ "qid": "326",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 326 题",
+ "items": [
+  {
+   "text": "1、将分辨率设置为1280*1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "2、DPI缩放至150%",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "3、桌面背景更改为\" 图片库\" 中的\" 考拉\"",
+   "key": "PictureLibrary",
+   "path": "个性化 > 桌面背景 > 图片库",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "4、屏幕保护设置为\" 三维文字\" ，在恢复时显示登录屏幕",
+   "key": "ResumeDisplay",
+   "path": "个性化 > 在恢复时显示登录屏幕",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

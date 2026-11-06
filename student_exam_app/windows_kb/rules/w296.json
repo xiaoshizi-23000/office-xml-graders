@@ -1,0 +1,44 @@
+{
+ "id": "w296",
+ "section": "网络",
+ "qid": "296",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 296 题",
+ "items": [
+  {
+   "text": "1、主页设置为：www.weixin.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.weixin.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、磁盘使用空间设置为150M",
+   "key": "temp_review_cpkj",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+   "expect": "150",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、历史记录保存天数设置为5天",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "5",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、设置安全\" 启用 DOM 存储\"",
+   "key": "gj_aq",
+   "path": "Internet属性 > 高级 > 安全",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

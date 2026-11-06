@@ -1,0 +1,14 @@
+文本服务和输入语言 > 常规 > 添加、删除输入法□Add/RemoveInputMethod□中文(简体，中国) - 中文(简体) - 美式键盘■英语(美国) - 美式键盘
+文本服务和输入语言 > 常规 > 默认输入语言设置□DefaultInputLanguage□中文(简体，中国) - 中文(简体) - 美式键盘
+文本服务和输入语言 > 语言栏 > 语言栏位置设置□LanguageBarPosition□0
+文本服务和输入语言 > 语言栏 > 非活动时是否以透明状态显示语言栏□TransparentLanguageBarDisplayStatus□1
+文本服务和输入语言 > 语言栏 > 是否在任务栏中显示其他语言栏图标□TaskbarDisplayLanguageBarIcon□1
+文本服务和输入语言 > 语言栏 > 是否在语言栏上显示文本标签□LanguageBarTextLabel□1
+文本服务和输入语言 > 高级键设置 > 关闭Caps　Lock□CapsLock□0
+在输入语言之间□LanguageSwitch□文本服务和输入语言 > 高级键设置 > 左Alt+Shift■1■0
+文本服务和输入语言 > 高级键设置 > 切换到 英语(美国) - 美式键盘□USASwitch□0
+文本服务和输入语言 > 高级键设置 > 中文(简体)输入法 - 输入法/非输入法切换□NotInputSwitch□Ctrl+Space■0■0
+文本服务和输入语言 > 高级键设置 > 简体中文全拼(版本6.0)□Sqelling□0
+文本服务和输入语言 > 高级键设置 > 简体中文双拼(版本6.0)□Larry□0
+文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音ABC输入风格□ABCStyle□0
+文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音新体验输入风格□NewStyle□0

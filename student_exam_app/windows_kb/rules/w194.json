@@ -1,0 +1,44 @@
+{
+ "id": "w194",
+ "section": "Windows",
+ "qid": "194",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 194 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、使用COM2端口",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、选择 厂商为\" 索尼\" 型号为\" Sony DPP-FP85\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、打印测试页",
+   "key": "TestPage",
+   "path": "添加打印机 > 是否打印测试页",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

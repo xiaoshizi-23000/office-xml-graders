@@ -1,0 +1,44 @@
+{
+ "id": "w188",
+ "section": "Windows",
+ "qid": "188",
+ "score": 5.0,
+ "prog": "tjdyjWin7",
+ "title": "Windows 第 188 题",
+ "items": [
+  {
+   "text": "1、添加本地打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "2、添加微软的XPS Document Writer打印机",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、打印机名称为\" XPS\"",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、打印测试页",
+   "key": "TestPage",
+   "path": "添加打印机 > 是否打印测试页",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

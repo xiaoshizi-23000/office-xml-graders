@@ -1,0 +1,44 @@
+{
+ "id": "w23",
+ "section": "网络",
+ "qid": "23",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 23 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.qunar.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.qunar.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、磁盘使用空间设置为120M",
+   "key": "temp_review_cpkj",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+   "expect": "120",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、历史记录保存天数设置为11天",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "11",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、启用集成 Windows 验证*",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

@@ -1,0 +1,44 @@
+{
+ "id": "w69",
+ "section": "Windows",
+ "qid": "69",
+ "score": 5.0,
+ "prog": "rwlsxWin7",
+ "title": "Windows 第 69 题",
+ "items": [
+  {
+   "text": "1、任务栏外观设置为\" 锁定任务栏\"",
+   "key": "locktaskbar",
+   "path": "任务栏属性 > 任务栏 > 锁定任务栏",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、通知区域网络设置为\" 隐藏图标和通知\"",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "3、在开始菜单，设置自定义为\" 运行命令\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、在[开始]菜单中设置电源按钮为\" 睡眠\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

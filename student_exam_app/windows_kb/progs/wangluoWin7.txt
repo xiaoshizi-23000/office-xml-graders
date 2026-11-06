@@ -1,0 +1,50 @@
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得IP地址□Ipv4_Automatic□1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置IP地址□Ipv4_IpAddress□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置子网掩码□Ipv4_Mask□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关□Ipv4_Gateway□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得DNS服务器地址□Ipv4_AutomaticDNS□1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置首选DNS服务器地址□Ipv4_MainDNS□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置备选DNS服务器地址□Ipv4_SubDNS□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 常规 > IPv4设置退出时是否验证□Ipv4_VerificationExit□1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置是否自动专用IP地址□Ipv4_BackAutomatic□0
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用IP地址□Ipv4_BackIpAddress□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用子网掩码□Ipv4_BackMask□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用默认网关□Ipv4_BackGateway□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 >IPv4设置备用首选DNS□Ipv4_BackMainDNS□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用备选DNS□Ipv4_BackSubDNS□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用首选WINS□Ipv4_BackMainWINS□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用备选WINS□Ipv4_BackSubWINS□-1.-1.-1.-1
+网络设置 > IPv4 > 属性 > 备用配置 > IPv4设置备用配置退出时是否验证□Ipv4_BackVerificationExit□0
+网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置IP地址列表□Ipv4AdvancedSettings_IpList□-1
+网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置默认网关列表□Ipv4AdvancedSettings_GatewayList□-1
+网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置是否自动跃点□Ipv4AdvancedSettings_AutomaticPoint□0
+网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置接口跃点数□Ipv4AdvancedSettings_PointNumber□
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置DNS服务器地址列表□Ipv4AdvancedSettings_DNSList□-1
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加DNS后缀□Ipv4AdvancedSettings_DNSSuffix□0
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加主DNS后缀的父后缀□Ipv4AdvancedSettings_MainDNSSuffix□1
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置DNS后缀列表□Ipv4AdvancedSettings_DNSSuffixList□-1
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置此连接的DNS后缀□Ipv4AdvancedSettings_ThisDNSSuffix□
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册此连接地址□Ipv4AdvancedSettings_RegistrationDNSAddress□1
+网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册使用此连接的DNS后缀□Ipv4AdvancedSettings_RegistationDNSSuffix□0
+网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置WINS列表□Ipv4AdvancedSettings_WINSList□-1
+网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置是否启用LMHOSTS□Ipv4AdvancedSettings_WINSLMHOSTS□1
+网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置NetBIOS设置□Ipv4AdvancedSettings_WINSNetBIOS□0
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置是否自动获取IPv6地址□Ipv6_Automatci□0
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置IPv6地址□Ipv6_IpAddress□-1
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置子网前缀长度□Ipv6_PrefixLen□-1
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置默认网关□Ipv6_Gateway□-1
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置是否自动获得DNS服务器地址□Ipv6_AutomaticDNS□0
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置首选DNS服务器地址□Ipv6_MainDNS□-1
+网络设置 > IPv6 > 属性 > 常规 > IPv6设置备选DNS服务器地址□Ipv6_SubDNS□-1
+网络设置 > IPv6 > 属性 > 常规 > IPv6退出时验证□Ipv6Adnanced_ExitChecking□0
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置IP地址列表□Ipv6Adnanced_IpList□-1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置默认网关列表□Ipv6Adnanced_GatewayList□-1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置是否自动跃点□Ipv6Adnanced_AutomaticPoint□1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置接口跃点数□Ipv6Adnanced_PointNumber□
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置DNS服务器地址列表□Ipv6Adnanced_DNSList□-1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置附加主要和连接特定的DNS后缀□Ipv6Adnanced_DNSSuffix□0
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置附加主DNS后缀的父后缀□Ipv6Adnanced_MainDNSSuffix□1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置DNS后缀列表□Ipv6Adnanced_DNSSuffixList□-1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置此连接的DNS后缀□Ipv6Adnanced_ThisDNSSuffix□
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置在DNS中注册此连接的地址□Ipv6Adnanced_RegistrationDNSAddress□1
+网络设置 > IPv6 > 属性 > 常规 > 高级 > IPv6高级设置在DNS中注册使用此连接的DNS后缀□Ipv6Adnanced_RegistrationDNSSuffix□0

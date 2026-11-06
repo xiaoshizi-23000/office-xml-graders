@@ -1,0 +1,46 @@
+{
+ "id": "w346",
+ "section": "网络",
+ "qid": "346",
+ "score": 5.0,
+ "prog": "jlljWin7",
+ "title": "网络 第 346 题",
+ "items": [
+  {
+   "text": "1、连接到Internet",
+   "key": "",
+   "step": true,
+   "score": 0,
+   "path": "",
+   "expect": "",
+   "how": "step"
+  },
+  {
+   "text": "2、宽带PPPoE",
+   "key": "",
+   "step": true,
+   "score": 0,
+   "path": "",
+   "expect": "",
+   "how": "step"
+  },
+  {
+   "text": "3、用户名：uhu，密码：0987654",
+   "key": "PPPoEUserName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)用户名",
+   "expect": "uhu",
+   "how": "rule",
+   "score": 2.5
+  },
+  {
+   "text": "4、连接名称设置为\" 宽带连接u\" ，允许其他人使用此连接",
+   "key": "PPPoEConnName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)连接名称",
+   "expect": " 宽带连接u",
+   "how": "rule",
+   "score": 2.5
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

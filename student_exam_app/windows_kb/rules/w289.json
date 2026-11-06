@@ -1,0 +1,44 @@
+{
+ "id": "w289",
+ "section": "网络",
+ "qid": "289",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 289 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.tmall.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.tmall.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\" 和\" 密码\"",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、关闭多个选项卡时发出警告",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、阻止弹出窗口时播放声音",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

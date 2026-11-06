@@ -1,0 +1,44 @@
+{
+ "id": "w377",
+ "section": "网络",
+ "qid": "377",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 377 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.taobao.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.taobao.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、退出时删除浏览的历史记录，删除\" Internet 临时文件\"",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、本地Intranet安全级别设置为\" 中-高\"",
+   "key": "aq_internetlevel",
+   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "expect": "",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、不将加密的页存盘",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

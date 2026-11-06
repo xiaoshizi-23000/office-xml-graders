@@ -1,0 +1,44 @@
+{
+ "id": "w385",
+ "section": "网络",
+ "qid": "385",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 385 题",
+ "items": [
+  {
+   "text": "1、默认主页设置为：www.weibo.com",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "www.weibo.com",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "2、网页保存在历史记录中的天数设置为：15",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "15",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "3、HTML编辑器设置为\" 记事本\"",
+   "key": "cx_html",
+   "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+   "expect": " 记事本",
+   "how": "rule",
+   "score": 1.25
+  },
+  {
+   "text": "4、打印背景颜色和图像",
+   "key": "gj_pr",
+   "path": "Internet属性 > 高级 > 打印",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

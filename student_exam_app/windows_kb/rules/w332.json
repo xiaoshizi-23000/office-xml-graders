@@ -1,0 +1,44 @@
+{
+ "id": "w332",
+ "section": "Windows",
+ "qid": "332",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 332 题",
+ "items": [
+  {
+   "text": "1、将分辨率设置为1440*900",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "2、DPI缩放至200%",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "3、桌面背景更改为\" 顶级照片\" 中的\" 企鹅\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "4、图片位置为\" 拉伸\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

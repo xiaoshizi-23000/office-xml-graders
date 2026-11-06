@@ -1,0 +1,44 @@
+{
+ "id": "w272",
+ "section": "Windows",
+ "qid": "272",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "Windows 第 272 题",
+ "items": [
+  {
+   "text": "1、其他设置里，数字选项卡下的数字分组设置为\" 12,34,56,789\"",
+   "key": "security_internet_oth",
+   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、货币符号设置为\" $\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "3、在格式设置里，长时间格式设置为\" tt h:mm:ss\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  },
+  {
+   "text": "4、AM符号设置为\" AM\"",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.25
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

@@ -1,0 +1,44 @@
+{
+ "id": "w277",
+ "section": "Windows",
+ "qid": "277",
+ "score": 5.0,
+ "prog": "rwlsxWin7",
+ "title": "Windows 第 277 题",
+ "items": [
+  {
+   "text": "1、自动隐藏任务栏",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、屏幕上的任务栏位置设置为\" 顶部\"",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "3、扬声器音量改为\" 仅显示通知\"",
+   "key": "tz_yl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 音量",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "4、网络\" 隐藏图标和通知\"",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

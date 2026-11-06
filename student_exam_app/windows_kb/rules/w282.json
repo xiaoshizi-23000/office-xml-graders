@@ -1,0 +1,44 @@
+{
+ "id": "w282",
+ "section": "Windows",
+ "qid": "282",
+ "score": 5.0,
+ "prog": "rwlsxWin7",
+ "title": "Windows 第 282 题",
+ "items": [
+  {
+   "text": "1、使用小图标",
+   "key": "usesmallicons",
+   "path": "任务栏属性 > 任务栏 > 使用小图标",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "2、设置任务栏\" 网络\" 显示为\" 仅显示通知\"",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "3、电源按钮操作功能改为\" 重新启动\"",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  },
+  {
+   "text": "4、任务栏按钮设置为\" 从不合并\"",
+   "key": "taskbarbtn",
+   "path": "任务栏属性 > 任务栏 > 任务栏按钮",
+   "expect": "",
+   "how": "path",
+   "score": 1.25
+  }
+ ],
+ "matched": 4,
+ "covered": true
+}

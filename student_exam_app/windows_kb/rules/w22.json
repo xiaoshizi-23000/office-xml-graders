@@ -1,0 +1,52 @@
+{
+ "id": "w22",
+ "section": "网络",
+ "qid": "22",
+ "score": 5.0,
+ "prog": "iesxWin7",
+ "title": "网络 第 22 题",
+ "items": [
+  {
+   "text": "1、将默认主页设置为：www.",
+   "key": "homepage",
+   "path": "Internet属性 > 常规 > 主页",
+   "expect": "",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "8.com",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  },
+  {
+   "text": "2、磁盘使用空间设置为140M",
+   "key": "temp_review_cpkj",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+   "expect": "140",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "3、历史记录保存天数设置为21天",
+   "key": "temp_review_jlts",
+   "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+   "expect": "21",
+   "how": "rule",
+   "score": 1.0
+  },
+  {
+   "text": "4、启用 SmartScreen 筛选器",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 1.0
+  }
+ ],
+ "matched": 3,
+ "covered": false
+}

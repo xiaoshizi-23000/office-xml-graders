@@ -1,0 +1,24 @@
+写信 > 收件人□WriteMail_Address□
+写信 > 抄送□WriteMail_Address2□
+写信 > 密送□WriteMail_Address3□
+写信 > 主题□WriteMail_Topic□
+写信 > 附件名□WriteMail_FileName□
+写信 > 附件大小□WriteMail_FileSize□
+写信 > 附件内容□WriteMail_FileContent□
+写信 > 正文□WriteMail_Content□
+设置 > 常规 > 显示 > 文字大小□General_Display_FontSize□中号
+设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件□General_Display_MailList_PageSize□25
+设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要□General_Display_MailList_ShowMailSummary□0
+设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小□General_Display_MailList_ShowMailSize□0
+设置 > 常规 > 显示 > 写信默认字体 > 字体□General_Display_WriteDefaultFont_Font□默认
+设置 > 常规 > 显示 > 写信默认字体 > 大小□General_Display_WriteDefaultFont_Size□默认
+设置 > 常规 > 个性签名 > 使用个性签名□General_Sign□不使用
+设置 > 常规 > 发信 > 未填主题时，使用正文第一句作为主题□General_Send_FirstTopic□0
+设置 > 常规 > 发信 > 收件人自动保存到历史联系人□General_Send_SaveContacts□0
+设置 > 常规 > 发信 > 邮件自动保存到“已发送”□General_Send_SaveSend□0
+设置 > 常规 > 邮件自动转发□General_MailAutoForward□0
+设置 > 帐户 > 帐户信息 > 默认帐户昵称□Account_Info_DefaultName□
+设置 > 帐户 > 默认发信帐号□Account_DefaultSendAccount□
+设置 > 帐户 > 帐户安全 > 独立密码□Account_Safe_Password□
+设置 > 帐户 > POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 > 开启服务 > POP3/SMTP服务□Account_POP3_Service_POP3□
+设置 > 帐户 > POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 > 开启服务 > IMAP/SMTP服务□Account_POP3_Service_IMAP□

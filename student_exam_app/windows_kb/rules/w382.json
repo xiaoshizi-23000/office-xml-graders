@@ -1,0 +1,36 @@
+{
+ "id": "w382",
+ "section": "Windows",
+ "qid": "382",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 382 题",
+ "items": [
+  {
+   "text": "1、将分辨率设置为1280*1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "",
+   "how": "path",
+   "score": 3.33
+  },
+  {
+   "text": "2、设置桌面背景，图片位置(L)设置为＇顶级照片＇，图片选择场景中的第5幅企鹅图片，图片位置(P)：适应",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 3.33
+  },
+  {
+   "text": "3、屏幕保护设置为＇三维文字＇，等待时间为＇5＇分钟",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 3.33
+  }
+ ],
+ "matched": 1,
+ "covered": false
+}

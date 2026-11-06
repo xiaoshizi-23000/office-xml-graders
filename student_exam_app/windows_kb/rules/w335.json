@@ -1,0 +1,44 @@
+{
+ "id": "w335",
+ "section": "Windows",
+ "qid": "335",
+ "score": 10.0,
+ "prog": "xianshiWin7",
+ "title": "Windows 第 335 题",
+ "items": [
+  {
+   "text": "1、更改主题为Aero主题中的第三个",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  },
+  {
+   "text": "2、显示里调整屏幕分辨率为：1280x1024",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "3、屏幕保护程序设置为：彩带，等待时间设置为：5分钟",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "",
+   "how": "path",
+   "score": 2.5
+  },
+  {
+   "text": "4、自定义DPI为缩放150%",
+   "key": "",
+   "path": "",
+   "expect": "",
+   "how": "",
+   "score": 2.5
+  }
+ ],
+ "matched": 2,
+ "covered": false
+}

@@ -1,0 +1,2505 @@
+{
+ "w24": {
+  "id": "w24",
+  "title": "网络操作题 题号24",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.ctrip.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.ctrip.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为110M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "110",
+    "guess": true
+   },
+   {
+    "text": "3、历史记录保存天数设置为17天",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "17",
+    "guess": true
+   },
+   {
+    "text": "4、启用内存保护帮助减少联机攻击*",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w289": {
+  "id": "w289",
+  "title": "网络操作题 题号289",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.tmall.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.tmall.com",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\" 和\" 密码\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、关闭多个选项卡时发出警告",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、阻止弹出窗口时播放声音",
+    "key": "upblock_stoplevel",
+    "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+    "expect": "4",
+    "guess": true
+   }
+  ]
+ },
+ "w286": {
+  "id": "w286",
+  "title": "网络操作题 题号286",
+  "items": [
+   {
+    "text": "1、默认主页设置为：www.xbiao.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.xbiao.com",
+    "guess": true
+   },
+   {
+    "text": "2、禁用XAML浏览器应用程序",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、内容里的自动完成功能应用于设置为：取消应用地址栏",
+    "key": "auto_address",
+    "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、HTML编辑器设置为\" Microsoft Office Word\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " Microsoft Office Word",
+    "guess": true
+   }
+  ]
+ },
+ "w284": {
+  "id": "w284",
+  "title": "网络操作题 题号284",
+  "items": [
+   {
+    "text": "1、默认主页设置为：www.renren.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.renren.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：5",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   },
+   {
+    "text": "4、代理服务器设置为：为LAN使用代理服务器（X）",
+    "key": "lan_vpn",
+    "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "【中英文打字】第1题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题号:13",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "国务院总理李克强1月22日主持召开国务院常务会议，部署深入推进以人为核心的新型城镇化，更大释放内需潜力；确定进一步化解钢",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "煤炭行业过剩产能的措施，促进企业脱困和产业升级。会议指出，城镇化是中国发展最大的潜力所在。按照国家新型城镇化规划要求，",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "住农民工融入城镇这一关键，通过深化改革加快推进新型城镇化，既是重大民生工程，也有利于扩大有效投资和消费，促进城乡协调发",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "。会议确定，一是放宽农业转移人口落户条件，探索进城落户农民对土地承包权、宅基地使用权和集体收益分配权的依法自愿有偿退出",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "制。二是加快城镇棚户区和危旧房改造，提高棚改货币化安置比例。将棚改政策支持范围扩大到全国重点镇。吸引社会资本参与交通。",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "考生答案:",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "国务院总理李克强1月22日主持召开国务院常务会议，部署深入推进以",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "打字设置：方案一，打字无时间限制",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "准确率:100%",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "速度:31字/分钟",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "考试成绩",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "序号",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题型",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题号",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "试题分值",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "状态",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第1题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "判断",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "181",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "0.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "错",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第2题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "178",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第3题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "156",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第4题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "172",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第5题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "152",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第6题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "158",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第7题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "154",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第8题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "164",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第9题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "167",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第10题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "177",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第11题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "153",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第12题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "157",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第13题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "165",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第14题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "171",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第15题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "168",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第16题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "148",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第17题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "162",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第18题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "179",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第19题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "150",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第20题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "170",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第21题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "163",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第22题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "155",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第23题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "182",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第24题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "185",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第25题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "186",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第26题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "183",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第27题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "187",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第28题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "174",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第29题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "169",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第30题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "175",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第31题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "159",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第32题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "166",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第33题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "173",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "单选",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4444",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4800",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "5068",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4261",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "1655",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3122",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2405",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "871",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4141",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4369",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "1215",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3969",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4413",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "733",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "1732",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3754",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "5057",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3820",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2502",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "5132",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2266",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2146",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4862",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3069",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4637",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3273",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3668",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "1150",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3688",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4777",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4185",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "936",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "647",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第34题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2844",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "多选",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "66",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "61",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "60",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "59",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "63",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "65",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "58",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "64",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "中英文打字",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "13",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "10.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "Windows",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "228",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "5.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "263",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "280",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "97",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "125",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "网络",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "346",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "50",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "284",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "Word",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "73",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "30.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "Excel",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "46",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "33.1",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "35.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "半对",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "PowerPoint",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "72",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "1.3",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "20.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "Dreamweaver",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "12",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w10": {
+  "id": "w10",
+  "title": "网络操作题 题号10",
+  "items": [
+   {
+    "text": "1、主页设置为：www.youku.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.youku.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：15",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、删除文件设置为：删除表单数据（F）和历史记录（H）",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、打印背景颜色和图像",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "【中英文打字】第1题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题号:62",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "天文学家朱赛普皮亚齐发现了第一颗小行星谷神星。由于谷神星运行至太阳背后，使得皮亚齐失去了谷神星的位置。随后全世界的科学",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "利用皮亚齐的观测数据开始寻找谷神星，但是根据大多数人计算的结果来寻找谷神星都没有结果。时年24岁的高斯也计算了谷神星的轨",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "。奥地利天文学家海因里希奥尔伯斯根据高斯计算出来的轨道重新发现了谷神星。高斯使用的最小二乘法的方法发表于1809年他的著作",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "天体运动论》中。法国科学家勒让德于1806年独立发明“最小二乘法”。勒让德曾与高斯为谁最早创立最小二乘法原理发生争执。1829",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "高斯提供了最小二乘法的优化效果强于其他方法的证明，因此被称为高斯马尔可夫定理。（来自于wikipedia）",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w5": {
+  "id": "w5",
+  "title": "网络操作题 题号5",
+  "items": [
+   {
+    "text": "1、主页设置为：www.sugou.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.sugou.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：5",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、设置删除历史记录（H）",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置Internet的安全级别为：中",
+    "key": "aq_internetlevel",
+    "path": "Internet属性 > 安全 > Internet > 安全级别",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w23": {
+  "id": "w23",
+  "title": "网络操作题 题号23",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.qunar.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.qunar.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为120M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "120",
+    "guess": true
+   },
+   {
+    "text": "3、历史记录保存天数设置为11天",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "11",
+    "guess": true
+   },
+   {
+    "text": "4、启用集成 Windows 验证*",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w296": {
+  "id": "w296",
+  "title": "网络操作题 题号296",
+  "items": [
+   {
+    "text": "1、主页设置为：www.weixin.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.weixin.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为150M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "150",
+    "guess": true
+   },
+   {
+    "text": "3、历史记录保存天数设置为5天",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "5",
+    "guess": true
+   },
+   {
+    "text": "4、设置安全\" 启用 DOM 存储\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w400": {
+  "id": "w400",
+  "title": "网络操作题 题号400",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.163.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.163.com",
+    "guess": true
+   },
+   {
+    "text": "2、打开Internet Explorer时只加载第一个主页",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、本地Intranet安全级别调整为\" 低\"",
+    "key": "aq_internetlevel",
+    "path": "Internet属性 > 安全 > Internet > 安全级别",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、HTML编辑器设置为\" Microsoft Office Word\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " Microsoft Office Word",
+    "guess": true
+   }
+  ]
+ },
+ "w6": {
+  "id": "w6",
+  "title": "网络操作题 题号6",
+  "items": [
+   {
+    "text": "1、主页设置为：www.amazon.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.amazon.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：15",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、设置删除 Internet 临时文件（T）",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置Internet的安全级别为：中",
+    "key": "aq_internetlevel",
+    "path": "Internet属性 > 安全 > Internet > 安全级别",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w446": {
+  "id": "w446",
+  "title": "网络操作题 题号446",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.svtcc.edu.cn",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.svtcc.edu.cn",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、关闭多个选项卡时发出警告",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、阻止弹出窗口时显示信息栏",
+    "key": "upblock_stoplevel",
+    "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+    "expect": "4",
+    "guess": true
+   }
+  ]
+ },
+ "w22": {
+  "id": "w22",
+  "title": "网络操作题 题号22",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.58.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.58.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为140M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "140",
+    "guess": true
+   },
+   {
+    "text": "3、历史记录保存天数设置为21天",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "21",
+    "guess": true
+   },
+   {
+    "text": "4、启用 SmartScreen 筛选器",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w394": {
+  "id": "w394",
+  "title": "网络操作题 题号394",
+  "items": [
+   {
+    "text": "1、设置主页为：vip.qq.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2、设置网页保存在历史记录中的天数为：10",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、设置如果Internet Explorer不是默认的Web浏览器，提示我",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置多媒体\" 智能图像抖动\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w9": {
+  "id": "w9",
+  "title": "网络操作题 题号9",
+  "items": [
+   {
+    "text": "1、主页设置为：www.renren.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.renren.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：19",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、删除文件设置为：删除历史记录（H）和表单数据（F）",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、代理服务器设置为：为LAN使用代理服务器（X）",
+    "key": "lan_vpn",
+    "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "【中英文打字】第1题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题号:61",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "Facebook（脸书）是美国的一个社交网络服务网站，创立于2004年2月4日，总部位于美国加利福尼亚州帕拉阿图，2012年3月6日发布Wi",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "dows版桌面聊天软件FacebookMessenger。主要创始人马克扎克伯格，哈佛学生。Facebook是世界排名领先的照片分享站点，截至2013",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "11月每天上传约3.5亿张照片。截至2012年5月，Facebook拥有约9亿用户。2018年3月5日起，Facebook将会给来自北美、拉丁美洲、欧",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "和澳大利亚的50家内容发布商提供这个功能。据2007年7月数据，Facebook在所有以服务于大学生为主要业务的网站中，拥有最多的用",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "三千四百万活跃用户。",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "考试成绩",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "序号",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题型",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "题号",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "试题分值",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "状态",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第1题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "中英文打字",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "39",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "10.0",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "对",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "Windows",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "352",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第2题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "68",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "7.5",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "半对",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第3题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "306",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第4题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "136",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "第5题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "335",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "返回顶层",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "试卷内容",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "试卷编号：407",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "所属语言：计算机基础",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "试卷方案：19级windows操作题",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "试卷总分：60分",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "共有题型：2种",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w387": {
+  "id": "w387",
+  "title": "网络操作题 题号387",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.jd.com.cn",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.jd.com.cn",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 密码\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、阻止弹出窗口时播放声音",
+    "key": "upblock_stoplevel",
+    "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+    "expect": "3",
+    "guess": true
+   },
+   {
+    "text": "4、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   }
+  ]
+ },
+ "w299": {
+  "id": "w299",
+  "title": "网络操作题 题号299",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.ctrip.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.ctrip.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为100M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "100",
+    "guess": true
+   },
+   {
+    "text": "3、启用选项卡分组",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置安全\" 启用内存保护帮助减少联机攻击*\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w384": {
+  "id": "w384",
+  "title": "网络操作题 题号384",
+  "items": [
+   {
+    "text": "1、默认主页设置为：www.renren.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.renren.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：5",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   },
+   {
+    "text": "4、代理服务器设置为：为LAN使用代理服务器（X）",
+    "key": "lan_vpn",
+    "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w377": {
+  "id": "w377",
+  "title": "网络操作题 题号377",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.taobao.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.taobao.com",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" Internet 临时文件\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、本地Intranet安全级别设置为\" 中-高\"",
+    "key": "aq_internetlevel",
+    "path": "Internet属性 > 安全 > Internet > 安全级别",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、不将加密的页存盘",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w298": {
+  "id": "w298",
+  "title": "网络操作题 题号298",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：china.nba.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2、历史记录保存天数设置为30天",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "30",
+    "guess": true
+   },
+   {
+    "text": "3、打开新选项卡后，打开\" 空白页\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置安全\" 启用集成 Windows 验证*\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w390": {
+  "id": "w390",
+  "title": "网络操作题 题号390",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：baike.baidu.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" Cookie\" 和\" 历史记录\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、当创建新选项卡时，始终切换到新选项卡",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   }
+  ]
+ },
+ "w283": {
+  "id": "w283",
+  "title": "网络操作题 题号283",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.sina.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.sina.com",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、关闭多个选项卡时发出警告",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、阻止弹出窗口时显示信息栏",
+    "key": "upblock_stoplevel",
+    "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+    "expect": "4",
+    "guess": true
+   }
+  ]
+ },
+ "w290": {
+  "id": "w290",
+  "title": "网络操作题 题号290",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：baike.baidu.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" Cookie\" 和\" 历史记录\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、当创建新选项卡时，始终切换到新选项卡",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   }
+  ]
+ },
+ "w385": {
+  "id": "w385",
+  "title": "网络操作题 题号385",
+  "items": [
+   {
+    "text": "1、默认主页设置为：www.weibo.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.weibo.com",
+    "guess": true
+   },
+   {
+    "text": "2、网页保存在历史记录中的天数设置为：15",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   },
+   {
+    "text": "4、打印背景颜色和图像",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w379": {
+  "id": "w379",
+  "title": "网络操作题 题号379",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.qq.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.qq.com",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 历史记录\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、打开新选项卡后，打开\" 空白页\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、从位于以下位置的其他程序打开连接为\" 新窗口\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w386": {
+  "id": "w386",
+  "title": "网络操作题 题号386",
+  "items": [
+   {
+    "text": "1、默认主页设置为：www.xbiao.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.xbiao.com",
+    "guess": true
+   },
+   {
+    "text": "2、禁用XAML浏览器应用程序",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、内容里的自动完成功能应用于设置为：取消应用地址栏",
+    "key": "auto_address",
+    "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、HTML编辑器设置为\" Microsoft Office Word\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " Microsoft Office Word",
+    "guess": true
+   }
+  ]
+ },
+ "w396": {
+  "id": "w396",
+  "title": "网络操作题 题号396",
+  "items": [
+   {
+    "text": "1、主页设置为：www.weixin.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.weixin.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为150M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "150",
+    "guess": true
+   },
+   {
+    "text": "3、历史记录保存天数设置为5天",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "5",
+    "guess": true
+   },
+   {
+    "text": "4、设置安全\" 启用 DOM 存储\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w292": {
+  "id": "w292",
+  "title": "网络操作题 题号292",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.iqiyi.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.iqiyi.com",
+    "guess": true
+   },
+   {
+    "text": "2、设置本地Intranet安全级别为\" 高\"",
+    "key": "aq_internetlevel",
+    "path": "Internet属性 > 安全 > Internet > 安全级别",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、HTML编辑器设置为\" 记事本\"",
+    "key": "cx_html",
+    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
+    "expect": " 记事本",
+    "guess": true
+   },
+   {
+    "text": "4、多媒体\" 启用自动图像大小调整\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w399": {
+  "id": "w399",
+  "title": "网络操作题 题号399",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.ctrip.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.ctrip.com",
+    "guess": true
+   },
+   {
+    "text": "2、磁盘使用空间设置为100M",
+    "key": "temp_review_cpkj",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
+    "expect": "100",
+    "guess": true
+   },
+   {
+    "text": "3、启用选项卡分组",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置安全\" 启用内存保护帮助减少联机攻击*\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w383": {
+  "id": "w383",
+  "title": "网络操作题 题号383",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：www.sina.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.sina.com",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、关闭多个选项卡时发出警告",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、阻止弹出窗口时显示信息栏",
+    "key": "upblock_stoplevel",
+    "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+    "expect": "4",
+    "guess": true
+   }
+  ]
+ },
+ "w393": {
+  "id": "w393",
+  "title": "网络操作题 题号393",
+  "items": [
+   {
+    "text": "1、设置主页为www.360.com",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "www.360.com",
+    "guess": true
+   },
+   {
+    "text": "2、设置网页保存在历史记录中的天数为\" 15\"",
+    "key": "temp_review_jlts",
+    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、启用快速导航选项卡",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、设置本地Intranet的安全级别为：\" 中-高\"",
+    "key": "aq_internetlevel",
+    "path": "Internet属性 > 安全 > Internet > 安全级别",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ },
+ "w445": {
+  "id": "w445",
+  "title": "网络操作题 题号445",
+  "items": [
+   {
+    "text": "1、将默认主页设置为：jw.svtcc.edu.cn",
+    "key": "homepage",
+    "path": "Internet属性 > 常规 > 主页",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "2、退出时删除浏览的历史记录，删除\" 历史记录\"",
+    "key": "keepwebsite",
+    "path": "Internet属性 > 常规 > 删除历史记录",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "3、打开新选项卡后，打开\" 空白页\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   },
+   {
+    "text": "4、从位于以下位置的其他程序打开链接为\" 新窗口\"",
+    "key": "",
+    "path": "",
+    "expect": "",
+    "guess": true
+   }
+  ]
+ }
+}

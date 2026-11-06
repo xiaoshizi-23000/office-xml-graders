@@ -15,7 +15,7 @@ import time
 import zipfile
 import xml.etree.ElementTree as ET
 
-from flask import Flask, jsonify, render_template, request, send_file
+from flask import Flask, abort, jsonify, render_template, request, send_file
 from markupsafe import escape as html_escape
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -405,9 +405,12 @@ def windows_page():
     return render_template('windows.html')
 
 
-@app.route('/windows/sim')
-def windows_sim():
-    return render_template('windows_sim.html')
+@app.route('/windows/download')
+def windows_download():
+    path = os.path.join(STATIC, 'win_tools.zip')
+    if not os.path.exists(path):
+        abort(404)
+    return send_file(path, as_attachment=True, download_name='Windows操作题判分程序.zip')
 
 
 @app.route('/api/windows/check', methods=['POST'])

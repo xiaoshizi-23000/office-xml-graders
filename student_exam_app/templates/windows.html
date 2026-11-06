@@ -15,6 +15,17 @@
   .wrap { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
   .card h2 { font-size:15px; margin:0 0 10px; color:var(--blue); }
+  .dl { display:flex; align-items:center; gap:16px; flex-wrap:wrap; background:linear-gradient(135deg,#eff6ff,#e0f2fe); border:1px solid #bae6fd; border-radius:10px; padding:16px 18px; }
+  .dl .txt { flex:1; min-width:180px; }
+  .dl .txt b { font-size:15px; color:#0c4a6e; }
+  .dl .txt div { color:#475569; font-size:12.5px; margin-top:4px; }
+  .btn-dl { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:10px; background:#1b5c96; color:#fff; text-decoration:none; font-size:14px; font-weight:600; box-shadow:0 4px 12px rgba(27,92,150,.3); }
+  .btn-dl:hover { background:#164d80; }
+  .steps { counter-reset:s; padding:0; margin:0; list-style:none; }
+  .steps li { counter-increment:s; position:relative; padding:5px 0 5px 32px; line-height:1.9; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:7px; width:21px; height:21px; border-radius:50%; background:#e0edf9; color:#1b5c96; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .warn { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; border-radius:8px; padding:10px 12px; margin-top:12px; font-size:12.5px; line-height:1.9; }
+  .warn b { color:#7c2d12; }
   .drop { border:2px dashed #cbd5e1; border-radius:10px; padding:26px 16px; text-align:center; cursor:pointer; background:#fbfdff; }
   .drop:hover { border-color:#f59e0b; background:#fffbeb; }
   .drop input { display:none; }
@@ -48,7 +59,18 @@
     th, td { padding:4px 5px; }
     .row { flex-wrap:wrap; }
     .row .score { width:auto; margin-left:auto; }
-    .drop { padding:20px 12px; }
+    .dl { display:flex; align-items:center; gap:16px; flex-wrap:wrap; background:linear-gradient(135deg,#eff6ff,#e0f2fe); border:1px solid #bae6fd; border-radius:10px; padding:16px 18px; }
+  .dl .txt { flex:1; min-width:180px; }
+  .dl .txt b { font-size:15px; color:#0c4a6e; }
+  .dl .txt div { color:#475569; font-size:12.5px; margin-top:4px; }
+  .btn-dl { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:10px; background:#1b5c96; color:#fff; text-decoration:none; font-size:14px; font-weight:600; box-shadow:0 4px 12px rgba(27,92,150,.3); }
+  .btn-dl:hover { background:#164d80; }
+  .steps { counter-reset:s; padding:0; margin:0; list-style:none; }
+  .steps li { counter-increment:s; position:relative; padding:5px 0 5px 32px; line-height:1.9; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:7px; width:21px; height:21px; border-radius:50%; background:#e0edf9; color:#1b5c96; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .warn { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; border-radius:8px; padding:10px 12px; margin-top:12px; font-size:12.5px; line-height:1.9; }
+  .warn b { color:#7c2d12; }
+  .drop { padding:20px 12px; }
   }
 </style>
 </head>
@@ -62,28 +84,32 @@
   <div class="card">
     <h2>怎么用</h2>
     <div class="step">
-      <div><b>1.</b> 在自己电脑上按题目要求改 Windows / IE 设置。</div>
-      <div><b>2.</b> 双击题目文件夹里的判分程序（如 <b>iesxWin7.exe</b>），它会在同目录生成一个<b>可文本打开的文件</b>（文件名和程序同名，没有扩展名）。</div>
-      <div><b>3.</b> 把这个文件拖到下面，系统读出你的设置并逐项打分。</div>
-      <div class="where" style="margin-top:10px">
-        <b>判分程序从哪来：</b>请向任课老师索取（班级群文件 / 教师机共享）。
-        程序是 Windows 本机运行的小工具，站点不提供下载——一是版权归属考试院或培训机构，
-        二是这类 32 位程序容易被杀毒软件误报，从第三方站点下载更容易被拦。
-      </div>
-      <div class="note">示例题：网络应用（10 分）—— 主页、历史记录天数、退出时删除历史记录。以后换成你们自己出的题，只需改规则配置。</div>
+      <div><b>流程：</b>下载程序 → 解压 → 做题 → 关掉程序 → 把生成的文件传上来判分。</div>
+      <div class="note">当前示例题是「网络应用（10 分）」：主页、历史记录天数、退出时删除历史记录。换成你们自己出的题，只需改规则配置。</div>
     </div>
-  </div>
-
-  <div class="card" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:200px">
-      <h2 style="margin:0 0 4px">先练一遍？</h2>
-      <div class="note" style="margin:0">不知道设置在哪的话，先在仿真界面里点一遍（Windows 7 的 Internet 选项），点完立刻判分。</div>
-    </div>
-    <a href="/windows/sim" style="padding:9px 16px;border-radius:8px;background:#1b5c96;color:#fff;text-decoration:none;font-size:13px">打开仿真界面 →</a>
   </div>
 
   <div class="card">
-    <h2>上传清单文件</h2>
+    <h2>① 下载判分程序</h2>
+    <div class="dl">
+      <div class="txt">
+        <b>Windows操作题判分程序.zip</b>
+        <div>约 1.8 MB · 10 个程序 + 使用说明 · 解压即用，不用安装</div>
+      </div>
+      <a class="btn-dl" href="/windows/download">⬇ 下载</a>
+    </div>
+    <ol class="steps" style="margin-top:14px">
+      <li>整个压缩包一起解压到电脑任意位置（建议 <code>D://Windows操作题</code>）。</li>
+      <li>按题目要求改 Windows / Internet 选项 设置。</li>
+      <li>双击对应程序（如 <code>网络\iesxWin7.exe</code>），在它打开的控制面板里完成设置。</li>
+      <li>关掉程序，同目录会生成<b>和程序同名的文件</b>（无扩展名），这就是你的设置记录。</li>
+      <li>回到本页，把它拖进下面的框，自动判分。</li>
+    </ol>
+    <div class="warn"><b>最容易踩的坑：</b>exe 和它旁边那个同名文件（如 <code>iesxWin7</code>）必须在同一个文件夹里，少一个程序打不开。解压别只拖 exe 出来。杀毒软件报毒属正常（程序要读注册表、写文本文件），加信任即可。</div>
+  </div>
+
+  <div class="card">
+    <h2>② 上传设置记录</h2>
     <label class="drop" id="drop">
       <div style="font-size:26px">📄</div>
       <div id="pickText">点击选择文件，或把文件拖进来</div>

@@ -36,6 +36,20 @@
   .tag { display:inline-block; padding:0 6px; border-radius:4px; font-size:11px; background:#fee2e2; color:var(--red); }
   .tag.same { background:#dcfce7; color:var(--green); }
   .note { color:var(--muted); font-size:12px; margin-top:8px; }
+  .where { background:#f1f5f9; border-left:3px solid var(--blue); padding:10px 12px; border-radius:6px; font-size:13px; line-height:1.9; }
+  @media (max-width: 640px) {
+    .head { padding:12px 14px; gap:8px; }
+    .head h1 { font-size:15px; }
+    .wrap { padding:14px 10px 50px; }
+    .card { padding:14px; border-radius:10px; }
+    .step { font-size:12.5px; line-height:1.85; }
+    .total .n { font-size:24px; }
+    table { font-size:11.5px; }
+    th, td { padding:4px 5px; }
+    .row { flex-wrap:wrap; }
+    .row .score { width:auto; margin-left:auto; }
+    .drop { padding:20px 12px; }
+  }
 </style>
 </head>
 <body>
@@ -51,6 +65,11 @@
       <div><b>1.</b> 在自己电脑上按题目要求改 Windows / IE 设置。</div>
       <div><b>2.</b> 双击题目文件夹里的判分程序（如 <b>iesxWin7.exe</b>），它会在同目录生成一个<b>可文本打开的文件</b>（文件名和程序同名，没有扩展名）。</div>
       <div><b>3.</b> 把这个文件拖到下面，系统读出你的设置并逐项打分。</div>
+      <div class="where" style="margin-top:10px">
+        <b>判分程序从哪来：</b>请向任课老师索取（班级群文件 / 教师机共享）。
+        程序是 Windows 本机运行的小工具，站点不提供下载——一是版权归属考试院或培训机构，
+        二是这类 32 位程序容易被杀毒软件误报，从第三方站点下载更容易被拦。
+      </div>
       <div class="note">示例题：网络应用（10 分）—— 主页、历史记录天数、退出时删除历史记录。以后换成你们自己出的题，只需改规则配置。</div>
     </div>
   </div>

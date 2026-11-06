@@ -12,23 +12,23 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.xbiao.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、禁用XAML浏览器应用程序",
-   "key": "gj_ll",
+   "key": "",
    "path": "Internet属性 > 高级 > 浏览",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "3、内容里的自动完成功能应用于设置为：取消应用地址栏",
    "key": "auto_address",
    "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
-   "expect": "",
+   "expect": "取消应用地址栏",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "4、HTML编辑器设置为\" Microsoft Office Word\"",
@@ -36,9 +36,9 @@
    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
    "expect": " Microsoft Office Word",
    "how": "rule",
-   "score": 1.25
+   "score": 1.66
   }
  ],
- "matched": 4,
- "covered": true
+ "matched": 3,
+ "covered": false
 }

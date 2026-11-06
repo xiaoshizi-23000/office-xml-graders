@@ -12,7 +12,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "2、添加佳能的Canon Inkjet iP3300打印机",
@@ -20,25 +20,25 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、打印机名称为\" ip3300\"",
    "key": "PrintNameSetup",
    "path": "添加打印机 > 打印机名称设置",
-   "expect": "",
+   "expect": "ip3300",
    "how": "rule",
-   "score": 1.25
+   "score": 5.0
   },
   {
    "text": "4、共享打印机名称为\" ip3300ip\"",
-   "key": "PrintNameSetup",
+   "key": "",
    "path": "添加打印机 > 打印机名称设置",
    "expect": "",
-   "how": "rule",
-   "score": 1.25
+   "how": "dup",
+   "score": 0
   }
  ],
- "matched": 2,
+ "matched": 1,
  "covered": false
 }

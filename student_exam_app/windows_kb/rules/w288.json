@@ -10,17 +10,17 @@
    "text": "1、任务栏外观设置为\" 使用小图标\"",
    "key": "usesmallicons",
    "path": "任务栏属性 > 任务栏 > 使用小图标",
-   "expect": "",
+   "expect": "使用小图标",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、任务栏外观屏幕上任务栏位置设置为\" 顶部\"",
    "key": "taskbarlocation",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
-   "expect": "",
+   "expect": "顶部",
    "how": "fuzzy",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、使用Aero Peek预览桌面",
@@ -28,15 +28,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、通知区域操作中心设置为\" 隐藏图标和通知\"",
    "key": "tz_cz",
    "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
-   "expect": "",
+   "expect": "隐藏图标和通知",
    "how": "path",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

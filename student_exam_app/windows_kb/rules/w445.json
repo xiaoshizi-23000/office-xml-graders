@@ -10,17 +10,17 @@
    "text": "1、将默认主页设置为：jw.svtcc.edu.cn",
    "key": "homepage",
    "path": "Internet属性 > 常规 > 主页",
-   "expect": "",
+   "expect": "jw.svtcc.edu.cn",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、退出时删除浏览的历史记录，删除\" 历史记录\"",
    "key": "keepwebsite",
    "path": "Internet属性 > 常规 > 删除历史记录",
-   "expect": "",
+   "expect": "历史记录",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、打开新选项卡后，打开\" 空白页\"",
@@ -28,15 +28,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、从位于以下位置的其他程序打开链接为\" 新窗口\"",
    "key": "tab_other",
    "path": "Internet属性 > 常规 > 选项卡 > 从位于以下位置的其他程序打开链接",
-   "expect": "",
+   "expect": "新窗口",
    "how": "path",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

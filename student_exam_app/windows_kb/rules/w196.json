@@ -12,7 +12,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "2、使用LPT3：（打印机端口）",
@@ -20,7 +20,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、打印机名：AAA",
@@ -28,15 +28,15 @@
    "path": "添加打印机 > 打印机名称设置",
    "expect": "AAA",
    "how": "rule",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "4、共享打印机，共享名为\" 2017\"",
    "key": "PrintShareSetup",
    "path": "添加打印机 > 打印机共享设置",
-   "expect": "",
+   "expect": "2017",
    "how": "rule",
-   "score": 1.25
+   "score": 2.5
   }
  ],
  "matched": 2,

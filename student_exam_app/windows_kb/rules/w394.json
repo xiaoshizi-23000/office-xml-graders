@@ -8,11 +8,11 @@
  "items": [
   {
    "text": "1、设置主页为：vip.qq.com",
-   "key": "homepage",
+   "key": "",
    "path": "Internet属性 > 常规 > 主页",
    "expect": "",
-   "how": "rule",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "2、设置网页保存在历史记录中的天数为：10",
@@ -20,25 +20,25 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "10",
    "how": "rule",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "3、设置如果Internet Explorer不是默认的Web浏览器，提示我",
-   "key": "gj_ll",
+   "key": "",
    "path": "Internet属性 > 高级 > 浏览",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "4、设置多媒体\" 智能图像抖动\"",
    "key": "gj_dm",
    "path": "Internet属性 > 高级 > 多媒体",
-   "expect": "",
+   "expect": "智能图像抖动",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   }
  ],
- "matched": 4,
- "covered": true
+ "matched": 2,
+ "covered": false
 }

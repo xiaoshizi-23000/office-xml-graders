@@ -12,7 +12,7 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.ctrip.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、磁盘使用空间设置为100M",
@@ -20,7 +20,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
    "expect": "100",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、启用选项卡分组",
@@ -28,15 +28,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、设置安全\" 启用内存保护帮助减少联机攻击*\"",
    "key": "gj_aq",
    "path": "Internet属性 > 高级 > 安全",
-   "expect": "",
+   "expect": "启用内存保护帮助减少联机攻击*",
    "how": "path",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

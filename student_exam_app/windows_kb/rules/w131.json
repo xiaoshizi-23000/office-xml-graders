@@ -10,35 +10,35 @@
    "text": "1、一周的第一天设置为\" 星期一\"",
    "key": "gs_dyt",
    "path": "区域和语言 > 格式 > 第一天",
-   "expect": "",
+   "expect": "星期一",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、小数位数改为\" 1\" 位",
    "key": "sz_xsw",
    "path": "区域和语言 > 自定义格式 > 数字 > 小数位",
-   "expect": "",
+   "expect": "1",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、数字分组改为123456789",
-   "key": "hb_fz",
+   "key": "",
    "path": "区域和语言 > 自定义格式 > 货币 > 数字分组",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "4、货币符号改为\" $\"",
    "key": "hb_hbfh",
    "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
-   "expect": "",
+   "expect": "$",
    "how": "path",
-   "score": 1.25
+   "score": 1.66
   }
  ],
- "matched": 4,
- "covered": true
+ "matched": 3,
+ "covered": false
 }

@@ -12,7 +12,7 @@
    "path": "宽带连接 > 连接 > 用户名",
    "expect": "ServiceW",
    "how": "rule",
-   "score": 1.0
+   "score": 2.5
   },
   {
    "text": "2、设置密码为：226699W",
@@ -20,7 +20,7 @@
    "path": "宽带连接 > 连接 > 密码",
    "expect": "226699W",
    "how": "rule",
-   "score": 1.0
+   "score": 2.5
   },
   {
    "text": "3、属性里设置选项断线重拨",
@@ -28,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.0
+   "score": 0
   },
   {
    "text": "4、属性里设置宽带常规服务名为：服务器W",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.0
+   "score": 0
   },
   {
    "text": "5、进行一次拨号连接",
@@ -44,7 +44,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.0
+   "score": 0
   }
  ],
  "matched": 2,

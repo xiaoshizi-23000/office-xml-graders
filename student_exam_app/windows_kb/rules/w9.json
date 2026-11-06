@@ -26,7 +26,7 @@
    "text": "3、删除文件设置为：删除历史记录（H）和表单数据（F）",
    "key": "keepwebsite",
    "path": "Internet属性 > 常规 > 删除历史记录",
-   "expect": "",
+   "expect": "删除历史记录",
    "how": "path",
    "score": 1.25
   },
@@ -34,7 +34,7 @@
    "text": "4、代理服务器设置为：为LAN使用代理服务器（X）",
    "key": "lan_vpn",
    "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
-   "expect": "",
+   "expect": "为LAN使用代理服务器",
    "how": "rule",
    "score": 1.25
   }

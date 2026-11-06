@@ -18,7 +18,7 @@
    "text": "2、设置本地Intranet安全级别为\" 高\"",
    "key": "aq_internetlevel",
    "path": "Internet属性 > 安全 > Internet > 安全级别",
-   "expect": "",
+   "expect": "高",
    "how": "rule",
    "score": 1.25
   },
@@ -34,7 +34,7 @@
    "text": "4、多媒体\" 启用自动图像大小调整\"",
    "key": "gj_dm",
    "path": "Internet属性 > 高级 > 多媒体",
-   "expect": "",
+   "expect": "启用自动图像大小调整",
    "how": "path",
    "score": 1.25
   }

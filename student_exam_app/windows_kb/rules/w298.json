@@ -10,9 +10,9 @@
    "text": "1、将默认主页设置为：china.nba.com",
    "key": "homepage",
    "path": "Internet属性 > 常规 > 主页",
-   "expect": "",
+   "expect": "china.nba.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、历史记录保存天数设置为30天",
@@ -20,7 +20,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "30",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、打开新选项卡后，打开\" 空白页\"",
@@ -28,15 +28,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、设置安全\" 启用集成 Windows 验证*\"",
    "key": "gj_aq",
    "path": "Internet属性 > 高级 > 安全",
-   "expect": "",
+   "expect": "启用集成 Windows 验证*",
    "how": "path",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

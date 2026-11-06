@@ -12,31 +12,31 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "2、桌面背景设置为：图片库里的第二张图片",
    "key": "PictureLibrary",
    "path": "个性化 > 桌面背景 > 图片库",
-   "expect": "",
+   "expect": "图片库里的第二张图片",
    "how": "path",
-   "score": 2.5
+   "score": 3.33
   },
   {
    "text": "3、屏幕保护设置为：\" 照片\" ，在恢复时显示登录屏幕",
    "key": "ResumeDisplay",
    "path": "个性化 > 在恢复时显示登录屏幕",
-   "expect": "",
+   "expect": "照片",
    "how": "path",
-   "score": 2.5
+   "score": 3.33
   },
   {
    "text": "4、分辨率设置为：1024x768",
    "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
+   "expect": "1024x768",
    "how": "path",
-   "score": 2.5
+   "score": 3.34
   }
  ],
  "matched": 3,

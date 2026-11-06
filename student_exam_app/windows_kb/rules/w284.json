@@ -34,7 +34,7 @@
    "text": "4、代理服务器设置为：为LAN使用代理服务器（X）",
    "key": "lan_vpn",
    "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
-   "expect": "",
+   "expect": "为LAN使用代理服务器",
    "how": "rule",
    "score": 1.25
   }

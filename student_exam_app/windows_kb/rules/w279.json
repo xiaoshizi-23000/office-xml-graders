@@ -8,27 +8,27 @@
  "items": [
   {
    "text": "1、任务栏使用小图标",
-   "key": "usesmallicons",
+   "key": "",
    "path": "任务栏属性 > 任务栏 > 使用小图标",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "2、设置任务栏\" 网络\" 图标\" 仅显示通知\"",
    "key": "tz_wl",
    "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
-   "expect": "",
+   "expect": "网络",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "3、始终在任务栏上显示所有图标和通知",
    "key": "tz_sz",
    "path": "任务栏属性 > 任务栏 > 通知区域 > 始终在任务栏上显示所有图标和通知",
-   "expect": "",
+   "expect": "1",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "4、使用AeroPeek预览桌面",
@@ -36,9 +36,9 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
- "matched": 3,
+ "matched": 2,
  "covered": false
 }

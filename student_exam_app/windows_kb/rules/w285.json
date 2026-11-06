@@ -10,7 +10,7 @@
    "text": "1、任务栏外观设置为\" 锁定任务栏\"",
    "key": "locktaskbar",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
-   "expect": "",
+   "expect": "锁定任务栏",
    "how": "path",
    "score": 1.25
   },
@@ -18,7 +18,7 @@
    "text": "2、任务栏外观设置屏幕上的任务栏位置为\" 顶部\"",
    "key": "taskbarlocation",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
-   "expect": "",
+   "expect": "顶部",
    "how": "path",
    "score": 1.25
   },
@@ -26,7 +26,7 @@
    "text": "3、任务栏按钮设置为\" 当任务栏被占满时合并\"",
    "key": "taskbarbtn",
    "path": "任务栏属性 > 任务栏 > 任务栏按钮",
-   "expect": "",
+   "expect": "当任务栏被占满时合并",
    "how": "path",
    "score": 1.25
   },
@@ -34,7 +34,7 @@
    "text": "4、当按下电源按钮操作设置为\" 锁定\"",
    "key": "poweruse",
    "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
-   "expect": "",
+   "expect": "锁定",
    "how": "path",
    "score": 1.25
   }

@@ -12,7 +12,7 @@
    "path": "宽带连接 > 连接 > 用户名",
    "expect": "ADminF",
    "how": "rule",
-   "score": 1.0
+   "score": 2.5
   },
   {
    "text": "2、设置密码为：678901F",
@@ -20,23 +20,23 @@
    "path": "宽带连接 > 连接 > 密码",
    "expect": "678901F",
    "how": "rule",
-   "score": 1.0
+   "score": 2.5
   },
   {
    "text": "3、为下面用户保存用户名和密码，任何使用此计算机的人",
-   "key": "connect_username",
+   "key": "",
    "path": "宽带连接 > 连接 > 用户名",
    "expect": "",
-   "how": "rule",
-   "score": 1.0
+   "how": "dup",
+   "score": 0
   },
   {
    "text": "4、属性里在选项里设置重播间隔为：2分钟",
-   "key": "xx_jg",
+   "key": "",
    "path": "宽带连接 > 属性 > 选项 > 重播间隔",
    "expect": "",
-   "how": "path",
-   "score": 1.0
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "5、进行一次拨号连接",
@@ -44,9 +44,9 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.0
+   "score": 0
   }
  ],
- "matched": 4,
+ "matched": 2,
  "covered": false
 }

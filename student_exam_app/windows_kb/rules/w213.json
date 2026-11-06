@@ -10,25 +10,25 @@
    "text": "1、在个性化里更改背景设置为：Windows桌面背景，图片选择场景的第二幅图片，",
    "key": "WindowsDesktopBackground",
    "path": "个性化 > 桌面背景 > Windows桌面背景",
-   "expect": "",
+   "expect": "Windows桌面背景",
    "how": "path",
-   "score": 2.5
+   "score": 5.0
   },
   {
    "text": "2、显示里调整屏幕分辨率为：1440x900",
-   "key": "resulution",
+   "key": "",
    "path": "个性化 > 分辨率",
    "expect": "",
-   "how": "path",
-   "score": 2.5
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "3、屏幕保护程序设置为：照片，等待时间设置为：8分钟",
    "key": "Screen",
    "path": "个性化 > 屏幕保护程序",
-   "expect": "",
+   "expect": "照片",
    "how": "path",
-   "score": 2.5
+   "score": 5.0
   },
   {
    "text": "4、主题设置为：Aero主题里的\" 人物\"",
@@ -36,9 +36,9 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   }
  ],
- "matched": 3,
+ "matched": 2,
  "covered": false
 }

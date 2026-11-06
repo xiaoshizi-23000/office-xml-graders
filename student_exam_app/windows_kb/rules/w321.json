@@ -12,7 +12,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "2、使用LPT3：（打印机端口）",
@@ -20,7 +20,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、打印机名：AAA",
@@ -28,17 +28,17 @@
    "path": "添加打印机 > 打印机名称设置",
    "expect": "AAA",
    "how": "rule",
-   "score": 1.25
+   "score": 5.0
   },
   {
    "text": "4、打印测试页",
-   "key": "TestPage",
+   "key": "",
    "path": "添加打印机 > 是否打印测试页",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   }
  ],
- "matched": 2,
+ "matched": 1,
  "covered": false
 }

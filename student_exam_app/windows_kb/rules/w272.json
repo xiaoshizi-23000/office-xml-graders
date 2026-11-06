@@ -10,9 +10,9 @@
    "text": "1、其他设置里，数字选项卡下的数字分组设置为\" 12,34,56,789\"",
    "key": "security_internet_oth",
    "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
-   "expect": "",
+   "expect": "12,34,56,789",
    "how": "path",
-   "score": 1.25
+   "score": 5.0
   },
   {
    "text": "2、货币符号设置为\" $\"",
@@ -20,7 +20,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、在格式设置里，长时间格式设置为\" tt h:mm:ss\"",
@@ -28,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、AM符号设置为\" AM\"",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
  "matched": 1,

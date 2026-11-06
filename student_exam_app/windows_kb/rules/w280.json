@@ -10,9 +10,9 @@
    "text": "1、自动隐藏任务栏",
    "key": "autohide",
    "path": "任务栏属性 > 任务栏 > 自动隐藏",
-   "expect": "",
+   "expect": "0",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、使用AeroPeek预览桌面",
@@ -20,23 +20,23 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、存储并显示最近在[开始]菜单中打开的程序",
    "key": "openprogram",
    "path": "任务栏属性 > 开始菜单 > 菜单中打开的程序",
-   "expect": "",
+   "expect": "1",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "4、电源按钮操作功能改为\" 锁定\"",
    "key": "poweruse",
    "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
-   "expect": "",
+   "expect": "锁定",
    "how": "path",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

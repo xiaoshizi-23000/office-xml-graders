@@ -12,23 +12,23 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.163.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、打开Internet Explorer时只加载第一个主页",
-   "key": "homepage",
+   "key": "",
    "path": "Internet属性 > 常规 > 主页",
    "expect": "",
-   "how": "rule",
-   "score": 1.25
+   "how": "dup",
+   "score": 0
   },
   {
    "text": "3、本地Intranet安全级别调整为\" 低\"",
    "key": "aq_internetlevel",
    "path": "Internet属性 > 安全 > Internet > 安全级别",
-   "expect": "",
+   "expect": "低",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "4、HTML编辑器设置为\" Microsoft Office Word\"",
@@ -36,9 +36,9 @@
    "path": "Internet属性 > 连接 > 程序 > HTML 编辑器",
    "expect": " Microsoft Office Word",
    "how": "rule",
-   "score": 1.25
+   "score": 1.66
   }
  ],
- "matched": 4,
- "covered": true
+ "matched": 3,
+ "covered": false
 }

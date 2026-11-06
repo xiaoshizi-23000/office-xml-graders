@@ -10,17 +10,17 @@
    "text": "1、任务栏外观设置为\" 自动隐藏任务栏\"",
    "key": "autohide",
    "path": "任务栏属性 > 任务栏 > 自动隐藏",
-   "expect": "",
+   "expect": "自动隐藏任务栏",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、在[开始]菜单中，设置电源按钮操作为\" 注销\"",
    "key": "poweruse",
    "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
-   "expect": "",
+   "expect": "注销",
    "how": "path",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、在[开始]菜单中设置\" 存储并显示最近在[开始]菜单和任务栏中打开的项目\"",
@@ -28,15 +28,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、把\" Table PC输入面板\" 添加到任务栏的工具栏中",
    "key": "toolbar",
    "path": "任务栏属性 > 工具栏 > 要添加到任务栏的工具栏",
-   "expect": "",
+   "expect": "Table PC输入面板",
    "how": "fuzzy",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

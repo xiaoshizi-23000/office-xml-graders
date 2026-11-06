@@ -10,35 +10,35 @@
    "text": "1、一周的第一天设置为\" 星期一\"",
    "key": "gs_dyt",
    "path": "区域和语言 > 格式 > 第一天",
-   "expect": "",
+   "expect": "星期一",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "2、小数位数改为\" 6\" 位",
    "key": "sz_xsw",
    "path": "区域和语言 > 自定义格式 > 数字 > 小数位",
-   "expect": "",
+   "expect": "6",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "3、数字分组改为123456789",
-   "key": "hb_fz",
+   "key": "",
    "path": "区域和语言 > 自定义格式 > 货币 > 数字分组",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "4、上午和下午格式分别改为AM和PM",
-   "key": "gs_gs",
+   "key": "",
    "path": "区域和语言 > 格式 > 格式",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   }
  ],
- "matched": 4,
- "covered": true
+ "matched": 2,
+ "covered": false
 }

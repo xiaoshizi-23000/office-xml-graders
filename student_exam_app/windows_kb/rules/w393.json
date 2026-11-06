@@ -12,7 +12,7 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.360.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、设置网页保存在历史记录中的天数为\" 15\"",
@@ -20,7 +20,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "15",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、启用快速导航选项卡",
@@ -28,15 +28,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、设置本地Intranet的安全级别为：\" 中-高\"",
    "key": "aq_internetlevel",
    "path": "Internet属性 > 安全 > Internet > 安全级别",
-   "expect": "",
+   "expect": "中-高",
    "how": "rule",
-   "score": 1.25
+   "score": 1.66
   }
  ],
  "matched": 3,

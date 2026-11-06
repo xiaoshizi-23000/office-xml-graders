@@ -10,9 +10,9 @@
    "text": "1、在个性化里更改背景设置为：Windows桌面背景，图片选择场景的第二幅图片",
    "key": "WindowsDesktopBackground",
    "path": "个性化 > 桌面背景 > Windows桌面背景",
-   "expect": "",
+   "expect": "Windows桌面背景",
    "how": "path",
-   "score": 2.5
+   "score": 5.0
   },
   {
    "text": "2、设置图片位置为\" 平铺\"",
@@ -20,15 +20,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "3、屏幕保护程序设置为：彩带，等待时间设置为：2分钟",
    "key": "Screen",
    "path": "个性化 > 屏幕保护程序",
-   "expect": "",
+   "expect": "彩带",
    "how": "path",
-   "score": 2.5
+   "score": 5.0
   },
   {
    "text": "4、主题设置为：Aero主题里的\" 建筑\"",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   }
  ],
  "matched": 2,

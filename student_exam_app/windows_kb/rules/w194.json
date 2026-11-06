@@ -2,7 +2,7 @@
  "id": "w194",
  "section": "Windows",
  "qid": "194",
- "score": 5.0,
+ "score": 0,
  "prog": "tjdyjWin7",
  "title": "Windows 第 194 题",
  "items": [
@@ -12,7 +12,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "2、使用COM2端口",
@@ -20,7 +20,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、选择 厂商为\" 索尼\" 型号为\" Sony DPP-FP85\"",
@@ -28,17 +28,17 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、打印测试页",
-   "key": "TestPage",
+   "key": "",
    "path": "添加打印机 > 是否打印测试页",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   }
  ],
- "matched": 1,
+ "matched": 0,
  "covered": false
 }

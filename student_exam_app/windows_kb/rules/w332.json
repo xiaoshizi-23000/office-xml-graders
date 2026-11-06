@@ -10,9 +10,9 @@
    "text": "1、将分辨率设置为1440*900",
    "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
+   "expect": "1440",
    "how": "path",
-   "score": 2.5
+   "score": 10.0
   },
   {
    "text": "2、DPI缩放至200%",
@@ -20,7 +20,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "3、桌面背景更改为\" 顶级照片\" 中的\" 企鹅\"",
@@ -28,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "4、图片位置为\" 拉伸\"",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   }
  ],
  "matched": 1,

@@ -154,6 +154,25 @@ def guess_key(text, keys, prog=""):
     return (best, 'fuzzy') if score >= 0.42 else ('', '')
 
 
+SWITCH_ON = ('启用', '勾选', '允许', '显示', '打开', '开启')
+SWITCH_OFF = ('禁用', '取消', '不允许', '隐藏', '关闭', '禁止')
+
+
+def guess_expect(text, default):
+    q = re.search(r'[“"]([^”"]{1,40})[”"]', text)
+    if q:
+        return q.group(1).strip()
+    m = re.search(r'设置为[：: ]*([\w\.\-/:％%]+)', text)
+    if m:
+        return m.group(1).strip()
+    if default in ('0', '1'):
+        if any(w in text for w in SWITCH_OFF):
+            return '0'
+        if any(w in text for w in SWITCH_ON):
+            return '1'
+    return ''
+
+
 def extract_expect(text, key, pat):
     text = re.sub(r'^\s*\d{1,2}\s*[、.．]\s*', '', text)   # 去掉条目序号，否则会被当成数值
     if pat:
@@ -200,7 +219,37 @@ def main():
                                   'expect': extract_expect(it, key, pat), 'how': how,
                                   'score': unit})
             stat[how or '未匹配'] += 1
-        matched = sum(1 for i in rule['items'] if i['key'])
+        # 同 key 去重（后面的标为待核对，不重复计分）
+        seen_keys = set()
+        for it in rule['items']:
+            k = it.get('key')
+            if not k:
+                continue
+            if k in seen_keys:
+                it['key'] = ''
+                it['how'] = 'dup'
+            else:
+                seen_keys.add(k)
+            if it.get('key') and not it.get('expect'):
+                g = guess_expect(it['text'], keys[it['key']]['default'])
+                if g:
+                    it['expect'] = g
+                else:
+                    it['key'] = ''
+                    it['how'] = 'noexpect'
+
+        # 分值按可判项重算，最后一条吃掉误差
+        judge = [i for i in rule['items'] if i.get('key') and i.get('expect') and not i.get('step')]
+        if judge:
+            unit = round(rule['score'] / len(judge), 2)
+            for i in judge:
+                i['score'] = unit
+            gap = round(rule['score'] - unit * len(judge), 2)
+            judge[-1]['score'] = round(judge[-1]['score'] + gap, 2)
+        for i in rule['items']:
+            if i not in judge:
+                i['score'] = 0
+        matched = len(judge)
         rule['matched'] = matched
         rule['covered'] = matched == len(rule['items'])
         json.dump(rule, open(os.path.join(RULES, '%s.json' % rule['id']), 'w', encoding='utf-8'),

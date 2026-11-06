@@ -8,27 +8,27 @@
  "items": [
   {
    "text": "1、锁定任务栏",
-   "key": "locktaskbar",
+   "key": "",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
    "expect": "",
-   "how": "path",
-   "score": 1.25
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "2、屏幕上的任务栏位置设置为\" 右侧\"",
    "key": "taskbarlocation",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
-   "expect": "",
+   "expect": "右侧",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "3、电源按钮操作设置为\" 睡眠\"",
    "key": "poweruse",
    "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
-   "expect": "",
+   "expect": "睡眠",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "4、Windows资源管理器\" 显示图标和通知\"",
@@ -36,9 +36,9 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
- "matched": 3,
+ "matched": 2,
  "covered": false
 }

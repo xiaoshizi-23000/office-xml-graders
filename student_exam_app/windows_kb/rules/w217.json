@@ -10,9 +10,9 @@
    "text": "1、屏幕保护程序设置为：\" 空白\" ，等待时间：3分钟，在恢复时显示登录屏幕",
    "key": "ResumeDisplay",
    "path": "个性化 > 在恢复时显示登录屏幕",
-   "expect": "",
+   "expect": "空白",
    "how": "path",
-   "score": 2.5
+   "score": 10.0
   },
   {
    "text": "2、更改桌面背景，设置为\" 顶级照片\" 选择第5张企鹅的图片。",
@@ -20,15 +20,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "3、设置屏幕的分辨率为：1440x900",
-   "key": "resulution",
+   "key": "",
    "path": "个性化 > 分辨率",
    "expect": "",
-   "how": "path",
-   "score": 2.5
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "4、主题设置为：Aero主题里的\" 人物\"",
@@ -36,9 +36,9 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   }
  ],
- "matched": 2,
+ "matched": 1,
  "covered": false
 }

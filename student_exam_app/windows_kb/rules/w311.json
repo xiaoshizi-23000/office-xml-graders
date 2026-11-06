@@ -12,7 +12,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "2、使用LPT3端口：（打印机端口）",
@@ -20,23 +20,23 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "3、打印机型号任意，打印机名为\" abc\"",
    "key": "PrintNameSetup",
    "path": "添加打印机 > 打印机名称设置",
-   "expect": "",
+   "expect": "abc",
    "how": "rule",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "4、设置为默认打印机",
    "key": "DefaultPrint",
    "path": "添加打印机 > 设置为默认打印机",
-   "expect": "",
+   "expect": "默认打印机",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   }
  ],
  "matched": 2,

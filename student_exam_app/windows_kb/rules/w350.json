@@ -12,7 +12,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "2、显示里，调整自定义文本大小(DPI)设置为：150%",
@@ -20,25 +20,25 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "3、屏幕保护程序设置为：三维文字 等待时间设置为：10分钟",
    "key": "Screen",
    "path": "个性化 > 屏幕保护程序",
-   "expect": "",
+   "expect": "三维文字",
    "how": "path",
-   "score": 2.5
+   "score": 10.0
   },
   {
    "text": "4、调整屏幕分辨率为：1280x1024",
-   "key": "resulution",
+   "key": "",
    "path": "个性化 > 分辨率",
    "expect": "",
-   "how": "path",
-   "score": 2.5
+   "how": "noexpect",
+   "score": 0
   }
  ],
- "matched": 2,
+ "matched": 1,
  "covered": false
 }

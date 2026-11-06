@@ -10,9 +10,9 @@
    "text": "1、将分辨率设置为1280*1024",
    "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
+   "expect": "1280",
    "how": "path",
-   "score": 2.5
+   "score": 5.0
   },
   {
    "text": "2、DPI缩放至125%",
@@ -20,15 +20,15 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "3、桌面背景更改为\" 图片库\" 中的\" 考拉\"",
    "key": "PictureLibrary",
    "path": "个性化 > 桌面背景 > 图片库",
-   "expect": "",
+   "expect": "图片库",
    "how": "path",
-   "score": 2.5
+   "score": 5.0
   },
   {
    "text": "4、屏幕保护设置为\" 三维文字\" ，时间\" 5\" 分钟",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   }
  ],
  "matched": 2,

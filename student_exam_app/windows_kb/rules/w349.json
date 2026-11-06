@@ -10,9 +10,9 @@
    "text": "1、桌面背景设置为：顶级照片里的第二张图片",
    "key": "TopPhoto",
    "path": "个性化 > 桌面背景 > 顶级图片",
-   "expect": "",
+   "expect": "顶级照片里的第二张图片",
    "how": "fuzzy",
-   "score": 2.5
+   "score": 10.0
   },
   {
    "text": "2、图片位置设置为\" 平铺\"",
@@ -20,7 +20,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "3、主题设置为：Aero主题里的建筑",
@@ -28,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   },
   {
    "text": "4、显示里，调整自定义文本大小(DPI)设置为：200%",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 2.5
+   "score": 0
   }
  ],
  "matched": 1,

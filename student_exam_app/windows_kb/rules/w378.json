@@ -2,27 +2,27 @@
  "id": "w378",
  "section": "Windows",
  "qid": "378",
- "score": 5.0,
+ "score": 0,
  "prog": "rwlsxWin7",
  "title": "Windows 第 378 题",
  "items": [
   {
    "text": "1、任务栏外观设置为＇锁定任务栏＇",
-   "key": "locktaskbar",
+   "key": "",
    "path": "任务栏属性 > 任务栏 > 锁定任务栏",
    "expect": "",
-   "how": "path",
-   "score": 2.5
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "2、任务栏外观设置中,屏幕上的任务栏位置为桌面＇右侧＇",
-   "key": "taskbarlocation",
+   "key": "",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
    "expect": "",
-   "how": "path",
-   "score": 2.5
+   "how": "noexpect",
+   "score": 0
   }
  ],
- "matched": 2,
- "covered": true
+ "matched": 0,
+ "covered": false
 }

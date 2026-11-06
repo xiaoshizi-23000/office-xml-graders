@@ -10,7 +10,7 @@
    "text": "1、设置一周的第一天为\" 星期一\"",
    "key": "gs_dyt",
    "path": "区域和语言 > 格式 > 第一天",
-   "expect": "",
+   "expect": "星期一",
    "how": "path",
    "score": 1.25
   },
@@ -18,7 +18,7 @@
    "text": "2、其他设置里，度量衡系统设置为\" 美制\"",
    "key": "sz_dlh",
    "path": "区域和语言 > 自定义格式 > 数字 > 度量衡",
-   "expect": "",
+   "expect": "美制",
    "how": "path",
    "score": 1.25
   },
@@ -26,7 +26,7 @@
    "text": "3、使用当地数字设置为\" 上下文\"",
    "key": "sz_ddsz",
    "path": "区域和语言 > 自定义格式 > 数字 > 当地数字",
-   "expect": "",
+   "expect": "上下文",
    "how": "path",
    "score": 1.25
   },
@@ -34,7 +34,7 @@
    "text": "4、在其他设置中，设置长时间格式为\" tt hh:mm:ss\"",
    "key": "gs_csj",
    "path": "区域和语言 > 格式 > 长时间",
-   "expect": "",
+   "expect": "tt hh:mm:ss",
    "how": "path",
    "score": 1.25
   }

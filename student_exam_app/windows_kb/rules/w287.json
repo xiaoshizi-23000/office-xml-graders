@@ -10,17 +10,17 @@
    "text": "1、任务栏外观任务栏按钮设置为\" 当任务栏被占满时合并\"",
    "key": "taskbarbtn",
    "path": "任务栏属性 > 任务栏 > 任务栏按钮",
-   "expect": "",
+   "expect": "当任务栏被占满时合并",
    "how": "path",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "2、任务栏外观屏幕上任务栏位置设置为\" 右侧\"",
    "key": "taskbarlocation",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
-   "expect": "",
+   "expect": "右侧",
    "how": "fuzzy",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "3、选择经典[开始]菜单，自定义链接\" 最近使用的项目\"",
@@ -28,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、使用Aero Peek预览桌面",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
  "matched": 2,

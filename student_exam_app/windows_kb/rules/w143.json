@@ -10,7 +10,7 @@
    "text": "1、一周的第一天设置为\" 星期一\"",
    "key": "gs_dyt",
    "path": "区域和语言 > 格式 > 第一天",
-   "expect": "",
+   "expect": "星期一",
    "how": "path",
    "score": 1.25
   },
@@ -18,7 +18,7 @@
    "text": "2、在其他设置中，使用当地数字设置为\" 国家/地区\"",
    "key": "sz_ddsz",
    "path": "区域和语言 > 自定义格式 > 数字 > 当地数字",
-   "expect": "",
+   "expect": "国家/地区",
    "how": "path",
    "score": 1.25
   },
@@ -26,7 +26,7 @@
    "text": "3、在其他设置中，设置长时间格式为\" tt h:mm:ss\"",
    "key": "gs_csj",
    "path": "区域和语言 > 格式 > 长时间",
-   "expect": "",
+   "expect": "tt h:mm:ss",
    "how": "path",
    "score": 1.25
   },
@@ -34,7 +34,7 @@
    "text": "4、在其他设置中，设置长日期格式为\" yyyy＇年＇M＇月＇d＇日＇,dddd\"",
    "key": "gs_crq",
    "path": "区域和语言 > 格式 > 长日期",
-   "expect": "",
+   "expect": "yyyy＇年＇M＇月＇d＇日＇,dddd",
    "how": "path",
    "score": 1.25
   }

@@ -12,23 +12,23 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.taobao.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、退出时删除浏览的历史记录，删除\" Internet 临时文件\"",
    "key": "keepwebsite",
    "path": "Internet属性 > 常规 > 删除历史记录",
-   "expect": "",
+   "expect": "Internet 临时文件",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、本地Intranet安全级别设置为\" 中-高\"",
    "key": "aq_internetlevel",
    "path": "Internet属性 > 安全 > Internet > 安全级别",
-   "expect": "",
+   "expect": "中-高",
    "how": "rule",
-   "score": 1.25
+   "score": 1.66
   },
   {
    "text": "4、不将加密的页存盘",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
  "matched": 3,

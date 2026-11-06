@@ -10,51 +10,51 @@
    "text": "在\" 其他设置\" ，\" 自定义格式\" 对话框中进行如下设置：",
    "key": "gs_gs",
    "path": "区域和语言 > 格式 > 格式",
-   "expect": "",
+   "expect": "其他设置",
    "how": "path",
-   "score": 0.83
+   "score": 1.67
   },
   {
    "text": "1、将短日期格式设置为yy-M-d",
    "key": "gs_drq",
    "path": "区域和语言 > 格式 > 短日期",
-   "expect": "",
+   "expect": "yy-M-d",
    "how": "path",
-   "score": 0.83
+   "score": 1.67
   },
   {
    "text": "2、短时间格式设置为tt hh:mm",
    "key": "gs_dsj",
    "path": "区域和语言 > 格式 > 短时间",
-   "expect": "",
+   "expect": "tt",
    "how": "path",
-   "score": 0.83
+   "score": 1.66
   },
   {
    "text": "3、一周的第一天设置为＇星期三＇",
-   "key": "gs_dyt",
+   "key": "",
    "path": "区域和语言 > 格式 > 第一天",
    "expect": "",
-   "how": "path",
-   "score": 0.83
+   "how": "noexpect",
+   "score": 0
   },
   {
    "text": "4、上午和下午格式分别改为AM和PM",
-   "key": "gs_gs",
+   "key": "",
    "path": "区域和语言 > 格式 > 格式",
    "expect": "",
-   "how": "path",
-   "score": 0.83
+   "how": "dup",
+   "score": 0
   },
   {
    "text": "5、货币小数位数改为＇3＇位",
-   "key": "sz_xsw",
+   "key": "",
    "path": "区域和语言 > 自定义格式 > 数字 > 小数位",
    "expect": "",
-   "how": "path",
-   "score": 0.83
+   "how": "noexpect",
+   "score": 0
   }
  ],
- "matched": 6,
- "covered": true
+ "matched": 3,
+ "covered": false
 }

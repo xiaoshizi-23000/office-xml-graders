@@ -12,15 +12,15 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.svtcc.edu.cn",
    "how": "rule",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "2、退出时删除浏览的历史记录，删除\" 表单数据\"",
    "key": "keepwebsite",
    "path": "Internet属性 > 常规 > 删除历史记录",
-   "expect": "",
+   "expect": "表单数据",
    "how": "rule",
-   "score": 1.25
+   "score": 2.5
   },
   {
    "text": "3、关闭多个选项卡时发出警告",
@@ -28,7 +28,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   },
   {
    "text": "4、阻止弹出窗口时显示信息栏",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
  "matched": 2,

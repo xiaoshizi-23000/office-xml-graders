@@ -12,7 +12,7 @@
    "path": "Internet属性 > 常规 > 主页",
    "expect": "www.ctrip.com",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "2、磁盘使用空间设置为110M",
@@ -20,7 +20,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
    "expect": "110",
    "how": "rule",
-   "score": 1.25
+   "score": 1.67
   },
   {
    "text": "3、历史记录保存天数设置为17天",
@@ -28,7 +28,7 @@
    "path": "Internet属性 > 常规 > 临时文件和历史记录 >历史记录保存天数",
    "expect": "17",
    "how": "rule",
-   "score": 1.25
+   "score": 1.66
   },
   {
    "text": "4、启用内存保护帮助减少联机攻击*",
@@ -36,7 +36,7 @@
    "path": "",
    "expect": "",
    "how": "",
-   "score": 1.25
+   "score": 0
   }
  ],
  "matched": 3,

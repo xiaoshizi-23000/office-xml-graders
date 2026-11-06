@@ -10,7 +10,7 @@
    "text": "1、其他设置里，数字负数格式设置为\" (1.1)\"",
    "key": "sz_fsgs",
    "path": "区域和语言 > 自定义格式 > 数字 > 负数格式",
-   "expect": "",
+   "expect": "(1.1)",
    "how": "path",
    "score": 1.25
   },
@@ -18,7 +18,7 @@
    "text": "2、其他设置里，货币符号设置为\" $\"",
    "key": "hb_hbfh",
    "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
-   "expect": "",
+   "expect": "$",
    "how": "path",
    "score": 1.25
   },
@@ -26,7 +26,7 @@
    "text": "3、其他设置里，时间中设置长时间格式设置为\" tt hh:mm:ss\"",
    "key": "gs_csj",
    "path": "区域和语言 > 格式 > 长时间",
-   "expect": "",
+   "expect": "tt hh:mm:ss",
    "how": "path",
    "score": 1.25
   },
@@ -34,7 +34,7 @@
    "text": "4、PM符号设置为\" PM\"",
    "key": "sj_pm",
    "path": "区域和语言 > 自定义格式 > 时间 > PM",
-   "expect": "",
+   "expect": "PM",
    "how": "path",
    "score": 1.25
   }

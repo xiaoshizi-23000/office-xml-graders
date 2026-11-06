@@ -3,6 +3,7 @@
 Excel 1-10 · Word 1-10 · PPT 1-10 · 网页 1-5
 """
 import io
+import json
 import os
 import re
 import shutil
@@ -362,6 +363,99 @@ def sitemap_xml():
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s</urlset>\n' % items)
     return app.response_class(xml, mimetype='application/xml')
+
+
+WIN_KB = os.path.join(BASE, 'windows_kb')
+
+
+def _read_text(raw):
+    for enc in ('utf-8-sig', 'gbk', 'utf-16', 'latin-1'):
+        try:
+            return raw.decode(enc)
+        except Exception:
+            continue
+    return raw.decode('utf-8', 'replace')
+
+
+def parse_snapshot(text):
+    """判分程序生成的清单：中文路径□内部键□值，一行一项。"""
+    rows = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or '□' not in line:
+            continue
+        parts = line.split('□')
+        path = parts[0].strip()
+        key = parts[1].strip() if len(parts) > 1 else ''
+        value = '■'.join(parts[2:]).strip() if len(parts) > 2 else ''
+        rows.append({'path': path, 'key': key, 'value': value})
+    return rows
+
+
+def _norm(value):
+    v = (value or '').strip().lower()
+    for pre in ('http://', 'https://'):
+        if v.startswith(pre):
+            v = v[len(pre):]
+    return v.rstrip('/')
+
+
+@app.route('/windows')
+def windows_page():
+    return render_template('windows.html')
+
+
+@app.route('/api/windows/check', methods=['POST'])
+def windows_check():
+    upload = request.files.get('file')
+    if upload is None:
+        return jsonify({'error': '没有收到文件'}), 400
+    raw = upload.read()
+    if not raw:
+        return jsonify({'error': '文件是空的'}), 400
+    if len(raw) > 2 * 1024 * 1024:
+        return jsonify({'error': '文件太大，判分程序生成的文件一般只有几 KB'}), 400
+
+    rows = parse_snapshot(_read_text(raw))
+    if not rows:
+        return jsonify({'error': '这不是判分程序生成的清单文件（没有找到 □ 分隔的行）'}), 400
+
+    cur = {}
+    for r in rows:
+        if r['key']:
+            cur[r['key']] = r
+
+    qid = request.form.get('qid') or 'w1'
+    rule_path = os.path.join(WIN_KB, '%s.json' % qid)
+    if not os.path.exists(rule_path):
+        return jsonify({'error': '题目配置不存在：%s' % qid}), 404
+    with open(rule_path, encoding='utf-8') as f:
+        rule = json.load(f)
+
+    base = {}
+    base_path = os.path.join(WIN_KB, 'ie_baseline.txt')
+    if os.path.exists(base_path):
+        for r in parse_snapshot(_read_text(open(base_path, 'rb').read())):
+            if r['key']:
+                base[r['key']] = r['value']
+
+    items, total = [], 0.0
+    for it in rule['items']:
+        hit = cur.get(it['key'])
+        actual = hit['value'] if hit else ''
+        ok = _norm(actual) == _norm(it['expect'])
+        got = it['score'] if ok else 0
+        total += got
+        items.append({'name': it['name'], 'actual': actual, 'expect': it['expect'],
+                      'ok': ok, 'got': got, 'full': it['score']})
+
+    all_rows = [{'path': r['path'], 'value': r['value'],
+                 'default': base.get(r['key'], ''),
+                 'changed': bool(r['key']) and _norm(r['value']) != _norm(base.get(r['key'], ''))}
+                for r in rows]
+    return jsonify({'title': rule['title'], 'score': round(total, 1),
+                    'full': sum(i['score'] for i in rule['items']),
+                    'items': items, 'all': all_rows[:400]})
 
 
 @app.route('/q/<subject>/<qid>')

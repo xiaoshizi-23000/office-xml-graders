@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Windows 操作题 · 设置清单判分</title>
+<style>
+  :root { --bg:#f8fafc; --card:#fff; --line:#e2e8f0; --text:#1e293b; --muted:#64748b;
+          --blue:#1b5c96; --green:#15803d; --red:#b91c1c; --amber:#b45309; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.7 "Microsoft YaHei",sans-serif; }
+  .head { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:16px 22px; display:flex; align-items:center; gap:14px; }
+  .head h1 { font-size:17px; margin:0; font-weight:700; }
+  .head a { margin-left:auto; color:#cbd5e1; text-decoration:none; font-size:13px; }
+  .wrap { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+  .card h2 { font-size:15px; margin:0 0 10px; color:var(--blue); }
+  .drop { border:2px dashed #cbd5e1; border-radius:10px; padding:26px 16px; text-align:center; cursor:pointer; background:#fbfdff; }
+  .drop:hover { border-color:#f59e0b; background:#fffbeb; }
+  .drop input { display:none; }
+  .drop p { margin:6px 0 0; color:var(--muted); font-size:12.5px; }
+  .step { color:var(--muted); font-size:13px; line-height:2; }
+  .step b { color:var(--text); }
+  .row { display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px dashed var(--line); }
+  .row:first-of-type { border-top:none; }
+  .row .name { flex:1; }
+  .row .val { color:var(--muted); font-size:12.5px; }
+  .row .score { width:64px; text-align:right; font-weight:700; }
+  .ok { color:var(--green); } .bad { color:var(--red); }
+  .total { display:flex; align-items:baseline; gap:8px; margin-top:6px; padding-top:10px; border-top:2px solid var(--line); }
+  .total .n { font-size:30px; font-weight:800; color:var(--blue); }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th,td { border:1px solid var(--line); padding:5px 8px; text-align:left; vertical-align:top; }
+  th { background:#f1f5f9; font-weight:600; color:#334155; }
+  tr.diff td { background:#fffbeb; }
+  .tag { display:inline-block; padding:0 6px; border-radius:4px; font-size:11px; background:#fee2e2; color:var(--red); }
+  .tag.same { background:#dcfce7; color:var(--green); }
+  .note { color:var(--muted); font-size:12px; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>Windows 操作题 · 设置清单判分</h1>
+  <a href="/">← 回到题库</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>怎么用</h2>
+    <div class="step">
+      <div><b>1.</b> 在自己电脑上按题目要求改 Windows / IE 设置。</div>
+      <div><b>2.</b> 双击题目文件夹里的判分程序（如 <b>iesxWin7.exe</b>），它会在同目录生成一个<b>可文本打开的文件</b>（文件名和程序同名，没有扩展名）。</div>
+      <div><b>3.</b> 把这个文件拖到下面，系统读出你的设置并逐项打分。</div>
+      <div class="note">示例题：网络应用（10 分）—— 主页、历史记录天数、退出时删除历史记录。以后换成你们自己出的题，只需改规则配置。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>上传清单文件</h2>
+    <label class="drop" id="drop">
+      <div style="font-size:26px">📄</div>
+      <div id="pickText">点击选择文件，或把文件拖进来</div>
+      <p>支持判分程序生成的无扩展名文本文件（GBK / UTF-8 都能读）</p>
+      <input type="file" id="file">
+    </label>
+  </div>
+
+  <div class="card" id="result" style="display:none">
+    <h2 id="rtitle">判分结果</h2>
+    <div id="items"></div>
+    <div class="total"><span class="n" id="score">0</span><span>／ 10 分</span></div>
+  </div>
+
+  <div class="card" id="allBox" style="display:none">
+    <h2>完整设置清单</h2>
+    <div class="note" style="margin:0 0 8px">高亮的是与你机器默认值不同的项，方便核对改了哪些。</div>
+    <div style="max-height:420px;overflow:auto"><table id="allTable"></table></div>
+  </div>
+</div>
+
+<script>
+const drop = document.getElementById('drop');
+const fileInput = document.getElementById('file');
+drop.addEventListener('dragover', e => { e.preventDefault(); drop.style.borderColor = '#f59e0b'; });
+drop.addEventListener('dragleave', () => { drop.style.borderColor = '#cbd5e1'; });
+drop.addEventListener('drop', e => {
+  e.preventDefault(); drop.style.borderColor = '#cbd5e1';
+  if (e.dataTransfer.files.length) upload(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', () => { if (fileInput.files.length) upload(fileInput.files[0]); });
+
+async function upload(f) {
+  document.getElementById('pickText').textContent = '正在读取 ' + f.name + ' …';
+  const fd = new FormData();
+  fd.append('file', f);
+  try {
+    const r = await fetch('/api/windows/check', { method: 'POST', body: fd });
+    const d = await r.json();
+    if (!r.ok) { alert(d.error || '解析失败'); document.getElementById('pickText').textContent = '点击选择文件，或把文件拖进来'; return; }
+    render(d);
+  } catch (e) {
+    alert('上传失败：' + e);
+  }
+  document.getElementById('pickText').textContent = '点击选择文件，或把文件拖进来';
+}
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+function render(d) {
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('allBox').style.display = 'block';
+  document.getElementById('rtitle').textContent = d.title + ' · 判分结果';
+  document.getElementById('items').innerHTML = d.items.map(it => {
+    const cls = it.ok ? 'ok' : 'bad';
+    const icon = it.ok ? '✓' : '✗';
+    let val = '当前值：' + (it.actual === '' ? '（空）' : escapeHtml(it.actual));
+    if (!it.ok) val += '　要求：' + escapeHtml(it.expect);
+    return '<div class="row"><span class="' + cls + '">' + icon + '</span>' +
+           '<span class="name">' + escapeHtml(it.name) + '<div class="val">' + val + '</div></span>' +
+           '<span class="score ' + cls + '">' + it.got + '/' + it.full + '</span></div>';
+  }).join('');
+  document.getElementById('score').textContent = d.score;
+
+  const rows = ['<tr><th style="width:46%">设置项</th><th style="width:27%">当前值</th><th style="width:27%">默认值</th></tr>'];
+  d.all.forEach(r => {
+    rows.push('<tr class="' + (r.changed ? 'diff' : '') + '"><td>' + escapeHtml(r.path) +
+      ' <span class="tag ' + (r.changed ? '' : 'same') + '">' + (r.changed ? '已改' : '默认') + '</span></td>' +
+      '<td>' + escapeHtml(r.value) + '</td><td>' + escapeHtml(r.default) + '</td></tr>');
+  });
+  document.getElementById('allTable').innerHTML = rows.join('');
+}
+</script>
+</body>
+</html>

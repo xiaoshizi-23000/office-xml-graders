@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仿真练习 · Internet 选项（Windows 7）</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; font-size: 12px;
+    background: #6a8fb5 radial-gradient(circle at 50% 20%, #8fb4d9 0%, #4a7196 70%, #35566f 100%);
+    display: flex; flex-direction: column; align-items: center; padding: 26px 12px 40px;
+  }
+  .topbar { width: 100%; max-width: 780px; display: flex; align-items: center; gap: 12px; color: #eaf3fb; margin-bottom: 14px; }
+  .topbar h1 { font-size: 15px; margin: 0; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,.4); }
+  .topbar a { margin-left: auto; color: #dbeaf7; text-decoration: none; font-size: 12.5px; }
+
+  /* Win7 窗口 */
+  .win7 {
+    width: 100%; max-width: 640px; background: #f0f0f0; border: 1px solid #5c7fa3;
+    border-radius: 7px 7px 4px 4px; box-shadow: 0 12px 34px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.45) inset;
+    overflow: hidden;
+  }
+  .title {
+    height: 30px; display: flex; align-items: center; padding: 0 6px 0 10px; color: #12385c;
+    background: linear-gradient(180deg, #eaf4fd 0%, #d3e6f8 46%, #bfd9f1 100%);
+    border-bottom: 1px solid #a8c4dd; font-size: 12.5px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.85);
+  }
+  .title .ico { width: 16px; height: 16px; margin-right: 6px; border-radius: 3px; background: linear-gradient(135deg,#2f7fd0,#1a5c9c); }
+  .winbtns { margin-left: auto; display: flex; gap: 2px; }
+  .winbtns span {
+    width: 27px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 3px;
+    color: #24476b; font-size: 11px; cursor: default; border: 1px solid transparent;
+  }
+  .winbtns span:hover { background: rgba(255,255,255,.75); border-color: #a8c4dd; }
+  .winbtns .close:hover { background: #e04343; color: #fff; border-color: #b62f2f; }
+
+  /* 选项卡 */
+  .tabs { display: flex; gap: 2px; padding: 8px 10px 0; position: relative; z-index: 2; }
+  .tabs button {
+    border: 1px solid #9fb6cc; border-bottom: none; background: linear-gradient(180deg,#f7fbff,#e3eef9);
+    padding: 4px 12px; font-size: 12px; color: #1d3f60; border-radius: 3px 3px 0 0; cursor: pointer;
+    font-family: inherit; position: relative; top: 1px;
+  }
+  .tabs button.on { background: #fff; border-color: #9fb6cc; font-weight: 600; top: 0; padding-bottom: 5px; }
+  .panel {
+    background: #fff; border: 1px solid #9fb6cc; margin: 0 10px; padding: 14px 16px; min-height: 268px;
+  }
+  fieldset { border: 1px solid #d4dde6; border-radius: 3px; margin: 0 0 12px; padding: 10px 12px 12px; }
+  legend { color: #1d3f60; padding: 0 4px; font-size: 12px; }
+  .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  .row label { color: #1a1a1a; }
+  input[type=text], input[type=number] {
+    height: 22px; border: 1px solid #7a96b1; border-radius: 2px; padding: 0 5px; font-family: inherit; font-size: 12px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.12);
+  }
+  input[type=text]:focus, input[type=number]:focus { outline: none; border-color: #3c9be8; box-shadow: 0 0 0 2px rgba(60,155,232,.25); }
+  .grow { flex: 1; min-width: 0; }
+  button.w7 {
+    height: 23px; min-width: 66px; padding: 0 10px; font-family: inherit; font-size: 12px; cursor: pointer;
+    border: 1px solid #96b3cd; border-radius: 3px; color: #12324f;
+    background: linear-gradient(180deg,#fdfefe 0%,#eef4fa 48%,#dce9f6 100%);
+  }
+  button.w7:hover { border-color: #6f9cc4; background: linear-gradient(180deg,#ffffff,#e3f0fb); }
+  button.w7:active { background: linear-gradient(180deg,#d9e9f7,#c9dcee); }
+  .hint { color: #6b7c8d; margin-top: 2px; }
+  .foot {
+    display: flex; justify-content: flex-end; gap: 8px; padding: 10px 12px 12px; border-top: 1px solid #d6dee6;
+    background: #f0f0f0; margin-top: 10px;
+  }
+  .foot button { min-width: 78px; }
+  .foot button.primary { border-color: #3c7fbf; box-shadow: 0 0 0 1px rgba(60,127,191,.35) inset; font-weight: 600; }
+
+  /* 结果面板 */
+  .result { width: 100%; max-width: 640px; margin-top: 16px; background: #fff; border-radius: 6px; padding: 14px 16px; box-shadow: 0 6px 18px rgba(0,0,0,.22); }
+  .result h2 { margin: 0 0 10px; font-size: 14px; color: #1d3f60; }
+  .r-item { display: flex; gap: 8px; padding: 6px 0; border-top: 1px dashed #e2e8ef; }
+  .r-item:first-of-type { border-top: none; }
+  .r-item .mark { width: 16px; font-weight: 700; }
+  .ok { color: #1a7f37; } .bad { color: #c0392b; }
+  .r-item .txt { flex: 1; line-height: 1.7; }
+  .r-item .val { color: #64748b; font-size: 11.5px; }
+  .total { display: flex; align-items: baseline; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 2px solid #e2e8ef; }
+  .total b { font-size: 24px; color: #1b5c96; }
+  .tips { color: #8a6d3b; background: #fcf8e3; border: 1px solid #faebcc; border-radius: 4px; padding: 8px 10px; margin-top: 10px; line-height: 1.85; font-size: 11.5px; }
+  @media (max-width: 560px) {
+    .win7 { max-width: 100%; }
+    .tabs { overflow-x: auto; }
+    .tabs button { padding: 4px 9px; white-space: nowrap; }
+    .panel { padding: 12px; }
+    .row { flex-wrap: wrap; }
+    .foot { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>仿真练习 · Internet 选项（Windows 7 界面）</h1>
+  <a href="/windows">← 返回清单判分</a>
+</div>
+
+<div class="win7">
+  <div class="title">
+    <span class="ico"></span>Internet 选项
+    <span class="winbtns"><span>—</span><span>▢</span><span class="close">✕</span></span>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="on" data-t="0">常规</button>
+    <button data-t="1">安全</button>
+    <button data-t="2">隐私</button>
+    <button data-t="3">内容</button>
+    <button data-t="4">连接</button>
+    <button data-t="5">程序</button>
+    <button data-t="6">高级</button>
+  </div>
+
+  <div class="panel" id="panel"></div>
+
+  <div class="foot">
+    <button class="w7 primary" onclick="applyAll()">确定</button>
+    <button class="w7" onclick="document.getElementById('result').scrollIntoView({behavior:'smooth'})">应用(A)</button>
+    <button class="w7" onclick="resetAll()">取消</button>
+  </div>
+</div>
+
+<div class="result" id="result" style="display:none">
+  <h2 id="rtitle">判分结果</h2>
+  <div id="items"></div>
+  <div class="total"><b id="score">0</b><span>/ 10 分</span></div>
+  <div class="tips" id="tips"></div>
+</div>
+
+<script>
+/* 页面状态（默认值取自判分程序导出的清单） */
+const state = {
+  homepage: 'http://go.microsoft.com/fwlink/?LinkId=69157',
+  days: 20,
+  clearOnExit: false,
+  tab: 0
+};
+
+const TABS = [
+  { name: '常规', render: renderGeneral },
+  { name: '安全', render: stub('选择区域以查看或更改安全设置，四个区域：Internet / 本地 Intranet / 受信任的站点 / 受限制的站点。') },
+  { name: '隐私', render: stub('为 Internet 区域选择隐私设置，可设置弹出窗口阻止程序。') },
+  { name: '内容', render: stub('内容审查程序、证书、自动完成、源和网页快讯。') },
+  { name: '连接', render: stub('拨号和虚拟专用网络设置、局域网(LAN)设置。') },
+  { name: '程序', render: stub('为每个 Internet 服务选择要使用的程序，可指定 HTML 编辑器。') },
+  { name: '高级', render: stub('设置列表：HTTP 1.1 设置、安全、打印、多媒体、辅助功能等。') }
+];
+
+function stub(text) {
+  return function () {
+    return '<div style="color:#5a6b7c;line-height:2">' + text +
+           '<div class="hint" style="margin-top:10px">这一页在本仿真里只做样子，考点集中在「常规」页。</div></div>';
+  };
+}
+
+function renderGeneral() {
+  return `
+    <fieldset>
+      <legend>主页</legend>
+      <div class="row">
+        <span>若要创建主页，请单击“使用当前页”。</span>
+      </div>
+      <div class="row">
+        <input type="text" id="hp" class="grow" value="${escapeAttr(state.homepage)}">
+      </div>
+      <div class="row" style="gap:6px">
+        <button class="w7" onclick="setHome('current')">使用当前页(C)</button>
+        <button class="w7" onclick="setHome('default')">使用默认页(D)</button>
+        <button class="w7" onclick="setHome('blank')">使用空白页(B)</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>浏览历史记录</legend>
+      <div class="row">
+        <span>退出时删除浏览历史记录</span>
+        <input type="checkbox" id="clr" ${state.clearOnExit ? 'checked' : ''} style="margin-left:auto">
+      </div>
+      <div class="row" style="gap:6px">
+        <span>网页保存在历史记录中的天数</span>
+        <input type="number" id="days" min="1" max="999" value="${state.days}" style="width:64px">
+        <button class="w7" style="margin-left:auto" onclick="fakeSetting()">设置(S)</button>
+      </div>
+      <div class="row" style="gap:6px">
+        <button class="w7" onclick="fakeDelete()">删除(D)…</button>
+        <span class="hint">临时文件、Cookie、历史记录、表单数据、密码</span>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>选项卡</legend>
+      <div class="row" style="gap:6px">
+        <span>更改页面的显示方式</span>
+        <button class="w7" style="margin-left:auto" onclick="fakeSetting()">设置(T)</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>外观</legend>
+      <div class="row" style="gap:6px">
+        <button class="w7">颜色(O)</button>
+        <button class="w7">语言(L)</button>
+        <button class="w7">辅助功能(E)</button>
+        <button class="w7">字体(N)</button>
+      </div>
+    </fieldset>`;
+}
+
+function escapeAttr(s) { return String(s).replace(/"/g, '&quot;'); }
+
+function switchTab(i) {
+  syncFromDom();
+  state.tab = i;
+  document.querySelectorAll('#tabs button').forEach((b, idx) => b.classList.toggle('on', idx === i));
+  document.getElementById('panel').innerHTML = TABS[i].render();
+}
+
+function syncFromDom() {
+  const hp = document.getElementById('hp');
+  if (hp) state.homepage = hp.value.trim();
+  const d = document.getElementById('days');
+  if (d) state.days = parseInt(d.value || '0', 10);
+  const c = document.getElementById('clr');
+  if (c) state.clearOnExit = c.checked;
+}
+
+function setHome(kind) {
+  const map = {
+    current: 'http://go.microsoft.com/fwlink/?LinkId=69157',
+    default: 'http://go.microsoft.com/fwlink/?LinkId=69157',
+    blank: 'about:blank'
+  };
+  document.getElementById('hp').value = map[kind];
+}
+function fakeSetting() { alert('真实系统会打开“设置”对话框；仿真是练习找位置，直接改左侧数值即可。'); }
+function fakeDelete() { alert('真实系统会弹出“删除浏览历史记录”对话框（勾选历史记录等项后点删除）。'); }
+
+/* 判分：跟 windows_kb/w1.json 同一套规则 */
+const RULE = [
+  { name: '设置主页为 www.svtcc.edu.cn', score: 4,
+    tip: '主页在「常规」选项卡第一个文本框。带不带 http:// 都算对。',
+    check: s => norm(s.homepage) === 'www.svtcc.edu.cn' },
+  { name: '网页保存在历史记录中的天数设为 20', score: 3,
+    tip: '历史记录天数在「常规」选项卡“浏览历史记录”区域，注意默认就是 20，出题会避开默认值。',
+    check: s => s.days === 20 },
+  { name: '退出时删除浏览历史记录', score: 3,
+    tip: '这个勾选框也在「常规」选项卡的“浏览历史记录”区域，叫“退出时删除浏览历史记录”。',
+    check: s => s.clearOnExit === true }
+];
+
+function norm(v) {
+  return String(v || '').trim().toLowerCase()
+    .replace(/^https?:\/\//, '').replace(/\/+$/, '');
+}
+
+function applyAll() {
+  syncFromDom();
+  let total = 0, html = '';
+  RULE.forEach(r => {
+    const ok = r.check(state);
+    if (ok) total += r.score;
+    html += '<div class="r-item"><span class="mark ' + (ok ? 'ok' : 'bad') + '">' + (ok ? '✓' : '✗') + '</span>' +
+            '<span class="txt"><div>' + r.name + '（' + r.score + ' 分）</div>' +
+            '<div class="val">' + (ok ? '已设置正确' : '未完成：' + r.tip) + '</div></span>' +
+            '<span class="' + (ok ? 'ok' : 'bad') + '">' + (ok ? r.score : 0) + '/' + r.score + '</span></div>';
+  });
+  document.getElementById('items').innerHTML = html;
+  document.getElementById('score').textContent = total;
+  document.getElementById('result').style.display = 'block';
+  const tips = document.getElementById('tips');
+  tips.innerHTML = total === 10
+    ? '满分。真实考试里改完设置记得点「应用」再点「确定」，不点这两下设置不保存。'
+    : '提示：三项都在「常规」选项卡。主页在最上面那个长文本框；历史记录天数在“浏览历史记录”区域右侧的数字框；退出删除是同一区域的勾选框。';
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetAll() {
+  state.homepage = 'http://go.microsoft.com/fwlink/?LinkId=69157';
+  state.days = 20;
+  state.clearOnExit = false;
+  document.getElementById('panel').innerHTML = TABS[state.tab].render();
+}
+
+document.querySelectorAll('#tabs button').forEach((b, i) => {
+  b.addEventListener('click', () => switchTab(i));
+});
+
+document.getElementById('panel').innerHTML = TABS[0].render();
+document.getElementById('panel').addEventListener('change', syncFromDom);
+document.getElementById('panel').addEventListener('input', syncFromDom);
+</script>
+</body>
+</html>

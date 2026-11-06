@@ -405,6 +405,11 @@ def windows_page():
     return render_template('windows.html')
 
 
+@app.route('/windows/sim')
+def windows_sim():
+    return render_template('windows_sim.html')
+
+
 @app.route('/api/windows/check', methods=['POST'])
 def windows_check():
     upload = request.files.get('file')

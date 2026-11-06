@@ -393,10 +393,13 @@ def parse_snapshot(text):
 
 
 def _norm(value):
+    # 比对归一化：去空格、统一乘号、大小写，避免“1280x1024”和“1280 × 1024”被误判
     v = (value or '').strip().lower()
     for pre in ('http://', 'https://'):
         if v.startswith(pre):
             v = v[len(pre):]
+    v = v.replace(' ', '').replace('\u3000', '')
+    v = v.replace('×', 'x').replace('＊', '*')
     return v.rstrip('/')
 
 

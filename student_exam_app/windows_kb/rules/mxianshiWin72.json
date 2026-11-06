@@ -1,0 +1,53 @@
+{
+ "id": "mxianshiWin72",
+ "section": "专项练习",
+ "qid": "mxianshiWin72",
+ "group": "xianshiWin7",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 2 题",
+ "items": [
+  {
+   "text": "1、启用「纯色」",
+   "key": "Color",
+   "path": "个性化 > 桌面背景 > 纯色",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、关闭「背景图片显示位置」",
+   "key": "BackgroundDisplay",
+   "path": "个性化 > 桌面背景 > 背景图片显示位置",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「更改图片时间间隔」",
+   "key": "SlideTime",
+   "path": "个性化 > 桌面背景 > 更改图片时间间隔",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「播放次序」",
+   "key": "PlayOrder",
+   "path": "个性化 > 桌面背景 > 播放次序",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「分辨率」设置为“1024 × 768”",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "1024 × 768",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

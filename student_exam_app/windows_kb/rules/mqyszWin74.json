@@ -1,0 +1,53 @@
+{
+ "id": "mqyszWin74",
+ "section": "专项练习",
+ "qid": "mqyszWin74",
+ "group": "qyszWin7",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 4 题",
+ "items": [
+  {
+   "text": "1、将「列表分隔」设置为“；”",
+   "key": "sz_lbfe",
+   "path": "区域和语言 > 自定义格式 > 数字 > 列表分隔",
+   "expect": "；",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「列表分隔」设置为“、”",
+   "key": "sz_lbfe",
+   "path": "区域和语言 > 自定义格式 > 数字 > 列表分隔",
+   "expect": "、",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「度量衡」设置为“美制”",
+   "key": "sz_dlh",
+   "path": "区域和语言 > 自定义格式 > 数字 > 度量衡",
+   "expect": "美制",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「当地数字」设置为“上下文”",
+   "key": "sz_ddsz",
+   "path": "区域和语言 > 自定义格式 > 数字 > 当地数字",
+   "expect": "上下文",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「货币符号」设置为“$”",
+   "key": "hb_hbfh",
+   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
+   "expect": "$",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

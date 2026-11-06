@@ -1,0 +1,53 @@
+{
+ "id": "moutlook5",
+ "section": "专项练习",
+ "qid": "moutlook5",
+ "group": "outlook",
+ "score": 5,
+ "prog": "outlook",
+ "title": "邮件设置 · 第 5 题",
+ "items": [
+  {
+   "text": "1、关闭「未填主题时，使用正文第一句作为主题」",
+   "key": "General_Send_FirstTopic",
+   "path": "设置 > 常规 > 发信 > 未填主题时，使用正文第一句作为主题",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、关闭「收件人自动保存到历史联系人」",
+   "key": "General_Send_SaveContacts",
+   "path": "设置 > 常规 > 发信 > 收件人自动保存到历史联系人",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「邮件自动保存到“已发送”」",
+   "key": "General_Send_SaveSend",
+   "path": "设置 > 常规 > 发信 > 邮件自动保存到“已发送”",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「邮件自动转发」",
+   "key": "General_MailAutoForward",
+   "path": "设置 > 常规 > 邮件自动转发",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「收件人」设置为“teacher@example.com”",
+   "key": "WriteMail_Address",
+   "path": "写信 > 收件人",
+   "expect": "teacher@example.com",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

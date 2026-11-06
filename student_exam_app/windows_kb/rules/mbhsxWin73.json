@@ -1,0 +1,53 @@
+{
+ "id": "mbhsxWin73",
+ "section": "专项练习",
+ "qid": "mbhsxWin73",
+ "group": "bhsxWin7",
+ "score": 5,
+ "prog": "bhsxWin7",
+ "title": "宽带连接 · 第 3 题",
+ "items": [
+  {
+   "text": "1、关闭「允许使用这些协议」",
+   "key": "aq_rxxy",
+   "path": "宽带连接 > 属性 > 安全 > 允许使用这些协议",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、关闭「未加密的密码」",
+   "key": "aq_wjm",
+   "path": "宽带连接 > 属性 > 安全 > 未加密的密码",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「质询握手身份验证协议」",
+   "key": "aq_zxws",
+   "path": "宽带连接 > 属性 > 安全 > 质询握手身份验证协议",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「chap2」",
+   "key": "aq_chap",
+   "path": "宽带连接 > 属性 > 安全 > chap2",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「自动使用我的win登录名和密码」",
+   "key": "aq_zd",
+   "path": "宽带连接 > 属性 > 安全 > 自动使用我的win登录名和密码",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

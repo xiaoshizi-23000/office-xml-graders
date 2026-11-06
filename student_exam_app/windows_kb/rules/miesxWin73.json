@@ -1,0 +1,53 @@
+{
+ "id": "miesxWin73",
+ "section": "专项练习",
+ "qid": "miesxWin73",
+ "group": "iesxWin7",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 3 题",
+ "items": [
+  {
+   "text": "1、关闭「读取源时，自动将源标记为已读」",
+   "key": "slices_read",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 高级 >读取源时，自动将源标记为已读",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、关闭「打开源阅读视图」",
+   "key": "slices_open",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 打开源阅读视图",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「找到网页的源或网页快讯时播放声音」",
+   "key": "slices_fplay",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 找到网页的源或网页快讯时播放声音",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「更新所监视的源或网页快讯时播放声音」",
+   "key": "slices_uplay",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 更新所监视的源或网页快讯时播放声音",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「在页面中打开网页快讯发现」",
+   "key": "slices_find",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 在页面中打开网页快讯发现",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

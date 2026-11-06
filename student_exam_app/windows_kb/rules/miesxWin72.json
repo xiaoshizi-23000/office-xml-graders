@@ -1,0 +1,53 @@
+{
+ "id": "miesxWin72",
+ "section": "专项练习",
+ "qid": "miesxWin72",
+ "group": "iesxWin7",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 2 题",
+ "items": [
+  {
+   "text": "1、关闭「使用windowssearch获取更好的结果」",
+   "key": "auto_sea",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 使用windowssearch获取更好的结果",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「表单」",
+   "key": "auto_tab",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 表单",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「表单上的用户名和密码」",
+   "key": "auto_use",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 表单上的用户名和密码",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「在保存密码之前询问我」",
+   "key": "auto_pass",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 在保存密码之前询问我",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「自动检查更新」",
+   "key": "slices_auto",
+   "path": "Internet属性 > 内容 > 源和网页快讯 > 默认计划 > 自动检查更新",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "mxianshiWin73",
+ "section": "专项练习",
+ "qid": "mxianshiWin73",
+ "group": "xianshiWin7",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 3 题",
+ "items": [
+  {
+   "text": "1、将「分辨率」设置为“1280 × 1024”",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "1280 × 1024",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「分辨率」设置为“1440 × 900”",
+   "key": "resulution",
+   "path": "个性化 > 分辨率",
+   "expect": "1440 × 900",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「屏幕保护程序」设置为“三维文字”",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "三维文字",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「屏幕保护程序」设置为“彩带”",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "彩带",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「屏幕保护程序」设置为“变幻线”",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "变幻线",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

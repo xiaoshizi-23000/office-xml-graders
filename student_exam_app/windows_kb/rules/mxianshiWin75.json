@@ -1,0 +1,53 @@
+{
+ "id": "mxianshiWin75",
+ "section": "专项练习",
+ "qid": "mxianshiWin75",
+ "group": "xianshiWin7",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 5 题",
+ "items": [
+  {
+   "text": "1、关闭「纯色」",
+   "key": "Color",
+   "path": "个性化 > 桌面背景 > 纯色",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「背景图片显示位置」",
+   "key": "BackgroundDisplay",
+   "path": "个性化 > 桌面背景 > 背景图片显示位置",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「更改图片时间间隔」",
+   "key": "SlideTime",
+   "path": "个性化 > 桌面背景 > 更改图片时间间隔",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「播放次序」",
+   "key": "PlayOrder",
+   "path": "个性化 > 桌面背景 > 播放次序",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「屏幕保护等待时间」",
+   "key": "WitingTime",
+   "path": "个性化 > 屏幕保护等待时间",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "mrwlsxWin71",
+ "section": "专项练习",
+ "qid": "mrwlsxWin71",
+ "group": "rwlsxWin7",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 1 题",
+ "items": [
+  {
+   "text": "1、启用「锁定任务栏」",
+   "key": "locktaskbar",
+   "path": "任务栏属性 > 任务栏 > 锁定任务栏",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「自动隐藏」",
+   "key": "autohide",
+   "path": "任务栏属性 > 任务栏 > 自动隐藏",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「使用小图标」",
+   "key": "usesmallicons",
+   "path": "任务栏属性 > 任务栏 > 使用小图标",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「屏幕上的任务栏位置」设置为“顶部”",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "顶部",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「屏幕上的任务栏位置」设置为“左侧”",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "左侧",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

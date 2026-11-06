@@ -407,12 +407,28 @@ def windows_page():
     if os.path.exists(idx_path):
         with open(idx_path, encoding='utf-8') as f:
             rows = json.load(f)
-    sections = {'网络': [], 'Windows': []}
+    sections = {'网络': [], 'Windows': [], '专项练习': []}
     for r in rows:
         sections.setdefault(r['section'], []).append(r)
-    for k in sections:
+    for k in ('网络', 'Windows'):
         sections[k].sort(key=lambda x: int(x['qid']))
-    return render_template('windows.html', sections=sections)
+
+    practice_path = os.path.join(WIN_KB, 'practice_index.json')
+    practice = []
+    if os.path.exists(practice_path):
+        with open(practice_path, encoding='utf-8') as f:
+            practice = json.load(f)
+    groups, order = {}, []
+    for p in practice:
+        g = p.get('group', '')
+        if g not in groups:
+            groups[g] = []
+            order.append(g)
+        groups[g].append(p)
+    practice_groups = [{'prog': g, 'items': groups[g]} for g in order]
+    return render_template('windows.html', sections=sections,
+                           practice_groups=practice_groups,
+                           practice_total=len(practice))
 
 
 @app.route('/windows/download')
@@ -459,7 +475,8 @@ def windows_check():
 
     qid = (request.form.get('qid') or '').strip()
     if qid:
-        rule_path = os.path.join(WIN_KB, 'rules', 'w%s.json' % qid)
+        name = ('%s.json' % qid) if qid.startswith('m') else ('w%s.json' % qid)
+        rule_path = os.path.join(WIN_KB, 'rules', name)
     else:
         rule_path = os.path.join(WIN_KB, 'w1.json')
     if not os.path.exists(rule_path):

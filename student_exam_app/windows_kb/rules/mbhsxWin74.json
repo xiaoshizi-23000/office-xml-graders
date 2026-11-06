@@ -1,0 +1,53 @@
+{
+ "id": "mbhsxWin74",
+ "section": "专项练习",
+ "qid": "mbhsxWin74",
+ "group": "bhsxWin7",
+ "score": 5,
+ "prog": "bhsxWin7",
+ "title": "宽带连接 · 第 4 题",
+ "items": [
+  {
+   "text": "1、启用「允许其他网络用户」",
+   "key": "gx_qt",
+   "path": "宽带连接 > 属性 > 共享 > 允许其他网络用户",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「尝试访问建立连接」",
+   "key": "gx_jl",
+   "path": "宽带连接 > 属性 > 共享 > 尝试访问建立连接",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「共享连接」",
+   "key": "gx_gx",
+   "path": "宽带连接 > 属性 > 共享 > 共享连接",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「为下面用户保存用户名和密码」",
+   "key": "connect_usepart",
+   "path": "宽带连接 >连接 > 为下面用户保存用户名和密码",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「连接时显示进度」",
+   "key": "xx_jd",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

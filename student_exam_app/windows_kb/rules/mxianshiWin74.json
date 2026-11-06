@@ -1,0 +1,53 @@
+{
+ "id": "mxianshiWin74",
+ "section": "专项练习",
+ "qid": "mxianshiWin74",
+ "group": "xianshiWin7",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 4 题",
+ "items": [
+  {
+   "text": "1、将「屏幕保护程序」设置为“气泡”",
+   "key": "Screen",
+   "path": "个性化 > 屏幕保护程序",
+   "expect": "气泡",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、关闭「屏幕保护等待时间」",
+   "key": "WitingTime",
+   "path": "个性化 > 屏幕保护等待时间",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「在恢复时显示登录屏幕」",
+   "key": "ResumeDisplay",
+   "path": "个性化 > 在恢复时显示登录屏幕",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「自定义DPI设置」设置为“125%”",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "125%",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「自定义DPI设置」设置为“150%”",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "150%",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

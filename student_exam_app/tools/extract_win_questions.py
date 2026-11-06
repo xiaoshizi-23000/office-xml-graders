@@ -55,8 +55,14 @@ def extract(path):
         if not cur or SEP_RE.match(t) or any(n in t for n in NOISE):
             continue
         line = t.strip()
-        if line and len(line) <= 800 and line not in qs[cur]['items']:
-            qs[cur]['items'].append(line)
+        if not (line and len(line) <= 800):
+            continue
+        items = qs[cur]['items']
+        cont = re.match(r'^\s*[)）]', line) or re.match(r'^\s*\d+\.\d', line) or re.match(r'^\s*[（(]', line)
+        if items and (cont or not re.match(r'^\s*\d{1,2}\s*[、.．]', line)):
+            items[-1] += line
+        elif line not in items:
+            items.append(line)
     return qs
 
 

@@ -1,0 +1,53 @@
+{
+ "id": "mrwlsxWin75",
+ "section": "专项练习",
+ "qid": "mrwlsxWin75",
+ "group": "rwlsxWin7",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 5 题",
+ "items": [
+  {
+   "text": "1、将「电源按钮操作」设置为“锁定”",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "锁定",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「电源按钮操作」设置为“注销”",
+   "key": "poweruse",
+   "path": "任务栏属性 > 开始菜单 > 电源按钮操作",
+   "expect": "注销",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「菜单中打开的程序」",
+   "key": "openprogram",
+   "path": "任务栏属性 > 开始菜单 > 菜单中打开的程序",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「菜单中打开的项目」",
+   "key": "openproject",
+   "path": "任务栏属性 > 开始菜单 > 菜单中打开的项目",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「锁定任务栏」",
+   "key": "locktaskbar",
+   "path": "任务栏属性 > 任务栏 > 锁定任务栏",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

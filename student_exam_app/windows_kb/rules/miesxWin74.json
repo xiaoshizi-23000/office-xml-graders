@@ -1,0 +1,53 @@
+{
+ "id": "miesxWin74",
+ "section": "专项练习",
+ "qid": "miesxWin74",
+ "group": "iesxWin7",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 4 题",
+ "items": [
+  {
+   "text": "1、关闭「自动检测设置」",
+   "key": "lan_auto",
+   "path": "Internet属性 > 连接 > 局域网设置 > 自动检测设置",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「使用自动配置脚本」",
+   "key": "lan_script",
+   "path": "Internet属性 > 连接 > 局域网设置 > 使用自动配置脚本",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「为lan使用代理服务器」",
+   "key": "lan_vpn",
+   "path": "Internet属性 > 连接 > 局域网设置 > 为lan使用代理服务器",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「跳过本地地址的代理服务器」",
+   "key": "lan_local",
+   "path": "Internet属性 > 连接 > 局域网设置 > 跳过本地地址的代理服务器",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「如果 Internet Explorer 不是默认的 Web 浏览器，提示我」",
+   "key": "cx_prompt",
+   "path": "Internet属性 > 连接 > 程序 > 如果 Internet Explorer 不是默认的 Web 浏览器，提示我",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

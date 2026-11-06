@@ -1,0 +1,53 @@
+{
+ "id": "moutlook2",
+ "section": "专项练习",
+ "qid": "moutlook2",
+ "group": "outlook",
+ "score": 5,
+ "prog": "outlook",
+ "title": "邮件设置 · 第 2 题",
+ "items": [
+  {
+   "text": "1、将「正文」设置为“请查收本月报表。”",
+   "key": "WriteMail_Content",
+   "path": "写信 > 正文",
+   "expect": "请查收本月报表。",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「文字大小」设置为“小号”",
+   "key": "General_Display_FontSize",
+   "path": "设置 > 常规 > 显示 > 文字大小",
+   "expect": "小号",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「文字大小」设置为“大号”",
+   "key": "General_Display_FontSize",
+   "path": "设置 > 常规 > 显示 > 文字大小",
+   "expect": "大号",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「每页显示几封邮件」设置为“50”",
+   "key": "General_Display_MailList_PageSize",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件",
+   "expect": "50",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「每页显示几封邮件」设置为“100”",
+   "key": "General_Display_MailList_PageSize",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 每页显示几封邮件",
+   "expect": "100",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

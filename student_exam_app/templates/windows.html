@@ -34,6 +34,8 @@
   .q .acts a { background:#eff6ff; border-color:#bfdbfe; color:#1b5c96; }
   .q .acts a:hover { background:#dbeafe; }
   .q .acts .badge { font-size:11px; color:var(--muted); text-align:center; }
+  .gt { font-size:13.5px; font-weight:700; color:#12385c; padding:6px 0 2px; border-bottom:1px dashed #dbe4ee; }
+  .gt .gs { font-weight:400; font-size:11.5px; color:#64748b; }
   .result { display:none; margin-top:10px; border:1px solid #dbeafe; background:#f8fbff; border-radius:10px; padding:12px 14px; }
   .result.on { display:block; }
   .result h3 { margin:0 0 8px; font-size:13.5px; color:#0c4a6e; }
@@ -71,6 +73,7 @@
   <div class="tabs" id="tabs">
     <button class="on" data-k="网络">网络（{{ sections['网络']|length }} 题）</button>
     <button data-k="Windows">Windows（{{ sections['Windows']|length }} 题）</button>
+    <button data-k="专项练习">专项练习（{{ practice_total }} 题）</button>
   </div>
 
   <div class="card" id="list"></div>
@@ -80,6 +83,7 @@
 
 <script>
 const DATA = {{ sections|tojson }};
+const PRACTICE = {{ practice_groups|tojson }};
 let curSection = '网络';
 const PROG_NAME = {
   iesxWin7:'Internet 选项', wangluoWin7:'网络/IPv4', bhsxWin7:'宽带连接', jlljWin7:'连接向导',
@@ -99,6 +103,7 @@ function esc(s) {
 }
 
 function renderList() {
+  if (curSection === '专项练习') { renderPractice(); return; }
   const rows = DATA[curSection] || [];
   document.getElementById('list').innerHTML = '<h2>' + curSection + '（' + rows.length + ' 题）</h2>' +
     rows.map(q => {
@@ -115,16 +120,37 @@ function renderList() {
     }).join('');
 }
 
+function qCard(q) {
+  const items = q.texts.map(t => '<li>' + esc(t) + '</li>').join('');
+  const id = String(q.id);
+  return '<div class="q" id="q' + id + '">' +
+    '<div class="no"><b>' + esc(q.title || ('第 ' + q.qid + ' 题')) + '</b><span>' + q.score + ' 分 · ' + (PROG_NAME[q.prog] || q.prog) + '</span></div>' +
+    '<div class="body"><ul>' + items + '</ul><div class="result" id="r' + id + '"></div></div>' +
+    '<div class="acts">' +
+    '<a href="/windows/prog/' + q.prog + '.zip">下载程序</a>' +
+    '<button onclick="pick(\'' + id + '\')">上传判分</button>' +
+    '<div class="badge">可判 ' + q.total + ' 项</div>' +
+    '</div></div>';
+}
+
+function renderPractice() {
+  const groups = PRACTICE || [];
+  document.getElementById('list').innerHTML = '<h2>专项练习（每个程序 5 题，每题 1 分）</h2>' +
+    groups.map(g => '<div style="margin-top:14px"><div class="gt">' + esc(PROG_NAME[g.prog] || g.prog) +
+      '　<span class="gs">' + g.items.length + ' 题 · ' + esc(g.prog) + '.exe</span></div>' +
+      g.items.map(qCard).join('') + '</div>').join('');
+}
+
 let pendingQid = null;
 const picker = document.getElementById('picker');
 picker.onchange = () => {
   if (picker.files.length && pendingQid) upload(picker.files[0], pendingQid);
   picker.value = '';
 };
-function pick(qid) { pendingQid = qid; picker.click(); }
+function pick(qid) { pendingQid = String(qid); picker.click(); }
 
 async function upload(f, qid) {
-  const box = document.getElementById('r' + qid);
+  const box = document.getElementById('r' + String(qid));
   box.classList.add('on');
   box.innerHTML = '<h3>正在读取 ' + esc(f.name) + ' …</h3>';
   const fd = new FormData();

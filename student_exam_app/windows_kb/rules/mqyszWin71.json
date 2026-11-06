@@ -1,0 +1,53 @@
+{
+ "id": "mqyszWin71",
+ "section": "专项练习",
+ "qid": "mqyszWin71",
+ "group": "qyszWin7",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 1 题",
+ "items": [
+  {
+   "text": "1、将「格式」设置为“英语(美国)”",
+   "key": "gs_gs",
+   "path": "区域和语言 > 格式 > 格式",
+   "expect": "英语(美国)",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「格式」设置为“中文(繁体，台湾)”",
+   "key": "gs_gs",
+   "path": "区域和语言 > 格式 > 格式",
+   "expect": "中文(繁体，台湾)",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「短日期」设置为“yyyy-MM-dd”",
+   "key": "gs_drq",
+   "path": "区域和语言 > 格式 > 短日期",
+   "expect": "yyyy-MM-dd",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「短日期」设置为“yy/M/d”",
+   "key": "gs_drq",
+   "path": "区域和语言 > 格式 > 短日期",
+   "expect": "yy/M/d",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「长日期」设置为“dddd, MMMM d, yyyy”",
+   "key": "gs_crq",
+   "path": "区域和语言 > 格式 > 长日期",
+   "expect": "dddd, MMMM d, yyyy",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

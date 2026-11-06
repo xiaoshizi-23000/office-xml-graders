@@ -1,0 +1,53 @@
+{
+ "id": "mrwlsxWin73",
+ "section": "专项练习",
+ "qid": "mrwlsxWin73",
+ "group": "rwlsxWin7",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 3 题",
+ "items": [
+  {
+   "text": "1、将「音量」设置为“仅显示通知”",
+   "key": "tz_yl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 音量",
+   "expect": "仅显示通知",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「网络」设置为“隐藏图标和通知”",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「网络」设置为“仅显示通知”",
+   "key": "tz_wl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 网络",
+   "expect": "仅显示通知",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「操作中心」设置为“隐藏图标和通知”",
+   "key": "tz_cz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「操作中心」设置为“仅显示通知”",
+   "key": "tz_cz",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 操作中心",
+   "expect": "仅显示通知",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

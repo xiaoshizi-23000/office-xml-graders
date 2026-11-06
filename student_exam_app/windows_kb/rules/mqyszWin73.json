@@ -1,0 +1,53 @@
+{
+ "id": "mqyszWin73",
+ "section": "专项练习",
+ "qid": "mqyszWin73",
+ "group": "qyszWin7",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 3 题",
+ "items": [
+  {
+   "text": "1、将「小数点」设置为“．”",
+   "key": "sz_xsd",
+   "path": "区域和语言 > 自定义格式 > 数字 > 小数点",
+   "expect": "．",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「分组符号」设置为“.”",
+   "key": "sz_fzfh",
+   "path": "区域和语言 > 自定义格式 > 数字 > 分组符号",
+   "expect": ".",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「分组符号」设置为“ ”",
+   "key": "sz_fzfh",
+   "path": "区域和语言 > 自定义格式 > 数字 > 分组符号",
+   "expect": " ",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「负号」设置为“−”",
+   "key": "sz_fh",
+   "path": "区域和语言 > 自定义格式 > 数字 > 负号",
+   "expect": "−",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「负号」设置为“△”",
+   "key": "sz_fh",
+   "path": "区域和语言 > 自定义格式 > 数字 > 负号",
+   "expect": "△",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

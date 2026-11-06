@@ -1,0 +1,53 @@
+{
+ "id": "moutlook4",
+ "section": "专项练习",
+ "qid": "moutlook4",
+ "group": "outlook",
+ "score": 5,
+ "prog": "outlook",
+ "title": "邮件设置 · 第 4 题",
+ "items": [
+  {
+   "text": "1、启用「邮件自动转发」",
+   "key": "General_MailAutoForward",
+   "path": "设置 > 常规 > 邮件自动转发",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「默认帐户昵称」设置为“小狮子”",
+   "key": "Account_Info_DefaultName",
+   "path": "设置 > 帐户 > 帐户信息 > 默认帐户昵称",
+   "expect": "小狮子",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「默认帐户昵称」设置为“student”",
+   "key": "Account_Info_DefaultName",
+   "path": "设置 > 帐户 > 帐户信息 > 默认帐户昵称",
+   "expect": "student",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「显示邮件摘要」",
+   "key": "General_Display_MailList_ShowMailSummary",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件摘要",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「显示邮件大小」",
+   "key": "General_Display_MailList_ShowMailSize",
+   "path": "设置 > 常规 > 显示 > 在邮件列表中 > 显示邮件大小",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

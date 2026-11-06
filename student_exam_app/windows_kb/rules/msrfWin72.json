@@ -1,0 +1,53 @@
+{
+ "id": "msrfWin72",
+ "section": "专项练习",
+ "qid": "msrfWin72",
+ "group": "srfWin7",
+ "score": 5,
+ "prog": "srfWin7",
+ "title": "输入法和语言栏 · 第 2 题",
+ "items": [
+  {
+   "text": "1、启用「关闭Caps　Lock」",
+   "key": "CapsLock",
+   "path": "文本服务和输入语言 > 高级键设置 > 关闭Caps　Lock",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「切换到 英语(美国) - 美式键盘」",
+   "key": "USASwitch",
+   "path": "文本服务和输入语言 > 高级键设置 > 切换到 英语(美国) - 美式键盘",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「简体中文全拼(版本6.0)」",
+   "key": "Sqelling",
+   "path": "文本服务和输入语言 > 高级键设置 > 简体中文全拼(版本6.0)",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「简体中文双拼(版本6.0)」",
+   "key": "Larry",
+   "path": "文本服务和输入语言 > 高级键设置 > 简体中文双拼(版本6.0)",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「中文(简体) - 微软拼音ABC输入风格」",
+   "key": "ABCStyle",
+   "path": "文本服务和输入语言 > 高级键设置 > 中文(简体) - 微软拼音ABC输入风格",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "mtjdyjWin74",
+ "section": "专项练习",
+ "qid": "mtjdyjWin74",
+ "group": "tjdyjWin7",
+ "score": 5,
+ "prog": "tjdyjWin7",
+ "title": "打印机 · 第 4 题",
+ "items": [
+  {
+   "text": "1、将「打印机名称设置」设置为“Printer01”",
+   "key": "PrintNameSetup",
+   "path": "添加打印机 > 打印机名称设置",
+   "expect": "Printer01",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「打印机共享设置」",
+   "key": "PrintShareSetup",
+   "path": "添加打印机 > 打印机共享设置",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「设置为默认打印机」",
+   "key": "DefaultPrint",
+   "path": "添加打印机 > 设置为默认打印机",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「是否打印测试页」",
+   "key": "TestPage",
+   "path": "添加打印机 > 是否打印测试页",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「打印机共享设置」",
+   "key": "PrintShareSetup",
+   "path": "添加打印机 > 打印机共享设置",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

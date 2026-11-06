@@ -1,0 +1,53 @@
+{
+ "id": "mbhsxWin75",
+ "section": "专项练习",
+ "qid": "mbhsxWin75",
+ "group": "bhsxWin7",
+ "score": 5,
+ "prog": "bhsxWin7",
+ "title": "宽带连接 · 第 5 题",
+ "items": [
+  {
+   "text": "1、关闭「提示名称、密码和证书等」",
+   "key": "xx_ts",
+   "path": "宽带连接 > 属性 > 选项 > 提示名称、密码和证书等",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、关闭「包括Windows登录域」",
+   "key": "xx_dl",
+   "path": "宽带连接 > 属性 > 选项 > 包括Windows登录域",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「连接时显示进度断线重拨」",
+   "key": "xx_dx",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度断线重拨",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「使用可扩展的身份验证协议」",
+   "key": "aq_kzxy",
+   "path": "宽带连接 > 属性 > 安全 > 使用可扩展的身份验证协议",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「允许使用这些协议」",
+   "key": "aq_rxxy",
+   "path": "宽带连接 > 属性 > 安全 > 允许使用这些协议",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

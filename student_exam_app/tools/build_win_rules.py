@@ -67,7 +67,7 @@ def is_step(text):
     return any(w in text for w in STEP_WORDS) and not re.search(r'[：:]|设置为|设为', text)
 
 
-ITEM_SPLIT = re.compile(r'(?<![0-9])(?:^|[；;])\s*(?=\d{1,2}\s*[、.．])')
+ITEM_SPLIT = re.compile(r'(?<![0-9])(?:^|[；;])\s*(?=\d{1,2}\s*[、．]\s*(?!\d))')
 
 
 def load_progs():

@@ -1,0 +1,53 @@
+{
+ "id": "mqyszWin72",
+ "section": "专项练习",
+ "qid": "mqyszWin72",
+ "group": "qyszWin7",
+ "score": 5,
+ "prog": "qyszWin7",
+ "title": "区域和语言 · 第 2 题",
+ "items": [
+  {
+   "text": "1、将「短时间」设置为“HH:mm”",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "HH:mm",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「短时间」设置为“h:mm tt”",
+   "key": "gs_dsj",
+   "path": "区域和语言 > 格式 > 短时间",
+   "expect": "h:mm tt",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「长时间」设置为“h:mm:ss tt”",
+   "key": "gs_csj",
+   "path": "区域和语言 > 格式 > 长时间",
+   "expect": "h:mm:ss tt",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「第一天」设置为“星期一”",
+   "key": "gs_dyt",
+   "path": "区域和语言 > 格式 > 第一天",
+   "expect": "星期一",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「小数点」设置为“,”",
+   "key": "sz_xsd",
+   "path": "区域和语言 > 自定义格式 > 数字 > 小数点",
+   "expect": ",",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

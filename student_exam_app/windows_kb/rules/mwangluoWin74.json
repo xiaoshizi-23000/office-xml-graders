@@ -1,0 +1,53 @@
+{
+ "id": "mwangluoWin74",
+ "section": "专项练习",
+ "qid": "mwangluoWin74",
+ "group": "wangluoWin7",
+ "score": 5,
+ "prog": "wangluoWin7",
+ "title": "网络 IPv4 · 第 4 题",
+ "items": [
+  {
+   "text": "1、启用「是否自动跃点」",
+   "key": "Ipv4AdvancedSettings_AutomaticPoint",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > IP设置 > IPv4高级设置是否自动跃点",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「附加DNS后缀」",
+   "key": "Ipv4AdvancedSettings_DNSSuffix",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加DNS后缀",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「附加主DNS后缀的父后缀」",
+   "key": "Ipv4AdvancedSettings_MainDNSSuffix",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置附加主DNS后缀的父后缀",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「在DNS中注册此连接地址」",
+   "key": "Ipv4AdvancedSettings_RegistrationDNSAddress",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册此连接地址",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「在DNS中注册使用此连接的DNS后缀」",
+   "key": "Ipv4AdvancedSettings_RegistationDNSSuffix",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > DNS > IPv4高级设置在DNS中注册使用此连接的DNS后缀",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

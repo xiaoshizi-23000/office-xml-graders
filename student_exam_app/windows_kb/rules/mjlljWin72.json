@@ -1,0 +1,53 @@
+{
+ "id": "mjlljWin72",
+ "section": "专项练习",
+ "qid": "mjlljWin72",
+ "group": "jlljWin7",
+ "score": 5,
+ "prog": "jlljWin7",
+ "title": "连接向导 · 第 2 题",
+ "items": [
+  {
+   "text": "1、启用「宽带(PPPoE)显示字符」",
+   "key": "PPPoEString",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)显示字符",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「宽带(PPPoE)记住密码」",
+   "key": "PPPoEPpwd",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)记住密码",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「宽带(PPPoE)允许其他人使用此连接」",
+   "key": "PPPoEOther",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)允许其他人使用此连接",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「拨号显示字符」",
+   "key": "DialString",
+   "path": "设置连接或网络 > 连接到Internet > 拨号 > 拨号显示字符",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「拨号记住此密码」",
+   "key": "Dialpwd",
+   "path": "设置连接或网络 > 连接到Internet > 拨号 > 拨号记住此密码",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

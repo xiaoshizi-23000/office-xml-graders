@@ -1,0 +1,53 @@
+{
+ "id": "mjlljWin71",
+ "section": "专项练习",
+ "qid": "mjlljWin71",
+ "group": "jlljWin7",
+ "score": 5,
+ "prog": "jlljWin7",
+ "title": "连接向导 · 第 1 题",
+ "items": [
+  {
+   "text": "1、关闭「显示此计算机未设置使用的连接选项」",
+   "key": "NotSettingOption",
+   "path": "设置连接或网络 > 显示此计算机未设置使用的连接选项",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「宽带(PPPoE)用户名」设置为“user01”",
+   "key": "PPPoEUserName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)用户名",
+   "expect": "user01",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「宽带(PPPoE)用户名」设置为“admin”",
+   "key": "PPPoEUserName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)用户名",
+   "expect": "admin",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「宽带(PPPoE)连接名称」设置为“宽带连接a”",
+   "key": "PPPoEConnName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)连接名称",
+   "expect": "宽带连接a",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「宽带(PPPoE)连接名称」设置为“宽带连接b”",
+   "key": "PPPoEConnName",
+   "path": "设置连接或网络 > 连接到Internet > 宽带(PPPoE)连接名称",
+   "expect": "宽带连接b",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

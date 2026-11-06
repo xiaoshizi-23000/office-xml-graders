@@ -1,0 +1,53 @@
+{
+ "id": "mrwlsxWin72",
+ "section": "专项练习",
+ "qid": "mrwlsxWin72",
+ "group": "rwlsxWin7",
+ "score": 5,
+ "prog": "rwlsxWin7",
+ "title": "任务栏和开始菜单 · 第 2 题",
+ "items": [
+  {
+   "text": "1、将「屏幕上的任务栏位置」设置为“右侧”",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "右侧",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「任务栏按钮」设置为“任务栏被占满时合并”",
+   "key": "taskbarbtn",
+   "path": "任务栏属性 > 任务栏 > 任务栏按钮",
+   "expect": "任务栏被占满时合并",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「任务栏按钮」设置为“从不合并”",
+   "key": "taskbarbtn",
+   "path": "任务栏属性 > 任务栏 > 任务栏按钮",
+   "expect": "从不合并",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「使用aeropeek」",
+   "key": "useaeropeek",
+   "path": "任务栏属性 > 任务栏 > 使用aeropeek",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「音量」设置为“隐藏图标和通知”",
+   "key": "tz_yl",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > 音量",
+   "expect": "隐藏图标和通知",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

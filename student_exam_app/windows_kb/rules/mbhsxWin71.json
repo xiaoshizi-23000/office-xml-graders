@@ -1,0 +1,53 @@
+{
+ "id": "mbhsxWin71",
+ "section": "专项练习",
+ "qid": "mbhsxWin71",
+ "group": "bhsxWin7",
+ "score": 5,
+ "prog": "bhsxWin7",
+ "title": "宽带连接 · 第 1 题",
+ "items": [
+  {
+   "text": "1、将「用户名」设置为“admin”",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "admin",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「用户名」设置为“user01”",
+   "key": "connect_username",
+   "path": "宽带连接 > 连接 > 用户名",
+   "expect": "user01",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「为下面用户保存用户名和密码」",
+   "key": "connect_usepart",
+   "path": "宽带连接 >连接 > 为下面用户保存用户名和密码",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「服务器名称」设置为“10000”",
+   "key": "cg_fwq",
+   "path": "宽带连接 > 属性 > 常规 > 服务器名称",
+   "expect": "10000",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「服务器名称」设置为“172.16.1.1”",
+   "key": "cg_fwq",
+   "path": "宽带连接 > 属性 > 常规 > 服务器名称",
+   "expect": "172.16.1.1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

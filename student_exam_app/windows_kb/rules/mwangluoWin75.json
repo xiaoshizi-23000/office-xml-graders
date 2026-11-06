@@ -1,0 +1,53 @@
+{
+ "id": "mwangluoWin75",
+ "section": "专项练习",
+ "qid": "mwangluoWin75",
+ "group": "wangluoWin7",
+ "score": 5,
+ "prog": "wangluoWin7",
+ "title": "网络 IPv4 · 第 5 题",
+ "items": [
+  {
+   "text": "1、关闭「是否启用LMHOSTS」",
+   "key": "Ipv4AdvancedSettings_WINSLMHOSTS",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置是否启用LMHOSTS",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「NetBIOS设置」",
+   "key": "Ipv4AdvancedSettings_WINSNetBIOS",
+   "path": "网络设置 > IPv4 > 属性 > 高级 > WINS > IPv4高级设置NetBIOS设置",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「是否自动获取IPv6地址」",
+   "key": "Ipv6_Automatci",
+   "path": "网络设置 > IPv6 > 属性 > 常规 > IPv6设置是否自动获取IPv6地址",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「是否自动获得DNS服务器地址」",
+   "key": "Ipv6_AutomaticDNS",
+   "path": "网络设置 > IPv6 > 属性 > 常规 > IPv6设置是否自动获得DNS服务器地址",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、启用「退出时验证」",
+   "key": "Ipv6Adnanced_ExitChecking",
+   "path": "网络设置 > IPv6 > 属性 > 常规 > IPv6退出时验证",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "miesxWin75",
+ "section": "专项练习",
+ "qid": "miesxWin75",
+ "group": "iesxWin7",
+ "score": 5,
+ "prog": "iesxWin7",
+ "title": "Internet 选项 · 第 5 题",
+ "items": [
+  {
+   "text": "1、启用「通知和阻止级别」",
+   "key": "upblock_stoplevel",
+   "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「地址栏」",
+   "key": "auto_address",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、启用「浏览历史记录」",
+   "key": "auto_hisdory",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 浏览历史记录",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、启用「收藏夹」",
+   "key": "auto_fav",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 收藏夹",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「源」",
+   "key": "auto_sou",
+   "path": "Internet属性 > 内容 > 自动完成设置 > 源",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "mxianshiWin71",
+ "section": "专项练习",
+ "qid": "mxianshiWin71",
+ "group": "xianshiWin7",
+ "score": 5,
+ "prog": "xianshiWin7",
+ "title": "显示和主题 · 第 1 题",
+ "items": [
+  {
+   "text": "1、将「桌面主题」设置为“0”",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「桌面主题」设置为“1”",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、将「桌面主题」设置为“2”",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "2",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「桌面主题」设置为“4”",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "4",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「桌面主题」设置为“5”",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "5",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

@@ -1,0 +1,53 @@
+{
+ "id": "msrfWin71",
+ "section": "专项练习",
+ "qid": "msrfWin71",
+ "group": "srfWin7",
+ "score": 5,
+ "prog": "srfWin7",
+ "title": "输入法和语言栏 · 第 1 题",
+ "items": [
+  {
+   "text": "1、将「默认输入语言设置」设置为“英语(美国) - 美式键盘”",
+   "key": "DefaultInputLanguage",
+   "path": "文本服务和输入语言 > 常规 > 默认输入语言设置",
+   "expect": "英语(美国) - 美式键盘",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、启用「语言栏位置设置」",
+   "key": "LanguageBarPosition",
+   "path": "文本服务和输入语言 > 语言栏 > 语言栏位置设置",
+   "expect": "1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「非活动时是否以透明状态显示语言栏」",
+   "key": "TransparentLanguageBarDisplayStatus",
+   "path": "文本服务和输入语言 > 语言栏 > 非活动时是否以透明状态显示语言栏",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、关闭「是否在任务栏中显示其他语言栏图标」",
+   "key": "TaskbarDisplayLanguageBarIcon",
+   "path": "文本服务和输入语言 > 语言栏 > 是否在任务栏中显示其他语言栏图标",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、关闭「是否在语言栏上显示文本标签」",
+   "key": "LanguageBarTextLabel",
+   "path": "文本服务和输入语言 > 语言栏 > 是否在语言栏上显示文本标签",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

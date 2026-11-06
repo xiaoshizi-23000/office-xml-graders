@@ -1,0 +1,53 @@
+{
+ "id": "mwangluoWin72",
+ "section": "专项练习",
+ "qid": "mwangluoWin72",
+ "group": "wangluoWin7",
+ "score": 5,
+ "prog": "wangluoWin7",
+ "title": "网络 IPv4 · 第 2 题",
+ "items": [
+  {
+   "text": "1、将「默认网关」设置为“192.168.1.1”",
+   "key": "Ipv4_Gateway",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关",
+   "expect": "192.168.1.1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "2、将「默认网关」设置为“10.0.0.1”",
+   "key": "Ipv4_Gateway",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置默认网关",
+   "expect": "10.0.0.1",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "3、关闭「是否自动获得DNS服务器地址」",
+   "key": "Ipv4_AutomaticDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置是否自动获得DNS服务器地址",
+   "expect": "0",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "4、将「首选DNS服务器地址」设置为“8.8.8.8”",
+   "key": "Ipv4_MainDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置首选DNS服务器地址",
+   "expect": "8.8.8.8",
+   "score": 1,
+   "how": "manual"
+  },
+  {
+   "text": "5、将「首选DNS服务器地址」设置为“114.114.114.114”",
+   "key": "Ipv4_MainDNS",
+   "path": "网络设置 > IPv4 > 属性 > 常规 > IPv4设置首选DNS服务器地址",
+   "expect": "114.114.114.114",
+   "score": 1,
+   "how": "manual"
+  }
+ ],
+ "matched": 5,
+ "covered": true
+}

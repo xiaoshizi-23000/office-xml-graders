@@ -167,8 +167,11 @@ class ExcelGrader1:
         c = self.get_cell(root, 'H3')
         if c is not None:
             f = c.find('{%s}f' % S)
-            if f is not None and 'SUM' in f.text:
+            ft = (f.text or '').upper() if f is not None else ''
+            if 'SUM' in ft:
                 s += 4; d.append(f'加班公式({f.text}) OK')
+            elif '+' in ft:
+                s += 2; d.append(f'用了加法({f.text})，题干要求函数，给一半')
 
         # I2 = "评价"
         i2 = self.sv(root, 'I2')

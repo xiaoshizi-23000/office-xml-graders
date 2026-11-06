@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _core import has_field
 
 W = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
+A_NS8 = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
 R_NS = '{http://schemas.openxmlformats.org/officeDocument/2006/relationships}'
 V = '{urn:schemas-microsoft-com:vml}'
 O = '{urn:schemas-microsoft-com:office:office}'
@@ -259,7 +260,21 @@ class Grader8:
                     for fl in sh.iter(V+'fill'):
                         if fl.get('type','')=='gradient': s+=2; d.append('渐变填充 OK'); break
                     if 'tight' in sh.get('style','').lower() or 'square' in sh.get('style','').lower(): s+=1; d.append('环绕 OK')
-                    return self.R(6,'云形标注',s,f,d)
+                    # DrawingML 兜底：365 存的云形标注是 prstGeom=cloudCallout，不在 VML 里
+        for dr in self.doc_root.iter(W + 'drawing'):
+            pg = dr.find('.//' + A_NS8 + 'prstGeom')
+            if pg is None or pg.get('prst') not in ('cloudCallout', 'borderCallout3'):
+                continue
+            txt = ''.join(t.text or '' for t in dr.iter(W + 't')).strip()
+            s += 3; d.append('云形标注(DrawingML) OK')
+            if '合理利用电子产品' in txt:
+                s += 4; d.append('文字 OK')
+            elif txt:
+                d.append('文字=%r' % txt)
+            if any(el.tag.endswith('}wrapTight') or el.tag.endswith('}wrapSquare') for el in dr.iter()):
+                s += 1; d.append('环绕 OK')
+            return self.R(6, '云形标注', s, f, d)
+        return self.R(6,'云形标注',s,f,d)
         return self.R(6,'云形标注',s,f,d)
     
     # ====== R7: 分栏 (9) ======

@@ -21,6 +21,7 @@ import xml.etree.ElementTree as ET
 
 # 命名空间
 W = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
+A_NS = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
 R = '{http://schemas.openxmlformats.org/officeDocument/2006/relationships}'
 V = '{urn:schemas-microsoft-com:vml}'
 O = '{urn:schemas-microsoft-com:office:office}'
@@ -336,6 +337,23 @@ class WordGrader7:
                     return {'req': 3, 'name': '椭圆标注', 'score': round(score, 1), 'full': full,
                             'detail': detail, 'status': 'pass' if score >= 4 else 'fail'}
         
+        # DrawingML 兜底：Office 2016/365 插入的标注形状不是 VML
+        for dr in self.doc_root.iter(W + 'drawing'):
+            pg = dr.find('.//' + A_NS + 'prstGeom')
+            if pg is None or pg.get('prst') not in ('wedgeEllipseCallout', 'borderCallout2', 'ellipse'):
+                continue
+            txt = ''.join(t.text or '' for t in dr.iter(W + 't')).strip()
+            if '就业情况' in txt:
+                score += 5
+                detail.append('DrawingML 标注形状 + 文字 OK')
+                return {'req': 3, 'name': '椭圆标注', 'score': round(score, 1), 'full': full,
+                        'detail': detail, 'status': 'pass'}
+            if txt:
+                score += 2
+                detail.append('DrawingML 标注形状存在，文字=%r' % txt)
+                return {'req': 3, 'name': '椭圆标注', 'score': round(score, 1), 'full': full,
+                        'detail': detail, 'status': 'fail'}
+
         # 未找到，用字符串搜索兜底
         if '#_x0000_t63' in self.doc_xml and '就业情况' in self.doc_xml:
             score += 4

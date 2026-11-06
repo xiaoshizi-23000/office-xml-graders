@@ -110,9 +110,17 @@ class ExcelGrader4:
         root = info['root']; s1_xml = info['xml']
 
         j3_f = self.get_formula(root, 'J3')
-        if 'SUM' in j3_f.upper(): s += 1.5; d.append(f'SUM({j3_f}) OK')
+        ju = j3_f.upper()
+        if 'SUM' in ju:
+            s += 1.5; d.append(f'SUM({j3_f}) OK')
+        elif '+' in ju:
+            s += 1; d.append(f'加法({j3_f})代替 SUM，给部分分')
         k3_f = self.get_formula(root, 'K3')
-        if 'AVERAGE' in k3_f.upper(): s += 1.5; d.append(f'AVERAGE({k3_f}) OK')
+        ku = k3_f.upper()
+        if 'AVERAGE' in ku:
+            s += 1.5; d.append(f'AVERAGE({k3_f}) OK')
+        elif '/' in ku and 'SUM' in ku:
+            s += 1; d.append(f'({k3_f}) 用求和除法代替 AVERAGE，给部分分')
         l3_f = self.get_formula(root, 'L3')
         if 'RANK' in l3_f.upper(): s += 1.5; d.append(f'RANK({l3_f}) OK')
         if '0.00' in self.styles_xml: s += 1; d.append('2位小数 OK')

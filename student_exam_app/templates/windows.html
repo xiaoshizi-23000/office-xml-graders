@@ -13,9 +13,22 @@
   .head h1 { font-size:16px; margin:0; }
   .head a { margin-left:auto; color:#cbd5e1; text-decoration:none; font-size:13px; }
   .wrap { max-width:1000px; margin:0 auto; padding:16px 14px 60px; }
+  .site-footer { text-align:center; color:#64748b; font-size:12px; padding:4px 0 2px; }
+  .site-footer b { color:#b45309; }
+  .site-footer a { color:#64748b; text-decoration:none; }
+  .site-footer a:hover { text-decoration:underline; }
   .tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
   .tabs button { border:1px solid var(--line); background:#fff; color:#334155; padding:8px 16px; border-radius:9px; cursor:pointer; font-family:inherit; font-size:13.5px; }
   .tabs button.on { background:var(--blue); border-color:var(--blue); color:#fff; font-weight:600; }
+  .promo { display:flex; align-items:center; gap:14px; background:linear-gradient(135deg,#fffbeb,#fef3c7); border:1px solid #fde68a; border-radius:12px; padding:12px 16px; margin-bottom:14px; flex-wrap:wrap; }
+  .promo .p-icon { width:42px; height:42px; border-radius:50%; object-fit:cover; flex-shrink:0; box-shadow:0 0 0 2px rgba(245,158,11,.3); }
+  .promo .p-text { flex:1; min-width:200px; }
+  .promo .p-title { font-size:15px; font-weight:700; color:#92400e; }
+  .promo .p-tag { background:#f59e0b; color:#0f172a; font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; margin-left:6px; vertical-align:2px; }
+  .promo .p-desc { font-size:12.5px; color:#a16207; line-height:1.7; margin-top:2px; }
+  .promo .p-qr { text-align:center; flex-shrink:0; }
+  .promo .p-qr img { width:74px; height:74px; border-radius:8px; display:block; }
+  .promo .p-qr span { font-size:11px; color:#a16207; }
   .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; }
   .card h2 { font-size:14.5px; margin:0 0 10px; color:var(--blue); }
   .hint { color:var(--muted); font-size:12.5px; line-height:1.95; }
@@ -66,6 +79,18 @@
 </div>
 
 <div class="wrap">
+  <div class="promo">
+    <img src="/static/logo.png" class="p-icon" alt="小狮子">
+    <div class="p-text">
+      <div class="p-title">小狮子对口刷题<span class="p-tag">微信小程序</span></div>
+      <div class="p-desc">电脑练操作，手机刷理论——语数英与专业课真题随时刷，错题本、考纲掌握度分析自动生成。</div>
+    </div>
+    <div class="p-qr">
+      <img src="/static/wxacode.jpg" alt="小狮子对口刷题小程序码">
+      <span>微信扫码 · 刷题</span>
+    </div>
+  </div>
+
   <div class="card">
     <h2>怎么用</h2>
     <div class="hint">
@@ -201,5 +226,7 @@ function renderResult(box, d) {
 renderTabs();
 renderList();
 </script>
+  <div class="site-footer">🦁 小狮子系列 · 电脑练操作，手机刷理论 —— 微信小程序「<b>小狮子对口刷题</b>」</div>
+  <div class="site-footer" style="padding-top:4px"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></div>
 </body>
 </html>

@@ -541,6 +541,23 @@ def parse_items(text):
     return items
 
 
+FAIL_HINTS = ('期望', '未找到', '未设置', '未通过', '未调整', '未保留', '未覆盖',
+              '不符', '缺失', '没有', '不是', '错误')
+
+
+def _note_mark(note, full_mark):
+    """明细行前面的 ✓ / ✗ / ·。
+
+    满分项的说明基本都是"已做到"，直接给 ✓，避免像"A1标题正确"这种没写 OK
+    的句子被当成未通过；不满分的项里命中失败词的给 ✗，含糊描述留 ·。
+    """
+    if any(k in note for k in FAIL_HINTS):
+        return 'fail'
+    if 'OK' in note or '通过' in note:
+        return 'pass'
+    return 'pass' if full_mark else 'info'
+
+
 def build_details(text, items):
     if items and all(item['full'] for item in items):
         lines = []
@@ -548,9 +565,9 @@ def build_details(text, items):
             lines.append('[%s] %d. %s  %.1f/%g' % (
                 'pass' if item['status'] == 'pass' else 'fail',
                 item['no'], item['name'], item['got'], item['full']))
+            full_mark = item['got'] >= item['full']
             for note in item['notes']:
-                mark = 'pass' if ('OK' in note or '通过' in note) else 'info'
-                lines.append('[%s]      %s' % (mark, note))
+                lines.append('[%s]      %s' % (_note_mark(note, full_mark), note))
         return lines
 
     lines = []

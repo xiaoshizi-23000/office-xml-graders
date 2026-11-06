@@ -91,6 +91,8 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
 .upload-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 36px 20px; text-align: center; cursor: pointer; transition: .2s; margin: 16px 0; background: var(--bg); }
 .upload-zone:hover { border-color: var(--amber); background: var(--amber-light); }
 .upload-zone input { display: none; }
+.office-tip { margin-top: 12px; padding: 8px 12px; border-radius: 8px; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; font-size: 12.5px; line-height: 1.8; text-align: left; }
+.office-tip b { color: #7c2d12; }
 .upload-icon { font-size: 36px; margin-bottom: 8px; }
 .upload-text { font-size: 14px; color: var(--text); }
 .upload-hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
@@ -222,6 +224,7 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
         <div class="upload-icon">📁</div>
         <div class="upload-text" id="uploadText">点击此处上传已完成的操作文件</div>
         <div class="upload-hint" id="uploadHint">支持 .xlsx / .docx / .pptx / .zip 格式</div>
+        <div class="office-tip">⚠️ 请用 <b>Office 2010</b> 完成后再上传。用 WPS 或 Microsoft 365 保存的文件，字体、图表、数据条等格式项会与标准不一致，可能被扣分。</div>
         <input type="file" id="fileInput" onchange="handleUpload(this)" accept=".xlsx,.docx,.pptx,.zip">
       </div>
       <div class="upload-rule" id="uploadRule"></div>

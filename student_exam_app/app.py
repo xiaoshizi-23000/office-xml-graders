@@ -355,7 +355,7 @@ def baidu_verify(code):
 @app.route('/sitemap.xml')
 def sitemap_xml():
     data = questions_cached()
-    urls = ['%s/' % SITE]
+    urls = ['%s/' % SITE, '%s/windows' % SITE]
     for subject in SUBJECTS:
         for qid in sorted(data.get(subject, {}), key=lambda x: (len(x), x)):
             urls.append('%s/q/%s/%s' % (SITE, subject, qid))

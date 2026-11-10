@@ -32,10 +32,10 @@
   },
   {
    "text": "4、使用AeroPeek预览桌面",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "useaeropeek",
+   "path": "任务栏属性 > 任务栏 > 使用aeropeek",
+   "expect": "1",
+   "how": "auto",
    "score": 0
   }
  ],

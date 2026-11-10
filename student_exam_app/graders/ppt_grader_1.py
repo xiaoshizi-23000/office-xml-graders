@@ -88,6 +88,34 @@ class PPTGrader1:
                     return rel.get('Target', '')
         return ''
 
+    def _picture_ids(self, root):
+        ids = set()
+        for pic in root.iter(f'{{{P}}}pic'):
+            node = pic.find(f'{{{P}}}nvPicPr/{{{P}}}cNvPr')
+            if node is not None and node.get('id'):
+                ids.add(node.get('id'))
+        return ids
+
+    def _picture_float_in(self, root):
+        picture_ids = self._picture_ids(root)
+        for effect in root.iter(f'{{{P}}}cTn'):
+            if effect.get('presetID') != '47' or effect.get('presetClass') != 'entr':
+                continue
+            targets = {node.get('spid') for node in effect.iter(f'{{{P}}}spTgt')}
+            if targets & picture_ids:
+                return effect
+        return None
+
+    def _is_float_down(self, effect):
+        for anim in effect.iter(f'{{{P}}}anim'):
+            attr_names = [node.text for node in anim.iter(f'{{{P}}}attrName')]
+            if 'ppt_y' not in attr_names:
+                continue
+            values = [node.get('val', '') for node in anim.iter(f'{{{P}}}strVal')]
+            if any('ppt_y-.1' in value for value in values):
+                return True
+        return False
+
     def grade(self):
         self.load()
         rr = [self.r1(), self.r2(), self.r3(), self.r4(),
@@ -148,9 +176,16 @@ class PPTGrader1:
         if 'softEdge' in s2_xml: s += 5; d.append('柔化边缘(softEdge) OK')
         else: d.append('未找到柔化边缘')
 
-        # 动画: animEffect + anim (浮入)
-        if 'animEffect' in s2_xml: s += 5; d.append('动画效果(animEffect) OK')
-        if '<p:anim' in s2_xml: s += 5; d.append('动画(浮入) OK')
+        # 动画必须是作用在图片上的“浮入”，再核对下浮方向
+        effect = self._picture_float_in(self.slides['ppt/slides/slide2.xml']['root'])
+        if effect is not None:
+            s += 5; d.append('图片浮入动画 OK')
+            if self._is_float_down(effect):
+                s += 5; d.append('下浮方向 OK')
+            else:
+                d.append('未找到下浮方向')
+        else:
+            d.append('未找到图片的“浮入”进入动画')
         return self.R(3, '图片样式+动画', s, full, d)
 
     # R4: 幻灯片编号+页脚 (15)

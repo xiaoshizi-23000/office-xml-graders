@@ -8,18 +8,18 @@
  "items": [
   {
    "text": "1、更改主题为Aero主题中的第三个",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "2",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "2、显示里调整屏幕分辨率为：1280x1024",
-   "key": "",
+   "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "1280x1024",
+   "how": "auto",
    "score": 0
   },
   {
@@ -32,10 +32,10 @@
   },
   {
    "text": "4、自定义DPI为缩放150%",
-   "key": "",
+   "key": "DisplayDPI",
    "path": "个性化 > 自定义DPI设置",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "150%",
+   "how": "auto",
    "score": 0
   }
  ],

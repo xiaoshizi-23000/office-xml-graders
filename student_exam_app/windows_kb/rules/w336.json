@@ -16,10 +16,10 @@
   },
   {
    "text": "2、设置图片位置为\" 平铺\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "BackgroundDisplay",
+   "path": "个性化 > 桌面背景 > 背景图片显示位置",
+   "expect": "3",
+   "how": "auto",
    "score": 0
   },
   {
@@ -32,10 +32,10 @@
   },
   {
    "text": "4、主题设置为：Aero主题里的\" 建筑\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "3",
+   "how": "auto",
    "score": 0
   }
  ],

@@ -24,10 +24,10 @@
   },
   {
    "text": "3、启用选项卡分组",
-   "key": "",
+   "key": "tab_starttab",
    "path": "Internet属性 > 常规 > 选项卡 > 启用选项卡浏览",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "启用选项卡分组",
+   "how": "auto",
    "score": 0
   },
   {

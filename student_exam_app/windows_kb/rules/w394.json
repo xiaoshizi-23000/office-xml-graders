@@ -8,10 +8,10 @@
  "items": [
   {
    "text": "1、设置主页为：vip.qq.com",
-   "key": "",
+   "key": "homepage",
    "path": "Internet属性 > 常规 > 主页",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "vip.qq.com",
+   "how": "auto",
    "score": 0
   },
   {
@@ -24,10 +24,10 @@
   },
   {
    "text": "3、设置如果Internet Explorer不是默认的Web浏览器，提示我",
-   "key": "",
-   "path": "Internet属性 > 高级 > 浏览",
-   "expect": "",
-   "how": "noexpect",
+   "key": "cx_prompt",
+   "path": "Internet属性 > 连接 > 程序 > 如果 Internet Explorer 不是默认的 Web 浏览器，提示我",
+   "expect": "1",
+   "how": "auto",
    "score": 0
   },
   {

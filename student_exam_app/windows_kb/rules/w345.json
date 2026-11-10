@@ -24,10 +24,10 @@
   },
   {
    "text": "3、图片位置设置为\" 拉伸\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "BackgroundDisplay",
+   "path": "个性化 > 桌面背景 > 背景图片显示位置",
+   "expect": "2",
+   "how": "auto",
    "score": 0
   },
   {

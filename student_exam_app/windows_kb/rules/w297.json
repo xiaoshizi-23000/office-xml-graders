@@ -16,10 +16,10 @@
   },
   {
    "text": "2、在使用Areo Peek预览桌面设置\" 使用Areo Peek预览桌面\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "useaeropeek",
+   "path": "任务栏属性 > 任务栏 > 使用aeropeek",
+   "expect": "1",
+   "how": "auto",
    "score": 0
   },
   {

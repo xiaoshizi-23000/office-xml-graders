@@ -8,26 +8,27 @@
  "items": [
   {
    "text": "1、添加本地打印机",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "InstallationPrintType",
+   "path": "添加打印机 > 安装什么类型的打印机",
+   "expect": "添加本地打印机",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "2、使用XPSPort端口",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "SelectPrintPort",
+   "path": "添加打印机 > 选择打印机端口",
+   "expect": "XPSPort",
+   "how": "auto",
+   "score": 0,
+   "match": "contains"
   },
   {
    "text": "3、选择厂商为\" 爱普生\" 型号为\" Epson AL-7000\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "InstallationPrintDriver",
+   "path": "添加打印机 > 安装打印机驱动程序",
+   "expect": " Epson AL-7000",
+   "how": "auto",
    "score": 0
   },
   {

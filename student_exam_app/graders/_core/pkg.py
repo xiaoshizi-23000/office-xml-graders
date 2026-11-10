@@ -1,10 +1,12 @@
 """Office 包（docx/xlsx/pptx）的通用解包与关系解析。"""
+import os
 import posixpath
 import zipfile
 import xml.etree.ElementTree as ET
 
 PKG = 'http://schemas.openxmlformats.org/package/2006/relationships'
 OFFICE_DOC = '/officeDocument'
+MAX_PART_BYTES = int(os.environ.get('EXAM_MAX_XML_MB', '64')) * 1024 * 1024
 
 
 class Package:
@@ -28,12 +30,21 @@ class Package:
     def has(self, name):
         return name in self._names
 
+    def read_bytes(self, name):
+        info = self.zf.getinfo(name)
+        if info.file_size > MAX_PART_BYTES:
+            raise ValueError('Office 部件过大：%s' % name)
+        data = self.zf.read(name)
+        if len(data) > MAX_PART_BYTES:
+            raise ValueError('Office 部件过大：%s' % name)
+        return data
+
     def read(self, name):
-        return self.zf.read(name).decode('utf-8', 'replace')
+        return self.read_bytes(name).decode('utf-8', 'replace')
 
     def root(self, name):
         if name not in self._xml:
-            self._xml[name] = ET.fromstring(self.zf.read(name))
+            self._xml[name] = ET.fromstring(self.read_bytes(name))
         return self._xml[name]
 
     def parts(self, prefix='', suffix='.xml', exclude=('_rels/',)):

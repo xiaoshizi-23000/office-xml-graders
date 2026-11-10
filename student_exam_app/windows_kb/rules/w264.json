@@ -24,18 +24,18 @@
   },
   {
    "text": "3、属性里在选项里设置重播间隔为：30秒",
-   "key": "",
+   "key": "xx_jg",
    "path": "宽带连接 > 属性 > 选项 > 重播间隔",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "30秒",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、属性里在选项里设置挂断前的空闲时间为：5分钟",
-   "key": "",
+   "key": "xx_kx",
    "path": "宽带连接 > 属性 > 选项 > 挂断前的空闲时间",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "5分钟",
+   "how": "auto",
    "score": 0
   },
   {
@@ -43,8 +43,9 @@
    "key": "",
    "path": "",
    "expect": "",
-   "how": "",
-   "score": 0
+   "how": "step",
+   "score": 0,
+   "step": true
   }
  ],
  "matched": 2,

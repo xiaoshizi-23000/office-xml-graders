@@ -16,10 +16,10 @@
   },
   {
    "text": "2、DPI缩放至150%",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "150%",
+   "how": "auto",
    "score": 0
   },
   {

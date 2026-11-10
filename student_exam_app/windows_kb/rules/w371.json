@@ -24,18 +24,18 @@
   },
   {
    "text": "3、属性里设置选项断线重拨",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "xx_dx",
+   "path": "宽带连接 > 属性 > 选项 > 连接时显示进度断线重拨",
+   "expect": "1",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、属性里设置宽带常规服务名为：服务器W",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "cg_fwq",
+   "path": "宽带连接 > 属性 > 常规 > 服务器名称",
+   "expect": "服务器W",
+   "how": "auto",
    "score": 0
   },
   {
@@ -43,8 +43,9 @@
    "key": "",
    "path": "",
    "expect": "",
-   "how": "",
-   "score": 0
+   "how": "step",
+   "score": 0,
+   "step": true
   }
  ],
  "matched": 2,

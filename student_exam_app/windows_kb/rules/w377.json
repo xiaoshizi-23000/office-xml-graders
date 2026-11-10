@@ -18,14 +18,14 @@
    "text": "2、退出时删除浏览的历史记录，删除\" Internet 临时文件\"",
    "key": "keepwebsite",
    "path": "Internet属性 > 常规 > 删除历史记录",
-   "expect": "Internet 临时文件",
+   "expect": "Internet临时文件",
    "how": "rule",
    "score": 1.25
   },
   {
    "text": "3、本地Intranet安全级别设置为\" 中-高\"",
-   "key": "aq_internetlevel",
-   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "key": "aq_intranetevel",
+   "path": "Internet属性 > 安全 > 本地Intranet > 安全级别",
    "expect": "中-高",
    "how": "rule",
    "score": 1.25

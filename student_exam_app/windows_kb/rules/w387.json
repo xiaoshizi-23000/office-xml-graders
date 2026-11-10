@@ -24,10 +24,10 @@
   },
   {
    "text": "3、阻止弹出窗口时播放声音",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "upblock_stoplevel",
+   "path": "Internet属性 > 隐私 > 弹出窗口阻止程序 >设置 > 通知和阻止级别",
+   "expect": "阻止弹出窗口时播放声音",
+   "how": "auto",
    "score": 0
   },
   {

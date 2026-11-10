@@ -8,33 +8,34 @@
  "items": [
   {
    "text": "1、添加本地打印机，自动检测并安装打印机",
-   "key": "",
-   "path": "添加打印机 > 安装打印机驱动程序",
-   "expect": "",
-   "how": "noexpect",
+   "key": "InstallationPrintType",
+   "path": "添加打印机 > 安装什么类型的打印机",
+   "expect": "添加本地打印机",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "2、使用LPT3端口",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
-   "score": 0
+   "key": "SelectPrintPort",
+   "path": "添加打印机 > 选择打印机端口",
+   "expect": "LPT3",
+   "how": "auto",
+   "score": 0,
+   "match": "contains"
   },
   {
    "text": "3、选择 厂商为\" HP（惠普）\" 型号为\" hp business inkjet 1200\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "InstallationPrintDriver",
+   "path": "添加打印机 > 安装打印机驱动程序",
+   "expect": " hp business inkjet 1200",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、设置为默认的打印机",
    "key": "DefaultPrint",
    "path": "添加打印机 > 设置为默认打印机",
-   "expect": "默认的打印机",
+   "expect": "1",
    "how": "short",
    "score": 5.0
   }

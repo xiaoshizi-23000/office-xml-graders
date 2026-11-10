@@ -16,8 +16,8 @@
   },
   {
    "text": "2、设置本地Intranet安全级别为\" 高\"",
-   "key": "aq_internetlevel",
-   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "key": "aq_intranetevel",
+   "path": "Internet属性 > 安全 > 本地Intranet > 安全级别",
    "expect": "高",
    "how": "rule",
    "score": 1.25

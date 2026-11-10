@@ -16,18 +16,18 @@
   },
   {
    "text": "2、DPI缩放至200%",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "200%",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "3、桌面背景更改为\" 顶级照片\" 中的\" 考拉\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "TopPhoto",
+   "path": "个性化 > 桌面背景 > 顶级图片",
+   "expect": "4",
+   "how": "auto",
    "score": 0
   },
   {

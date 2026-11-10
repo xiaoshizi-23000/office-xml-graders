@@ -24,18 +24,18 @@
   },
   {
    "text": "3、选择经典[开始]菜单，自定义链接\" 最近使用的项目\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "facadeandaction",
+   "path": "任务栏属性 > 开始菜单 > 外观和行为",
+   "expect": "最近使用的项目",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、使用Aero Peek预览桌面",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "useaeropeek",
+   "path": "任务栏属性 > 任务栏 > 使用aeropeek",
+   "expect": "1",
+   "how": "auto",
    "score": 0
   }
  ],

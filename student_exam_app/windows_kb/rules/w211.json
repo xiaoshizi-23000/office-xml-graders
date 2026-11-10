@@ -16,10 +16,10 @@
   },
   {
    "text": "2、显示里调整屏幕分辨率为：1024x768",
-   "key": "",
+   "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "1024x768",
+   "how": "auto",
    "score": 0
   },
   {
@@ -32,10 +32,10 @@
   },
   {
    "text": "4、主题设置为：Aero主题里的\" 建筑\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "3",
+   "how": "auto",
    "score": 0
   }
  ],

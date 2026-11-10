@@ -24,10 +24,10 @@
   },
   {
    "text": "3、删除文件设置为：删除表单数据（F）和历史记录（H）",
-   "key": "auto_tab",
-   "path": "Internet属性 > 内容 > 自动完成设置 > 表单",
-   "expect": "删除表单数据",
-   "how": "path",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "历史记录■表单数据",
+   "how": "rule",
    "score": 1.25
   },
   {

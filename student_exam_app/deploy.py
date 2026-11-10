@@ -10,6 +10,7 @@
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tarfile
@@ -37,6 +38,12 @@ EXCLUDE_DIRS = {'uploads', '__pycache__', '.git', '.idea', '.vscode', 'backups',
 EXCLUDE_SUFFIX = ('.pyc', '.pyo', '.log', '.tmp')
 EXCLUDE_NAMES = {'deploy.json', '_release.tar.gz', 'deploy.py'}
 
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(errors='replace')
+    except (AttributeError, ValueError):
+        pass
+
 
 def load_config():
     if not os.path.exists(CONFIG_PATH):
@@ -54,14 +61,34 @@ def run(cmd, **kwargs):
     return subprocess.run(cmd, **kwargs)
 
 
+def local_counts():
+    graders = sum(
+        1 for name in os.listdir(os.path.join(BASE, 'graders'))
+        if re.fullmatch(r'(excel|word|ppt|dw)_grader_\d+\.py', name)
+    )
+    questions = 0
+    for subject in ('excel', 'word', 'ppt', 'dw'):
+        folder = os.path.join(BASE, 'materials', subject)
+        if not os.path.isdir(folder):
+            continue
+        for name in os.listdir(folder):
+            if (os.path.exists(os.path.join(folder, name, '3题干.docx'))
+                    or os.path.exists(os.path.join(folder, name, '3题干.txt'))):
+                questions += 1
+    return graders, questions
+
+
 def preflight(skip_test):
     ok = True
     print('== [1/5] 本地预检 ==')
     print('   Python: %s' % sys.version.split()[0])
 
-    graders = [f for f in os.listdir(os.path.join(BASE, 'graders'))
-               if f.endswith('.py') and 'grader' in f]
-    print('   评分器: %d 个' % len(graders))
+    graders, questions = local_counts()
+    print('   评分器: %d 个' % graders)
+    print('   题库: %d 套' % questions)
+    if not graders or not questions:
+        print('   ! 评分器或题库为空')
+        ok = False
 
     r = run([sys.executable, '-m', 'compileall', '-q', os.path.join(BASE, 'graders')])
     if r.returncode != 0:
@@ -72,22 +99,17 @@ def preflight(skip_test):
     if r.returncode != 0:
         print('   ! 本机未安装 flask，无法本地自测（服务器上仍需安装）')
 
-    questions = 0
-    for subject in ('excel', 'word', 'ppt'):
-        folder = os.path.join(BASE, 'materials', subject)
-        if os.path.isdir(folder):
-            questions += sum(1 for n in os.listdir(folder)
-                             if os.path.exists(os.path.join(folder, n, '3题干.docx')))
-    print('   题库: %d 套' % questions)
-
     if not skip_test:
         print('   回归测试中...')
+        child_env = os.environ.copy()
+        child_env['PYTHONIOENCODING'] = 'utf-8'
         r = run([sys.executable, os.path.join(BASE, 'tools', 'selftest.py')],
-                capture_output=True, text=True, encoding='utf-8', errors='replace')
+                capture_output=True, text=True, encoding='utf-8', errors='replace',
+                env=child_env)
         tail = [ln for ln in (r.stdout or '').splitlines() if ln.startswith('共 ')]
         print('   %s' % (tail[-1] if tail else (r.stdout or '')[-200:]))
-        if r.returncode not in (0, 2):
-            print('   ! 回归测试执行失败')
+        if r.returncode != 0:
+            print('   ! 回归测试未全部通过（退出码 %d）' % r.returncode)
             ok = False
     return ok
 
@@ -191,7 +213,16 @@ def verify(cfg):
     if data.get('status') != 'ok':
         print('   ! 服务状态异常')
         return False
-    print('   评分器 %s 个，题目 %s 套' % (data.get('graders'), data.get('questions')))
+    expected_graders, expected_questions = local_counts()
+    actual_graders = data.get('graders')
+    actual_questions = data.get('questions')
+    print('   评分器 %s 个，题目 %s 套' % (actual_graders, actual_questions))
+    if not isinstance(actual_graders, int) or actual_graders < expected_graders:
+        print('   ! 远端评分器数量不足（本地应为 %d 个）' % expected_graders)
+        return False
+    if not isinstance(actual_questions, int) or actual_questions < expected_questions:
+        print('   ! 远端题库数量不足（本地应为 %d 套）' % expected_questions)
+        return False
     return True
 
 

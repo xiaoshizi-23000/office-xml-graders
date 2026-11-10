@@ -32,26 +32,26 @@
   },
   {
    "text": "3、一周的第一天设置为＇星期三＇",
-   "key": "",
+   "key": "gs_dyt",
    "path": "区域和语言 > 格式 > 第一天",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "星期三",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、上午和下午格式分别改为AM和PM",
-   "key": "",
-   "path": "区域和语言 > 格式 > 格式",
-   "expect": "",
-   "how": "dup",
+   "key": "sj_am",
+   "path": "区域和语言 > 自定义格式 > 时间 > AM",
+   "expect": "AM",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "5、货币小数位数改为＇3＇位",
-   "key": "",
-   "path": "区域和语言 > 自定义格式 > 数字 > 小数位",
-   "expect": "",
-   "how": "noexpect",
+   "key": "hb_xsw",
+   "path": "区域和语言 > 自定义格式 > 货币 > 小数位",
+   "expect": "3",
+   "how": "auto",
    "score": 0
   }
  ],

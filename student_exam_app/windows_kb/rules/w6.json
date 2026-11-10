@@ -24,18 +24,18 @@
   },
   {
    "text": "3、设置删除 Internet 临时文件（T）",
-   "key": "",
-   "path": "Internet属性 > 常规 > 临时文件和历史记录 >使用的磁盘空间",
-   "expect": "",
-   "how": "noexpect",
+   "key": "keepwebsite",
+   "path": "Internet属性 > 常规 > 删除历史记录",
+   "expect": "Internet临时文件",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、设置Internet的安全级别为：中",
-   "key": "",
+   "key": "aq_internetlevel",
    "path": "Internet属性 > 安全 > Internet > 安全级别",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "中",
+   "how": "auto",
    "score": 0
   }
  ],

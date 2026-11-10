@@ -24,10 +24,10 @@
   },
   {
    "text": "3、在开始菜单，设置自定义为\" 运行命令\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "facadeandaction",
+   "path": "任务栏属性 > 开始菜单 > 外观和行为",
+   "expect": "运行命令",
+   "how": "auto",
    "score": 0
   },
   {

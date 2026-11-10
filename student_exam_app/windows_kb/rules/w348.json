@@ -32,10 +32,10 @@
   },
   {
    "text": "4、调整屏幕分辨率为：1280×1024",
-   "key": "",
+   "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "1280×1024",
+   "how": "auto",
    "score": 0
   }
  ],

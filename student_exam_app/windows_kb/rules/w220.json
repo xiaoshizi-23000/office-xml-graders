@@ -32,10 +32,10 @@
   },
   {
    "text": "4、调整屏幕分辨率为：1440x900",
-   "key": "",
+   "key": "resulution",
    "path": "个性化 > 分辨率",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "1440x900",
+   "how": "auto",
    "score": 0
   }
  ],

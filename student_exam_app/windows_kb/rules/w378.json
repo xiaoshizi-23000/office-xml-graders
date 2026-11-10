@@ -16,10 +16,10 @@
   },
   {
    "text": "2、任务栏外观设置中,屏幕上的任务栏位置为桌面＇右侧＇",
-   "key": "",
+   "key": "taskbarlocation",
    "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "右侧",
+   "how": "auto",
    "score": 0
   }
  ],

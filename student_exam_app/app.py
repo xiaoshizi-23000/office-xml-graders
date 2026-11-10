@@ -1,8 +1,9 @@
 """小狮子 Office 2010 操作题考试系统 - 后端
 
-Excel 1-10 · Word 1-10 · PPT 1-10 · 网页 1-5
+Excel 1-10 · Word 1-10 · PPT 1-10 · 网页 1-10
 """
 import io
+import ipaddress
 import json
 import os
 import re
@@ -39,6 +40,43 @@ GRADER_TIMEOUT = int(os.environ.get('EXAM_GRADER_TIMEOUT', '90'))
 MAX_PARALLEL = int(os.environ.get('EXAM_MAX_PARALLEL', '4'))
 QUEUE_WAIT = int(os.environ.get('EXAM_QUEUE_WAIT', '15'))
 UPLOAD_TTL_HOURS = int(os.environ.get('EXAM_UPLOAD_TTL', '6'))
+ZIP_MAX_FILES = int(os.environ.get('EXAM_ZIP_MAX_FILES', '3000'))
+ZIP_MAX_ENTRY_MB = int(os.environ.get('EXAM_ZIP_MAX_ENTRY_MB', '128'))
+ZIP_MAX_TOTAL_MB = int(os.environ.get('EXAM_ZIP_MAX_TOTAL_MB', '300'))
+ZIP_MAX_RATIO = float(os.environ.get('EXAM_ZIP_MAX_RATIO', '200'))
+
+
+def _proxy_networks():
+    raw = os.environ.get('EXAM_TRUSTED_PROXIES', '127.0.0.1/32,::1/128')
+    networks = []
+    for item in raw.split(','):
+        try:
+            networks.append(ipaddress.ip_network(item.strip(), strict=False))
+        except ValueError:
+            pass
+    return tuple(networks)
+
+
+TRUSTED_PROXY_NETWORKS = _proxy_networks()
+
+
+def client_ip():
+    """只在请求来自可信反向代理时采用它覆写的 X-Real-IP。"""
+    remote = (request.remote_addr or '').strip()
+    if not TRUSTED_PROXY_NETWORKS or not remote:
+        return remote
+    try:
+        address = ipaddress.ip_address(remote)
+    except ValueError:
+        return remote
+    if not any(address in network for network in TRUSTED_PROXY_NETWORKS):
+        return remote
+    real = (request.headers.get('X-Real-IP') or '').strip()
+    try:
+        ipaddress.ip_address(real)
+    except ValueError:
+        return remote
+    return real
 
 app = Flask(__name__, static_folder=STATIC, static_url_path='/static')
 app.secret_key = os.environ.get('EXAM_SECRET_KEY') or os.urandom(24).hex()
@@ -96,20 +134,29 @@ def today_count():
 RATE_LIMIT_PER_MIN = int(os.environ.get('EXAM_RATE_PER_MIN', '600'))
 RATE_LOCK = threading.Lock()
 RATE_BUCKETS = {}
+RATE_LAST_SWEEP = [0.0]
+
+
+def _prune_rate_buckets(now):
+    for key in list(RATE_BUCKETS):
+        bucket = [t for t in RATE_BUCKETS[key] if now - t < 60]
+        if bucket:
+            RATE_BUCKETS[key] = bucket
+        else:
+            RATE_BUCKETS.pop(key, None)
 
 
 def rate_ok(ip):
     now = time.time()
     with RATE_LOCK:
-        bucket = [t for t in RATE_BUCKETS.get(ip, []) if now - t < 60]
+        if len(RATE_BUCKETS) > 5000 or now - RATE_LAST_SWEEP[0] >= 60:
+            _prune_rate_buckets(now)
+            RATE_LAST_SWEEP[0] = now
+        bucket = RATE_BUCKETS.get(ip, [])
         if len(bucket) >= RATE_LIMIT_PER_MIN:
-            RATE_BUCKETS[ip] = bucket
             return False
         bucket.append(now)
         RATE_BUCKETS[ip] = bucket
-        if len(RATE_BUCKETS) > 5000:
-            for key in [k for k, v in RATE_BUCKETS.items() if not v]:
-                RATE_BUCKETS.pop(key, None)
     return True
 
 W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
@@ -253,6 +300,45 @@ def valid_qid(qid):
     return bool(re.fullmatch(r'\d{1,2}', str(qid)))
 
 
+class ArchiveError(ValueError):
+    status_code = 400
+
+
+class ArchiveTooLarge(ArchiveError):
+    status_code = 413
+
+
+def validate_archive(path):
+    """在启动评分器前限制 ZIP 条目数、展开体积、压缩比和危险路径。"""
+    try:
+        with zipfile.ZipFile(path) as archive:
+            infos = archive.infolist()
+            if len(infos) > ZIP_MAX_FILES:
+                raise ArchiveTooLarge('压缩包内文件过多（最多 %d 个）' % ZIP_MAX_FILES)
+            entry_limit = ZIP_MAX_ENTRY_MB * 1024 * 1024
+            total_limit = ZIP_MAX_TOTAL_MB * 1024 * 1024
+            total = 0
+            for info in infos:
+                name = info.filename.replace('\\', '/')
+                parts = [part for part in name.split('/') if part not in ('', '.')]
+                if (not name or '\x00' in name or name.startswith('/')
+                        or re.match(r'^[A-Za-z]:', name) or '..' in parts):
+                    raise ArchiveError('压缩包内包含不安全的文件路径')
+                if info.flag_bits & 0x1:
+                    raise ArchiveError('不支持加密的压缩包，请取消密码后重新上传')
+                if info.file_size > entry_limit:
+                    raise ArchiveTooLarge('压缩包内单个文件过大（最多 %d MB）' % ZIP_MAX_ENTRY_MB)
+                total += info.file_size
+                if total > total_limit:
+                    raise ArchiveTooLarge('压缩包展开后超过 %d MB 限制' % ZIP_MAX_TOTAL_MB)
+            compressed = max(os.path.getsize(path), 1)
+            if total > 20 * 1024 * 1024 and total / compressed > ZIP_MAX_RATIO:
+                raise ArchiveTooLarge('压缩包展开比例异常，已拒绝处理')
+    except zipfile.BadZipFile:
+        raise ArchiveError('文件已损坏或不是有效的 Office/ZIP 文件')
+    return True
+
+
 @app.after_request
 def security_headers(resp):
     resp.headers.setdefault('X-Content-Type-Options', 'nosniff')
@@ -266,8 +352,7 @@ def security_headers(resp):
 
 @app.before_request
 def _track_online():
-    ip = (request.headers.get('X-Real-IP') or request.remote_addr or '').strip()
-    touch_online(ip)
+    touch_online(client_ip())
 
 
 @app.route('/api/online')
@@ -290,7 +375,7 @@ def health():
             questions += sum(1 for name in os.listdir(folder)
                              if os.path.exists(os.path.join(folder, name, '3题干.docx')) or os.path.exists(os.path.join(folder, name, '3题干.txt')))
     return jsonify({
-        'status': 'ok',
+        'status': 'ok' if graders and questions else 'degraded',
         'graders': len(graders),
         'questions': questions,
         'max_upload_mb': MAX_UPLOAD_MB,
@@ -345,11 +430,13 @@ def verify_file(name):
 def baidu_verify(code):
     # 站长平台的文件验证：优先返回 verify/ 下同名文件的内容，
     # 没有再回退成文件名里的 code（有些平台验证值就是 code 本身）
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', code):
+        abort(404)
     path = os.path.join(BASE, 'verify', 'baidu_verify_%s.html' % code)
     if os.path.exists(path):
         with open(path, encoding='utf-8') as f:
             return app.response_class(f.read().strip(), mimetype='text/html')
-    return app.response_class(code, mimetype='text/html')
+    return app.response_class(str(html_escape(code)), mimetype='text/plain')
 
 
 @app.route('/sitemap.xml')
@@ -403,6 +490,17 @@ def _norm(value):
     return v.rstrip('/')
 
 
+def _windows_value_ok(actual, expected, mode=''):
+    """Windows 配置比对：支持程序用 ■ 拼接的复合值。"""
+    if mode == 'contains':
+        return _norm(expected) in _norm(actual)
+    actual_parts = [_norm(part) for part in (actual or '').split('■') if part.strip()]
+    expected_parts = [_norm(part) for part in (expected or '').split('■') if part.strip()]
+    if len(actual_parts) > 1 or len(expected_parts) > 1:
+        return all(part in actual_parts for part in expected_parts)
+    return _norm(actual) == _norm(expected)
+
+
 @app.route('/windows')
 def windows_page():
     path = os.path.join(WIN_KB, 'bank_index.json')
@@ -443,6 +541,8 @@ def windows_prog_zip(prog):
 
 
 def _load_prog_keys(prog):
+    if not re.fullmatch(r'[A-Za-z0-9_]+', prog or ''):
+        return {}
     path = os.path.join(WIN_KB, 'progs', prog + '.txt')
     if not os.path.exists(path):
         return {}
@@ -467,14 +567,20 @@ def windows_check():
     cur = {r['key']: r for r in rows if r['key']}
 
     qid = (request.form.get('qid') or '').strip()
+    if qid and not re.fullmatch(r'[A-Za-z0-9_-]{1,32}', qid):
+        return jsonify({'error': '题号不合法'}), 400
     if qid:
         # 三种题号：题库 w<数字>、专项 m<程序><n>、重建 n<程序><n>
-        cand = [os.path.join(WIN_KB, 'rules', '%s.json' % qid)]
+        rules_dir = os.path.realpath(os.path.join(WIN_KB, 'rules'))
+        cand = [os.path.join(rules_dir, '%s.json' % qid)]
         if not qid[0].isalpha():
-            cand.insert(1, os.path.join(WIN_KB, 'rules', 'w%s.json' % qid))
+            cand.insert(1, os.path.join(rules_dir, 'w%s.json' % qid))
         rule_path = next((p for p in cand if os.path.exists(p)), cand[0])
     else:
-        rule_path = os.path.join(WIN_KB, 'w1.json')
+        rules_dir = os.path.realpath(os.path.join(WIN_KB, 'rules'))
+        rule_path = os.path.join(rules_dir, 'w1.json')
+    if os.path.commonpath([rules_dir, os.path.realpath(rule_path)]) != rules_dir:
+        return jsonify({'error': '题号不合法'}), 400
     if not os.path.exists(rule_path):
         return jsonify({'error': '题目配置不存在：%s' % (qid or 'w1')}), 404
     with open(rule_path, encoding='utf-8') as f:
@@ -497,13 +603,13 @@ def windows_check():
             continue
         key = it.get('key') or ''
         full = it.get('score', 0)
-        if not key or not it.get('expect'):
+        if not key or not it.get('expect') or (key not in base and key not in cur):
             todo += 1
             items.append({'text': it['text'], 'status': 'todo', 'got': 0, 'full': full,
                           'actual': '', 'expect': it.get('expect', '')})
             continue
         actual = cur.get(key, {}).get('value', '')
-        ok = _norm(actual) == _norm(it['expect'])
+        ok = _windows_value_ok(actual, it['expect'], it.get('match', ''))
         judgeable += full
         if ok:
             got += full
@@ -766,6 +872,11 @@ def run_grader(subject, qid, saved_path, workdir):
 
     out = result.stdout.decode('utf-8', 'replace') if result.stdout else ''
     err = result.stderr.decode('utf-8', 'replace') if result.stderr else ''
+    if result.returncode != 0:
+        detail = ['[info] 评分器运行失败（返回码 %s）' % result.returncode]
+        if err.strip():
+            detail.append('[info] ' + err.strip().splitlines()[-1][:200])
+        return None, detail, 'grader_failed'
     if not out.strip():
         detail = ['[info] 评分器无输出（返回码 %s）' % result.returncode]
         if err.strip():
@@ -779,10 +890,6 @@ def grade(subject, qid):
     if not valid_subject(subject) or not valid_qid(qid):
         return jsonify({'error': '参数不合法'}), 400
 
-    client_ip = (request.headers.get('X-Real-IP') or request.remote_addr or '').strip()
-    if not rate_ok(client_ip):
-        return jsonify({'error': '提交太频繁了，等 10 秒再试'}), 429
-
     upload = request.files.get('file')
     if upload is None or not upload.filename:
         return jsonify({'error': '未上传文件'}), 400
@@ -791,45 +898,60 @@ def grade(subject, qid):
     if ext != SUBJECTS[subject]['ext']:
         return jsonify({'error': '请上传 %s 文件，收到 %s' % (SUBJECTS[subject]['ext'], ext or '无扩展名')}), 400
 
+    if not rate_ok(client_ip()):
+        return jsonify({'error': '提交太频繁了，请稍后再试'}), 429
+
     # 机房几十人同时提交是常态：先排队等待，等不到才拒绝
     if not SLOTS.acquire(timeout=QUEUE_WAIT):
         return jsonify({'error': '当前判分的人有点多，请 10 秒后再点一次'}), 429
 
-    workdir = tempfile.mkdtemp(prefix='%s_%s_' % (subject, qid), dir=UPLOADS)
+    workdir = None
     try:
+        workdir = tempfile.mkdtemp(prefix='%s_%s_' % (subject, qid), dir=UPLOADS)
         name = os.path.basename(upload.filename).replace('\\', '_').replace('/', '_')
         saved_path = os.path.join(workdir, name)
         upload.save(saved_path)
-
-        if not zipfile.is_zipfile(saved_path):
-            return jsonify({'error': '文件已损坏或不是有效的 Office 文件'}), 400
+        validate_archive(saved_path)
 
         output, error_details, reason = run_grader(subject, qid, saved_path, workdir)
         if output is None:
-            return jsonify({'error': error_details[0].replace('[info] ', '') if reason != 'timeout' else '评分超时',
-                            'details': error_details}), 500
+            if reason == 'timeout':
+                error = '评分超时'
+                status_code = 408
+            else:
+                error = error_details[0].replace('[info] ', '')
+                status_code = 422 if reason in ('grader_failed', 'no_output') else 500
+            return jsonify({'error': error, 'details': error_details}), status_code
+
+        score = parse_score(output)
+        if score is None or not (0 <= score <= 100):
+            details = ['[info] 评分器返回的总分无法识别，本次未计入判分统计']
+            return jsonify({'error': '文件未能正常评分，请确认文件未损坏后重试',
+                            'details': details}), 500
 
         bump_today()
-        score = parse_score(output)
         items = parse_items(output)
         details = build_details(output, items)
 
         return jsonify({
             'score': score,
             'max_score': 100,
-            'passed': score is not None and score >= 60,
+            'passed': score >= 60,
             'items': items,
             'details': details,
         })
+    except ArchiveError as exc:
+        return jsonify({'error': str(exc)}), exc.status_code
     except Exception:
         app.logger.exception('grade failed')
         return jsonify({'error': '服务器开小差了，请稍后重试或联系老师'}), 500
     finally:
         SLOTS.release()
-        try:
-            shutil.rmtree(workdir)
-        except Exception:
-            pass
+        if workdir:
+            try:
+                shutil.rmtree(workdir)
+            except Exception:
+                pass
 
 
 @app.errorhandler(413)
@@ -853,7 +975,7 @@ _bootstrap()
 if __name__ == '__main__':
     print('=' * 56)
     print('  Lion Office 2010 Exam System')
-    print('  Excel 1-10 | Word 1-10 | PPT 1-10 | DW 1-5')
+    print('  Excel 1-10 | Word 1-10 | PPT 1-10 | DW 1-10')
     print('  http://0.0.0.0:5000')
     print('=' * 56)
     app.run(host='0.0.0.0', port=int(os.environ.get('EXAM_PORT', '5000')), debug=False)

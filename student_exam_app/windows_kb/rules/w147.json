@@ -3,39 +3,39 @@
  "section": "Windows",
  "qid": "147",
  "score": 5.0,
- "prog": "iesxWin7",
+ "prog": "qyszWin7",
  "title": "Windows 第 147 题",
  "items": [
   {
    "text": "1、其他设置里，数字选项卡下的数字分组设置为\" 12,34,56,789\"",
-   "key": "security_internet_oth",
-   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
-   "expect": "12,34,56,789",
-   "how": "path",
+   "key": "sz_fz",
+   "path": "区域和语言 > 自定义格式 > 数字 > 分组",
+   "expect": " 12,34,56,789",
+   "how": "auto",
    "score": 5.0
   },
   {
    "text": "2、货币符号设置为\" $\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "hb_hbfh",
+   "path": "区域和语言 > 自定义格式 > 货币 > 货币符号",
+   "expect": " $",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "3、在其他设置，长时间格式设置为\" tt hh:mm:ss\"",
-   "key": "",
-   "path": "Internet属性 > 安全 > Internet > 自定义级别 > 其他",
-   "expect": "",
-   "how": "dup",
+   "key": "sj_csj",
+   "path": "区域和语言 > 自定义格式 > 时间 > 长时间",
+   "expect": " tt hh:mm:ss",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、PM符号设置为\" PM\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "sj_pm",
+   "path": "区域和语言 > 自定义格式 > 时间 > PM",
+   "expect": " PM",
+   "how": "auto",
    "score": 0
   }
  ],

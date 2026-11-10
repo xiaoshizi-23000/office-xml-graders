@@ -8,10 +8,10 @@
  "items": [
   {
    "text": "1、主题设置为：基本和高对应主题里的WINDOWS经典",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "7",
+   "how": "auto",
    "score": 0
   },
   {

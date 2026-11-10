@@ -24,16 +24,16 @@
   },
   {
    "text": "3、启用快速导航选项卡",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "tab_starttab",
+   "path": "Internet属性 > 常规 > 选项卡 > 启用选项卡浏览",
+   "expect": "启用快速导航选项卡",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、设置本地Intranet的安全级别为：\" 中-高\"",
-   "key": "aq_internetlevel",
-   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "key": "aq_intranetevel",
+   "path": "Internet属性 > 安全 > 本地Intranet > 安全级别",
    "expect": "中-高",
    "how": "rule",
    "score": 1.66

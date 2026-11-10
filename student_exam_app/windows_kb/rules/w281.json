@@ -16,10 +16,10 @@
   },
   {
    "text": "2、屏幕上任务栏位置设置为\" 右侧\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "taskbarlocation",
+   "path": "任务栏属性 > 任务栏 > 屏幕上的任务栏位置",
+   "expect": "右侧",
+   "how": "auto",
    "score": 0
   },
   {
@@ -32,10 +32,10 @@
   },
   {
    "text": "4、使用AeroPeek预览桌面",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "useaeropeek",
+   "path": "任务栏属性 > 任务栏 > 使用aeropeek",
+   "expect": "1",
+   "how": "auto",
    "score": 0
   }
  ],

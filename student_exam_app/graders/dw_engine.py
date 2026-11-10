@@ -28,6 +28,42 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _core import htmlcheck as H  # noqa: E402
 from _core import Report, run, setup_stdout  # noqa: E402
 
+ZIP_MAX_FILES = int(os.environ.get('EXAM_ZIP_MAX_FILES', '3000'))
+ZIP_MAX_TOTAL_MB = int(os.environ.get('EXAM_ZIP_MAX_TOTAL_MB', '300'))
+
+
+def safe_extract(archive, work):
+    """逐个条目解压并执行路径、文件数和实际写入字节限制。"""
+    root = os.path.realpath(work)
+    os.makedirs(root, exist_ok=True)
+    infos = archive.infolist()
+    if len(infos) > ZIP_MAX_FILES:
+        raise ValueError('压缩包内文件过多（最多 %d 个）' % ZIP_MAX_FILES)
+    total = 0
+    for info in infos:
+        name = info.filename.replace('\\', '/')
+        parts = [part for part in name.split('/') if part not in ('', '.')]
+        if (not name or '\x00' in name or name.startswith('/')
+                or re.match(r'^[A-Za-z]:', name) or '..' in parts):
+            raise ValueError('压缩包内包含不安全的文件路径')
+        target = os.path.realpath(os.path.join(root, *parts))
+        if os.path.commonpath([root, target]) != root:
+            raise ValueError('压缩包内包含不安全的文件路径')
+        if info.is_dir():
+            os.makedirs(target, exist_ok=True)
+            continue
+        os.makedirs(os.path.dirname(target), exist_ok=True)
+        with archive.open(info) as src, open(target, 'wb') as dst:
+            while True:
+                chunk = src.read(1024 * 1024)
+                if not chunk:
+                    break
+                total += len(chunk)
+                if total > ZIP_MAX_TOTAL_MB * 1024 * 1024:
+                    raise ValueError('压缩包展开后超过 %d MB 限制' % ZIP_MAX_TOTAL_MB)
+                dst.write(chunk)
+    return root
+
 
 def run_check(files, chk):
     op = chk[0]
@@ -150,7 +186,7 @@ class DwGrader:
     def _site_root(self, work):
         if zipfile.is_zipfile(self.path):
             with zipfile.ZipFile(self.path) as zf:
-                zf.extractall(work)
+                safe_extract(zf, work)
             return H.locate_site_root(work)
         if os.path.isdir(self.path):
             return H.locate_site_root(self.path)

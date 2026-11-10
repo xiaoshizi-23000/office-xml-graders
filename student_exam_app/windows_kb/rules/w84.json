@@ -8,18 +8,18 @@
  "items": [
   {
    "text": "1、添加本地打印机",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "InstallationPrintType",
+   "path": "添加打印机 > 安装什么类型的打印机",
+   "expect": "添加本地打印机",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "2、添加佳能的iP3500打印机",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "InstallationPrintDriver",
+   "path": "添加打印机 > 安装打印机驱动程序",
+   "expect": "iP3500",
+   "how": "auto",
    "score": 0
   },
   {

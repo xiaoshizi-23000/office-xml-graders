@@ -9,6 +9,11 @@ sys.path.insert(0, os.path.join(BASE, 'graders'))
 from _core import ExcelBook, WordDoc, PptDeck  # noqa: E402
 
 ROOT = os.path.dirname(BASE)
+FOLDERS = {
+    'Excel': 'Excel 2010 操作题题库',
+    'Word': 'Word 2010 操作题题库',
+    'Ppt': 'PPT 2010 操作题题库',
+}
 CASES = [
     ('Excel', ExcelBook, '1结果.xlsx', lambda d: '%d表/%d图/%d表对象' % (
         len(d.sheets), len(d.charts()), len(d.tables()))),
@@ -22,7 +27,7 @@ def main():
     bad = 0
     for label, cls, answer, summary in CASES:
         for qid in range(1, 11):
-            path = os.path.join(ROOT, '2022年：%s 2010 操作题--素材' % label, str(qid), answer)
+            path = os.path.join(ROOT, FOLDERS[label], str(qid), answer)
             if not os.path.exists(path):
                 print('%-6s %-3d 缺少答案文件' % (label, qid))
                 continue

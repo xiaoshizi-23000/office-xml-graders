@@ -18,16 +18,16 @@
    "text": "2、退出时删除浏览的历史记录，删除\" Cookie\" 和\" 历史记录\"",
    "key": "keepwebsite",
    "path": "Internet属性 > 常规 > 删除历史记录",
-   "expect": "Cookie",
+   "expect": "Cookie■历史记录",
    "how": "rule",
    "score": 1.67
   },
   {
    "text": "3、当创建新选项卡时，始终切换到新选项卡",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "tab_starttab",
+   "path": "Internet属性 > 常规 > 选项卡 > 启用选项卡浏览",
+   "expect": "当创建新选项卡时始终切换到新选项卡",
+   "how": "auto",
    "score": 0
   },
   {

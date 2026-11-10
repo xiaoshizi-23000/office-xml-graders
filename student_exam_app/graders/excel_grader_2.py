@@ -12,7 +12,7 @@ Excel 2010 评分器 - 文件夹2 (v1 精确XML检测)
 8. Sheet2改名"筛选" + 复制粘贴值 + 高级筛选(高等代数>=95 且 大学英语>=95)
 9. Sheet3改名"学生平均分比较表" + 三维簇状柱形图 + 标题 + 图例靠右
 """
-import zipfile, os, sys, io, xml.etree.ElementTree as ET
+import zipfile, os, re, sys, io, xml.etree.ElementTree as ET
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _core import ExcelBook
@@ -192,9 +192,13 @@ class ExcelGrader2:
         else:
             d.append(f'L3公式={l3_f!r}')
 
-        # 2位小数 (numFmt 0.00)
-        if '0.00' in self.styles_xml:
+        # 2位小数：按 K3/L3 的实际数字格式判断，兼容内置 numFmtId=2
+        k_numfmt = self.book.format_in(root, 'K3').get('numfmt', '')
+        l_numfmt = self.book.format_in(root, 'L3').get('numfmt', '')
+        if '0.00' in k_numfmt and '0.00' in l_numfmt:
             s += 1; d.append('2位小数 OK')
+        else:
+            d.append('小数格式 K3=%r L3=%r' % (k_numfmt, l_numfmt))
 
         return self.R(3, '行高+列宽+公式', s, full, d)
 
@@ -351,15 +355,47 @@ class ExcelGrader2:
         else:
             d.append('存在公式(未粘贴值)')
 
-        # 高级筛选 = 隐藏行 (非匹配行被隐藏)
+        # 高级筛选兼容两种正确做法：
+        # 1. 原区域筛选，非匹配行隐藏；2. 复制到其他位置，A3 起只剩匹配结果
+        threshold_a = 95.0
+        threshold_b = 95.0
+        ma = re.search(r'>=\s*(\d+(?:\.\d+)?)', str(a2))
+        mb = re.search(r'>=\s*(\d+(?:\.\d+)?)', str(b2))
+        if ma:
+            threshold_a = float(ma.group(1))
+        if mb:
+            threshold_b = float(mb.group(1))
+        criteria_used = '_xlnm.Criteria' in self.wb_xml
         hidden_count = 0
+        visible_scores = []
         for row in root.iter('{%s}row' % S):
             if row.get('hidden') == '1':
                 hidden_count += 1
-        if hidden_count > 0:
-            s += 2; d.append(f'高级筛选({hidden_count}行隐藏) OK')
+            try:
+                row_no = int(row.get('r', '0'))
+            except ValueError:
+                continue
+            if row_no < 4 or not self.sv(root, 'A%d' % row_no):
+                continue
+            if row.get('hidden') == '1':
+                continue
+            try:
+                value_a = float(self.sv(root, 'D%d' % row_no))
+                value_b = float(self.sv(root, 'F%d' % row_no))
+            except (TypeError, ValueError):
+                continue
+            visible_scores.append((value_a, value_b))
+        result_ok = bool(visible_scores) and all(
+            value_a >= threshold_a and value_b >= threshold_b
+            for value_a, value_b in visible_scores)
+        criteria_ok = '高等代数' in str(a1) and '大学英语' in str(b1)
+        if criteria_used and criteria_ok and result_ok:
+            s += 2
+            d.append('高级筛选结果正确(%d行匹配) OK' % len(visible_scores))
+        elif hidden_count > 0:
+            d.append('存在隐藏行，但筛选条件或结果不匹配')
         else:
-            d.append('未发现隐藏行(筛选可能未应用)')
+            d.append('未识别到高级筛选条件或筛选结果')
 
         return self.R(8, '高级筛选', s, full, d)
 

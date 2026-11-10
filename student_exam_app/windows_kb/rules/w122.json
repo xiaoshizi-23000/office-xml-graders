@@ -24,18 +24,18 @@
   },
   {
    "text": "3、设置主题为：基本和高对比主题里的WINDOWS经典",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "WindowsThemeIndex",
+   "path": "个性化 > 桌面主题",
+   "expect": "7",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "4、显示里，调整自定义文本大小(DPI)设置为：125%",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "DisplayDPI",
+   "path": "个性化 > 自定义DPI设置",
+   "expect": "125%",
+   "how": "auto",
    "score": 0
   }
  ],

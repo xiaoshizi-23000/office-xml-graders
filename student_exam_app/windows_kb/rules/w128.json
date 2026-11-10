@@ -9,10 +9,11 @@
   {
    "text": "在日期时间格式中进行如下设置：",
    "key": "",
-   "path": "区域和语言 > 格式 > 格式",
+   "path": "",
    "expect": "",
-   "how": "noexpect",
-   "score": 0
+   "how": "step",
+   "score": 0,
+   "step": true
   },
   {
    "text": "1、将短日期格式设置为yyyy-M-d",

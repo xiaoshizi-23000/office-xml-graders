@@ -32,10 +32,10 @@
   },
   {
    "text": "4、Windows资源管理器\" 显示图标和通知\"",
-   "key": "",
-   "path": "",
-   "expect": "",
-   "how": "",
+   "key": "tz_zy",
+   "path": "任务栏属性 > 任务栏 > 通知区域 > windows资源管理器",
+   "expect": "显示图标和通知",
+   "how": "auto",
    "score": 0
   }
  ],

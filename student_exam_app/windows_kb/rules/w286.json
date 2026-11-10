@@ -16,17 +16,17 @@
   },
   {
    "text": "2、禁用XAML浏览器应用程序",
-   "key": "",
+   "key": "gj_ll",
    "path": "Internet属性 > 高级 > 浏览",
-   "expect": "",
-   "how": "noexpect",
+   "expect": "XAML浏览器应用程序",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "3、内容里的自动完成功能应用于设置为：取消应用地址栏",
    "key": "auto_address",
    "path": "Internet属性 > 内容 > 自动完成设置 > 地址栏",
-   "expect": "取消应用地址栏",
+   "expect": "0",
    "how": "rule",
    "score": 1.67
   },

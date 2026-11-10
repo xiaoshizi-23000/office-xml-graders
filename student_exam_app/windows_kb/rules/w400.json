@@ -16,16 +16,16 @@
   },
   {
    "text": "2、打开Internet Explorer时只加载第一个主页",
-   "key": "",
-   "path": "Internet属性 > 常规 > 主页",
-   "expect": "",
-   "how": "dup",
+   "key": "tab_starttab",
+   "path": "Internet属性 > 常规 > 选项卡 > 启用选项卡浏览",
+   "expect": "打开InternetExplorer时只加载第一个主页",
+   "how": "auto",
    "score": 0
   },
   {
    "text": "3、本地Intranet安全级别调整为\" 低\"",
-   "key": "aq_internetlevel",
-   "path": "Internet属性 > 安全 > Internet > 安全级别",
+   "key": "aq_intranetevel",
+   "path": "Internet属性 > 安全 > 本地Intranet > 安全级别",
    "expect": "低",
    "how": "rule",
    "score": 1.67

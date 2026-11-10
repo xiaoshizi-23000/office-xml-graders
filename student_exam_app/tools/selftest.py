@@ -64,11 +64,17 @@ def run_one(item, python):
     if m:
         got, full = float(m.group(1)), float(m.group(2))
         score = round(got / full * 100, 1) if full else None
+    error = ''
+    if r.returncode != 0:
+        score = None
+        error = '评分器退出码 %d：%s' % (r.returncode, err.strip()[-300:] or '无错误输出')
+    elif score is None:
+        error = err.strip()[-400:] or '未解析到总分'
     return {
         **item, 'ok': score is not None, 'score': score,
         'raw': '{} / {}'.format(m.group(1), m.group(2)) if m else '',
         'returncode': r.returncode,
-        'error': '' if score is not None else (err.strip()[-400:] or '未解析到总分'),
+        'error': error,
         'pass_count': out.count('[PASS]'),
         'fail_count': out.count('[FAIL]'),
     }

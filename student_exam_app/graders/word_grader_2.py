@@ -759,10 +759,11 @@ def main():
     g = XMLGrader(docx)
     g.grade()
     rp = g.report()
-    try:
-        os.startfile(rp)
-    except:
-        pass
+    if os.environ.get('EXAM_OPEN_REPORT') == '1':
+        try:
+            os.startfile(rp)
+        except Exception:
+            pass
 
 
 if __name__ == '__main__':

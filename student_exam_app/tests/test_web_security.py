@@ -43,6 +43,14 @@ class WebSecurityTests(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 400)
 
+    def test_word_graders_do_not_auto_open_reports(self):
+        for qid in (2, 4, 5):
+            path = os.path.join(APP_DIR, 'graders', 'word_grader_%d.py' % qid)
+            with open(path, encoding='utf-8') as f:
+                source = f.read()
+            self.assertIn("EXAM_OPEN_REPORT", source, path)
+            self.assertNotIn("    try:\n        os.startfile(rp)", source, path)
+
     def test_windows_composite_value_matching(self):
         self.assertTrue(exam._windows_value_ok('中\u25a0启用保护模式', '中'))
         self.assertTrue(exam._windows_value_ok(

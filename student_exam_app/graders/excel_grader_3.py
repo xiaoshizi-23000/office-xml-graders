@@ -315,12 +315,12 @@ class ExcelGrader3:
         if 'customWidth' in s3_xml:
             s += 2; d.append('保留源列宽 OK')
 
-        # 高级筛选 = 非匹配行隐藏
-        hidden_count = sum(1 for row in root.iter('{%s}row' % S) if row.get('hidden') == '1')
-        if hidden_count > 0:
-            s += 3; d.append(f'高级筛选({hidden_count}行隐藏) OK')
+        # 高级筛选统一校验：隐藏行或复制结果均可
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            s += 3; d.append('高级筛选(%s) OK' % filter_detail)
         else:
-            d.append('未发现隐藏行')
+            d.append(filter_detail)
 
         return self.R(7, '筛选表+高级筛选', s, full, d)
 

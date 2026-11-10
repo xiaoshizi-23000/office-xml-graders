@@ -154,9 +154,13 @@ class ExcelGrader5:
         if h3_f:
             s += 3; d.append(f'销售额公式({h3_f}) OK')
 
-        # ￥货币+2位小数
-        if '¥' in self.styles_xml or '00' in self.all_xml and '¥' in self.all_xml:
+        # ￥货币+2位小数：按销售额列首尾单元格判断
+        money_fmts = [str(self.book.format_in(root, ref).get('numfmt', ''))
+                      for ref in ('H3', 'H58')]
+        if all(('¥' in fmt or '￥' in fmt) and '0.00' in fmt for fmt in money_fmts):
             s += 3; d.append('￥2位小数 OK')
+        else:
+            d.append('销售额小数格式=%r' % money_fmts)
 
         # A-H自动列宽
         s1_xml = info['xml']

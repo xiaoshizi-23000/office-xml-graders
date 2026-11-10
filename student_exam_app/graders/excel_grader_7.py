@@ -102,7 +102,7 @@ class ExcelGrader7:
             ref = '%s47' % c
             if as_float(self.book.value_in(sheet.root, ref)) is not None:
                 filled += 1
-                if str(self.fmt(sheet, ref).get('numfmt', '')).startswith('0.00'):
+                if '0.00' in str(self.fmt(sheet, ref).get('numfmt', '')):
                     formatted += 1
         if avg_formula:
             got += 2; notes.append('平均值使用 AVERAGE 公式 OK')
@@ -188,11 +188,11 @@ class ExcelGrader7:
             got += 2; notes.append('条件"数学" OK')
         if '100' in self.book.value_in(sheet.root, 'D2'):
             got += 2; notes.append('条件>=100 OK')
-        hidden = sum(1 for row in sheet.rows() if row.get('hidden') == '1')
-        if hidden:
-            got += 2; notes.append('已筛选（%d 行隐藏）' % hidden)
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            got += 2; notes.append('高级筛选(%s) OK' % filter_detail)
         else:
-            notes.append('没有隐藏行')
+            notes.append(filter_detail)
         thin_red = double_red = False
         for node in sheet.cells().values():
             fmt = self.book.styles.get(int(node.get('s', '0') or 0))

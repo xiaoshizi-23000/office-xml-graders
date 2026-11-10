@@ -181,11 +181,11 @@ class ExcelGrader10:
             got += 3; notes.append('条件 >=5.0 OK')
         else:
             notes.append('条件值=%s' % crit[2:])
-        hidden = sum(1 for row in sheet.rows() if row.get('hidden') == '1')
-        if hidden:
-            got += 6; notes.append('已筛选（%d 行隐藏）' % hidden)
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            got += 6; notes.append('高级筛选(%s) OK' % filter_detail)
         else:
-            notes.append('没有隐藏行（素材本身带筛选表结构，必须有隐藏行才给分）')
+            notes.append(filter_detail)
         return (7, '高级筛选', got, 12, notes)
 
     # 8. 筛选后排序+边框 (6)

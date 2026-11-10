@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r student_exam_app/requirements.txt
+      - name: Unit and API regressions
+        run: python -m unittest discover -s student_exam_app/tests -v
+      - name: Standard answers must be 100
+        run: python student_exam_app/tools/selftest.py
+      - name: Unworked materials must be 0
+        run: python student_exam_app/tools/discriminate.py --max 0

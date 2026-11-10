@@ -51,7 +51,11 @@ python deploy.py                  # 发上线
 ## 提交前检查
 
 ```
-python tools/selftest.py && python tools/discriminate.py
+cd student_exam_app
+python -m unittest discover -s tests -v
+python tools/selftest.py
+python tools/discriminate.py --max 0
 ```
 
-两条都绿再 `python deploy.py`。改题目素材时同样跑一遍，防止素材被污染。
+标准答案必须全部 100，未作答素材必须全部 0。三条都通过再 `python deploy.py`。
+每次 push / PR 都会由 `.github/workflows/ci.yml` 自动执行同一组门禁。

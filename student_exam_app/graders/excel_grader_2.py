@@ -355,47 +355,12 @@ class ExcelGrader2:
         else:
             d.append('存在公式(未粘贴值)')
 
-        # 高级筛选兼容两种正确做法：
-        # 1. 原区域筛选，非匹配行隐藏；2. 复制到其他位置，A3 起只剩匹配结果
-        threshold_a = 95.0
-        threshold_b = 95.0
-        ma = re.search(r'>=\s*(\d+(?:\.\d+)?)', str(a2))
-        mb = re.search(r'>=\s*(\d+(?:\.\d+)?)', str(b2))
-        if ma:
-            threshold_a = float(ma.group(1))
-        if mb:
-            threshold_b = float(mb.group(1))
-        criteria_used = '_xlnm.Criteria' in self.wb_xml
-        hidden_count = 0
-        visible_scores = []
-        for row in root.iter('{%s}row' % S):
-            if row.get('hidden') == '1':
-                hidden_count += 1
-            try:
-                row_no = int(row.get('r', '0'))
-            except ValueError:
-                continue
-            if row_no < 4 or not self.sv(root, 'A%d' % row_no):
-                continue
-            if row.get('hidden') == '1':
-                continue
-            try:
-                value_a = float(self.sv(root, 'D%d' % row_no))
-                value_b = float(self.sv(root, 'F%d' % row_no))
-            except (TypeError, ValueError):
-                continue
-            visible_scores.append((value_a, value_b))
-        result_ok = bool(visible_scores) and all(
-            value_a >= threshold_a and value_b >= threshold_b
-            for value_a, value_b in visible_scores)
-        criteria_ok = '高等代数' in str(a1) and '大学英语' in str(b1)
-        if criteria_used and criteria_ok and result_ok:
-            s += 2
-            d.append('高级筛选结果正确(%d行匹配) OK' % len(visible_scores))
-        elif hidden_count > 0:
-            d.append('存在隐藏行，但筛选条件或结果不匹配')
+        # 高级筛选统一校验：兼容原地隐藏和复制结果两种正确做法
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            s += 2; d.append('高级筛选(%s) OK' % filter_detail)
         else:
-            d.append('未识别到高级筛选条件或筛选结果')
+            d.append(filter_detail)
 
         return self.R(8, '高级筛选', s, full, d)
 

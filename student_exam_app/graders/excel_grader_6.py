@@ -184,7 +184,7 @@ class ExcelGrader6:
             got += 2; notes.append('SUBTOTAL 平均值 OK（%s）' % avg[0])
         elif any('SUBTOTAL' in f.upper() for f in subs):
             notes.append('SUBTOTAL 存在但非平均值')
-        two_dec = any(str(self.fmt(sheet, ref).get('numfmt', '')).startswith('0.00')
+        two_dec = any('0.00' in str(self.fmt(sheet, ref).get('numfmt', ''))
                       for ref in ('D8', 'G8', 'D16', 'G16', 'D23', 'G23'))
         if two_dec:
             got += 2; notes.append('平均值两位小数 OK')
@@ -201,11 +201,11 @@ class ExcelGrader6:
             got += 2; notes.append('条件标题 OK')
         if '2500' in self.book.value_in(sheet.root, 'D2'):
             got += 2; notes.append('条件 >=2500 OK')
-        hidden = sum(1 for row in sheet.rows() if row.get('hidden') == '1')
-        if hidden:
-            got += 4; notes.append('已筛选（%d 行隐藏）' % hidden)
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            got += 4; notes.append('高级筛选(%s) OK' % filter_detail)
         else:
-            notes.append('没有隐藏行')
+            notes.append(filter_detail)
         return (7, '高级筛选', got, 10, notes)
 
     # 8. 图表 (10)

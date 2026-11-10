@@ -192,11 +192,11 @@ class ExcelGrader8:
             got += 2; notes.append('条件 部门=技术 OK')
         else:
             notes.append('B2=%r' % dept)
-        hidden = sum(1 for row in sheet.rows() if row.get('hidden') == '1')
-        if hidden:
-            got += 4; notes.append('已筛选（%d 行隐藏）' % hidden)
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            got += 4; notes.append('高级筛选(%s) OK' % filter_detail)
         else:
-            notes.append('没有隐藏行')
+            notes.append(filter_detail)
         cols = [c for c in sheet.root.iter('{%s}col' % S)]
         if cols and all(c.get('bestFit') == '1' or c.get('customWidth') == '1' for c in cols):
             got += 2; notes.append('A-L 自动列宽 OK')

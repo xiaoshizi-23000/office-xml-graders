@@ -123,7 +123,12 @@ class ExcelGrader4:
             s += 1; d.append(f'({k3_f}) 用求和除法代替 AVERAGE，给部分分')
         l3_f = self.get_formula(root, 'L3')
         if 'RANK' in l3_f.upper(): s += 1.5; d.append(f'RANK({l3_f}) OK')
-        if '0.00' in self.styles_xml: s += 1; d.append('2位小数 OK')
+        avg_fmts = [str(self.book.format_in(root, ref).get('numfmt', ''))
+                    for ref in ('K3', 'K31')]
+        if all('0.00' in fmt for fmt in avg_fmts):
+            s += 1; d.append('2位小数 OK')
+        else:
+            d.append('平均分小数格式=%r' % avg_fmts)
 
         if 'horizontalCentered="1"' in s1_xml: s += 1; d.append('水平居中打印 OK')
         if 'verticalCentered="1"' in s1_xml: s += 1; d.append('垂直居中打印 OK')
@@ -212,13 +217,12 @@ class ExcelGrader4:
         has_f = any(f is not None and f.text for f in root.iter('{%s}f' % S))
         if not has_f: s += 1; d.append('粘贴值(无公式) OK')
 
-        # 高级筛选(hidden行)
-        hidden = 0
-        for row in root.iter('{%s}row' % S):
-            if row.get('hidden') == '1':
-                hidden += 1
-        if hidden > 0: s += 2; d.append(f'高级筛选({hidden}行隐藏) OK')
-        else: d.append('未发现隐藏行(筛选可能未应用)')
+        # 高级筛选统一校验：隐藏行或复制结果均可
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            s += 2; d.append('高级筛选(%s) OK' % filter_detail)
+        else:
+            d.append(filter_detail)
         return self.R(7, '筛选+高级筛选', s, full, d)
 
     # R8: 分类汇总: 排序+SUBTOTAL (10)

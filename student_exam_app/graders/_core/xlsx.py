@@ -390,6 +390,113 @@ class ExcelBook(Package):
             return {}
         return self.styles.get(cell.style_index)
 
+    @staticmethod
+    def _filter_match(value, condition):
+        cond = str(condition or '').strip()
+        norm_value = str(value or '').strip()
+        for op in ('>=', '<=', '<>', '>', '<', '='):
+            if cond.startswith(op):
+                target = cond[len(op):].strip()
+                try:
+                    left, right = float(norm_value), float(target)
+                    return {
+                        '>=': left >= right, '<=': left <= right,
+                        '>': left > right, '<': left < right,
+                        '<>': left != right, '=': left == right,
+                    }[op]
+                except (TypeError, ValueError):
+                    if op == '<>':
+                        return norm_value != target
+                    if op == '=':
+                        return norm_value == target
+                    return False
+        return norm_value == cond
+
+    def advanced_filter_ok(self, sheet_name):
+        """校验高级筛选：兼容非匹配行隐藏和复制结果到其他位置两种方式。"""
+        wb_xml = self.read(self.workbook_part)
+        m = re.search(
+            r'<definedName[^>]*name="_xlnm\.Criteria"[^>]*>(.*?)</definedName>',
+            wb_xml, re.S)
+        if not m:
+            return False, '缺少高级筛选条件区域'
+        ref_text = m.group(1).strip()
+        if '!' not in ref_text:
+            return False, '条件区域格式异常'
+        criteria_sheet, area = ref_text.rsplit('!', 1)
+        criteria_sheet = criteria_sheet.strip("'")
+        if criteria_sheet != sheet_name:
+            return False, '条件区域不在当前工作表'
+        area = area.replace('$', '')
+        mm = re.match(r'([A-Za-z]+)(\d+):([A-Za-z]+)(\d+)', area)
+        if not mm:
+            return False, '条件区域格式异常'
+        start_col, start_row, end_col, end_row = mm.groups()
+        start_col, start_row = col_number(start_col.upper()), int(start_row)
+        end_col, end_row = col_number(end_col.upper()), int(end_row)
+        sheet = self.sheet(sheet_name)
+        if sheet is None:
+            return False, '未找到筛选工作表'
+        root = sheet.root
+        headers = {}
+        for col in range(start_col, end_col + 1):
+            label = self.value_in(root, '%s%d' % (self.col_letters(col), start_row))
+            condition = self.value_in(root, '%s%d' % (self.col_letters(col), start_row + 1))
+            if str(label or '').strip() and str(condition or '').strip():
+                headers[str(label).strip()] = str(condition).strip()
+        if not headers:
+            return False, '条件区域为空'
+        max_row = 0
+        for row in root.iter('{%s}row' % S):
+            try:
+                max_row = max(max_row, int(row.get('r', '0')))
+            except ValueError:
+                continue
+        header_row = 0
+        for row_no in range(start_row + 2, max_row + 1):
+            found = set()
+            for col in range(1, 27):
+                value = str(self.value_in(root, '%s%d' % (self.col_letters(col), row_no)) or '').strip()
+                if value in headers:
+                    found.add(value)
+            if len(found) == len(headers):
+                header_row = row_no
+                break
+        if not header_row:
+            return False, '未找到筛选数据表头'
+        column_map = {}
+        for col in range(1, 27):
+            value = str(self.value_in(root, '%s%d' % (self.col_letters(col), header_row)) or '').strip()
+            if value in headers:
+                column_map[value] = col
+        visible = 0
+        for row_no in range(header_row + 1, max_row + 1):
+            row = None
+            for candidate in root.iter('{%s}row' % S):
+                if candidate.get('r') == str(row_no):
+                    row = candidate
+                    break
+            if row is not None and row.get('hidden') == '1':
+                continue
+            if not self.value_in(root, 'A%d' % row_no):
+                continue
+            visible += 1
+            for label, condition in headers.items():
+                value = self.value_in(root, '%s%d' % (self.col_letters(column_map[label]), row_no))
+                if not self._filter_match(value, condition):
+                    return False, '第%d行不满足筛选条件' % row_no
+        if not visible:
+            return False, '没有筛选结果'
+        return True, '筛选结果正确(%d行)' % visible
+
+    @staticmethod
+    def col_letters(number):
+        letters = ''
+        while number:
+            number, rem = divmod(number - 1, 26)
+            letters = chr(65 + rem) + letters
+        return letters
+
     def charts(self):
         return self.parts(self._base + 'charts/', exclude=('_rels/',))
 

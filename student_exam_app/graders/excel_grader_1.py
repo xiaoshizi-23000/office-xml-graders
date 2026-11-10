@@ -142,15 +142,26 @@ class ExcelGrader1:
     # ===== R3: 对齐+货币 (10) =====
     def r3(self):
         d = []; s = 0; full = 10
+        info = self.sheets.get('员工工资表')
+        if info is None:
+            d.append('未找到员工工资表')
+            return self.R(3, '对齐+货币', s, full, d)
+        root = info['root']
         # 水平居中
         if 'horizontal="center"' in self.all_xml: s += 3; d.append('居中 OK')
         # 右对齐
         if 'horizontal="right"' in self.all_xml: s += 2; d.append('右对齐 OK')
-        # ￥货币格式 1位小数 — answer uses "¥"#,##0.0
-        if '¥' in self.styles_xml or '\\u00a5' in self.styles_xml or '\u00a5' in self.styles_xml:
+        # ￥货币格式 1位小数：按金额列目标单元格判断
+        money_fmts = [str(self.book.format_in(root, ref).get('numfmt', ''))
+                      for ref in ('E3', 'G3', 'H3')]
+        if all(('¥' in fmt or '￥' in fmt) for fmt in money_fmts):
             s += 3; d.append('￥符号 OK')
-        if '0.0' in self.styles_xml:
+        else:
+            d.append('金额列货币符号=%r' % money_fmts)
+        if all('0.0' in fmt and '0.00' not in fmt for fmt in money_fmts):
             s += 2; d.append('1位小数 OK')
+        else:
+            d.append('金额列小数格式=%r' % money_fmts)
         return self.R(3, '对齐+货币', s, full, d)
 
     # ===== R4: 加班总费用函数 + 评价列名 (10) =====
@@ -289,8 +300,12 @@ class ExcelGrader1:
         rows = list(root.iter('{%s}row' % S))
         if len(rows) >= 5: s += 2; d.append(f'筛选数据({len(rows)}行) OK')
 
-        # ≥1200 condition in A1:E2 area
-        if '1200' in s3_xml: s += 2; d.append('>=1200条件 OK')
+        # 高级筛选：校验条件区域和实际结果，兼容隐藏/复制两种做法
+        filter_ok, filter_detail = self.book.advanced_filter_ok('筛选')
+        if filter_ok:
+            s += 2; d.append('高级筛选(%s) OK' % filter_detail)
+        else:
+            d.append(filter_detail)
 
         # Blue double border — 在styles.xml中定义
         border_found = 'double' in self.all_xml.lower() and 'border' in self.all_xml.lower()

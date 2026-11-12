@@ -15,6 +15,16 @@ import threading
 import time
 import zipfile
 import xml.etree.ElementTree as ET
+from contextlib import contextmanager
+
+try:
+    import fcntl
+except ImportError:  # Windows
+    fcntl = None
+try:
+    import msvcrt
+except ImportError:  # Linux
+    msvcrt = None
 
 from flask import Flask, abort, jsonify, render_template, request, send_file
 from markupsafe import escape as html_escape
@@ -87,48 +97,142 @@ SLOTS = threading.BoundedSemaphore(MAX_PARALLEL)
 
 # 单 IP 判分频率限制（每分钟），防脚本刷；nginx 层也有一道
 ONLINE_WINDOW = 60          # 最近 60 秒有请求就算在线
-ONLINE_LOCK = threading.Lock()
-ONLINE_SEEN = {}
-TODAY = {'date': '', 'count': 0}
+STATE_FILE = os.environ.get('EXAM_STATE_FILE') or os.path.join(
+    tempfile.gettempdir(), 'student_exam_state_v1.json')
+STATE_LOCK_FILE = STATE_FILE + '.lock'
+STATE_THREAD_LOCK = threading.Lock()
+
+
+@contextmanager
+def _state_guard():
+    """同一进程用线程锁，多个 uWSGI worker 用文件锁。"""
+    with STATE_THREAD_LOCK:
+        folder = os.path.dirname(STATE_FILE)
+        if folder:
+            os.makedirs(folder, exist_ok=True)
+        with open(STATE_LOCK_FILE, 'a+b') as lock_fp:
+            if fcntl is not None:
+                fcntl.flock(lock_fp.fileno(), fcntl.LOCK_EX)
+            elif msvcrt is not None:
+                lock_fp.seek(0)
+                while True:
+                    try:
+                        msvcrt.locking(lock_fp.fileno(), msvcrt.LK_LOCK, 1)
+                        break
+                    except OSError:
+                        time.sleep(0.01)
+            try:
+                yield
+            finally:
+                if fcntl is not None:
+                    fcntl.flock(lock_fp.fileno(), fcntl.LOCK_UN)
+                elif msvcrt is not None:
+                    try:
+                        lock_fp.seek(0)
+                        msvcrt.locking(lock_fp.fileno(), msvcrt.LK_UNLCK, 1)
+                    except OSError:
+                        pass
+
+
+def _read_state():
+    try:
+        with open(STATE_FILE, encoding='utf-8') as f:
+            state = json.load(f)
+        return state if isinstance(state, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _write_state(state):
+    folder = os.path.dirname(STATE_FILE)
+    if folder:
+        os.makedirs(folder, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix='.exam-state-', dir=folder or None)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
+            json.dump(state, f, ensure_ascii=False, separators=(',', ':'))
+        os.replace(tmp, STATE_FILE)
+        try:
+            os.chmod(STATE_FILE, 0o600)
+        except OSError:
+            pass
+    finally:
+        if os.path.exists(tmp):
+            try:
+                os.remove(tmp)
+            except OSError:
+                pass
+
+
+def _clean_online(raw, now):
+    online = {}
+    if isinstance(raw, dict):
+        for key, value in raw.items():
+            try:
+                ts = float(value)
+            except (TypeError, ValueError):
+                continue
+            if now - ts <= ONLINE_WINDOW:
+                online[str(key)] = ts
+    return online
 
 
 def touch_online(ip):
     if not ip:
         return
     now = time.time()
-    with ONLINE_LOCK:
-        ONLINE_SEEN[ip] = now
-        if len(ONLINE_SEEN) > 5000:
-            for key, ts in list(ONLINE_SEEN.items()):
-                if now - ts > ONLINE_WINDOW:
-                    ONLINE_SEEN.pop(key, None)
+    with _state_guard():
+        state = _read_state()
+        online = _clean_online(state.get('online'), now)
+        online[ip] = now
+        state['online'] = online
+        state['date'] = str(state.get('date') or '')
+        try:
+            state['count'] = int(state.get('count') or 0)
+        except (TypeError, ValueError):
+            state['count'] = 0
+        _write_state(state)
 
 
 def online_count():
     now = time.time()
-    with ONLINE_LOCK:
-        for key, ts in list(ONLINE_SEEN.items()):
-            if now - ts > ONLINE_WINDOW:
-                ONLINE_SEEN.pop(key, None)
-        return len(ONLINE_SEEN)
+    with _state_guard():
+        state = _read_state()
+        return len(_clean_online(state.get('online'), now))
 
 
 def bump_today():
     today = time.strftime('%Y-%m-%d')
-    with ONLINE_LOCK:
-        if TODAY['date'] != today:
-            TODAY['date'] = today
-            TODAY['count'] = 0
-        TODAY['count'] += 1
-        return TODAY['count']
+    with _state_guard():
+        state = _read_state()
+        if state.get('date') != today:
+            state['date'] = today
+            state['count'] = 0
+        try:
+            state['count'] = int(state.get('count') or 0) + 1
+        except (TypeError, ValueError):
+            state['count'] = 1
+        state.setdefault('online', {})
+        _write_state(state)
+        return state['count']
 
 
 def today_count():
     today = time.strftime('%Y-%m-%d')
-    with ONLINE_LOCK:
-        if TODAY['date'] != today:
+    with _state_guard():
+        state = _read_state()
+        if state.get('date') != today:
             return 0
-        return TODAY['count']
+        try:
+            return int(state.get('count') or 0)
+        except (TypeError, ValueError):
+            return 0
+
+
+def reset_stats():
+    """测试/维护用：清空共享在线与今日计数。"""
+    with _state_guard():
+        _write_state({'date': '', 'count': 0, 'online': {}})
 
 
 RATE_LIMIT_PER_MIN = int(os.environ.get('EXAM_RATE_PER_MIN', '600'))
@@ -352,12 +456,20 @@ def security_headers(resp):
 
 @app.before_request
 def _track_online():
-    touch_online(client_ip())
+    if request.path.startswith('/static/') or request.path in ('/favicon.ico', '/api/health'):
+        return
+    try:
+        touch_online(client_ip())
+    except OSError:
+        app.logger.warning('online state write failed')
 
 
 @app.route('/api/online')
 def api_online():
-    return jsonify({'online': online_count(), 'today': today_count()})
+    try:
+        return jsonify({'online': online_count(), 'today': today_count()})
+    except OSError:
+        return jsonify({'online': 0, 'today': 0})
 
 
 @app.route('/')
@@ -929,7 +1041,10 @@ def grade(subject, qid):
             return jsonify({'error': '文件未能正常评分，请确认文件未损坏后重试',
                             'details': details}), 500
 
-        bump_today()
+        try:
+            bump_today()
+        except OSError:
+            app.logger.warning('today counter write failed')
         items = parse_items(output)
         details = build_details(output, items)
 

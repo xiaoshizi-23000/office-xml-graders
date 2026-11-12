@@ -2,6 +2,7 @@
 """Flask 上传、安全入口和 Windows 复合值回归。"""
 import io
 import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -9,8 +10,11 @@ import zipfile
 from unittest import mock
 
 APP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEST_STATE_FILE = os.path.join(
+    tempfile.gettempdir(), 'exam_state_test_%d.json' % os.getpid())
 sys.path.insert(0, APP_DIR)
 os.environ['EXAM_JANITOR'] = '0'
+os.environ['EXAM_STATE_FILE'] = TEST_STATE_FILE
 
 import app as exam  # noqa: E402
 
@@ -19,7 +23,16 @@ class WebSecurityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         exam.app.config['TESTING'] = True
+        exam.reset_stats()
         cls.client = exam.app.test_client()
+
+    @classmethod
+    def tearDownClass(cls):
+        for path in (TEST_STATE_FILE, TEST_STATE_FILE + '.lock'):
+            try:
+                os.remove(path)
+            except OSError:
+                pass
 
     def test_health_is_ok(self):
         response = self.client.get('/api/health')
@@ -60,6 +73,45 @@ class WebSecurityTests(unittest.TestCase):
         self.assertTrue(exam._windows_value_ok(
             'LPT3:(打印机端口)', 'LPT3', mode='contains'))
 
+    def test_today_count_is_shared_across_processes(self):
+        with tempfile.TemporaryDirectory() as td:
+            state = os.path.join(td, 'shared-state.json')
+            env = os.environ.copy()
+            env['EXAM_STATE_FILE'] = state
+            env['EXAM_JANITOR'] = '0'
+            env['PYTHONIOENCODING'] = 'utf-8'
+            code = 'import app; print(app.bump_today())'
+            values = []
+            for _ in range(2):
+                proc = subprocess.run(
+                    [sys.executable, '-c', code], cwd=APP_DIR, env=env,
+                    capture_output=True, text=True, encoding='utf-8',
+                    errors='replace', timeout=30,
+                )
+                self.assertEqual(proc.returncode, 0, proc.stderr[-300:])
+                values.append(proc.stdout.strip().splitlines()[-1])
+            self.assertEqual(values, ['1', '2'])
+
+    def test_online_count_is_shared_across_processes(self):
+        with tempfile.TemporaryDirectory() as td:
+            state = os.path.join(td, 'shared-online.json')
+            env = os.environ.copy()
+            env['EXAM_STATE_FILE'] = state
+            env['EXAM_JANITOR'] = '0'
+            env['PYTHONIOENCODING'] = 'utf-8'
+            code = ('import app,sys; app.touch_online(sys.argv[1]); '
+                    'print(app.online_count())')
+            values = []
+            for ip in ('203.0.113.10', '203.0.113.11'):
+                proc = subprocess.run(
+                    [sys.executable, '-c', code, ip], cwd=APP_DIR, env=env,
+                    capture_output=True, text=True, encoding='utf-8',
+                    errors='replace', timeout=30,
+                )
+                self.assertEqual(proc.returncode, 0, proc.stderr[-300:])
+                values.append(proc.stdout.strip().splitlines()[-1])
+            self.assertEqual(values, ['1', '2'])
+
     def test_archive_traversal_and_entry_limit(self):
         with tempfile.TemporaryDirectory() as td:
             bad_path = os.path.join(td, 'bad.zip')
@@ -92,7 +144,7 @@ class WebSecurityTests(unittest.TestCase):
         docx = os.path.join(APP_DIR, 'materials', 'word', '1', '3题干.docx')
         with open(docx, 'rb') as f:
             payload = f.read()
-        exam.TODAY = {'date': '', 'count': 0}
+        exam.reset_stats()
         with mock.patch.object(exam, 'run_grader',
                                return_value=(None, ['[info] 评分器运行失败'], 'grader_failed')):
             response = self.client.post(
@@ -107,7 +159,7 @@ class WebSecurityTests(unittest.TestCase):
         docx = os.path.join(APP_DIR, 'materials', 'word', '1', '3题干.docx')
         with open(docx, 'rb') as f:
             payload = f.read()
-        exam.TODAY = {'date': '', 'count': 0}
+        exam.reset_stats()
         with mock.patch.object(exam, 'run_grader',
                                return_value=('评分: broken', None, None)):
             response = self.client.post(

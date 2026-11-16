@@ -18,7 +18,13 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,
 .hd h1{font-size:22px;margin:0}
 .hd p{color:var(--mute);font-size:13px;margin:4px 0 0}
 .copyright{background:#f1f5f9;border:1px solid var(--line);border-radius:7px;padding:8px 12px;margin:12px 0 0;font-size:12px;color:var(--mute);line-height:1.7}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
+.searchbar{display:flex;gap:8px;margin:14px 0 0;position:relative}
+.searchbar input{flex:1;min-width:0;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:10px 38px 10px 13px;font:14px/1.6 inherit;color:var(--ink);outline:none;transition:.15s}
+.searchbar input:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(245,158,11,.12)}
+.searchbar button{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--mute);font-size:19px;cursor:pointer;padding:2px 7px;display:none}
+.searchbar button.on{display:block}
+.hit{background:#fde68a;color:#78350f;border-radius:2px;padding:0 1px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
 .tabs button{border:1px solid var(--line);background:var(--card);color:var(--mute);border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
 .tabs button:hover{border-color:var(--amber);color:#b45309}
 .tabs button.on{background:#0f172a;border-color:#0f172a;color:#fff;font-weight:600}
@@ -79,13 +85,28 @@ footer a{color:#64748b;text-decoration:none}
 <div class="wrap">
   <div class="hd"><h1>知识库</h1><p>四川省 2023 版计算机类考纲 · 41 个专题，点开看图解与操作路径</p></div>
   <div class="copyright">本页文字与图片整理自公开考试大纲及教材，部分图片来源于网络，仅用于学习交流。若涉及版权问题，请联系我们，核实后将立即删除。</div>
+  <div class="searchbar">
+    <input type="search" id="kw" placeholder="搜考点，如：子网掩码、数据透视表、只读、页眉" autocomplete="off">
+    <button id="clearKw" title="清空">×</button>
+  </div>
   <div class="tabs" id="tabs"></div>
   <div id="list"></div>
   <footer>资料整理自公开考纲与教材，图片部分来自网络，仅作学习交流；如有版权问题请联系删除。<br>依据四川省普通高校对口招生职业技能考试大纲（2023 年版）整理 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
 </div>
 <script>
-var DATA=[],cur='all';
+var DATA=[],cur='all',KW='';
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+function hl(s){
+  var t=esc(s);
+  if(!KW) return t;
+  var q=KW.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  return t.replace(new RegExp(q,'gi'),function(m){return '<span class="hit">'+m+'</span>';});
+}
+function hay(x){
+  return [x.title,x.one,x.analogy,(x.syllabus_points||[]).join(' '),(x.keypoints||[]).join(' '),
+    (x.win7||[]).join(' '),(x.pits||[]).join(' '),(x.qa||[]).map(function(q){return q.q+' '+q.a;}).join(' '),
+    (x.body||''),String(x.html||'').replace(/<[^>]+>/g,' ')].join(' ').toLowerCase();
+}
 function initTabs(){
   var t=document.getElementById('tabs'),cats=[];
   DATA.forEach(function(x){if(cats.indexOf(x.cat)<0)cats.push(x.cat);});
@@ -94,33 +115,55 @@ function initTabs(){
 }
 function render(){
   document.querySelectorAll('#tabs button').forEach(function(b){b.className=(cur==='all'?b.textContent==='全部':b.textContent===cur)?'on':'';});
-  var items=DATA.filter(function(x){return cur==='all'||x.cat===cur;}),html='';
+  var kw=KW.toLowerCase();
+  var items=DATA.filter(function(x){
+    if(cur!=='all'&&x.cat!==cur) return false;
+    if(!kw) return true;
+    return hay(x).indexOf(kw)>=0;
+  });
+  var html='';
+  if(!items.length) html='<p style="color:var(--mute);padding:20px 0">没找到「'+esc(KW)+'」相关的内容，换个词试试。</p>';
   items.forEach(function(x,i){
-    html+='<details class="item"><summary class="head"><span class="idx">'+(i+1)+'</span><span class="tt"><h2>'+esc(x.title)+'</h2><span class="one">'+esc(x.one)+'</span></span><span class="cat">'+esc(x.cat)+'</span><span class="arrow">▸</span></summary><div class="body">';
-    if(x.analogy) html+='<div class="analogy">'+esc(x.analogy)+'</div>';
+    html+='<details class="item"'+(kw?' open':'')+'><summary class="head"><span class="idx">'+(i+1)+'</span><span class="tt"><h2>'+hl(x.title)+'</h2><span class="one">'+hl(x.one)+'</span></span><span class="cat">'+esc(x.cat)+'</span><span class="arrow">▸</span></summary><div class="body">';
+    if(x.analogy) html+='<div class="analogy">'+hl(x.analogy)+'</div>';
     if(x.win7&&x.win7.length){
       html+='<div class="win7"><h3>考纲环境（Windows 7 / Office 2010）里的操作路径</h3><ol>';
-      x.win7.forEach(function(s){html+='<li>'+esc(s)+'</li>';});
+      x.win7.forEach(function(s){html+='<li>'+hl(s)+'</li>';});
       html+='</ol></div>';
     }
     var kps=(x.syllabus_points&&x.syllabus_points.length)?x.syllabus_points:(x.keypoints||[]);
     if(kps.length){
-      html+='<div class="kp"><b>本专题覆盖的考纲知识点（'+kps.length+' 条）</b><ul>'+kps.map(function(k){return '<li>'+esc(k)+'</li>';}).join('')+'</ul></div>';
+      html+='<div class="kp"><b>本专题覆盖的考纲知识点（'+kps.length+' 条）</b><ul>'+kps.map(function(k){return '<li>'+hl(k)+'</li>';}).join('')+'</ul></div>';
     }
     if(x.html){
       html+='<div class="notice">下面是教材原文与配图，环境为 Windows 10 / Office 2016。原理相同，界面路径请以上面的考纲环境为准。</div>';
-      html+='<div class="prose">'+x.html+'</div>';
-    }else if(x.body){html+='<div class="prose">'+esc(x.body)+'</div>';}
-    if(x.pits&&x.pits.length){html+='<div class="pits"><b>容易踩的坑</b><ul>'+x.pits.map(function(p){return '<li>'+esc(p)+'</li>';}).join('')+'</ul></div>';}
+      var body=x.html;
+      if(kw){
+        body=body.replace(/>([^<]+)</g,function(m,t){return '>'+hl(t)+'<';});
+      }
+      html+='<div class="prose">'+body+'</div>';
+    }else if(x.body){html+='<div class="prose">'+hl(x.body)+'</div>';}
+    if(x.pits&&x.pits.length){html+='<div class="pits"><b>容易踩的坑</b><ul>'+x.pits.map(function(p){return '<li>'+hl(p)+'</li>';}).join('')+'</ul></div>';}
     if(x.qa&&x.qa.length){
       html+='<div class="qa"><h3 style="font-size:14px;color:#b45309;margin:0 0 7px">常见问答</h3>';
-      x.qa.forEach(function(q){html+='<details><summary>'+esc(q.q)+'</summary><div class="a">'+esc(q.a)+'</div></details>';});
+      x.qa.forEach(function(q){html+='<details><summary>'+hl(q.q)+'</summary><div class="a">'+hl(q.a)+'</div></details>';});
       html+='</div>';
     }
     html+='</div></details>';
   });
   document.getElementById('list').innerHTML=html;
+  if(kw&&items.length){
+    var h=document.createElement('div');
+    h.style.cssText='color:var(--mute);font-size:13px;margin:0 0 10px';
+    h.textContent='找到 '+items.length+' 个相关专题';
+    document.getElementById('list').insertBefore(h,document.getElementById('list').firstChild);
+  }
 }
+var input=document.getElementById('kw'),clear=document.getElementById('clearKw');
+input.addEventListener('input',function(){
+  KW=input.value.trim();clear.className=KW?'on':'';render();
+});
+clear.onclick=function(){input.value='';KW='';clear.className='';render();input.focus();};
 fetch('/api/topics?t='+Date.now()).then(function(r){return r.json();}).then(function(d){DATA=d.items||[];initTabs();render();}).catch(function(){document.getElementById('list').textContent='加载失败，请刷新重试';});
 </script>
 </body>

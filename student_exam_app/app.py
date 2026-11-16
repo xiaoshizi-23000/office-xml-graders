@@ -551,6 +551,11 @@ def baidu_verify(code):
     return app.response_class(str(html_escape(code)), mimetype='text/plain')
 
 
+@app.route('/exam')
+def exam_page():
+    return render_template('exam.html')
+
+
 @app.route('/typing')
 def typing_page():
     return render_template('typing.html')
@@ -573,7 +578,7 @@ def llms_txt():
 @app.route('/sitemap.xml')
 def sitemap_xml():
     data = questions_cached()
-    urls = ['%s/' % SITE, '%s/windows' % SITE, '%s/typing' % SITE, '%s/faq' % SITE]
+    urls = ['%s/' % SITE, '%s/windows' % SITE, '%s/exam' % SITE, '%s/typing' % SITE, '%s/faq' % SITE]
     for subject in SUBJECTS:
         for qid in sorted(data.get(subject, {}), key=lambda x: (len(x), x)):
             urls.append('%s/q/%s/%s' % (SITE, subject, qid))

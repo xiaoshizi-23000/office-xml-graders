@@ -27,8 +27,8 @@ SSH_PORT = '31318'
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/120.0 Safari/537.36')
 
-PAGES = ['/', '/windows', '/typing', '/faq', '/q/excel/1', '/sitemap.xml', '/robots.txt', '/llms.txt',
-         '/a7f3c9e14b8d4f62a1c05e7d3b9f8a26.txt']
+PAGES = ['/', '/windows', '/exam', '/typing', '/faq', '/q/excel/1', '/sitemap.xml', '/robots.txt',
+         '/llms.txt', '/a7f3c9e14b8d4f62a1c05e7d3b9f8a26.txt']
 
 QUERIES = [
     ('百度', 'https://www.baidu.com/s?wd=site%3Aweb.xiaoshizi.asia'),

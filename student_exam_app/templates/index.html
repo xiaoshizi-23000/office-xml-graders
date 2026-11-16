@@ -157,6 +157,37 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
 .subject-word { color: var(--blue); }
 .subject-ppt { color: var(--orange); }
 
+/* 科目色：入口卡片一眼分辨 */
+body[data-subject="excel"] { --theme:#10b981; --theme-light:#ecfdf5; }
+body[data-subject="word"]  { --theme:#3b82f6; --theme-light:#eff6ff; }
+body[data-subject="ppt"]   { --theme:#f97316; --theme-light:#fff7ed; }
+body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
+.tab.active { background: var(--theme); border-color: var(--theme); }
+.tab[data-subject].active { color:#fff; }
+.q-card { border-width:1px; border-color:var(--border); overflow:hidden; padding:0; }
+.q-card::before { content:''; display:block; height:4px; background:var(--theme); opacity:.35; transition:.2s; }
+.q-card:hover::before, .q-card.active::before { opacity:1; }
+.q-card .q-num { padding-top:14px; color:var(--theme); }
+.q-card.active { background:var(--theme-light); border-color:var(--theme); box-shadow:0 4px 14px rgba(15,23,42,.08); }
+.q-card.active .q-num { color:var(--theme); }
+.q-card .q-label { padding-bottom:16px; }
+.section-title { color:var(--heading); font-size:15px; font-weight:700; letter-spacing:0; text-transform:none; }
+.section-title::before { content:''; display:inline-block; width:8px; height:8px; border-radius:2px; background:var(--theme); margin-right:8px; vertical-align:1px; }
+.panel h3 .dot { background:var(--theme) !important; }
+.btn-download { background:var(--theme); }
+.btn-download:hover { filter:brightness(.93); }
+.requirements li::marker { color:var(--theme); }
+.upload-zone { position:relative; padding:30px 20px; }
+.upload-zone:hover, .upload-zone.dragover { border-color:var(--theme); background:var(--theme-light); }
+.step-line { display:flex; align-items:center; gap:8px; flex-wrap:wrap; background:var(--theme-light); border:1px solid color-mix(in srgb, var(--theme) 25%, white); border-radius:10px; padding:10px 16px; margin-bottom:20px; font-size:13px; color:var(--heading); }
+.step-line .step { display:inline-flex; align-items:center; gap:6px; }
+.step-line .step b { display:inline-flex; width:20px; height:20px; align-items:center; justify-content:center; background:var(--theme); color:#fff; border-radius:50%; font-size:11px; }
+.step-line .arrow { color:var(--muted); }
+.empty-state { padding:36px 20px 30px; }
+.empty-state .hint { max-width:520px; margin:8px auto 0; }
+.score-big { color:var(--theme); }
+@media (max-width:768px){ .step-line{font-size:12px;padding:8px 12px} }
+
 /* Responsive */
 @media (max-width: 768px) {
   .workspace { grid-template-columns: 1fr; }
@@ -186,6 +217,7 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
     <button class="tab" data-subject="ppt"><span class="emoji">🎨</span>PPT 操作题</button>
     <button class="tab" data-subject="dw"><span class="emoji">🌐</span>网页操作题</button>
     <button class="tab tab-link" data-href="/windows"><span class="emoji">🖥️</span>Windows 操作题</button>
+    <button class="tab tab-link" data-href="/typing"><span class="emoji">⌨️</span>打字练习</button>
     <button class="tab tab-link" data-href="/faq"><span class="emoji">❓</span>常见问题</button>
   </div>
   <div class="online-badge" id="onlineBadge" title="最近 1 分钟活跃人数">
@@ -206,6 +238,13 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
       <img src="/static/wxacode.jpg" alt="小狮子对口刷题小程序码">
       <span>微信扫码 · 刷题</span>
     </div>
+  </div>
+
+  <!-- 三步走 -->
+  <div class="step-line">
+    <span class="step"><b>1</b>选题下载素材</span><span class="arrow">→</span>
+    <span class="step"><b>2</b>本机用 Office 2010 做完</span><span class="arrow">→</span>
+    <span class="step"><b>3</b>上传文件，十几秒出分</span>
   </div>
 
   <!-- Subject indicator -->
@@ -290,6 +329,7 @@ const subjectMeta = {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  document.body.dataset.subject = currentSubject;
   document.getElementById('officeTip').innerHTML = (subjectMeta[currentSubject] || subjectMeta.excel).tip || '';
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.href) {
@@ -315,6 +355,7 @@ function switchSubject(subject) {
   currentSubject = subject;
   currentQid = null;
   uploadedFile = null;
+  document.body.dataset.subject = subject;
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.subject === subject));
 
   const meta = subjectMeta[subject];

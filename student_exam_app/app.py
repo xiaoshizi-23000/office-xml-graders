@@ -751,6 +751,18 @@ def question_page(subject, qid):
     title = '%s操作题第 %s 套要求 - 小狮子刷题' % (label, qid)
     desc = ' '.join(lines[1:3])[:110] or ('%s操作题第 %s 套的完整要求与素材下载' % (label, qid))
     body = ''.join('<li>%s</li>' % html_escape(line) for line in lines)
+    ld_json = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'LearningResource',
+        'name': '%s操作题第 %s 套' % (label, qid),
+        'description': desc,
+        'url': '%s/q/%s/%s' % (SITE, subject, qid),
+        'inLanguage': 'zh-CN',
+        'learningResourceType': '操作练习题',
+        'educationalLevel': '中职',
+        'isPartOf': {'@type': 'WebSite', 'name': '小狮子刷题', 'url': SITE + '/'},
+        'provider': {'@type': 'Organization', 'name': '小狮子刷题', 'url': SITE + '/'},
+    }, ensure_ascii=False, separators=(',', ':'))
 
     def chips(sub):
         items = []
@@ -773,6 +785,7 @@ def question_page(subject, qid):
 <meta name="description" content="{desc}">
 <meta name="keywords" content="{label}操作题,操作题,中职,中职计算机,对口升学,职教高考,在线练习,自动评分,小狮子刷题">
 <link rel="canonical" href="{site}/q/{subject}/{qid}">
+<script type="application/ld+json">{ld_json}</script>
 <link rel="icon" type="image/png" href="/static/logo.png">
 <style>
 body{{margin:0;background:#0f172a;color:#e2e8f0;font:15px/1.9 -apple-system,"Microsoft YaHei",sans-serif}}
@@ -805,7 +818,8 @@ footer{{margin-top:36px;color:#64748b;font-size:12px}}
 <footer>小狮子刷题 · 中职计算机操作题在线练习与自动评分 · {site}<br>
 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#64748b">蜀ICP备2026015465号-2</a></footer>
 </div></body></html>'''.format(title=title, desc=html_escape(desc), label=label, site=SITE,
-                              subject=subject, qid=qid, body=body, related=related_html)
+                              subject=subject, qid=qid, body=body, related=related_html,
+                              ld_json=ld_json)
     return app.response_class(page, mimetype='text/html')
 
 

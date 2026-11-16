@@ -474,7 +474,23 @@ def api_online():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    counts = {}
+    try:
+        for sub in SUBJECTS:
+            sdir = os.path.join(MATERIALS, sub, 'samples')
+            if not os.path.isdir(sdir):
+                continue
+            for name in os.listdir(sdir):
+                full = os.path.join(sdir, name)
+                if os.path.isdir(full):
+                    n = len([f for f in os.listdir(full) if f.startswith('page_') and f.endswith('.png')])
+                    if n:
+                        counts['%s/%s' % (sub, name)] = n
+                elif name.endswith('.png') and name[:-4].isdigit():
+                    counts['%s/%s' % (sub, name[:-4])] = 1
+    except OSError:
+        pass
+    return render_template('index.html', sample_counts=counts)
 
 
 @app.route('/api/health')
@@ -850,6 +866,33 @@ def question_page(subject, qid):
             continue
         related.append('<h2>%s操作题</h2><div class="chips">%s</div>' % (LABELS[sub], chips(sub)))
     related_html = '<section class="related">%s</section>' % ''.join(related)
+
+    sample_dir = os.path.join(MATERIALS, subject, 'samples', qid)
+    sample_files = []
+    if os.path.isdir(sample_dir):
+        sample_files = sorted([f for f in os.listdir(sample_dir)
+                               if f.startswith('page_') and f.endswith('.png')],
+                              key=lambda x: int(x[5:-4]) if x[5:-4].isdigit() else 0)
+    if not sample_files and subject == 'dw':
+        single = os.path.join(MATERIALS, subject, 'samples', qid + '.png')
+        if os.path.isfile(single):
+            sample_files = ['single']
+    if sample_files:
+        tabs = ''.join('<a href="#" data-p="%d" class="%s">第 %d 页</a>' %
+                       (n + 1, 'cur' if n == 0 else '', n + 1)
+                       for n in range(len(sample_files)))
+        sample_html = ('<section class="sample"><h2>答案样张（操作完成后的效果）</h2>'
+                       '<div class="tabs">%s</div>'
+                       '<img id="sampleImg" src="/api/sample/%s/%s/1" alt="第 %s 套答案样张">'
+                       '<div class="hint">点上方页码切换；样张为标准答案的效果图，供操作对照。</div>'
+                       '</section><script>(function(){var im=document.getElementById("sampleImg");'
+                       'document.querySelectorAll(".sample .tabs a").forEach(function(a){'
+                       'a.onclick=function(e){e.preventDefault();'
+                       'document.querySelectorAll(".sample .tabs a").forEach(function(x){x.className=""});'
+                       'a.className="cur";im.src="/api/sample/%s/%s/"+a.dataset.p;};});})();</script>'
+                       % (tabs, subject, qid, qid, subject, qid))
+    else:
+        sample_html = ''
     page = '''<!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
@@ -878,6 +921,13 @@ footer{{margin-top:36px;color:#64748b;font-size:12px}}
 .chips a{{padding:6px 12px;border-radius:8px;border:1px solid #334155;color:#cbd5e1;text-decoration:none;font-size:13px}}
 .chips a:hover{{border-color:#f59e0b;color:#f59e0b}}
 .chips a.cur{{background:#f59e0b;color:#1a1205;border-color:#f59e0b;font-weight:600}}
+.sample{{margin-top:26px}}
+.sample h2{{font-size:16px;color:#f59e0b;margin:0 0 10px}}
+.sample .tabs{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}}
+.sample .tabs a{{padding:5px 11px;border:1px solid #334155;border-radius:7px;color:#cbd5e1;text-decoration:none;font-size:13px}}
+.sample .tabs a.cur{{background:#f59e0b;color:#1a1205;border-color:#f59e0b;font-weight:700}}
+.sample img{{display:block;max-width:100%;height:auto;border:1px solid #1e293b;border-radius:8px;background:#fff}}
+.sample .hint{{font-size:12px;color:#64748b;margin-top:8px}}
 @media(max-width:640px){{
   .wrap{{padding:18px 12px 40px}}
   h1{{font-size:19px}}
@@ -887,11 +937,14 @@ footer{{margin-top:36px;color:#64748b;font-size:12px}}
   .btns{{gap:8px}}
   a.btn{{flex:1;min-width:110px;text-align:center;padding:10px 8px;font-size:13px}}
   .chips a{{font-size:12px;padding:5px 9px}}
+  .sample{{margin-top:20px}}
+  .sample .tabs a{{font-size:12px;padding:4px 9px}}
 }}
 </style></head><body>{nav}<div class="wrap">
 <h1>{label}操作题 第 {qid} 套</h1>
 <div class="sub">题型：{label} 操作题 · 满分 100 · 面向中职 / 对口升学 / 职教高考 · 在线提交后自动评分</div>
 <ol>{body}</ol>
+{sample_html}
 <div class="btns">
   <a class="btn p" href="/?subject={subject}&qid={qid}">打开在线练习并交作业</a>
   <a class="btn s" href="/api/download/{subject}/{qid}">下载素材</a>
@@ -902,9 +955,40 @@ footer{{margin-top:36px;color:#64748b;font-size:12px}}
 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#64748b">蜀ICP备2026015465号-2</a></footer>
 </div></body></html>'''.format(title=title, desc=html_escape(desc), label=label, site=SITE,
                               subject=subject, qid=qid, body=body, related=related_html,
-                              ld_json=ld_json, nav=render_template('nav.html'))
+                              sample_html=sample_html, ld_json=ld_json,
+                              nav=render_template('nav.html'))
     return app.response_class(page, mimetype='text/html')
 
+
+
+@app.route('/api/sample/<subject>/<qid>/<int:page>')
+def sample_image(subject, qid, page):
+    if not valid_subject(subject) or not valid_qid(qid):
+        return '参数不合法', 400
+    folder = os.path.join(MATERIALS, subject, 'samples', qid)
+    if subject == 'dw':
+        single = os.path.join(MATERIALS, subject, 'samples', qid + '.png')
+        if os.path.isfile(single) and page == 1:
+            return send_file(single, mimetype='image/png')
+    if not os.path.isdir(folder):
+        return '样张不存在', 404
+    path = os.path.join(folder, 'page_%d.png' % page)
+    if not os.path.isfile(path):
+        return '样张不存在', 404
+    return send_file(path, mimetype='image/png')
+
+
+@app.route('/api/sample_count/<subject>/<qid>')
+def sample_count(subject, qid):
+    if not valid_subject(subject) or not valid_qid(qid):
+        return jsonify({'count': 0})
+    folder = os.path.join(MATERIALS, subject, 'samples', qid)
+    n = 0
+    if os.path.isdir(folder):
+        n = len([f for f in os.listdir(folder) if f.startswith('page_') and f.endswith('.png')])
+    if n == 0 and subject == 'dw' and os.path.isfile(os.path.join(MATERIALS, subject, 'samples', qid + '.png')):
+        n = 1
+    return jsonify({'count': n})
 
 
 @app.route('/api/download/<subject>/<qid>')

@@ -92,6 +92,15 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
 .requirements { font-size: 14px; line-height: 2; color: var(--text); padding-left: 20px; }
 .requirements li { margin-bottom: 6px; }
 .requirements li::marker { color: var(--amber); font-weight: 700; }
+.sample-box { margin:16px 0 4px; border:1px solid var(--border); border-radius:10px; padding:10px 12px; background:var(--bg); }
+.sample-title { font-size:12px; color:var(--muted); margin-bottom:7px; display:flex; justify-content:space-between; align-items:center; }
+.sample-title a { color:var(--amber); cursor:pointer; text-decoration:none; padding:0 5px; font-weight:700; }
+.sample-box img { display:block; width:100%; max-height:210px; object-fit:contain; object-position:top; border-radius:6px; background:#fff; cursor:zoom-in; border:1px solid var(--border); }
+.sample-modal { position:fixed; inset:0; z-index:1000; background:rgba(15,23,42,.9); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; }
+.sample-modal img { max-width:100%; max-height:82vh; object-fit:contain; background:#fff; border-radius:6px; }
+.sample-modal .bar { color:#e2e8f0; display:flex; align-items:center; gap:18px; margin-bottom:12px; font-size:14px; }
+.sample-modal .bar button { background:#334155; color:#fff; border:0; border-radius:6px; padding:5px 12px; cursor:pointer; font-size:13px; }
+.sample-modal .bar button:hover { background:var(--amber); color:#1a1205; }
 
 /* Upload zone */
 .upload-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 36px 20px; text-align: center; cursor: pointer; transition: .2s; margin: 16px 0; background: var(--bg); }
@@ -275,6 +284,10 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
     <div class="panel">
       <h3><span class="dot" id="dotColor" style="background:var(--amber)"></span> 题目要求</h3>
       <ol class="requirements" id="requirements"></ol>
+      <div class="sample-box hidden" id="sampleBox">
+        <div class="sample-title">答案样张 <span id="samplePager"></span></div>
+        <img id="sampleThumb" alt="答案样张" onclick="openSample()">
+      </div>
       <div class="btn-group">
         <button class="btn btn-download" onclick="downloadMaterial()">⬇️ 下载素材文件</button>
       </div>
@@ -324,6 +337,8 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
 <script>
 // State
 let currentSubject = 'excel';
+let samplePages = 0, sampleCur = 1;
+const SAMPLE_COUNTS = {{ sample_counts|tojson }};
 let currentQid = null;
 let uploadedFile = null;
 let questionsData = {};
@@ -405,6 +420,7 @@ function loadQuestionGrid() {
 }
 
 function selectQuestion(qid) {
+  closeSample();
   currentQid = qid;
   uploadedFile = null;
   document.getElementById('fileInput').value = '';
@@ -429,6 +445,59 @@ function selectQuestion(qid) {
   else { ruleEl.textContent = ''; ruleEl.classList.remove('show'); }
 
   document.getElementById('panelTitle').textContent = meta.icon + ' ' + meta.label + ' · 题目' + qid + ' 要求';
+  loadSample(currentSubject, qid);
+}
+
+function loadSample(subject, qid) {
+  const box = document.getElementById('sampleBox');
+  box.classList.add('hidden');
+  samplePages = SAMPLE_COUNTS[subject + '/' + qid] || 0;
+  sampleCur = 1;
+  if (!samplePages) return;
+  document.getElementById('sampleThumb').src = '/api/sample/' + subject + '/' + qid + '/1';
+  document.getElementById('sampleBox').classList.remove('hidden');
+  renderSamplePager();
+}
+
+function renderSamplePager() {
+  const el = document.getElementById('samplePager');
+  if (samplePages <= 1) { el.innerHTML = ''; return; }
+  el.innerHTML = '<span>' + sampleCur + ' / ' + samplePages + '</span>' +
+    '<a onclick="switchSample(-1)">‹</a><a onclick="switchSample(1)">›</a>';
+}
+
+function switchSample(step) {
+  sampleCur = Math.min(samplePages, Math.max(1, sampleCur + step));
+  document.getElementById('sampleThumb').src =
+    '/api/sample/' + currentSubject + '/' + currentQid + '/' + sampleCur;
+  renderSamplePager();
+}
+
+function openSample() {
+  if (!samplePages) return;
+  const url = '/api/sample/' + currentSubject + '/' + currentQid + '/' + sampleCur;
+  const m = document.createElement('div');
+  m.className = 'sample-modal';
+  m.id = 'sampleModal';
+  m.innerHTML = '<div class="bar"><span>答案样张 · ' + sampleCur + ' / ' + samplePages +
+    '</span><button onclick="switchModal(-1)">上一页</button><button onclick="switchModal(1)">下一页</button>' +
+    '<button onclick="closeSample()">关闭</button></div><img src="' + url + '" alt="样张大图">';
+  m.onclick = function (e) { if (e.target === m) closeSample(); };
+  document.body.appendChild(m);
+}
+
+function switchModal(step) {
+  sampleCur = Math.min(samplePages, Math.max(1, sampleCur + step));
+  const img = document.querySelector('#sampleModal img');
+  if (img) img.src = '/api/sample/' + currentSubject + '/' + currentQid + '/' + sampleCur;
+  document.querySelector('#sampleModal .bar span').textContent = '答案样张 · ' + sampleCur + ' / ' + samplePages;
+  document.getElementById('sampleThumb').src = '/api/sample/' + currentSubject + '/' + currentQid + '/' + sampleCur;
+  renderSamplePager();
+}
+
+function closeSample() {
+  const m = document.getElementById('sampleModal');
+  if (m) m.remove();
 }
 
 async function refreshOnline() {

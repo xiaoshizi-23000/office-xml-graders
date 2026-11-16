@@ -37,9 +37,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,
 .win7{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;margin:14px 0}
 .win7 h3{font-size:14px;color:#15803d;margin:0 0 8px}
 .win7 ol{margin:0;padding-left:20px;font-size:13.5px;line-height:1.9;color:#14532d}
-.prose{font-size:14px;line-height:1.95;color:#334155}
-.prose h4{font-size:14px;color:#b45309;margin:18px 0 6px;padding-left:9px;border-left:3px solid var(--amber)}
-.prose p{margin:7px 0}
+.kp{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0}
+.kp b{color:#92400e;font-size:13px}
+.kp ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:#78350f;line-height:1.85}
+.prose{font-size:14px;line-height:2;color:#334155}
+.prose h4{font-size:14px;font-weight:700;color:#92400e;margin:22px 0 10px;padding:6px 0 6px 11px;border-left:3px solid var(--amber);background:#fffbeb}
+.prose p{margin:0 0 14px}
 .prose img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;margin:12px auto;box-shadow:0 1px 4px rgba(15,23,42,.06)}
 .prose ul,.prose ol{padding-left:22px;margin:8px 0}
 .prose strong{color:#0f172a}
@@ -83,6 +86,9 @@ function render(){
       html+='<div class="win7"><h3>考纲环境（Windows 7 / Office 2010）里的操作路径</h3><ol>';
       x.win7.forEach(function(s){html+='<li>'+esc(s)+'</li>';});
       html+='</ol></div>';
+    }
+    if(x.keypoints&&x.keypoints.length){
+      html+='<div class="kp"><b>考纲要求记住这些</b><ul>'+x.keypoints.map(function(k){return '<li>'+esc(k)+'</li>';}).join('')+'</ul></div>';
     }
     if(x.html){
       html+='<div class="notice">下面是教材原文与配图，环境为 Windows 10 / Office 2016。原理相同，界面路径请以上面的考纲环境为准。</div>';

@@ -561,7 +561,7 @@ def api_topics():
     items = [{
         'id': x.get('id'), 'title': x.get('title'), 'cat': x.get('cat'),
         'one': x.get('one'), 'analogy': x.get('analogy'),
-        'html': x.get('html'), 'body': x.get('body'),
+        'html': x.get('html'), 'body': x.get('body'), 'keypoints': x.get('keypoints'),
         'win7': x.get('win7'), 'pits': x.get('pits'), 'qa': x.get('qa'),
         'images': x.get('images'), 'syllabus': x.get('syllabus'),
         'book': x.get('book'), 'page': x.get('page'),

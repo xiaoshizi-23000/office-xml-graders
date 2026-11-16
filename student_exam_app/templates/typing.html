@@ -3,24 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>打字练习 · 中英文录入真题 - 小狮子刷题</title>
-<meta name="description" content="四川中职对口升学技能高考中英文录入真题打字练习，逐字校对，实时统计正确率、速度和用时。">
+<title>打字练习 · 中英文录入 10 题 - 小狮子刷题</title>
+<meta name="description" content="四川中职对口升学技能高考中英文录入练习 10 题，计算机基础与职教政策两类文章，逐字校对，实时统计正确率、速度和用时。">
 <link rel="canonical" href="https://web.xiaoshizi.asia/typing">
 <link rel="icon" type="image/png" href="/static/logo.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"中英文录入真题打字练习","description":"技能高考中英文录入题原文练习，逐字校对并实时统计正确率与速度。","url":"https://web.xiaoshizi.asia/typing","inLanguage":"zh-CN","learningResourceType":"打字练习","educationalLevel":"中职","isPartOf":{"@type":"WebSite","name":"小狮子刷题","url":"https://web.xiaoshizi.asia/"}}
+{"@context":"https://schema.org","@type":"LearningResource","name":"中英文录入练习 10 题","description":"技能高考中英文录入题练习，10 篇文章涵盖计算机基础与职教政策，逐字校对并实时统计正确率与速度。","url":"https://web.xiaoshizi.asia/typing","inLanguage":"zh-CN","learningResourceType":"打字练习","educationalLevel":"中职","isPartOf":{"@type":"WebSite","name":"小狮子刷题","url":"https://web.xiaoshizi.asia/"}}
 </script>
 <style>
 :root{--bg:#f8fafc;--card:#fff;--line:#e2e8f0;--ink:#0f172a;--mute:#64748b;--amber:#f59e0b;--green:#16a34a;--red:#dc2626}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,"Microsoft YaHei",sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:28px 16px 60px}
+.wrap{max-width:900px;margin:0 auto;padding:28px 16px 60px}
 .head{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
 h1{font-size:22px;margin:0}
 .head a{color:#1b5c96;text-decoration:none;font-size:13px}
 .intro{color:var(--mute);font-size:13px;margin:0 0 18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px 28px;box-shadow:0 2px 10px rgba(15,23,42,.04)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.picker{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:20px}
+.picker button{padding:10px 4px;border:1px solid var(--line);background:var(--card);border-radius:9px;cursor:pointer;font-size:13px;color:var(--mute);transition:.16s;text-align:center}
+.picker button:hover{border-color:var(--amber);color:#b45309}
+.picker button.active{background:#fffbeb;border-color:var(--amber);color:#92400e;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,.14)}
+.picker button small{display:block;font-size:10px;font-weight:400;margin-top:1px;opacity:.75}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px 26px;box-shadow:0 2px 10px rgba(15,23,42,.04)}
+.title{font-size:13px;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:7px;padding:6px 12px;display:inline-block;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .stats b{display:block;font-size:24px;line-height:1.3;font-variant-numeric:tabular-nums}
 .stats span{font-size:12px;color:var(--mute)}
 .text{font-size:20px;line-height:2.15;letter-spacing:.6px;color:#94a3b8;user-select:none;min-height:130px}
@@ -28,77 +34,105 @@ h1{font-size:22px;margin:0}
 .text span.ok{color:var(--green)}
 .text span.no{color:var(--red);background:#fef2f2;text-decoration:underline}
 .text span.cur{background:#fef3c7;box-shadow:0 0 0 1px #fcd34d}
-.input{width:100%;margin-top:22px;padding:14px 16px;font:17px/1.7 inherit;border:2px solid var(--line);border-radius:10px;outline:none;background:#fff;color:var(--ink);transition:border-color .15s}
+.input{width:100%;margin-top:20px;padding:14px 16px;font:17px/1.7 inherit;border:2px solid var(--line);border-radius:10px;outline:none;background:#fff;color:var(--ink);transition:border-color .15s}
 .input:focus{border-color:var(--amber)}
 .input::placeholder{color:#cbd5e1}
 .bar{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-button{padding:9px 18px;border:1px solid var(--line);background:#fff;color:#334155;border-radius:8px;cursor:pointer;font-size:13px}
-button:hover{border-color:var(--amber);color:#b45309}
+button.act{padding:9px 18px;border:1px solid var(--line);background:#fff;color:#334155;border-radius:8px;cursor:pointer;font-size:13px}
+button.act:hover{border-color:var(--amber);color:#b45309}
 .note{font-size:12px;color:var(--mute)}
-.result{margin-top:20px;padding:18px 20px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;display:none}
+.result{margin-top:18px;padding:16px 20px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;display:none}
 .result.on{display:block}
-.result h2{margin:0 0 6px;font-size:17px}
+.result h2{margin:0 0 6px;font-size:16px}
 .result p{margin:4px 0;font-size:14px;color:#78350f}
+.result button{margin-top:8px}
 footer{margin-top:24px;text-align:center;color:var(--mute);font-size:12px}
 footer a{color:#64748b}
-@media(max-width:600px){.stats b{font-size:20px}.text{font-size:18px}.card{padding:20px 16px}}
+@media(max-width:640px){.picker{grid-template-columns:repeat(5,1fr);gap:5px}.picker button{font-size:12px;padding:9px 2px}.picker button small{display:none}.stats b{font-size:20px}.text{font-size:18px}.card{padding:20px 16px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="head"><h1>中英文录入练习</h1><a href="/">← 回到题库</a><a href="/windows">Windows 操作题</a><a href="/exam">考试分值</a><a href="/faq">常见问题</a></div>
-  <p class="intro">技能高考打字真题（题号 53）。考试占 10 分，照原文准确输入，别只求快。输入时逐字校对，错了会标红。</p>
+  <div class="head"><h1>中英文录入练习</h1><a href="/">← 回到题库</a><a href="/exam">考试分值</a><a href="/windows">Windows 操作题</a><a href="/faq">常见问题</a></div>
+  <p class="intro">技能高考中英文录入占 10 分，10 道题每题 1 分。文章按考纲方向选了计算机基础和职教政策两类内容，中英混排，照原文准确输入，别只求快。</p>
+  <div class="picker" id="picker"></div>
   <div class="card">
+    <div class="title" id="topicLabel"></div>
     <div class="stats">
       <div><b id="acc">100%</b><span>正确率</span></div>
       <div><b id="speed">0</b><span>字/分钟</span></div>
       <div><b id="time">0s</b><span>用时</span></div>
-      <div><b id="prog">0/304</b><span>进度</span></div>
+      <div><b id="prog">0/0</b><span>进度</span></div>
     </div>
     <div class="text" id="text"></div>
     <input class="input" id="input" type="text" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="点这里开始照着原文输入…">
-    <div class="bar"><button id="reset">重新开始</button><span class="note">按原文输入，包括数字和标点。练习只在本地进行，不上传。</span></div>
-    <div class="result" id="result"><h2>打完了</h2><p id="resultText"></p></div>
+    <div class="bar"><button class="act" id="reset">重新开始</button><span class="note">按原文输入，包括数字和标点。练习只在本地进行，不上传。</span></div>
+    <div class="result" id="result"><h2>打完了</h2><p id="resultText"></p><button class="act" id="next">做下一题</button></div>
   </div>
   <footer>小狮子刷题 · 打字真题练习 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
 </div>
 <script>
-var RAW = '人民币的编号由" 冠字+号码" 的方式组成。第三套人民币冠字为罗马字母，而第四套人民币冠字字母则为两位大写英文字母（26个字母 去V，剩下25个字母）。它们自由组合，或者自己与自己组合，共625种组合方式。不同的字母排列方式会形成不同的分组，作为货币印 及投放的依据。由于第五套人民币已成为我国流通货币的主体，第四套人民币只剩下1角、5角仍在陆续发行中，其旧的冠字号码投放已 接近尾声。为了适应继续发行的需要，从2010年开始，第四套1角、5角纸币的编号出现了类似于" A0A000001" 的排列方式。这也与第五 人民币，以及2005年版5、10元的编号排列类似。通过人民币印刷工艺变通，可以国民经济趋势。';
-var box = document.getElementById('text');
-var input = document.getElementById('input');
-var resetBtn = document.getElementById('reset');
-var result = document.getElementById('result');
-var spans = [];
-var started = 0, timer = null, done = false;
+var TEXTS = [
+{label:'真题 · 人民币冠字号码', text:'人民币的编号由" 冠字+号码" 的方式组成。第三套人民币冠字为罗马字母，而第四套人民币冠字字母则为两位大写英文字母（26个字母 去V，剩下25个字母）。它们自由组合，或者自己与自己组合，共625种组合方式。不同的字母排列方式会形成不同的分组，作为货币印 及投放的依据。由于第五套人民币已成为我国流通货币的主体，第四套人民币只剩下1角、5角仍在陆续发行中，其旧的冠字号码投放已 接近尾声。为了适应继续发行的需要，从2010年开始，第四套1角、5角纸币的编号出现了类似于" A0A000001" 的排列方式。这也与第五 人民币，以及2005年版5、10元的编号排列类似。通过人民币印刷工艺变通，可以国民经济趋势。'},
+{label:'计算机 · 发展简史', text:'计算机的发展通常按所使用的主要电子元件划分为几个阶段。第一代采用电子管，体积庞大、耗电多，主要用于科学计算；第二代改用晶体管，可靠性和运算速度都有提高；第三代使用中小规模集成电路，开始出现操作系统和高级语言；第四代采用大规模和超大规模集成电路，微处理器的出现使个人计算机走进办公室和家庭。今天的计算机普遍采用冯诺依曼结构，由运算器、控制器、存储器、输入设备和输出设备五大部分组成，程序和数据都以二进制形式存放在存储器中，按照地址顺序执行。理解这些基本概念，有助于判断软件故障发生在哪个环节，也为后续学习网络、数据库和程序设计打基础。From ENIAC to modern smartphones, computing has changed every part of our daily life.'},
+{label:'计算机 · 硬件组成', text:'一台微型计算机的硬件由主机和外部设备两部分组成。主机里最重要的部件是主板，中央处理器、内存和各类扩展卡都安装在主板上。中央处理器负责解释和执行指令，它的主频和核心数直接影响运算能力。内存用来临时存放正在运行的程序和数据，断电后内容会丢失，因此重要文件必须保存到硬盘或固态硬盘。硬盘属于外存储器，容量大但速度比内存慢。显卡负责把处理结果转换成显示器可以识别的信号，声卡和网卡则分别处理音频与网络通信。键盘、鼠标、扫描仪是常见输入设备，显示器、打印机是常见输出设备。装机或排查故障时，应当先确认电源、连接线和接口是否正常，再考虑更换部件。The CPU, RAM and motherboard are the main parts of a computer.'},
+{label:'计算机 · 操作系统', text:'操作系统是管理计算机硬件与软件资源的系统软件，它一方面为用户和应用程序提供操作接口，另一方面负责处理器、内存、文件和设备的调度。没有操作系统，每道工序都要直接面对硬件，普通用户几乎无法使用计算机。常见操作系统有 Windows、Linux 和 macOS，手机上的 Android 与 iOS 也属于操作系统。在 Windows 中，文件按树形目录组织，每个文件都有文件名、扩展名和属性，扩展名决定系统用哪个程序打开它。任务管理器可以查看正在运行的进程和内存占用，控制面板或设置应用用来调整系统参数。使用操作系统时应养成良好习惯：重要数据定期备份，系统更新及时安装，不随意删除不熟悉的系统文件，也不要把工作文件直接放在系统盘根目录。An operating system manages hardware and software resources.'},
+{label:'计算机 · 网络基础', text:'计算机网络把分散的计算机连接起来，实现资源共享和信息传递。按覆盖范围可以分为局域网、城域网和广域网，学校机房里的机器通常组成局域网，互联网则是全球范围的广域网。每台接入网络的设备都有一个 IP 地址，它是网络层用来定位设备的逻辑地址。IPv4 地址由四段十进制数字组成，每段取值从0到255，例如192.168.1.10。子网掩码用来判断两台机器是否在同一个网段，网关是访问外部网络的出口，DNS 负责把域名转换成 IP 地址。传输层常用 TCP 和 UDP 两种协议，TCP 可靠但开销大，UDP 快速但不保证送达。日常上网遇到的网络连接受限、DNS 解析失败等问题，大多可以从这几个设置入手排查。TCP/IP is the basic protocol suite of the Internet.'},
+{label:'计算机 · 信息安全', text:'信息安全的基本目标是保证信息的保密性、完整性和可用性。保密性要求信息不被未授权的人看到，完整性要求信息不被篡改，可用性要求需要时能够正常使用。实现这些目标常用加密、身份认证、访问控制和备份等手段。计算机病毒是一段能够自我复制并破坏系统功能的程序，它可以通过移动存储设备、电子邮件附件或恶意网站传播。防范病毒应当安装并及时更新杀毒软件，不打开来历不明的附件，不从不可信的站点下载程序。密码设置要足够长度并混合使用字母、数字和符号，不同网站不要使用同一个密码。公共场合使用免费无线网络时，尽量避免登录网银或输入敏感信息，离开时记得退出账号。A strong password should include letters, numbers and symbols.'},
+{label:'计算机 · 办公软件', text:'办公软件是日常学习和工作中使用最多的工具，文字处理、电子表格和演示文稿是三个基本组件。文字处理软件用来撰写和排版文档，可以设置字体、段落、页眉页脚和样式，长文档还应当使用标题样式生成目录。电子表格软件以单元格为基本单位，行和列交叉定位一个单元格，公式以等号开头，可以引用其他单元格进行计算。相对引用在复制公式时会随位置变化，绝对引用使用美元符号固定行或列。演示文稿由一张张幻灯片组成，版式决定内容占位符的位置，母版决定整套幻灯片的统一外观。使用办公软件时应当先保存再排版，养成随时保存的习惯，重要文件另存一份备份，避免因为程序异常退出丢失劳动成果。In Excel, a formula always starts with an equal sign.'},
+{label:'政策 · 职业教育法', text:'职业教育是与普通教育具有同等重要地位的教育类型，目的是培养技术技能人才，促进就业和经济社会发展。修订后的职业教育法明确了职业教育与普通教育相互融通的原则，规定国家建立健全各级各类职业学校教育与职业培训体系。中等职业学校招收初中毕业生，学制一般为三年，学生在校期间既要学习文化基础知识，也要接受专业技能训练。对口升学是中职学生继续深造的重要通道，学生通过文化课和专业技能考试，可以升入高等职业院校或应用型本科院校学习。技能考试强调实际操作能力，评分时看最终结果文件是否符合要求，过程做得再像，结果不对也拿不到分。因此平时练习要按考场环境操作，使用规定的软件版本，把每一项要求落实到文件里。Vocational education and general education are equally important.'},
+{label:'政策 · 网络安全法', text:'网络安全法是我国网络空间安全领域的基础性法律，自2017年6月1日起施行。它明确了网络运营者的安全保护义务，要求采取技术措施防范计算机病毒、网络攻击和网络侵入，并按照规定留存相关的网络日志。法律还规定了个人信息保护的基本原则，收集和使用个人信息应当遵循合法、正当、必要的原则，明示收集使用信息的目的、方式和范围，并经被收集者同意。任何个人和组织不得窃取或以其他非法方式获取个人信息，不得非法出售或非法向他人提供个人信息。作为中职学生，应当了解自己在网络上的权利和义务，不传播未经证实的信息，不参与网络攻击，不帮助他人绕过系统的安全措施。发现网络安全违法行为，可以向有关部门举报，维护清朗的网络环境是每个公民的责任。Personal information must be protected by law.'},
+{label:'政策 · 技能成才', text:'技能人才是人才队伍的重要组成部分，职业教育承担着培养高素质技术技能人才的任务。国家近年来持续完善技能人才培养、使用、评价和激励机制，推动职业技能等级认定，畅通技能人才职业发展通道。对于中职学生来说，学好一门技术不仅能够顺利就业，也能通过对口升学进入更高层次的学校继续深造。技能考试考查的是规范操作和问题处理能力，评分依据的是文件或设置记录，不看过程截图，也不接受口头说明。备考时应当按照考纲逐项训练，把常考的操作做成固定流程，例如先设置页面再录入文字，先选区域再套用格式。遇到判分结果不理想，要读懂明细里指出的差异，回到文件里逐条核对修改，而不是凭印象重做一遍。把每次练习当成一次正式考试，进场时才能稳定发挥。Skills make life better.'}
+];
+var cur = 0, spans = [], started = 0, timer = null, done = false;
+var box = document.getElementById('text'), input = document.getElementById('input');
+var result = document.getElementById('result'), picker = document.getElementById('picker');
 
-for (var i = 0; i < RAW.length; i++) {
-  var s = document.createElement('span');
-  s.textContent = RAW[i];
-  box.appendChild(s);
-  spans.push(s);
+TEXTS.forEach(function (t, i) {
+  var b = document.createElement('button');
+  b.innerHTML = (i + 1) + '<small>' + (i === 0 ? '真题' : (i <= 6 ? '计算机' : '政策')) + '</small>';
+  b.addEventListener('click', function () { select(i); });
+  picker.appendChild(b);
+});
+
+function select(i) {
+  cur = i;
+  started = 0; done = false;
+  clearInterval(timer);
+  result.classList.remove('on');
+  input.value = '';
+  document.getElementById('topicLabel').textContent = TEXTS[cur].label;
+  Array.prototype.forEach.call(picker.children, function (b, n) { b.className = n === cur ? 'active' : ''; });
+  box.innerHTML = '';
+  spans = [];
+  for (var j = 0; j < TEXTS[cur].text.length; j++) {
+    var s = document.createElement('span');
+    s.textContent = TEXTS[cur].text[j];
+    box.appendChild(s);
+    spans.push(s);
+  }
+  paint();
 }
 
 function paint() {
-  var val = input.value;
-  var ok = 0;
+  var raw = TEXTS[cur].text, val = input.value, ok = 0;
   for (var i = 0; i < spans.length; i++) {
     var el = spans[i];
     el.className = '';
     if (i < val.length) {
-      if (val[i] === RAW[i]) { el.className = 'ok'; ok++; }
+      if (val[i] === raw[i]) { el.className = 'ok'; ok++; }
       else el.className = 'no';
     }
     if (i === val.length && !done) el.className += ' cur';
   }
   var secs = started ? (Date.now() - started) / 1000 : 0;
-  var acc = val.length ? Math.round(ok / val.length * 100) : 100;
-  document.getElementById('acc').textContent = acc + '%';
+  document.getElementById('acc').textContent = (val.length ? Math.round(ok / val.length * 100) : 100) + '%';
   document.getElementById('speed').textContent = secs > 1 ? Math.round(ok / secs * 60) : 0;
   document.getElementById('time').textContent = Math.round(secs) + 's';
-  document.getElementById('prog').textContent = val.length + '/' + RAW.length;
-  var cur = spans[Math.min(val.length, spans.length - 1)];
-  if (cur && cur.scrollIntoView) cur.scrollIntoView({block:'center', behavior:'smooth'});
-  if (val.length >= RAW.length && !done) finish(ok);
+  document.getElementById('prog').textContent = val.length + '/' + raw.length;
+  var at = spans[Math.min(val.length, spans.length - 1)];
+  if (at && at.scrollIntoView) at.scrollIntoView({block:'center', behavior:'smooth'});
+  if (val.length >= raw.length && !done) finish(ok);
 }
 
 function finish(ok) {
@@ -106,35 +140,25 @@ function finish(ok) {
   clearInterval(timer);
   input.blur();
   var secs = started ? (Date.now() - started) / 1000 : 0;
-  var acc = Math.round(ok / RAW.length * 100);
+  var acc = Math.round(ok / TEXTS[cur].text.length * 100);
   var speed = Math.round(ok / Math.max(secs, 1) * 60);
   document.getElementById('acc').textContent = acc + '%';
   document.getElementById('speed').textContent = speed;
   document.getElementById('resultText').textContent =
-    '正确 ' + ok + ' / ' + RAW.length + ' 字，准确率 ' + acc + '%，用时 ' + Math.round(secs) + ' 秒，速度 ' + speed + ' 字/分钟。' +
+    '正确 ' + ok + ' / ' + TEXTS[cur].text.length + ' 字，准确率 ' + acc + '%，用时 ' + Math.round(secs) + ' 秒，速度 ' + speed + ' 字/分钟。卷面得分 ' + (acc / 100).toFixed(1) + ' / 1.0 分。' +
     (acc >= 95 ? '这个水平考试稳得住。' : '先把准确率练到 95% 以上，再提速度。');
   result.classList.add('on');
 }
 
 input.addEventListener('input', function () {
   if (done) return;
-  if (!started) {
-    started = Date.now();
-    timer = setInterval(paint, 500);
-  }
+  if (!started) { started = Date.now(); timer = setInterval(paint, 500); }
   paint();
 });
 input.addEventListener('paste', function (e) { e.preventDefault(); });
-resetBtn.addEventListener('click', function () {
-  input.value = '';
-  started = 0;
-  done = false;
-  clearInterval(timer);
-  result.classList.remove('on');
-  paint();
-  input.focus();
-});
-paint();
+document.getElementById('reset').addEventListener('click', function () { select(cur); });
+document.getElementById('next').addEventListener('click', function () { select((cur + 1) % TEXTS.length); });
+select(0);
 </script>
 </body>
 </html>

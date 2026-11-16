@@ -245,7 +245,7 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
   <div class="step-line">
     <span class="step"><b>1</b>选题下载素材</span><span class="arrow">→</span>
     <span class="step"><b>2</b>本机用 Office 2010 做完</span><span class="arrow">→</span>
-    <span class="step"><b>3</b>上传文件，十几秒出分</span>
+    <span class="step"><b>3</b>上传文件，十几秒出分</span><span class="arrow">·</span><span class="step" style="color:var(--mute)">练习按 100 分判，结果里同时折算考卷分</span>
   </div>
 
   <!-- Subject indicator -->
@@ -285,7 +285,8 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
         <div class="score-row">
           <span class="score-big" id="scoreBig">--</span>
           <div class="score-meta">
-            <div style="color:var(--muted);font-size:12px">得分 / 100</div>
+            <div style="color:var(--muted);font-size:12px">练习得分 / 100</div>
+            <div id="examScore" style="color:var(--theme);font-size:12px;font-weight:600;margin-top:2px"></div>
             <div class="verdict" id="scoreVerdict"></div>
           </div>
         </div>
@@ -482,6 +483,10 @@ function showResult(data) {
   const verdict = document.getElementById('scoreVerdict');
   verdict.textContent = data.passed ? '🎉 及格！继续加油' : '💪 还需努力，分析一下错在哪里';
   verdict.className = 'verdict ' + (data.passed ? 'verdict-pass' : 'verdict-fail');
+  const examFull = { excel:35, word:30, ppt:20, dw:10 }[currentSubject] || null;
+  document.getElementById('examScore').textContent = examFull && data.score !== null
+    ? '折合考卷 ' + (data.score / 100 * examFull).toFixed(1) + ' / ' + examFull + ' 分'
+    : '';
 
   const detailList = document.getElementById('detailList');
   if (data.details && data.details.length > 0) {

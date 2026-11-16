@@ -3,102 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>考纲知识库 - 小狮子刷题 · 四川对口升学计算机类</title>
-<meta name="description" content="四川省 2023 版计算机类考纲知识库，13 个模块 143 个考点，按模块整理，方便学生逐条对照复习。">
+<title>知识库 - 小狮子刷题 · 四川对口升学计算机类考纲</title>
+<meta name="description" content="按四川 2023 版考纲整理的计算机类知识库：38 个专题，含教材原文、图解、Win7/Office2010 考纲环境操作与常见问答。">
 <link rel="canonical" href="https://web.xiaoshizi.asia/knowledge">
 <link rel="icon" type="image/png" href="/static/logo.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"四川对口升学计算机类考纲知识库","description":"2023 版考纲 13 模块 143 个考点，按模块整理。","url":"https://web.xiaoshizi.asia/knowledge","inLanguage":"zh-CN","educationalLevel":"中职","isPartOf":{"@type":"WebSite","name":"小狮子刷题","url":"https://web.xiaoshizi.asia/"}}
+{"@context":"https://schema.org","@type":"LearningResource","name":"四川对口升学计算机类考纲知识库","description":"2023 版考纲 38 个专题，含图解与 Win7/Office2010 操作路径。","url":"https://web.xiaoshizi.asia/knowledge","inLanguage":"zh-CN","educationalLevel":"中职","isPartOf":{"@type":"WebSite","name":"小狮子刷题","url":"https://web.xiaoshizi.asia/"}}
 </script>
 <style>
 :root{--bg:#f8fafc;--card:#fff;--line:#e2e8f0;--ink:#0f172a;--mute:#64748b;--amber:#f59e0b}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 -apple-system,"Microsoft YaHei",sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:24px 16px 60px}
-.hd{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
-h1{font-size:22px;margin:0}
-.hd .sub{font-size:12px;color:var(--mute)}
-.lead{font-size:13px;color:#78350f;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:9px 14px;margin:14px 0 18px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
-.stats div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px;text-align:center}
-.stats b{display:block;font-size:21px;color:#b45309}
-.stats span{font-size:12px;color:var(--mute)}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,"Microsoft YaHei",sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 60px}
+.hd h1{font-size:22px;margin:0}
+.hd p{color:var(--mute);font-size:13px;margin:4px 0 0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
 .tabs button{border:1px solid var(--line);background:var(--card);color:var(--mute);border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
 .tabs button:hover{border-color:var(--amber);color:#b45309}
 .tabs button.on{background:#0f172a;border-color:#0f172a;color:#fff;font-weight:600}
-.group{margin-bottom:24px}
-.mhead{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#0f172a;color:#fff;border-radius:10px 10px 0 0;flex-wrap:wrap}
-.mhead h2{font-size:16px;margin:0}
-.mhead .pill{background:#f59e0b;color:#1a1205;font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px}
-.mhead .tip{font-size:12px;color:#cbd5e1;margin-left:auto}
-.box{border:1px solid var(--line);border-top:0;border-radius:0 0 10px 10px;background:var(--card)}
-.row{display:flex;gap:14px;padding:11px 16px;border-bottom:1px solid var(--line);align-items:flex-start}
-.row:last-child{border-bottom:0}
-.no{font-size:11px;color:#b45309;background:#fffbeb;border-radius:5px;padding:1px 6px;flex-shrink:0;margin-top:2px;min-width:40px;text-align:center}
-.main{flex:1;min-width:0}
-.tt{font-size:14px;font-weight:600;color:var(--ink)}
-.req{font-size:12px;color:var(--mute);margin-top:2px}
-.qz{font-size:12px;color:#1e40af;background:#eff6ff;border-radius:5px;padding:4px 9px;margin-top:6px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.head{padding:14px 18px;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.head:hover{background:#fffdf7}
+.head .idx{font-size:11px;color:#b45309;background:#fffbeb;border-radius:5px;padding:2px 7px;flex-shrink:0;margin-top:3px}
+.head .tt{flex:1;min-width:0}
+.head h2{font-size:16px;margin:0}
+.head .one{font-size:13px;color:var(--mute);margin-top:3px}
+.head .cat{font-size:11px;color:#b45309;background:#fffbeb;border-radius:10px;padding:2px 9px;flex-shrink:0;margin-top:3px}
+.head .arrow{color:#cbd5e1;flex-shrink:0}
+.item[open] .arrow{transform:rotate(90deg)}
+.body{padding:0 18px 18px;border-top:1px solid var(--line)}
+.analogy{background:#fffbeb;border-left:3px solid var(--amber);padding:10px 14px;margin:14px 0;border-radius:0 7px 7px 0;font-size:14px;color:#78350f}
+.notice{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:8px 12px;margin:12px 0;font-size:13px;color:#1e40af}
+.win7{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;margin:14px 0}
+.win7 h3{font-size:14px;color:#15803d;margin:0 0 8px}
+.win7 ol{margin:0;padding-left:20px;font-size:13.5px;line-height:1.9;color:#14532d}
+.prose{font-size:14px;line-height:1.95;color:#334155}
+.prose h4{font-size:14px;color:#b45309;margin:18px 0 6px;padding-left:9px;border-left:3px solid var(--amber)}
+.prose p{margin:7px 0}
+.prose img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;margin:12px auto;box-shadow:0 1px 4px rgba(15,23,42,.06)}
+.prose ul,.prose ol{padding-left:22px;margin:8px 0}
+.prose strong{color:#0f172a}
+.pits{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 14px;margin:14px 0;font-size:13px}
+.pits b{color:#b91c1c}
+.pits ul{margin:5px 0 0;padding-left:18px;color:#7f1d1d}
+.qa{margin-top:14px}
+.qa details{border:1px solid var(--line);border-radius:8px;margin-bottom:6px;background:#fff}
+.qa summary{padding:9px 12px;cursor:pointer;font-size:13px;font-weight:600}
+.qa .a{padding:0 12px 10px;font-size:13px;color:#334155}
+.src{font-size:12px;color:var(--mute);margin-top:14px;padding-top:10px;border-top:1px dashed var(--line)}
 footer{margin-top:30px;text-align:center;color:var(--mute);font-size:12px}
 footer a{color:#64748b;text-decoration:none}
-@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.mhead .tip{margin-left:0;width:100%}}
+@media(max-width:640px){.head{padding:13px}.body{padding:0 13px 15px}.head .cat{display:none}}
 </style>
 </head>
 <body>
 {% include "nav.html" %}
 <div class="wrap">
-  <div class="hd"><h1>考纲知识库</h1><span class="sub">四川对口升学计算机类 · 2023 版考纲</span></div>
-  <div class="lead">按考纲模块整理，每个考点给出考试要求。点上面的模块按钮筛选，打印或截图下来照着练。</div>
-  <div class="stats">
-    <div><b>13</b><span>考纲模块</span></div>
-    <div><b>143</b><span>考点</span></div>
-    <div><b>350</b><span>考试总分</span></div>
-    <div><b>90</b><span>考试分钟</span></div>
-  </div>
+  <div class="hd"><h1>知识库</h1><p>四川省 2023 版计算机类考纲 · 38 个专题，点开看图解与操作路径</p></div>
   <div class="tabs" id="tabs"></div>
-  <div id="groups"></div>
-  <footer>依据四川省普通高校招生职业技能考试大纲 计算机类（2023 年版）整理 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
+  <div id="list"></div>
+  <footer>依据四川省普通高校对口招生职业技能考试大纲（2023 年版）与《信息技术基础与应用》整理 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
 </div>
 <script>
-var KB=[],SYL=null,cur='all';
+var DATA=[],cur='all';
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
 function initTabs(){
-  var t=document.getElementById('tabs');
+  var t=document.getElementById('tabs'),cats=[];
+  DATA.forEach(function(x){if(cats.indexOf(x.cat)<0)cats.push(x.cat);});
   var b=document.createElement('button');b.className='on';b.textContent='全部';b.onclick=function(){cur='all';render();};t.appendChild(b);
-  (SYL?SYL.modules:[]).forEach(function(m){
-    var x=document.createElement('button');x.textContent=m.name;x.dataset.mid=m.id;
-    x.onclick=function(){cur=m.id;render();};t.appendChild(x);
-  });
+  cats.forEach(function(c){var x=document.createElement('button');x.textContent=c;x.onclick=function(){cur=c;render();};t.appendChild(x);});
 }
 function render(){
-  try{
-  document.querySelectorAll('#tabs button').forEach(function(b){
-    b.className=(cur==='all'?b.dataset.mid===undefined:b.dataset.mid===cur)?'on':'';
+  document.querySelectorAll('#tabs button').forEach(function(b){b.className=(cur==='all'?b.textContent==='全部':b.textContent===cur)?'on':'';});
+  var items=DATA.filter(function(x){return cur==='all'||x.cat===cur;}),html='';
+  items.forEach(function(x,i){
+    html+='<details class="item"><summary class="head"><span class="idx">'+(i+1)+'</span><span class="tt"><h2>'+esc(x.title)+'</h2><span class="one">'+esc(x.one)+'</span></span><span class="cat">'+esc(x.cat)+'</span><span class="arrow">▸</span></summary><div class="body">';
+    if(x.analogy) html+='<div class="analogy">'+esc(x.analogy)+'</div>';
+    if(x.win7&&x.win7.length){
+      html+='<div class="win7"><h3>考纲环境（Windows 7 / Office 2010）里的操作路径</h3><ol>';
+      x.win7.forEach(function(s){html+='<li>'+esc(s)+'</li>';});
+      html+='</ol></div>';
+    }
+    if(x.html){
+      html+='<div class="notice">下面是教材原文与配图，环境为 Windows 10 / Office 2016。原理相同，界面路径请以上面的考纲环境为准。</div>';
+      html+='<div class="prose">'+x.html+'</div>';
+    }else if(x.body){html+='<div class="prose">'+esc(x.body)+'</div>';}
+    if(x.pits&&x.pits.length){html+='<div class="pits"><b>容易踩的坑</b><ul>'+x.pits.map(function(p){return '<li>'+esc(p)+'</li>';}).join('')+'</ul></div>';}
+    if(x.qa&&x.qa.length){
+      html+='<div class="qa"><h3 style="font-size:14px;color:#b45309;margin:0 0 7px">常见问答</h3>';
+      x.qa.forEach(function(q){html+='<details><summary>'+esc(q.q)+'</summary><div class="a">'+esc(q.a)+'</div></details>';});
+      html+='</div>';
+    }
+    html+='<div class="src">考纲归属：'+esc(x.syllabus)+' · 教材：'+esc(x.book)+' 第 '+x.page+' 页 · 图 '+((x.images||[]).length)+' 张</div></div></details>';
   });
-  var mods=(SYL?SYL.modules:[]).filter(function(m){return cur==='all'||m.id===cur;});
-  var html='';
-  mods.forEach(function(m){
-    var items=KB.filter(function(x){return x.module_id===m.id;});
-    if(!items.length)return;
-    html+='<div class="group"><div class="mhead"><h2>'+esc(m.name)+'</h2>'+
-          '<span class="pill">'+(m.ratio||'')+(m.score?' · '+m.score+'分':'')+'</span>'+
-          '<span class="tip">'+esc(m.exam_note||m.part)+'</span></div><div class="box">';
-    items.forEach(function(x){
-      html+='<div class="row"><span class="no">'+esc(x.id.split('-')[1])+'</span><div class="main">'+
-            '<div class="tt">'+esc(x.title||x.point)+'</div>'+
-            '<div class="req">'+esc(x.point)+'</div>'+
-            (x.quiz&&x.quiz.q?'<div class="qz">练习：'+esc(x.quiz.q)+'</div>':'')+
-            '</div></div>';
-    });
-    html+='</div></div>';
-  });
-  document.getElementById('groups').innerHTML=html;
-  }catch(e){document.getElementById('groups').innerHTML='<p style="color:#dc2626">渲染出错：'+esc(e.message)+'</p>';}
+  document.getElementById('list').innerHTML=html;
 }
-fetch('/api/knowledge').then(function(r){return r.json();}).then(function(d){
-  KB=d.items||[];SYL=d.syllabus||null;initTabs();render();
-}).catch(function(){document.getElementById('groups').textContent='加载失败，请刷新重试';});
+fetch('/api/topics').then(function(r){return r.json();}).then(function(d){DATA=d.items||[];initTabs();render();}).catch(function(){document.getElementById('list').textContent='加载失败，请刷新重试';});
 </script>
 </body>
 </html>

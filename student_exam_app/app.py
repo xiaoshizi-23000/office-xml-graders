@@ -551,6 +551,24 @@ def baidu_verify(code):
     return app.response_class(str(html_escape(code)), mimetype='text/plain')
 
 
+@app.route('/api/topics')
+def api_topics():
+    path = os.path.join(BASE, 'knowledge', 'knowledge_topics.json')
+    if not os.path.exists(path):
+        return jsonify({'items': []})
+    with open(path, encoding='utf-8') as f:
+        data = json.load(f)
+    items = [{
+        'id': x.get('id'), 'title': x.get('title'), 'cat': x.get('cat'),
+        'one': x.get('one'), 'analogy': x.get('analogy'),
+        'html': x.get('html'), 'body': x.get('body'),
+        'win7': x.get('win7'), 'pits': x.get('pits'), 'qa': x.get('qa'),
+        'images': x.get('images'), 'syllabus': x.get('syllabus'),
+        'book': x.get('book'), 'page': x.get('page'),
+    } for x in data]
+    return jsonify({'items': items})
+
+
 @app.route('/api/knowledge')
 def api_knowledge():
     path = os.path.join(BASE, 'knowledge', 'knowledge_base.json')

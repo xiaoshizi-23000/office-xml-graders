@@ -108,7 +108,7 @@ function render(){
   });
   document.getElementById('list').innerHTML=html;
 }
-fetch('/api/topics').then(function(r){return r.json();}).then(function(d){DATA=d.items||[];initTabs();render();}).catch(function(){document.getElementById('list').textContent='加载失败，请刷新重试';});
+fetch('/api/topics?t='+Date.now()).then(function(r){return r.json();}).then(function(d){DATA=d.items||[];initTabs();render();}).catch(function(){document.getElementById('list').textContent='加载失败，请刷新重试';});
 </script>
 </body>
 </html>

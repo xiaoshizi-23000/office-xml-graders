@@ -17,6 +17,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,
 .wrap{max-width:960px;margin:0 auto;padding:24px 16px 60px}
 .hd h1{font-size:22px;margin:0}
 .hd p{color:var(--mute);font-size:13px;margin:4px 0 0}
+.copyright{background:#f1f5f9;border:1px solid var(--line);border-radius:7px;padding:8px 12px;margin:12px 0 0;font-size:12px;color:var(--mute);line-height:1.7}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
 .tabs button{border:1px solid var(--line);background:var(--card);color:var(--mute);border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
 .tabs button:hover{border-color:var(--amber);color:#b45309}
@@ -64,10 +65,11 @@ footer a{color:#64748b;text-decoration:none}
 <body>
 {% include "nav.html" %}
 <div class="wrap">
-  <div class="hd"><h1>知识库</h1><p>四川省 2023 版计算机类考纲 · 38 个专题，点开看图解与操作路径</p></div>
+  <div class="hd"><h1>知识库</h1><p>四川省 2023 版计算机类考纲 · 41 个专题，点开看图解与操作路径</p></div>
+  <div class="copyright">本页文字与图片整理自公开考试大纲及教材，部分图片来源于网络，仅用于学习交流。若涉及版权问题，请联系我们，核实后将立即删除。</div>
   <div class="tabs" id="tabs"></div>
   <div id="list"></div>
-  <footer>依据四川省普通高校对口招生职业技能考试大纲（2023 年版）与《信息技术基础与应用》整理 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
+  <footer>资料整理自公开考纲与教材，图片部分来自网络，仅作学习交流；如有版权问题请联系删除。<br>依据四川省普通高校对口招生职业技能考试大纲（2023 年版）整理 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
 </div>
 <script>
 var DATA=[],cur='all';

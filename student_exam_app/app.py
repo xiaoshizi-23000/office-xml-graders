@@ -551,6 +551,15 @@ def baidu_verify(code):
     return app.response_class(str(html_escape(code)), mimetype='text/plain')
 
 
+@app.route('/llms.txt')
+def llms_txt():
+    path = os.path.join(BASE, 'llms.txt')
+    if not os.path.exists(path):
+        abort(404)
+    with open(path, encoding='utf-8') as f:
+        return app.response_class(f.read(), mimetype='text/plain; charset=utf-8')
+
+
 @app.route('/sitemap.xml')
 def sitemap_xml():
     data = questions_cached()

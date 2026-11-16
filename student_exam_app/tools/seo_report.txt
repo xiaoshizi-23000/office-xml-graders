@@ -1,8 +1,8 @@
-SEO 体检 2026-11-16 09:56
+SEO 体检 2026-11-16 14:36
 ==============================================
 
 一、页面健康
-  /                                            200   26691 字节  title/desc/结构化数据
+  /                                            200   26762 字节  title/desc/结构化数据
   /windows                                     200   73663 字节  canonical/结构化数据
   /q/excel/1                                   200    6728 字节  title/desc/canonical/结构化数据
   /sitemap.xml                                 200    3907 字节  -
@@ -12,7 +12,7 @@ SEO 体检 2026-11-16 09:56
 二、蜘蛛累计来访（已排除本机测试）
   Baiduspider      5 次
   360Spider        9 次
-  bingbot          1 次
+  bingbot          6 次
   Sogou            3 次
   Bytespider       0 次
 

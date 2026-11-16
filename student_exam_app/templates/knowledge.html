@@ -43,7 +43,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,
 .prose{font-size:14px;line-height:2;color:#334155}
 .prose h4{font-size:14px;font-weight:700;color:#92400e;margin:22px 0 10px;padding:6px 0 6px 11px;border-left:3px solid var(--amber);background:#fffbeb}
 .prose p{margin:0 0 14px}
-.prose img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;margin:12px auto;box-shadow:0 1px 4px rgba(15,23,42,.06)}
+.prose img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;margin:8px auto 0;box-shadow:0 1px 4px rgba(15,23,42,.06)}
+.fig{margin:16px 0;text-align:center}
+.fig-cap{font-size:12px;color:var(--mute);margin-bottom:4px}
 .prose ul,.prose ol{padding-left:22px;margin:8px 0}
 .prose strong{color:#0f172a}
 .pits{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 14px;margin:14px 0;font-size:13px}
@@ -87,8 +89,9 @@ function render(){
       x.win7.forEach(function(s){html+='<li>'+esc(s)+'</li>';});
       html+='</ol></div>';
     }
-    if(x.keypoints&&x.keypoints.length){
-      html+='<div class="kp"><b>考纲要求记住这些</b><ul>'+x.keypoints.map(function(k){return '<li>'+esc(k)+'</li>';}).join('')+'</ul></div>';
+    var kps=(x.syllabus_points&&x.syllabus_points.length)?x.syllabus_points:(x.keypoints||[]);
+    if(kps.length){
+      html+='<div class="kp"><b>本专题覆盖的考纲知识点（'+kps.length+' 条）</b><ul>'+kps.map(function(k){return '<li>'+esc(k)+'</li>';}).join('')+'</ul></div>';
     }
     if(x.html){
       html+='<div class="notice">下面是教材原文与配图，环境为 Windows 10 / Office 2016。原理相同，界面路径请以上面的考纲环境为准。</div>';
@@ -100,7 +103,7 @@ function render(){
       x.qa.forEach(function(q){html+='<details><summary>'+esc(q.q)+'</summary><div class="a">'+esc(q.a)+'</div></details>';});
       html+='</div>';
     }
-    html+='<div class="src">考纲归属：'+esc(x.syllabus)+' · 教材：'+esc(x.book)+' 第 '+x.page+' 页 · 图 '+((x.images||[]).length)+' 张</div></div></details>';
+    html+='</div></details>';
   });
   document.getElementById('list').innerHTML=html;
 }

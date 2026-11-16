@@ -5,6 +5,7 @@
 ## 站点
 
 - [首页](https://web.xiaoshizi.asia/)：四科操作题入口，在线人数与今日判分量。
+- [常见问题](https://web.xiaoshizi.asia/faq)：怎么练、题型、Office 2010、判分明细、Windows 程序、小程序的六问六答。
 - [Windows 与网络设置题](https://web.xiaoshizi.asia/windows)：10 个类型，每类 5 题，含 Internet 选项、IPv4 地址、宽带连接、区域和语言、任务栏、显示、输入法、打印机、邮件设置。
 - [Excel 操作题](https://web.xiaoshizi.asia/q/excel/1)：10 套题，每套 5 分，题目要求逐条列出。
 - [Word 操作题](https://web.xiaoshizi.asia/q/word/1)：10 套题。

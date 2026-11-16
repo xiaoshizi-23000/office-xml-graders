@@ -54,7 +54,7 @@ footer a{color:#64748b}
 <body>
 <div class="wrap">
   <div class="head"><h1>中英文录入练习</h1><a href="/">← 回到题库</a><a href="/exam">考试分值</a><a href="/windows">Windows 操作题</a><a href="/faq">常见问题</a></div>
-  <p class="intro">考纲要求：参照样文正确录入中文、英文、标点符号等，中英文录入模块共 10 分，本页 10 道题每题 1 分，按正确字数比例折算得分。文章按考纲方向选了计算机基础和职教政策两类内容，中英混排，照原文准确输入，别只求快。</p>
+  <p class="intro">考纲要求：参照样文正确录入中文、英文、标点符号等。本页 10 道题，每题 10 分，共 100 分；每题按正确字符数占比给分，错一字、漏一字都扣对应字符的分，必须点「交卷判分」提交，打满字数也会自动判。文章按考纲方向选了计算机基础和职教政策两类内容，中英混排，照原文准确输入，别只求快。</p>
   <div class="picker" id="picker"></div>
   <div class="card">
     <div class="title" id="topicLabel"></div>
@@ -66,8 +66,8 @@ footer a{color:#64748b}
     </div>
     <div class="text" id="text"></div>
     <input class="input" id="input" type="text" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="点这里开始照着原文输入…">
-    <div class="bar"><button class="act" id="reset">重新开始</button><span class="note">中文、英文、标点都要照原文输入，错一字扣对应字数。练习只在本地进行，不上传。</span></div>
-    <div class="result" id="result"><h2>打完了</h2><p id="resultText"></p><button class="act" id="next">做下一题</button></div>
+    <div class="bar"><button class="act" id="submitGrade">交卷判分</button><button class="act" id="reset">重新开始</button><span class="note">中文、英文、标点都要照原文输入，错一字扣对应字数。练习只在本地进行，不上传。</span></div>
+    <div class="result" id="result"><h2>本题判分</h2><p id="resultText"></p><p id="totalText"></p><button class="act" id="next">做下一题</button></div>
   </div>
   <footer>小狮子刷题 · 打字真题练习 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026015465号-2</a></footer>
 </div>
@@ -85,6 +85,7 @@ var TEXTS = [
 {label:'政策 · 技能成才', text:'技能人才是人才队伍的重要组成部分，职业教育承担着培养高素质技术技能人才的任务。国家近年来持续完善技能人才培养、使用、评价和激励机制，推动职业技能等级认定，畅通技能人才职业发展通道。Skills make life better.对于中职学生来说，学好一门技术不仅能够顺利就业，也能通过对口升学进入更高层次的学校继续深造。技能考试考查的是规范操作和问题处理能力，评分依据的是文件或设置记录，不看过程截图，也不接受口头说明。备考时应当按照考纲逐项训练，把常考的操作做成固定流程，例如先设置页面再录入文字，先选区域再套用格式。遇到判分结果不理想，要读懂明细里指出的差异，回到文件里逐条核对修改，而不是凭印象重做一遍。把每次练习当成一次正式考试，进场时才能稳定发挥。技能考试考查的是规范操作'}
 ];
 var cur = 0, spans = [], started = 0, timer = null, done = false;
+var scores = new Array(TEXTS.length).fill(null);
 var box = document.getElementById('text'), input = document.getElementById('input');
 var result = document.getElementById('result'), picker = document.getElementById('picker');
 
@@ -133,7 +134,13 @@ function paint() {
   document.getElementById('prog').textContent = val.length + '/' + raw.length;
   var at = spans[Math.min(val.length, spans.length - 1)];
   if (at && at.scrollIntoView) at.scrollIntoView({block:'center', behavior:'smooth'});
-  if (val.length >= raw.length && !done) finish(ok);
+  if (val.length >= raw.length && !done) finish(countCorrect());
+}
+
+function countCorrect() {
+  var raw = TEXTS[cur].text, val = input.value, ok = 0;
+  for (var i = 0; i < raw.length; i++) if (val[i] === raw[i]) ok++;
+  return ok;
 }
 
 function finish(ok) {
@@ -145,9 +152,15 @@ function finish(ok) {
   var speed = Math.round(ok / Math.max(secs, 1) * 60);
   document.getElementById('acc').textContent = acc + '%';
   document.getElementById('speed').textContent = speed;
+  var point = Math.round(ok / TEXTS[cur].text.length * 10 * 10) / 10;
+  scores[cur] = point;
+  var finished = scores.filter(function (x) { return x !== null; });
+  var total = Math.round(finished.reduce(function (a, b) { return a + b; }, 0) * 10) / 10;
   document.getElementById('resultText').textContent =
-    '正确 ' + ok + ' / ' + TEXTS[cur].text.length + ' 字，准确率 ' + acc + '%，用时 ' + Math.round(secs) + ' 秒，速度 ' + speed + ' 字/分钟。卷面得分 ' + (acc / 100).toFixed(1) + ' / 1.0 分。' +
+    '正确 ' + ok + ' / ' + TEXTS[cur].text.length + ' 字，准确率 ' + acc + '%，用时 ' + Math.round(secs) + ' 秒，速度 ' + speed + ' 字/分钟。本题得分 ' + point.toFixed(1) + ' / 10.0 分。' +
     (acc >= 95 ? '这个水平考试稳得住。' : '先把准确率练到 95% 以上，再提速度。');
+  document.getElementById('totalText').textContent =
+    '已完成 ' + finished.length + ' / ' + TEXTS.length + ' 题，累计 ' + total.toFixed(1) + ' / 100.0 分。';
   result.classList.add('on');
 }
 
@@ -157,6 +170,7 @@ input.addEventListener('input', function () {
   paint();
 });
 input.addEventListener('paste', function (e) { e.preventDefault(); });
+document.getElementById('submitGrade').addEventListener('click', function () { if (!done) { if (!started) started = Date.now(); finish(countCorrect()); } });
 document.getElementById('reset').addEventListener('click', function () { select(cur); });
 document.getElementById('next').addEventListener('click', function () { select((cur + 1) % TEXTS.length); });
 select(0);

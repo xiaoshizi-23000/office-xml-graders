@@ -58,9 +58,9 @@ body { font-family: "PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; backg
 .promo .p-icon { font-size: 30px; }
 .promo .p-icon-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; box-shadow: 0 0 0 2px rgba(245,158,11,.3); }
 .promo .p-text { flex: 1; min-width: 220px; }
-.promo .p-title { font-size: 15px; font-weight: 700; color: #92400e; }
+.promo .p-title { font-size: 16px; font-weight: 700; color: #92400e; }
 .promo .p-tag { background: var(--amber); color: #0f172a; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: 2px; }
-.promo .p-desc { font-size: 13px; color: #a16207; line-height: 1.7; }
+.promo .p-desc { font-size: 14px; color: #78350f; line-height: 1.7; font-weight: 500; }
 .promo .p-cta { background: var(--heading); color: #fff; border: none; padding: 9px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: .2s; }
 .promo .p-cta:hover { background: #1e293b; transform: translateY(-1px); }
 .promo .p-qr { display: flex; flex-direction: column; align-items: center; gap: 4px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px; }
@@ -179,9 +179,9 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
 .requirements li::marker { color:var(--theme); }
 .upload-zone { position:relative; padding:30px 20px; }
 .upload-zone:hover, .upload-zone.dragover { border-color:var(--theme); background:var(--theme-light); }
-.step-line { display:flex; align-items:center; gap:8px; flex-wrap:wrap; background:var(--theme-light); border:1px solid color-mix(in srgb, var(--theme) 25%, white); border-radius:10px; padding:10px 16px; margin-bottom:20px; font-size:13px; color:var(--heading); }
+.step-line { display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:#fff; border:1px solid var(--border); border-left:4px solid var(--theme); border-radius:10px; padding:12px 18px; margin-bottom:20px; font-size:14px; color:var(--heading); box-shadow:var(--shadow); }
 .step-line .step { display:inline-flex; align-items:center; gap:6px; }
-.step-line .step b { display:inline-flex; width:20px; height:20px; align-items:center; justify-content:center; background:var(--theme); color:#fff; border-radius:50%; font-size:11px; }
+.step-line .step b { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; background:var(--theme); color:#fff; border-radius:50%; font-size:12px; }
 .step-line .arrow { color:var(--muted); }
 .empty-state { padding:36px 20px 30px; }
 .empty-state .hint { max-width:520px; margin:8px auto 0; }
@@ -245,7 +245,7 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
   <div class="step-line">
     <span class="step"><b>1</b>选题下载素材</span><span class="arrow">→</span>
     <span class="step"><b>2</b>本机用 Office 2010 做完</span><span class="arrow">→</span>
-    <span class="step"><b>3</b>上传文件，十几秒出分</span><span class="arrow">·</span><span class="step" style="color:var(--mute)">练习按 100 分判，结果里同时折算考卷分</span>
+    <span class="step"><b>3</b>上传文件，十几秒出分</span><span class="arrow">·</span><span class="step" style="color:var(--mute)">练习按 100 分判，同时折算考卷分</span>
   </div>
 
   <!-- Subject indicator -->
@@ -297,7 +297,7 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
 
   <!-- Empty state -->
   <div class="empty-state" id="emptyState">
-    <div style="margin-bottom:16px"><img src="/static/logo.png" style="width:96px;height:96px;border-radius:50%;box-shadow:0 4px 20px rgba(245,158,11,.25);"></div>
+    <div style="margin-bottom:16px"><img src="/static/logo.png" style="width:64px;height:64px;border-radius:50%;box-shadow:0 4px 16px rgba(245,158,11,.2);"></div>
     <p>请在上方选择一道操作题开始练习</p>
     <p class="hint">支持 Excel 2010 · Word 2010 · PowerPoint 2010 · 网页制作 四种题型</p>
   </div>

@@ -52,8 +52,9 @@ footer a{color:#64748b}
 </style>
 </head>
 <body>
+{% include "nav.html" %}
 <div class="wrap">
-  <div class="head"><h1>中英文录入练习</h1><a href="/">← 回到题库</a><a href="/exam">考试分值</a><a href="/windows">Windows 操作题</a><a href="/faq">常见问题</a></div>
+  <div class="head"><h1>中英文录入练习</h1><span style="font-size:12px;color:#94a3b8">首页 / 打字练习</span><a href="/">← 回到题库</a><a href="/exam">考试分值</a><a href="/windows">Windows 操作题</a><a href="/faq">常见问题</a></div>
   <p class="intro">考纲要求：参照样文正确录入中文、英文、标点符号等。本页 10 道练习题，每道独立 10 分，考场只考其中一道。每题按正确字符数占比给分，错一字、漏一字都扣对应字符的分，点「交卷判分」提交，打满字数也会自动判。文章按考纲方向选了计算机基础和职教政策两类内容，中英混排，照原文准确输入，别只求快。</p>
   <div class="picker" id="picker"></div>
   <div class="card">

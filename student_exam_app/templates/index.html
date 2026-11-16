@@ -331,6 +331,8 @@ const subjectMeta = {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  const want = new URLSearchParams(location.search).get('subject');
+  if (want && subjectMeta[want]) currentSubject = want;
   document.body.dataset.subject = currentSubject;
   document.getElementById('officeTip').innerHTML = (subjectMeta[currentSubject] || subjectMeta.excel).tip || '';
   document.querySelectorAll('.tab').forEach(t => {

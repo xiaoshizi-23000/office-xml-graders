@@ -1,0 +1,25 @@
+{% set path = request.path %}
+{% set sub = request.args.get('subject', 'excel') %}
+<nav class="topnav">
+  <a class="tn-brand" href="/"><img src="/static/logo.png" alt="">小狮子刷题</a>
+  <div class="tn-links">
+    <a href="/?subject=excel" {% if path == '/' and sub == 'excel' %}class="here"{% endif %}>Excel</a>
+    <a href="/?subject=word" {% if path == '/' and sub == 'word' %}class="here"{% endif %}>Word</a>
+    <a href="/?subject=ppt" {% if path == '/' and sub == 'ppt' %}class="here"{% endif %}>PPT</a>
+    <a href="/?subject=dw" {% if path == '/' and sub == 'dw' %}class="here"{% endif %}>网页</a>
+    <a href="/windows" {% if path == '/windows' %}class="here"{% endif %}>Windows</a>
+    <a href="/typing" {% if path == '/typing' %}class="here"{% endif %}>打字</a>
+    <a href="/exam" {% if path == '/exam' %}class="here"{% endif %}>考试分值</a>
+    <a href="/faq" {% if path == '/faq' %}class="here"{% endif %}>常见问题</a>
+  </div>
+</nav>
+<style>
+.topnav{position:sticky;top:0;z-index:100;background:#0f172a;border-bottom:1px solid #1e293b;display:flex;align-items:center;gap:10px;padding:0 18px;min-height:52px;flex-wrap:wrap}
+.tn-brand{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;padding-right:12px;border-right:1px solid #334155}
+.tn-brand img{width:28px;height:28px;border-radius:50%}
+.tn-links{display:flex;gap:2px;flex-wrap:wrap}
+.tn-links a{color:#94a3b8;text-decoration:none;font-size:13px;padding:6px 11px;border-radius:7px;white-space:nowrap;transition:.16s}
+.tn-links a:hover{background:#1e293b;color:#f8fafc}
+.topnav a.here{color:#0f172a!important;background:#f59e0b;font-weight:700}
+@media(max-width:640px){.topnav{padding:6px 10px;gap:6px}.tn-brand{font-size:12px;border:0;padding-right:2px}.tn-brand img{width:24px;height:24px}.tn-links a{font-size:12px;padding:5px 8px}}
+</style>

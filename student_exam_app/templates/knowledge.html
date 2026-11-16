@@ -24,6 +24,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,
 .searchbar input:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(245,158,11,.12)}
 .searchbar button{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--mute);font-size:19px;cursor:pointer;padding:2px 7px;display:none}
 .searchbar button.on{display:block}
+.searchbar input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
 .hit{background:#fde68a;color:#78350f;border-radius:2px;padding:0 1px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
 .tabs button{border:1px solid var(--line);background:var(--card);color:var(--mute);border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}

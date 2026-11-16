@@ -7,6 +7,7 @@
 - [首页](https://web.xiaoshizi.asia/)：四科操作题入口，在线人数与今日判分量。
 - [常见问题](https://web.xiaoshizi.asia/faq)：怎么练、题型、Office 2010、判分明细、Windows 程序、小程序的六问六答。
 - [打字练习](https://web.xiaoshizi.asia/typing)：技能高考中英文录入真题原文，逐字校对，本地统计正确率与速度。
+- [考纲知识库](https://web.xiaoshizi.asia/knowledge)：四川 2023 版考纲 13 模块 143 条知识点，含教材出处与 Windows 7/Office 2010 版本差异。
 - [考试题型与分值](https://web.xiaoshizi.asia/exam)：技能操作 150 分的七个模块及分值，每块都有对应的练习入口。
 - [Windows 与网络设置题](https://web.xiaoshizi.asia/windows)：10 个类型，每类 5 题，含 Internet 选项、IPv4 地址、宽带连接、区域和语言、任务栏、显示、输入法、打印机、邮件设置。
 - [Excel 操作题](https://web.xiaoshizi.asia/q/excel/1)：10 套题，每套 5 分，题目要求逐条列出。

@@ -131,6 +131,11 @@ def build_archive():
 
     with tarfile.open(ARCHIVE, 'w:gz') as tar:
         tar.add(BASE, arcname='.', filter=filter_func)
+        kb_src = os.path.join(os.path.dirname(BASE), 'knowledge_base')
+        for name in ('knowledge_base.json', 'syllabus_2023.json'):
+            path = os.path.join(kb_src, name)
+            if os.path.exists(path):
+                tar.add(path, arcname='./knowledge/' + name)
     size = os.path.getsize(ARCHIVE) / 1024.0 / 1024.0
     print('   %s (%.1f MB)' % (os.path.basename(ARCHIVE), size))
     return True

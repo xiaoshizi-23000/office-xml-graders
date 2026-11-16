@@ -1,16 +1,17 @@
-SEO 体检 2026-11-16 16:59
+SEO 体检 2026-11-16 18:03
 ==============================================
 
 一、页面健康
   /                                            200   30517 字节  title/desc/结构化数据
-  /windows                                     200   75108 字节  canonical/结构化数据
-  /exam                                        200    9425 字节  结构化数据
-  /typing                                      200   20751 字节  结构化数据
-  /faq                                         200    7291 字节  结构化数据
-  /q/excel/1                                   200    8113 字节  title/desc/canonical/结构化数据
-  /sitemap.xml                                 200    4169 字节  -
+  /windows                                     200   75148 字节  canonical/结构化数据
+  /exam                                        200    9465 字节  结构化数据
+  /knowledge                                   200    7755 字节  结构化数据
+  /typing                                      200   20791 字节  结构化数据
+  /faq                                         200    7331 字节  结构化数据
+  /q/excel/1                                   200    8153 字节  title/desc/canonical/结构化数据
+  /sitemap.xml                                 200    4261 字节  -
   /robots.txt                                  200     119 字节  -
-  /llms.txt                                    200    3353 字节  -
+  /llms.txt                                    200    3521 字节  -
   /a7f3c9e14b8d4f62a1c05e7d3b9f8a26.txt        200      32 字节  -
 
 二、蜘蛛累计来访（已排除本机测试）

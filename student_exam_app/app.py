@@ -551,6 +551,36 @@ def baidu_verify(code):
     return app.response_class(str(html_escape(code)), mimetype='text/plain')
 
 
+@app.route('/api/knowledge')
+def api_knowledge():
+    path = os.path.join(BASE, 'knowledge', 'knowledge_base.json')
+    if not os.path.exists(path):
+        return jsonify({'items': [], 'syllabus': None})
+    with open(path, encoding='utf-8') as f:
+        raw = json.load(f)
+    items = [{
+        'id': x.get('id'), 'module_id': x.get('module_id'),
+        'module_name': x.get('module_name'), 'part': x.get('part'),
+        'title': x.get('title') or x.get('point'),
+        'point': x.get('point'), 'exam_tip': x.get('exam_tip'),
+        'quiz': x.get('question'),
+    } for x in raw]
+    syl_path = os.path.join(BASE, 'knowledge', 'syllabus_2023.json')
+    syl = None
+    if os.path.exists(syl_path):
+        with open(syl_path, encoding='utf-8') as f:
+            full = json.load(f)
+        syl = {'modules': [{'id': m['id'], 'name': m['name'], 'part': m['part'],
+                            'ratio': m.get('ratio'), 'score': m.get('score'),
+                            'exam_note': m.get('exam_note')} for m in full['modules']]}
+    return jsonify({'items': items, 'syllabus': syl})
+
+
+@app.route('/knowledge')
+def knowledge_page():
+    return render_template('knowledge.html')
+
+
 @app.route('/exam')
 def exam_page():
     return render_template('exam.html')
@@ -578,7 +608,7 @@ def llms_txt():
 @app.route('/sitemap.xml')
 def sitemap_xml():
     data = questions_cached()
-    urls = ['%s/' % SITE, '%s/windows' % SITE, '%s/exam' % SITE, '%s/typing' % SITE, '%s/faq' % SITE]
+    urls = ['%s/' % SITE, '%s/windows' % SITE, '%s/exam' % SITE, '%s/typing' % SITE, '%s/faq' % SITE, '%s/knowledge' % SITE]
     for subject in SUBJECTS:
         for qid in sorted(data.get(subject, {}), key=lambda x: (len(x), x)):
             urls.append('%s/q/%s/%s' % (SITE, subject, qid))

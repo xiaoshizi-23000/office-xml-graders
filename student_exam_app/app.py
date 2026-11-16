@@ -878,6 +878,16 @@ footer{{margin-top:36px;color:#64748b;font-size:12px}}
 .chips a{{padding:6px 12px;border-radius:8px;border:1px solid #334155;color:#cbd5e1;text-decoration:none;font-size:13px}}
 .chips a:hover{{border-color:#f59e0b;color:#f59e0b}}
 .chips a.cur{{background:#f59e0b;color:#1a1205;border-color:#f59e0b;font-weight:600}}
+@media(max-width:640px){{
+  .wrap{{padding:18px 12px 40px}}
+  h1{{font-size:19px}}
+  .sub{{font-size:12px;margin-bottom:16px}}
+  ol{{padding:14px 14px 14px 30px;font-size:14px}}
+  li{{margin:8px 0}}
+  .btns{{gap:8px}}
+  a.btn{{flex:1;min-width:110px;text-align:center;padding:10px 8px;font-size:13px}}
+  .chips a{{font-size:12px;padding:5px 9px}}
+}}
 </style></head><body>{nav}<div class="wrap">
 <h1>{label}操作题 第 {qid} 套</h1>
 <div class="sub">题型：{label} 操作题 · 满分 100 · 面向中职 / 对口升学 / 职教高考 · 在线提交后自动评分</div>

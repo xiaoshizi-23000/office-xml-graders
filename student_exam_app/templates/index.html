@@ -195,6 +195,20 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
   .header { flex-wrap: wrap; height: auto; padding: 12px 16px; gap: 8px; }
   .header .divider { display: none; }
 }
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .header { padding: 10px 12px; }
+  .header .logo h1 { font-size: 16px; }
+  .header .logo span { display: none; }
+  .subject-tabs { gap: 4px; }
+  .tab { padding: 7px 10px; font-size: 12px; }
+  .question-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .q-card { min-height: 78px; }
+  .q-card .q-num { font-size: 26px; }
+  .score-big { font-size: 48px; }
+  .detail-list { max-height: 320px; font-size: 12px; }
+  .promo { padding: 12px 14px; }
+}
 
 /* Tooltip */
 .tooltip { font-size: 11px; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-left: 8px; }

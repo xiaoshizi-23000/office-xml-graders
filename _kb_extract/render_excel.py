@@ -6,6 +6,9 @@ i=sys.argv[1]
 src=os.path.join(BASE,'Excel 2010 操作题题库',i,'1结果.xlsx')
 dst=os.path.join(BASE,'student_exam_app','materials','excel','samples',i)
 os.makedirs(dst,exist_ok=True)
+import glob
+for _f in glob.glob(os.path.join(dst,'page_*.png')):
+    os.remove(_f)
 pdf=os.path.join(BASE,'student_exam_app','_kb_extract','ex_%s.pdf'%i)
 if os.path.exists(pdf): os.remove(pdf)
 app=wc.DispatchEx('Excel.Application')

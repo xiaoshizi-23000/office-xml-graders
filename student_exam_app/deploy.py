@@ -161,6 +161,7 @@ def remote_script(cfg):
         'mkdir -p ../exam_backups',
         'tar czf ../exam_backups/exam_$(date +%Y%m%d_%H%M%S).tar.gz --exclude=uploads --exclude=__pycache__ . 2>/dev/null || true',
         'ls -1t ../exam_backups/exam_*.tar.gz 2>/dev/null | tail -n +%d | xargs -r rm -f' % (cfg['keep_backups'] + 1),
+        'rm -rf "$DIR"/materials/*/samples',
         'tar xzf /tmp/exam_release.tar.gz -C "$DIR"',
         'mkdir -p uploads',
     ]

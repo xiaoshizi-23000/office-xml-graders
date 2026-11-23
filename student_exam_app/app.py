@@ -490,30 +490,7 @@ def index():
                     counts['%s/%s' % (sub, name[:-4])] = 1
     except OSError:
         pass
-    # 服务端渲染题目数据，供搜索引擎直接抓取（不依赖 JS）
-    catalog = {}
-    qdata = {}
-    try:
-        qdata = questions_cached()
-        for sub in SUBJECTS:
-            items = []
-            for qid in sorted(qdata.get(sub, {}), key=lambda x: (len(x), x)):
-                lines = qdata[sub][qid]
-                if not lines:
-                    continue
-                first = re.sub(r'^\d+[.、]\s*', '', lines[0]).strip()
-                if sub == 'dw':
-                    mname = re.search(r'[（(]([^）)]+)[）)]', lines[0])
-                    title = mname.group(1).split('·')[0].strip() if mname else first[:24]
-                else:
-                    title = re.split(r'[，,；;。]', first)[0][:26]
-                items.append({'qid': qid, 'title': title,
-                              'brief': [re.sub(r'^\d+[.、]\s*', '', x).strip() for x in lines[1:4]]})
-            catalog[sub] = items
-    except Exception:
-        catalog = {}
-    return render_template('index.html', sample_counts=counts, catalog=catalog,
-                           questions_json=qdata if catalog else {})
+    return render_template('index.html', sample_counts=counts)
 
 
 @app.route('/api/health')

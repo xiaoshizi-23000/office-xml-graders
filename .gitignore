@@ -45,3 +45,8 @@ test.xml
 /*操作题题库/**/*.md
 /*技能题库/**/*.py
 /*技能题库/**/*.txt
+
+_wps_src/
+
+准易2026*.zip
+_wps_probe/

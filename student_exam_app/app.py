@@ -45,6 +45,8 @@ SUBJECTS = {
 
 LABELS = {'excel': 'Excel', 'word': 'Word', 'ppt': 'PPT', 'dw': '网页'}
 
+CHANNELS = {'office2010', 'office2016', 'office365', 'wps2016', 'wps2019', 'wpsedu'}
+
 MAX_UPLOAD_MB = int(os.environ.get('EXAM_MAX_UPLOAD_MB', '50'))
 GRADER_TIMEOUT = int(os.environ.get('EXAM_GRADER_TIMEOUT', '90'))
 MAX_PARALLEL = int(os.environ.get('EXAM_MAX_PARALLEL', '4'))
@@ -217,6 +219,24 @@ def bump_today():
         return state['count']
 
 
+def bump_channel(channel):
+    """按天记录各提交通道使用次数，失败不影响判分。"""
+    if channel not in CHANNELS:
+        return
+    today = time.strftime('%Y-%m-%d')
+    try:
+        with _state_guard():
+            state = _read_state()
+            if state.get('date') != today:
+                state['date'] = today
+                state['channels'] = {}
+            counts = state.setdefault('channels', {})
+            counts[channel] = int(counts.get(channel) or 0) + 1
+            _write_state(state)
+    except OSError:
+        app.logger.warning('channel stats write failed')
+
+
 def today_count():
     today = time.strftime('%Y-%m-%d')
     with _state_guard():
@@ -232,7 +252,7 @@ def today_count():
 def reset_stats():
     """测试/维护用：清空共享在线与今日计数。"""
     with _state_guard():
-        _write_state({'date': '', 'count': 0, 'online': {}})
+        _write_state({'date': '', 'count': 0, 'online': {}, 'channels': {}})
 
 
 RATE_LIMIT_PER_MIN = int(os.environ.get('EXAM_RATE_PER_MIN', '600'))
@@ -1224,6 +1244,7 @@ def grade(subject, qid):
 
         try:
             bump_today()
+            bump_channel(request.form.get('channel', ''))
         except OSError:
             app.logger.warning('today counter write failed')
         items = parse_items(output)

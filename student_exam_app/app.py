@@ -353,6 +353,8 @@ def extract_questions():
             path = docx if os.path.exists(docx) else (txt if os.path.exists(txt) else None)
             if path is None:
                 continue
+            if not os.path.exists(os.path.join(GRADERS, '%s_grader_%s.py' % (subject, qid))):
+                continue
             try:
                 questions[subject][qid] = read_question_lines(path)
             except Exception as exc:

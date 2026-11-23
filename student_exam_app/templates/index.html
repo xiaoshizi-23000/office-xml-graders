@@ -202,7 +202,6 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
 .channel-chip.active { background:var(--amber); border-color:var(--amber); color:#1a1205; font-weight:700; }
 .channel-info { margin-top:10px; padding:9px 12px; border-radius:7px; background:#fffbeb; border:1px solid #fde68a; font-size:12.5px; line-height:1.85; color:#78350f; }
 .channel-info b { color:#92400e; }
-.channel-info .term-map { margin-top:6px; padding-top:6px; border-top:1px dashed #fcd34d; color:#92400e; }
 .empty-state { padding:36px 20px 30px; }
 .empty-state .hint { max-width:520px; margin:8px auto 0; }
 .score-big { color:var(--theme); }
@@ -434,18 +433,6 @@ function renderChannels() {
   const step = document.getElementById('stepSoftware');
   if (step) step.textContent = '本机用 ' + c.short + ' 做完';
   let info = '<b>' + c.name + '</b> · 适用考纲：' + c.exam + ' · 环境：' + c.env + '<br>' + c.note;
-  const terms = termsFor(currentChannel);
-  if (terms.length) {
-    const seen = {}, pairs = [];
-    for (const t of terms) {
-      if (seen[t.wps]) continue;
-      seen[t.wps] = 1;
-      pairs.push(t.office + '→' + t.wps);
-    }
-    info += '<div class="term-map">题干按 <b>' + c.short + '</b> 界面叫法显示：' +
-      pairs.join('、') +
-      '。<br>评分按文档底层格式属性判定（如' + terms[0].check + '），不看你点的是哪个菜单。</div>';
-  }
   document.getElementById('channelInfo').innerHTML = info;
   box.querySelectorAll('.channel-chip').forEach(b => {
     b.onclick = () => {

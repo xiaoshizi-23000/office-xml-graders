@@ -15,7 +15,7 @@ class WordGrader20:
 
     def grade(self):
         report = Report('WPS 文档 第20套 · 故宫的文化创新')
-        for fn in (self.r1, self.r2, self.r3, self.r4,
+        for fn in (self.r1, self.r2, self.r3, self.r4, self.r5,
                    self.r6, self.r7, self.r8):
             report.add(*fn())
         return report
@@ -160,13 +160,27 @@ class WordGrader20:
                 notes.append('底纹色=%s' % fills[:2])
         else:
             notes.append('无文字底纹')
-        return (4, '编号与边框底纹', got, 16, notes)
+        return (4, '编号与边框底纹', got, 12, notes)
+
+    def r5(self):
+        got, notes = 0, []
+        if '<w:hyperlink' not in self.doc.xml_all():
+            return (5, '超链接', 0, 10, ['没有超链接'])
+        got += 6
+        notes.append('超链接存在 OK')
+        rels = self.doc.read('word/_rels/document.xml.rels')
+        if 'baidu.com' in rels:
+            got += 4
+            notes.append('链接地址 www.baidu.com OK')
+        else:
+            notes.append('地址未指向 baidu.com')
+        return (5, '超链接', got, 10, notes)
 
     def r6(self):
         got, notes = 0, []
         tables = list(self.doc.body.iter(W + 'tbl')) if self.doc.body is not None else []
         if not tables:
-            return (6, '表格', 0, 18, ['没有表格'])
+            return (6, '表格', 0, 14, ['没有表格'])
         tbl = tables[0]
         tx = __import__('xml.etree.ElementTree', fromlist=['x']).tostring(tbl, encoding='unicode')
         widths = [int(x) / 567 for x in re.findall(r'gridCol[^>]*w="(\d+)"', tx)]
@@ -196,7 +210,7 @@ class WordGrader20:
         if heights and abs(int(heights[0]) / 567 - 1.2) < 0.15:
             got += 2
             notes.append('行高1.2cm OK')
-        return (6, '表格', got, 18, notes)
+        return (6, '表格', got, 14, notes)
 
     def r7(self):
         got, notes = 0, []
@@ -209,7 +223,7 @@ class WordGrader20:
             got += 3
             notes.append('四周型环绕 OK')
         exts = [(int(a) / 360000, int(b) / 360000) for a, b in re.findall(r'ext cx="(\d+)" cy="(\d+)"', full)]
-        if any(abs(h - 8) < 0.5 for w, h in exts):
+        if any(abs(h - 8) < 0.4 for w, h in exts):
             got += 3
             notes.append('高度8cm OK')
         elif exts:
@@ -253,7 +267,7 @@ class WordGrader20:
             notes.append('页脚页码 OK')
         else:
             notes.append('页脚未设')
-        return (8, '背景与页眉页脚', got, 14, notes)
+        return (8, '背景与页眉页脚', got, 12, notes)
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _core import PptDeck, Report, run
+from _core import PptDeck, Report, run, check_show
 
 
 class PptGrader14:
@@ -213,7 +213,12 @@ class PptGrader14:
             notes.append('advTm=%s' % re.findall(r'advTm="(\d+)"', x0)[:1])
         else:
             notes.append('无自动换片')
-        return (7, '切换效果', got, 14, notes)
+        return (7, '切换效果', got, 6, notes)
+
+
+    def r_show(self):
+        ok, detail = check_show(self.deck, kind='present', loop=1, st=1, en=4)
+        return (99, '放映设置', 8 if ok else 0, 8, [detail])
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _core import PptDeck, Report, run
+from _core import PptDeck, Report, run, check_show
 
 A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
 
@@ -16,7 +16,7 @@ class PptGrader11:
     def grade(self):
         report = Report('WPS 演示 第11套 · 东岳泰山')
         for fn in (self.r1, self.r2, self.r3, self.r4, self.r5,
-                   self.r6, self.r7, self.r8):
+                   self.r6, self.r7, self.r_show, self.r8):
             report.add(*fn())
         return report
 
@@ -221,6 +221,11 @@ class PptGrader11:
         else:
             notes.append('未设自动换片')
         return (7, '背景与切换', got, 12.5, notes)
+
+
+    def r_show(self):
+        ok, detail = check_show(self.deck, kind='present', loop=1, st=1, en=4)
+        return (99, '放映设置', 8 if ok else 0, 8, [detail])
 
     def r8(self):
         notes, got = [], 0

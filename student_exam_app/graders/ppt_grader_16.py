@@ -4,7 +4,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _core import PptDeck, Report, run
+from _core import PptDeck, Report, run, check_show
 
 
 class PptGrader16:
@@ -189,7 +189,12 @@ class PptGrader16:
         elif 'advTm="0"' in x0:
             got += 3
             notes.append('单击换片 OK')
-        return (6, '切换效果', got, 14, notes)
+        return (6, '切换效果', got, 6, notes)
+
+
+    def r_show(self):
+        ok, detail = check_show(self.deck, kind='kiosk', loop=1, anim=0)
+        return (99, '放映设置', 8 if ok else 0, 8, [detail])
 
 
 if __name__ == '__main__':

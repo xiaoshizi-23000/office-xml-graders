@@ -4,7 +4,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _core import PptDeck, Report, run
+from _core import PptDeck, Report, run, check_show
 
 A = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
 P = '{http://schemas.openxmlformats.org/presentationml/2006/main}'
@@ -218,7 +218,12 @@ class PptGrader12:
         if fade == total and ('advTm="0"' in self.sxml(0) or 'advClick' in self.sxml(0)):
             got += 3
             notes.append('单击换片 OK')
-        return (7, '切换效果', got, 14, notes)
+        return (7, '切换效果', got, 6, notes)
+
+
+    def r_show(self):
+        ok, detail = check_show(self.deck, kind='present', st=3, en=5, manual=True)
+        return (99, '放映设置', 8 if ok else 0, 8, [detail])
 
 
 if __name__ == '__main__':

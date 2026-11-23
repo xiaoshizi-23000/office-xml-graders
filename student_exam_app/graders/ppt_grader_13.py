@@ -4,7 +4,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _core import PptDeck, Report, run
+from _core import PptDeck, Report, run, check_show
 
 
 class PptGrader13:
@@ -205,7 +205,12 @@ class PptGrader13:
             notes.append('切换声音 OK')
         else:
             notes.append('无切换声音')
-        return (6, '切换效果', got, 14, notes)
+        return (6, '切换效果', got, 6, notes)
+
+
+    def r_show(self):
+        ok, detail = check_show(self.deck, kind='present', loop=1, manual=True)
+        return (99, '放映设置', 8 if ok else 0, 8, [detail])
 
 
 if __name__ == '__main__':

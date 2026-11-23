@@ -190,7 +190,7 @@ class ExcelGrader18:
         got, notes = 0, []
         ws = self.sheet('Sheet1')
         if ws is None:
-            return (6, '页面设置', 0, 10, ['缺 Sheet1'])
+            return (6, '页面设置', 0, 8, ['缺 Sheet1'])
         ps = ws.root.find('{%s}pageSetup' % S)
         if ps is not None and ps.get('orientation') == 'landscape':
             got += 4
@@ -205,25 +205,20 @@ class ExcelGrader18:
         if po is not None and po.get('horizontalCentered') == '1':
             got += 2
             notes.append('水平居中 OK')
-        if ps is not None and (ps.get('paperSize') or '') in ('43', '41', '1'):
-            got += 2
-            notes.append('信纸/Letter OK（%s）' % ps.get('paperSize'))
-        else:
-            notes.append('纸张=%s' % (ps.get('paperSize') if ps is not None else '无'))
-        return (6, '页面设置', got, 10, notes)
+        return (6, '页面设置', got, 8, notes)
 
     def r7(self):
         got, notes = 0, []
         ws2 = self.sheet('Sheet2')
         if ws2 is None:
-            return (7, '学历统计与饼图', 0, 10, ['缺 Sheet2'])
+            return (7, '学历统计与饼图', 0, 12, ['缺 Sheet2'])
         n = 0
         for r in range(1, 20):
             for c in 'ABCDEF':
                 if formula_has(self.book.formula_in(ws2.root, '%s%d' % (c, r)), 'COUNTIF'):
                     n += 1
         if n >= 3:
-            got += 4
+            got += 6
             notes.append('学历统计 OK（%d格）' % n)
         else:
             notes.append('COUNTIF %d 格' % n)
@@ -241,7 +236,7 @@ class ExcelGrader18:
                 notes.append('标题 OK')
         else:
             notes.append('没有图表')
-        return (7, '学历统计与饼图', got, 10, notes)
+        return (7, '学历统计与饼图', got, 12, notes)
 
     def r8(self):
         got, notes = 0, []

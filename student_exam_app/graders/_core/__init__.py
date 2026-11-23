@@ -3,6 +3,7 @@ from .pkg import Package
 from .xlsx import ExcelBook, Styles
 from .docx import WordDoc, extract_word_parts
 from .pptx import PptDeck, slide_no
+from .showpr import show_props, check_show
 from .pptcheck import (presets as ppt_presets, has_preset, filters as ppt_filters,
                        transition_types, transition_attrs, actions as ppt_actions,
                        shape_names, hlink_ids, has_gradfill, auto_number,

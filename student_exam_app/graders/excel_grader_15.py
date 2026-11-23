@@ -26,14 +26,28 @@ class ExcelGrader15:
     def fmt(self, sheet, ref):
         return self.book.format_in(sheet.root, ref)
 
+    def cell_xf(self, sheet, ref):
+        node = None
+        for nd in sheet.cells().values():
+            if nd.get('r') == ref:
+                node = nd
+                break
+        if node is None:
+            return ''
+        s_id = int(node.get('s', '0') or 0)
+        st = self.book.read('xl/styles.xml') if 'xl/styles.xml' in self.book.names else ''
+        m = re.search(r'<cellXfs[^>]*>(.*?)</cellXfs>', st, re.S)
+        xfs = re.findall(r'<xf [^>]*/>|<xf [^>]*>.*?</xf>', m.group(1), re.S)
+        return xfs[s_id] if 0 <= s_id < len(xfs) else ''
+
     def r1(self):
         got, notes = 0, []
         ws = self.sheet('奖牌表') or self.sheet('Sheet1')
         if ws is None:
-            return (1, '导入与标题', 0, 18, ['缺工作表'])
+            return (1, '导入与标题', 0, 14, ['缺工作表'])
         merged = [m.get('ref') for m in ws.root.iter('{%s}mergeCell' % S)]
         if 'B2:F2' in merged:
-            got += 6
+            got += 4
             notes.append('B2:F2 合并 OK')
         else:
             notes.append('合并=%s' % merged[:2])
@@ -52,11 +66,11 @@ class ExcelGrader15:
             notes.append('字体=%s/%s' % (font.get('name'), font.get('size')))
         h = [r.get('ht') for r in ws.root.iter('{%s}row' % S) if r.get('r') == '2']
         if h and abs(float(h[0] or 0) - 22.5) < 0.9:
-            got += 5
+            got += 3
             notes.append('行高22.5 OK')
         else:
             notes.append('行高=%s' % (h[0] if h else '无'))
-        return (1, '导入与标题', got, 18, notes)
+        return (1, '导入与标题', got, 14, notes)
 
     def r2(self):
         got, notes = 0, []
@@ -176,7 +190,7 @@ class ExcelGrader15:
         got, notes = 0, []
         ws = self.sheet('名次')
         if ws is None:
-            return (6, '名次表', 0, 10, ['缺"名次"工作表'])
+            return (6, '名次表', 0, 14, ['缺"名次"工作表'])
         import re
         rgb = ''
         for n in ws.root.iter('{%s}tabColor' % S):
@@ -200,7 +214,17 @@ class ExcelGrader15:
             notes.append('名次公式 %d/3' % n)
         else:
             notes.append('B3=%r' % self.book.formula_in(ws.root, 'B3'))
-        return (6, '名次表', got, 10, notes)
+        locked = 0
+        for ref in ('B3', 'C3', 'D3'):
+            xf = self.cell_xf(ws, ref)
+            if 'protection' in xf and 'locked="0"' in xf:
+                locked += 1
+        if locked >= 3:
+            got += 4
+            notes.append('取消锁定 OK（%d/3）' % locked)
+        else:
+            notes.append('取消锁定 %d/3' % locked)
+        return (6, '名次表', got, 14, notes)
 
     def r7(self):
         got, notes = 0, []

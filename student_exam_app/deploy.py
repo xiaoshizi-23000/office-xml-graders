@@ -14,6 +14,7 @@ import re
 import subprocess
 import sys
 import tarfile
+import json
 import time
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -114,28 +115,75 @@ def preflight(skip_test):
     return ok
 
 
-def build_archive():
-    print('== [2/5] 打包 ==')
+def local_scan():
+    """本地文件清单 {相对路径: (size, mtime)}"""
+    out = {}
+    for root, dirs, files in os.walk(BASE):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        for f in files:
+            if f in EXCLUDE_NAMES or f.endswith(EXCLUDE_SUFFIX) or f.startswith('.'):
+                continue
+            p = os.path.join(root, f)
+            rel = os.path.relpath(p, BASE).replace('\\', '/')
+            out[rel] = (os.path.getsize(p), int(os.path.getmtime(p)))
+    return out
+
+
+def remote_ls(cfg):
+    """远端文件清单 {相对路径: size}，失败返回 None（退化全量）"""
+    import shlex
+    target = remote_target(cfg)
+    code = ("import os,json,sys;base=sys.argv[1];out={}\n"
+            "for root,dirs,files in os.walk(base):\n"
+            "    dirs[:]=[d for d in dirs if d not in ('uploads','__pycache__','.git','backups')]\n"
+            "    for f in files:\n"
+            "        if f.startswith('.'):continue\n"
+            "        p=os.path.join(root,f)\n"
+            "        try:out[os.path.relpath(p,base).replace(os.sep,'/')]=os.path.getsize(p)\n"
+            "        except OSError:pass\n"
+            "sys.stdout.write(json.dumps(out))")
+    r = run(ssh_base(cfg) + ['python3 -c %s %s' % (shlex.quote(code), target)],
+            capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
+    if r.returncode != 0:
+        return None
+    t = r.stdout
+    a, b = t.find('{'), t.rfind('}')
+    if a < 0 or b <= a:
+        return None
+    try:
+        return json.loads(t[a:b + 1])
+    except ValueError:
+        return None
+
+
+def build_archive(paths=None):
+    print('== [2/5] 打包%s ==' % ('（增量 %d 个文件）' % len(paths) if paths else ''))
     if os.path.exists(ARCHIVE):
         os.remove(ARCHIVE)
-
-    def filter_func(info):
-        parts = info.name.split('/')
-        if any(p in EXCLUDE_DIRS for p in parts):
-            return None
-        if parts[-1] in EXCLUDE_NAMES or parts[-1].endswith(EXCLUDE_SUFFIX):
-            return None
-        if parts[-1].startswith('.') and len(parts) > 1:
-            return None
-        return info
+    if paths is None:
+        def filter_func(info):
+            parts = info.name.split('/')
+            if any(p in EXCLUDE_DIRS for p in parts):
+                return None
+            if parts[-1] in EXCLUDE_NAMES or parts[-1].endswith(EXCLUDE_SUFFIX):
+                return None
+            if parts[-1].startswith('.') and len(parts) > 1:
+                return None
+            return info
 
     with tarfile.open(ARCHIVE, 'w:gz') as tar:
-        tar.add(BASE, arcname='.', filter=filter_func)
-        kb_src = os.path.join(os.path.dirname(BASE), 'knowledge_base')
-        for name in ('knowledge_base.json', 'syllabus_2023.json'):
-            path = os.path.join(kb_src, name)
-            if os.path.exists(path):
-                tar.add(path, arcname='./knowledge/' + name)
+        if paths is None:
+            tar.add(BASE, arcname='.', filter=filter_func)
+            kb_src = os.path.join(os.path.dirname(BASE), 'knowledge_base')
+            for name in ('knowledge_base.json', 'syllabus_2023.json'):
+                path = os.path.join(kb_src, name)
+                if os.path.exists(path):
+                    tar.add(path, arcname='./knowledge/' + name)
+        else:
+            for rel in paths:
+                p = os.path.join(BASE, rel)
+                if os.path.exists(p):
+                    tar.add(p, arcname='./' + rel)
     size = os.path.getsize(ARCHIVE) / 1024.0 / 1024.0
     print('   %s (%.1f MB)' % (os.path.basename(ARCHIVE), size))
     return True
@@ -149,7 +197,7 @@ def remote_target(cfg):
             '-path "*%s*" 2>/dev/null | head -1)")' % hint)
 
 
-def remote_script(cfg):
+def remote_script(cfg, incremental=False):
     target = remote_target(cfg)
     port = cfg['app_port']
     steps = [
@@ -161,7 +209,6 @@ def remote_script(cfg):
         'mkdir -p ../exam_backups',
         'tar czf ../exam_backups/exam_$(date +%Y%m%d_%H%M%S).tar.gz --exclude=uploads --exclude=__pycache__ . 2>/dev/null || true',
         'ls -1t ../exam_backups/exam_*.tar.gz 2>/dev/null | tail -n +%d | xargs -r rm -f' % (cfg['keep_backups'] + 1),
-        'rm -rf "$DIR"/materials/*/samples',
         'tar xzf /tmp/exam_release.tar.gz -C "$DIR"',
         'mkdir -p uploads',
     ]
@@ -195,9 +242,9 @@ def upload(cfg):
     return True
 
 
-def deploy_remote(cfg):
+def deploy_remote(cfg, incremental=False):
     print('== [4/5] 远端备份 + 解包 + 重启 ==')
-    script = remote_script(cfg).replace('\r\n', '\n')
+    script = remote_script(cfg, incremental).replace('\r\n', '\n')
     r = run(ssh_base(cfg) + ['bash -s'], input=script.encode('utf-8'))
     if r.returncode != 0:
         print('   ! 远端执行失败，退出码 %d' % r.returncode)
@@ -236,6 +283,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true', help='只做本地预检与打包，不连服务器')
     parser.add_argument('--skip-test', action='store_true', help='跳过本地回归测试')
+    parser.add_argument('--incremental', action='store_true', help='增量部署：只上传变化的文件')
     args = parser.parse_args()
 
     cfg = load_config()
@@ -245,7 +293,17 @@ def main():
     if not preflight(args.skip_test):
         print('预检未通过，已中止')
         return 1
-    if not build_archive():
+    changed = None
+    if args.incremental:
+        print('== 增量对比 ==')
+        local = local_scan()
+        remote = remote_ls(cfg) or {}
+        changed = [k for k, v in local.items() if remote.get(k) != v[0]]
+        if not changed:
+            print('   与远端一致，无需更新')
+            return 0
+        print('   变化 %d / %d 个文件' % (len(changed), len(local)))
+    if not build_archive(changed):
         return 1
 
     if args.dry_run:
@@ -254,7 +312,7 @@ def main():
         print('   远端目录: %s' % (cfg['remote_dir'] or '自动查找 *%s*' % cfg['remote_hint']))
         return 0
 
-    if not upload(cfg) or not deploy_remote(cfg):
+    if not upload(cfg) or not deploy_remote(cfg, incremental=changed is not None):
         return 1
     time.sleep(1)
     return 0 if verify(cfg) else 1

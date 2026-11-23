@@ -171,14 +171,12 @@ class WordGrader16:
             notes.append('紧密型环绕 OK')
         else:
             notes.append('环绕方式未匹配')
-        ext = re.search(r'<wp:extent cx="(\d+)" cy="(\d+)"/>', full)
-        if ext:
-            h = int(ext.group(2)) / 360000
-            if h > 3:
-                got += 4
-                notes.append('已设图片高度（%.1fcm，题干8cm）' % h)
-            else:
-                notes.append('高度%.1fcm 过小' % h)
+        exts = [(int(a) / 360000, int(b) / 360000) for a, b in re.findall(r'ext cx="(\d+)" cy="(\d+)"', full)]
+        if any(abs(h - 8) < 0.4 for w, h in exts):
+            got += 4
+            notes.append('高度8cm OK')
+        elif exts:
+            notes.append('高度=%s' % [round(h, 1) for w, h in exts[:4]])
         soft = re.search(r'<a:softEdge[^>]*rad="(\d+)"', full)
         if soft:
             rad_pt = int(soft.group(1)) / 12700

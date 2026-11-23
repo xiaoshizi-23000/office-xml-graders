@@ -202,6 +202,7 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
 .channel-chip.active { background:var(--amber); border-color:var(--amber); color:#1a1205; font-weight:700; }
 .channel-info { margin-top:10px; padding:9px 12px; border-radius:7px; background:#fffbeb; border:1px solid #fde68a; font-size:12.5px; line-height:1.85; color:#78350f; }
 .channel-info b { color:#92400e; }
+.channel-info .term-map { margin-top:6px; padding-top:6px; border-top:1px dashed #fcd34d; color:#92400e; }
 .empty-state { padding:36px 20px 30px; }
 .empty-state .hint { max-width:520px; margin:8px auto 0; }
 .score-big { color:var(--theme); }
@@ -278,7 +279,7 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
   <!-- 三步走 -->
   <div class="step-line">
     <span class="step"><b>1</b>选题下载素材</span><span class="arrow">→</span>
-    <span class="step"><b>2</b>本机用 Office 2010 做完</span><span class="arrow">→</span>
+    <span class="step"><b>2</b><span id="stepSoftware">本机用 Office 2010 做完</span></span><span class="arrow">→</span>
     <span class="step"><b>3</b>上传文件，十几秒出分</span><span class="arrow">·</span><span class="step" style="color:var(--mute)">练习按 100 分判，同时折算考卷分</span>
   </div>
 
@@ -361,20 +362,56 @@ let uploadedFile = null;
 let questionsData = {};
 
 const CHANNELS = {
-  office2010: { name:'Office 2010', exam:'四川对口升学计算机技能考试；重庆分类考试可选', env:'Windows 7 + Office 2010',
+  office2010: { name:'Office 2010', short:'Office 2010', subj:{excel:'Excel 2010',word:'Word 2010',ppt:'PowerPoint 2010'}, exam:'四川对口升学计算机技能考试；重庆分类考试可选', env:'Windows 7 + Office 2010', family:'office',
     note:'题库标准答案按 Office 2010 制作，格式编码最匹配。用其它软件保存时个别格式项可能与答案不同。' },
-  office2016: { name:'Office 2016', exam:'山东专升本计算机（公共课）', env:'Windows 10 + Office 2016',
+  office2016: { name:'Office 2016', short:'Office 2016', subj:{excel:'Excel 2016',word:'Word 2016',ppt:'PowerPoint 2016'}, exam:'山东专升本计算机（公共课）', env:'Windows 10 + Office 2016', family:'office',
     note:'与标准答案同属 OOXML 标准，绝大多数考点判分一致；个别 2016 新增形状、图表类型可能与 2010 编码不同。' },
-  office365: { name:'Office 2019 / 365', exam:'部分省份新考场环境', env:'Windows 10 + Office 2019 或 Microsoft 365',
+  office365: { name:'Office 2019 / 365', short:'Office 2019/365', subj:{excel:'Excel 2019',word:'Word 2019',ppt:'PowerPoint 2019'}, exam:'部分省份新考场环境', env:'Windows 10 + Office 2019 或 Microsoft 365', family:'office',
     note:'新版云形标注、动态图表等采用新编码，涉及这类考点时可能判错，建议按 2010 兼容模式保存。' },
-  wps2016: { name:'WPS Office 2016', exam:'部分省份考纲规定版本', env:'Windows + WPS Office 2016',
+  wps2016: { name:'WPS Office 2016', short:'WPS 2016', subj:{excel:'WPS 表格',word:'WPS 文字',ppt:'WPS 演示'}, exam:'部分省份考纲规定版本', env:'Windows + WPS Office 2016', family:'wps',
     note:'WPS 存盘用过渡版 OOXML，字体、主题色、图表编码与 Office 有差异，个别格式项可能扣分。' },
-  wps2019: { name:'WPS Office 2019', exam:'重庆高职分类考试（与 Office 2010 二选一）', env:'Windows 10 + WPS 2019',
+  wps2019: { name:'WPS Office 2019', short:'WPS 2019', subj:{excel:'WPS 表格',word:'WPS 文字',ppt:'WPS 演示'}, exam:'重庆高职分类考试（与 Office 2010 二选一）', env:'Windows 10 + WPS 2019', family:'wps',
     note:'判分内核通用，主题色与图表编码差异可能导致个别考点扣分，做完可对照样张检查。' },
-  wpsedu: { name:'WPS 教育考试专用版', exam:'云南省 2026 职教高考计算机信息类', env:'Windows + WPS 教育考试专用版 + Python 3.0+',
+  wpsedu: { name:'WPS 教育考试专用版', short:'WPS 教育考试版', subj:{excel:'WPS 表格',word:'WPS 文字',ppt:'WPS 演示'}, exam:'云南省 2026 职教高考计算机信息类', env:'Windows + WPS 教育考试专用版 + Python 3.0+', family:'wps',
     note:'云南考纲指定版本。判分标准与其它通道一致，Word/Excel/PPT 考点通用；网页题请用 Dreamweaver。' }
 };
+
+/* 版本术语对照：同一考点在不同软件界面里的叫法，仅影响题干显示，评分始终按底层格式属性判断 */
+const TERMS = [
+  { office: 'SmartArt图形',    wps: '智能图形',        check: 'diagram 图形部件' },
+  { office: 'SmartArt',        wps: '智能图形',        check: 'diagram 图形部件' },
+  { office: '强调文字颜色',     wps: '着色',            check: '主题色 schemeClr 索引' },
+  { office: '单波浪线',        wps: '波浪线',          check: '边框 val=wave' },
+  { office: '斜式',            wps: '倾斜',            check: '水印 VML 旋转属性' },
+  { office: '行标签',          wps: '行区域',          check: '透视表 axisRow' },
+  { office: '列标签',          wps: '列区域',          check: '透视表 axisCol' },
+  { office: '值字段',          wps: '值区域',          check: '透视表 dataField' }
+];
+
+function subjectLabel(subj) {
+  const c = CHANNELS[currentChannel];
+  return (c.subj && c.subj[subj]) || (subjectMeta[subj] ? subjectMeta[subj].label : subj);
+}
+
+function termsFor(channel) {
+  const c = CHANNELS[channel];
+  return c && c.family === 'wps' ? TERMS : [];
+}
+
+function applyTerms(text) {
+  let out = text;
+  const list = termsFor(currentChannel);
+  const wps = CHANNELS[currentChannel].family === 'wps';
+  const pairs = list.map(t => [wps ? t.office : t.wps, wps ? t.wps : t.office])
+                     .sort((a, b) => b[0].length - a[0].length);
+  for (const [from, to] of pairs) {
+    if (from !== to) out = out.split(from).join(to);
+  }
+  return out;
+}
 let currentChannel = localStorage.getItem('exam_channel') || 'office2010';
+const urlCh = new URLSearchParams(location.search).get('ch');
+if (urlCh && CHANNELS[urlCh]) currentChannel = urlCh;
 if (!CHANNELS[currentChannel]) currentChannel = 'office2010';
 
 const DW_TIP = '⚠️ 请用 <b>Dreamweaver CS6</b> 完成后再上传。用 VS Code、HBuilder 等编辑器保存的网页，结构与样式写法可能和标准答案不同，部分考点会被判错。';
@@ -394,14 +431,38 @@ function renderChannels() {
     '<button class="channel-chip' + (k === currentChannel ? ' active' : '') + '" data-ch="' + k + '">' + CHANNELS[k].name + '</button>'
   ).join('');
   const c = CHANNELS[currentChannel];
-  document.getElementById('channelInfo').innerHTML =
-    '<b>' + c.name + '</b> · 适用考纲：' + c.exam + ' · 环境：' + c.env + '<br>' + c.note;
+  const step = document.getElementById('stepSoftware');
+  if (step) step.textContent = '本机用 ' + c.short + ' 做完';
+  let info = '<b>' + c.name + '</b> · 适用考纲：' + c.exam + ' · 环境：' + c.env + '<br>' + c.note;
+  const terms = termsFor(currentChannel);
+  if (terms.length) {
+    const seen = {}, pairs = [];
+    for (const t of terms) {
+      if (seen[t.wps]) continue;
+      seen[t.wps] = 1;
+      pairs.push(t.office + '→' + t.wps);
+    }
+    info += '<div class="term-map">题干按 <b>' + c.short + '</b> 界面叫法显示：' +
+      pairs.join('、') +
+      '。<br>评分按文档底层格式属性判定（如' + terms[0].check + '），不看你点的是哪个菜单。</div>';
+  }
+  document.getElementById('channelInfo').innerHTML = info;
   box.querySelectorAll('.channel-chip').forEach(b => {
     b.onclick = () => {
       currentChannel = b.dataset.ch;
       localStorage.setItem('exam_channel', currentChannel);
       renderChannels();
       renderTip();
+      const sm = subjectMeta[currentSubject];
+      if (sm) {
+        document.getElementById('sectionLabel').textContent =
+          sm.icon + ' ' + subjectLabel(currentSubject) + ' 操作题 — 选择题目开始作答';
+      }
+      if (currentQid) {
+        const qs = questionsData[currentSubject] || {};
+        const reqs = qs[currentQid] || [];
+        document.getElementById('requirements').innerHTML = reqs.map(r => '<li>' + escapeHtml(applyTerms(r)) + '</li>').join('');
+      }
     };
   });
 }
@@ -455,7 +516,7 @@ function switchSubject(subject) {
 
   const meta = subjectMeta[subject];
   renderTip();
-  document.getElementById('sectionLabel').textContent = meta.icon + ' ' + meta.label + ' 操作题 — 选择题目开始作答';
+  document.getElementById('sectionLabel').textContent = meta.icon + ' ' + subjectLabel(subject) + ' 操作题 — 选择题目开始作答';
   document.getElementById('workspace').classList.add('hidden');
   document.getElementById('emptyState').classList.remove('hidden');
   document.getElementById('resultPanel').classList.add('hidden');
@@ -496,7 +557,7 @@ function selectQuestion(qid) {
 
   const qs = questionsData[currentSubject] || {};
   const reqs = qs[qid] || [];
-  document.getElementById('requirements').innerHTML = reqs.map(r => '<li>' + r + '</li>').join('');
+  document.getElementById('requirements').innerHTML = reqs.map(r => '<li>' + escapeHtml(applyTerms(r)) + '</li>').join('');
 
   const meta = subjectMeta[currentSubject];
   document.getElementById('dotColor').style.background = meta.dot;

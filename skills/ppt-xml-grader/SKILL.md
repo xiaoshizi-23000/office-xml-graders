@@ -89,6 +89,21 @@ agent_created: true
 - **切换效果 2010 有扩展**：常见 `p:blinds@dir`、`p:dissolve`、`p14:fade`；
   判"百叶窗"就是 `<p:blinds`，别去 `p14` 里找。
 
+## WPS 生成文件的判定要点（2026-11-23，第11套实测）
+
+- **`slides[i]` 是 `Slide` 对象不是路径**：取 XML 用 `slide.xml`，
+  或 `deck.read(slide.part)`；直接把对象传给 `read()` 会 KeyError。
+- **动画判 `presetClass`，不要锁 `presetID`**：`presetClass="entr"` 就是进入类动画。
+  同一种效果各版本编号不同（Office 2010 是 43，WPS 存成 7），锁死 ID 会漏判。
+- **时长在 `dur`，单位毫秒**：`dur="3500"` = 3.5 秒，`dur="75"` = 0.75 秒。
+- **放映类型**：`<p:present/>` = 演讲者放映，`<p:kiosk/>` = 展台。
+  素材默认常常是 kiosk，判"演讲者放映"必须认 present。
+- **`loop="1"` 素材自带**：不能单凭 loop 判"循环放映"，要和 `<p:present/>` 一起看。
+- **形状素材里可能已有**：`prstGeom prst="rect"` 在素材中就存在。
+  不能只判"有矩形"，要和填充色、尺寸绑定，否则素材白拿分。
+- **切换效果素材自带一部分**：只判"有 transition"会给素材送分，
+  要按张数全中或配合 `advTm` 时间一起判。
+
 ## 统一内核（优先用这套）
 
 `student_exam_app/graders/_core/` 里的 `PptDeck` 已经处理好放映顺序、版式/母版/主题继承、切换和备注：
@@ -401,8 +416,10 @@ python deploy.py --dry-run   # 发布前预检 + 打包
 ---
 
 **技能创建：** 2026-07-03  
-**版本：** 1.6（统一内核 + 顺序/继承陷阱 + 回归部署）  
+**版本：** 1.7（WPS 文件判定要点）  
 **更新：** 新增 `scripts/ppt_analyze.py`（对比素材vs答案）+ `scripts/ppt_grader_template.py`（评分器骨架）
+- 1.7：新增「WPS 生成文件的判定要点」——`slides[i]` 是对象、动画按 presetClass 判而非 presetID、
+  `dur` 毫秒单位、`present` vs `kiosk`、loop 与矩形素材自带、切换效果素材自带
 - 1.6：`_core.PptDeck` 用法（放映顺序、`resolved_shapes` 继承解析）；新增顺序/继承/项目符号三个陷阱；回归与部署命令
 
 ## 新增检测模式 (v1.1)

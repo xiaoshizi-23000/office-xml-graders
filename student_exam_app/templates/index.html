@@ -276,8 +276,14 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
   <!-- Subject indicator -->
   <div class="section-title" id="sectionLabel">📊 Excel 2010 操作题 — 选择题目开始作答</div>
 
-  <!-- Question selector -->
-  <div class="question-grid" id="questionGrid"></div>
+  <!-- Question selector（服务端渲染，搜索引擎可见） -->
+  <div class="question-grid" id="questionGrid">
+    {% for item in catalog.get('excel', []) %}
+    <a class="q-card" href="/q/excel/{{ item.qid }}" data-qid="{{ item.qid }}">
+      <div class="q-num">{{ item.qid }}</div><div class="q-label">题目{{ item.qid }}</div>
+    </a>
+    {% endfor %}
+  </div>
 
   <!-- Workspace -->
   <div class="workspace hidden" id="workspace">
@@ -331,6 +337,34 @@ body[data-subject="dw"]    { --theme:#8b5cf6; --theme-light:#f5f3ff; }
     <p class="hint">支持 Excel 2010 · Word 2010 · PowerPoint 2010 · 网页制作 四种题型</p>
   </div>
 
+  <div class="site-footer qa-index" style="text-align:left;line-height:2.3;border-top:1px solid var(--border);margin-top:24px;padding-top:14px">
+    <b style="color:var(--heading)">全部操作题目录</b>
+    {% for sub, label in [('excel','Excel'),('word','Word'),('ppt','PPT'),('dw','网页制作')] %}
+    <div class="qa-group">
+      <b>{{ label }}操作题</b>：
+      {% for item in catalog.get(sub, []) %}
+      <a href="/q/{{ sub }}/{{ item.qid }}">第{{ item.qid }}套 {{ item.title }}</a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <style>.qa-index a{color:var(--amber-dark);text-decoration:none;font-size:12.5px}.qa-index a:hover{text-decoration:underline}.qa-group{margin:4px 0;line-height:2}.qa-group a{margin-right:10px;white-space:nowrap}</style>
+
+  <!-- 题目内容目录：服务端渲染的完整题干摘要，供搜索引擎抓取 -->
+  <div class="seo-catalog">
+    <h2>中职职教技能考试操作题题库（共 40 套）</h2>
+    <p>小狮子刷题提供 Excel、Word、PPT、网页制作四类操作题在线练习，覆盖中职、对口升学、职教高考计算机技能考试。每套题可下载素材、上传作答，系统按文档底层格式逐项自动评分。以下是各套题目的操作要求摘要：</p>
+    {% for sub, label in [('excel','Excel 2010 操作题'),('word','Word 2010 操作题'),('ppt','PPT 2010 操作题'),('dw','网页制作操作题')] %}
+    <h3>{{ label }}</h3>
+    {% for item in catalog.get(sub, []) %}
+    <div class="seo-item">
+      <a href="/q/{{ sub }}/{{ item.qid }}"><b>{{ label }} 第{{ item.qid }}套：{{ item.title }}</b></a>
+      {% if item.brief %}<p>{{ item.brief|join(' ') }}</p>{% endif %}
+    </div>
+    {% endfor %}
+    {% endfor %}
+  </div>
+  <style>.seo-catalog{margin-top:26px;border-top:1px solid var(--border);padding-top:16px}.seo-catalog h2{font-size:16px;color:var(--heading)}.seo-catalog h3{font-size:14px;color:var(--amber-dark);margin:16px 0 8px}.seo-item{margin:9px 0;font-size:13px;line-height:1.8}.seo-item a{color:var(--heading);text-decoration:none}.seo-item a:hover{text-decoration:underline}.seo-item p{margin:2px 0;color:var(--mute);font-size:12.5px}</style>
   <div class="site-footer">🦁 小狮子系列 · 电脑练操作，手机刷理论 —— 微信小程序「<b>小狮子对口刷题</b>」</div>
   <div class="site-footer" style="padding-top:6px"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none">蜀ICP备2026015465号-2</a></div>
 </div>
@@ -342,7 +376,7 @@ let samplePages = 0, sampleCur = 1;
 const SAMPLE_COUNTS = {{ sample_counts|tojson }};
 let currentQid = null;
 let uploadedFile = null;
-let questionsData = {};
+let questionsData = {{ questions_json|tojson }};
 
 const OFFICE_TIP = '⚠️ 请用 <b>Office 2010</b> 完成后再上传。用 WPS 或 Microsoft 365 保存的文件，字体、图表、数据条等格式项会与标准不一致，可能被扣分。';
 const DW_TIP = '⚠️ 请用 <b>Dreamweaver CS6</b> 完成后再上传。用 VS Code、HBuilder 等编辑器保存的网页，结构与样式写法可能和标准答案不同，部分考点会被判错。';
@@ -412,10 +446,12 @@ function loadQuestionGrid() {
   const colors = { excel: 'var(--green-light)', word: 'var(--blue-light)', ppt: 'var(--orange-light)', dw: 'var(--purple-light)' };
 
   ids.forEach(qid => {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.className = 'q-card' + (currentQid === qid ? ' active' : '');
+    card.href = '/q/' + currentSubject + '/' + qid;
+    card.dataset.qid = qid;
     card.innerHTML = '<div class="q-num">' + qid + '</div><div class="q-label">题目' + qid + '</div>';
-    card.addEventListener('click', () => selectQuestion(qid));
+    card.addEventListener('click', (e) => { e.preventDefault(); selectQuestion(qid); });
     grid.appendChild(card);
   });
 }

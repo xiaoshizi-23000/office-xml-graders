@@ -18,7 +18,11 @@ import urllib.request
 SITE = 'https://web.xiaoshizi.asia'
 KEY = 'a7f3c9e14b8d4f62a1c05e7d3b9f8a26'
 KEY_FILE = KEY + '.txt'
-ENDPOINT = 'https://api.indexnow.org/indexnow'
+ENDPOINTS = [
+    'https://api.indexnow.org/indexnow',
+    'https://www.bing.com/indexnow',
+    'https://yandex.com/indexnow',
+]
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -47,13 +51,22 @@ def push(urls):
     payload = json.dumps({'host': SITE.split('//')[1], 'key': KEY,
                           'keyLocation': '%s/%s' % (SITE, KEY_FILE),
                           'urlList': urls}).encode('utf-8')
-    req = urllib.request.Request(ENDPOINT, data=payload, method='POST')
-    req.add_header('Content-Type', 'application/json; charset=utf-8')
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            return r.status, r.read().decode('utf-8', 'replace')
-    except urllib.error.HTTPError as e:
-        return e.code, e.read().decode('utf-8', 'replace')
+    last = ('ERR', '')
+    for endpoint in ENDPOINTS:
+        req = urllib.request.Request(endpoint, data=payload, method='POST')
+        req.add_header('Content-Type', 'application/json; charset=utf-8')
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                status, body = r.status, r.read().decode('utf-8', 'replace')
+        except urllib.error.HTTPError as e:
+            status, body = e.code, e.read().decode('utf-8', 'replace')
+        except Exception as e:
+            status, body = 'ERR', str(e)
+        print('  %-38s %s %s' % (endpoint, status, body.strip()[:120]))
+        if status in (200, 202):
+            return status, body
+        last = (status, body)
+    return last
 
 
 def main():
@@ -64,7 +77,7 @@ def main():
     urls = [a for a in sys.argv[1:] if a.startswith('http')] or sitemap_urls()
     code, body = push(urls[:10000])
     print('推送 %d 条 → HTTP %s %s' % (len(urls), code, body.strip()[:200]))
-    print('200/202 都算成功；403 是 key 校验失败，422 是 URL 不属于该 host')
+    print('200/202 都算成功；403 SiteVerificationNotCompleted = 必应站长平台站点验证未完成，需登录验证；Invalid key = 接口频控或临时拒绝，稍后再试；422 = URL 不属于该 host')
     return 0
 
 

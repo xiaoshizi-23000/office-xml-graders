@@ -608,7 +608,9 @@ function closeSample() {
   if (m) m.remove();
 }
 
+let onlineTimer = null;
 async function refreshOnline() {
+  if (document.visibilityState !== 'visible') return;
   try {
     const r = await fetch('/api/online', { cache: 'no-store' });
     const d = await r.json();
@@ -616,8 +618,23 @@ async function refreshOnline() {
     document.getElementById('todayText').textContent = '今日已判 ' + d.today;
   } catch (e) { /* 网络抖动忽略，下一次再试 */ }
 }
+function scheduleOnline() {
+  clearTimeout(onlineTimer);
+  onlineTimer = setTimeout(async () => {
+    await refreshOnline();
+    scheduleOnline();
+  }, 60000);
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    refreshOnline();
+    scheduleOnline();
+  } else {
+    clearTimeout(onlineTimer);
+  }
+});
 refreshOnline();
-setInterval(refreshOnline, 20000);
+scheduleOnline();
 
 function downloadMaterial() {
   if (!currentQid) return;

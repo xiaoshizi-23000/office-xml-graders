@@ -103,6 +103,8 @@ STATE_FILE = os.environ.get('EXAM_STATE_FILE') or os.path.join(
     tempfile.gettempdir(), 'student_exam_state_v1.json')
 STATE_LOCK_FILE = STATE_FILE + '.lock'
 STATE_THREAD_LOCK = threading.Lock()
+ONLINE_CACHE_SEC = 15
+_ONLINE_CACHE = {'ts': 0.0, 'data': None}
 
 
 @contextmanager
@@ -478,7 +480,8 @@ def security_headers(resp):
 
 @app.before_request
 def _track_online():
-    if request.path.startswith('/static/') or request.path in ('/favicon.ico', '/api/health'):
+    if request.path.startswith('/static/') or request.path in (
+            '/favicon.ico', '/api/health', '/api/online'):
         return
     try:
         touch_online(client_ip())
@@ -488,8 +491,15 @@ def _track_online():
 
 @app.route('/api/online')
 def api_online():
+    now = time.time()
+    cached = _ONLINE_CACHE['data']
+    if cached is not None and now - _ONLINE_CACHE['ts'] < ONLINE_CACHE_SEC:
+        return jsonify(cached)
     try:
-        return jsonify({'online': online_count(), 'today': today_count()})
+        data = {'online': online_count(), 'today': today_count()}
+        _ONLINE_CACHE['data'] = data
+        _ONLINE_CACHE['ts'] = now
+        return jsonify(data)
     except OSError:
         return jsonify({'online': 0, 'today': 0})
 
